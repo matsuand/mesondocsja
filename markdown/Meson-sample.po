@@ -1,0 +1,196 @@
+# Japanese translations for PACKAGE package
+# Copyright (C) 2017 Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2017-09-30 21:44+0900\n"
+"PO-Revision-Date: 2017-09-30 21:44+0900\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: matsuand個人翻訳\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. type: Plain text
+#: Meson-sample.md:1
+#, no-wrap
+msgid "---\n"
+msgstr ""
+
+#. type: Plain text
+#: Meson-sample.md:4
+msgid "short-description: Simple project step by step explanation ..."
+msgstr "short-description: 単純なプロジェクトによる説明\n..."
+
+#. type: Plain text
+#: Meson-sample.md:6
+msgid "# Meson sample"
+msgstr "# Meson サンプル"
+
+#. type: Plain text
+#: Meson-sample.md:8
+msgid "A Meson file that builds an executable looks like this."
+msgstr "実行モジュールを作り出す Meson ファイルは、例えば以下のようなものです。"
+
+#. type: Plain text
+#: Meson-sample.md:13
+msgid "```meson project('simple', 'c')  executable('myexe', 'source.c')  ```"
+msgstr "```meson\nproject('simple', 'c') \n"
+"executable('myexe', 'source.c') \n```"
+
+#. type: Plain text
+#: Meson-sample.md:15
+msgid ""
+"All Meson build definitions begin with the `project` command. It specifies "
+"the name of the project and what programming languages it uses. Here the "
+"project is called *simple* and it uses only the C programming language. All "
+"strings are single-quoted."
+msgstr ""
+"Meson ビルド定義ファイルは、必ず `project` コマンドから始めます。このコマ"
+"ンドによってプロジェクト名を定義し、利用するプログラミング言語を指定します。"
+"ここに示すプロジェクトは *simple* とし、C 言語のみを利用します。文字列はシン"
+"グルクォートで囲みます。"
+
+#. type: Plain text
+#: Meson-sample.md:17
+msgid ""
+"On the next line we define a *build target*, in this case an executable "
+"called *myexe*. It consists of one source file. This is all the code that a "
+"user needs to write to compile an executable with Meson."
+msgstr ""
+"2 行めでは**ビルドターゲット**を定義していて、実行モジュール名を *myexe* と"
+"します。ソースファイルはただ 1 つからなります。ユーザーが生成する必要がある"
+"のはこれだけです。Meson はここから実行モジュールを作り出します。"
+
+#. type: Plain text
+#: Meson-sample.md:19
+msgid ""
+"Variables are fully supported. The above code snippet could also have been "
+"declared like this."
+msgstr ""
+"変数の利用も十分にサポートされています。上で示した単純なコードは、以下のよ"
+"うに書くこともできます。"
+
+#. type: Plain text
+#: Meson-sample.md:25
+msgid ""
+"```meson project('simple', 'c')  src = 'source.c' executable('myexe', src)  "
+"```"
+msgstr ""
+"```meson\nproject('simple', 'c') \nsrc = 'source.c'\n"
+"executable('myexe', src)  \n```"
+
+#. type: Plain text
+#: Meson-sample.md:27
+msgid ""
+"Most executables consist of more than one source file. The easiest way to "
+"deal with this is to put them in an array."
+msgstr ""
+"実行モジュールは、たいていは複数のソースファイルからなります。これを指定する"
+"簡単な方法は、ソースファイルを配列とします。"
+
+#. type: Plain text
+#: Meson-sample.md:33
+msgid ""
+"```meson project('simple', 'c')  src = ['source1.c', 'source2.c', 'source3."
+"c'] executable('myexe', src)  ```"
+msgstr ""
+"```meson\nproject('simple', 'c') \n"
+"src = ['source1.c', 'source2.c', 'source3.c']\n"
+"executable('myexe', src) \n```"
+
+#. type: Plain text
+#: Meson-sample.md:35
+msgid ""
+"Meson also supports the notion of *keyword arguments*. Indeed most arguments "
+"to functions can only be passed using them. The above snippet could be "
+"rewritten like this."
+msgstr ""
+"Meson は **キーワード引数**（*keyword arguments*）記法もサポートします。関数"
+"の引数は、ほとんどがこの記法を用いて指定できます。そこで上のコード例は、さら"
+"に以下のように書き換えることができます。"
+
+#. type: Plain text
+#: Meson-sample.md:41
+msgid ""
+"```meson project('simple', 'c')  src = ['source1.c', 'source2.c', 'source3."
+"c'] executable('myexe', sources : src)  ```"
+msgstr ""
+"```meson\nproject('simple', 'c') \n"
+"src = ['source1.c', 'source2.c', 'source3.c']\n"
+"executable('myexe', sources : src) \n```"
+
+#. type: Plain text
+#: Meson-sample.md:43
+msgid ""
+"These two formats are equivalent and choosing one over the other is mostly a "
+"question of personal preference."
+msgstr ""
+"2 つの記述方法は同等なものなので、どちらを選ぶかは個人の好みの問題です。"
+
+#. type: Plain text
+#: Meson-sample.md:45
+msgid ""
+"The `executable` command actually returns an *executable object*, which "
+"represents the given build target. It can be passed on to other functions, "
+"like this."
+msgstr ""
+"`executable` コマンドは、**実行オブジェクト**（*executable object*）を返すも"
+"ので、ビルドターゲットを表現するものです。これは以下のように、関数の引数に指"
+"定することもできます。"
+
+#. type: Plain text
+#: Meson-sample.md:52
+msgid ""
+"```meson project('simple', 'c')  src = ['source1.c', 'source2.c', 'source3."
+"c'] exe = executable('myexe', src)  test('simple test', exe)  ```"
+msgstr ""
+"```meson\nproject('simple', 'c') \n"
+"src = ['source1.c', 'source2.c', 'source3.c']\n"
+"exe = executable('myexe', src) \n"
+"test('simple test', exe) \n```"
+
+#. type: Plain text
+#: Meson-sample.md:54
+msgid ""
+"Here we create a unit test called *simple test*, and which uses the built "
+"executable. When the tests are run with the `ninja test` command, the built "
+"executable is run. If it returns zero, the test passes. A non-zero return "
+"value indicates an error, which Meson will then report to the user."
+msgstr ""
+"この例では *simple test* というユニットテストを生成していて、生成される実行"
+"オブジェクトを利用します。`ninja test` というコマンドによってテストを実行す"
+"ると、生成されたモジュールが実行されます。実行結果としてゼロが返ってきたら、"
+"テストが正常終了したことを意味します。逆にゼロ以外の値が変えてきたら、テスト"
+"にエラーが発生したことを表わします。その場合 Meson はエラー表示を行います。"
+
+#. type: Plain text
+#: Meson-sample.md:56
+#, no-wrap
+msgid ""
+"A note to Visual Studio users\n"
+"-----\n"
+msgstr ""
+"Visual Studio ユーザーへ\n"
+"-----\n"
+
+#. type: Plain text
+#: Meson-sample.md:58
+msgid ""
+"There's a slight terminology difference between Meson and Visual Studio. A "
+"Meson *project* is the equivalent to a Visual Studio *solution*. That is, "
+"the topmost thing that encompasses all things to be built. A Visual Studio "
+"*project* on the other hand is the equivalent of a Meson top level build "
+"target, such as an executable or a shared library."
+msgstr ""
+"Meson と Visual Studio の間には、用語の使い方に微妙な違いがあります。Meson "
+"における**プロジェクト**とは、Visual Studio における**ソリューション**と同等"
+"です。つまりビルドに必要なすべてのものを取りまとめる最上位のものです。一方、"
+"Visual Studio に**プロジェクト**がありますが、これは Meson における最上位の"
+"ビルドターゲット、例えば実行モジュールや共有ライブラリなどと同じ意味になりま"
+"す。"

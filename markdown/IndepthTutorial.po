@@ -1,0 +1,260 @@
+# Japanese translations for PACKAGE package
+# Copyright (C) 2017 Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2017-09-30 21:43+0900\n"
+"PO-Revision-Date: 2017-09-30 21:43+0900\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: matsuand個人翻訳\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. type: Plain text
+#: IndepthTutorial.md:2
+msgid "# An in-depth tutorial"
+msgstr ""
+
+#. type: Plain text
+#: IndepthTutorial.md:4
+msgid ""
+"In this tutorial we set up a project with multiple targets, unit tests and "
+"dependencies between targets. Our main product is a shared library called "
+"*foo* that is written in `C++11`. We are going to ignore the contents of the "
+"source files, as they are not really important from a build definition point "
+"of view. The library makes use of the `GLib` library so we need to detect "
+"and link it properly. We also make the resulting library installable."
+msgstr ""
+
+#. type: Plain text
+#: IndepthTutorial.md:6
+msgid ""
+"The source tree contains three subdirectories `src`, `include` and `test` "
+"that contain, respectively, the source code, headers and unit tests of our "
+"project."
+msgstr ""
+
+#. type: Plain text
+#: IndepthTutorial.md:8
+msgid "To start things up, here is the top level `meson.build` file."
+msgstr ""
+
+#. type: Plain text
+#: IndepthTutorial.md:15
+#, no-wrap
+msgid ""
+"```meson\n"
+"project('c++ foolib', 'cpp',\n"
+"  version : '1.0.0',\n"
+"  license : 'MIT')\n"
+"add_global_arguments('-DSOME_TOKEN=value', language : 'cpp')\n"
+"glib_dep = dependency('glib-2.0')\n"
+msgstr ""
+
+#. type: Plain text
+#: IndepthTutorial.md:17
+msgid "inc = include_directories('include')"
+msgstr ""
+
+#. type: Plain text
+#: IndepthTutorial.md:21
+msgid "subdir('include')  subdir('src')  subdir('test')"
+msgstr ""
+
+#. type: Plain text
+#: IndepthTutorial.md:29
+#, no-wrap
+msgid ""
+"pkg_mod = import('pkgconfig')\n"
+"pkg_mod.generate(libraries : foolib,\n"
+"                 version : '1.0',\n"
+"                 name : 'libfoobar',\n"
+"                 filebase : 'foobar',\n"
+"                 description : 'A Library to barnicate your foos.')\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: IndepthTutorial.md:31
+msgid ""
+"The definition always starts with a call to the `project` function. In it "
+"you must specify the project's name and programming languages to use, in "
+"this case only `C++`. We also specify two additional arguments, the "
+"project's version and the license it is under. Our project is version "
+"`1.0.0` and is specified to be under the MIT license."
+msgstr ""
+
+#. type: Plain text
+#: IndepthTutorial.md:33
+msgid ""
+"Then we find GLib, which is an *external dependency*. The `dependency` "
+"function tells Meson to find the library (by default using `pkg-config`). If "
+"the library is not found, Meson will raise an error and stop processing the "
+"build definition."
+msgstr ""
+
+#. type: Plain text
+#: IndepthTutorial.md:35
+msgid ""
+"Then we add a global compiler argument `-DSOME_TOKEN=value`. This flag is "
+"used for *all* C++ source file compilations. It is not possible to unset it "
+"for some targets. The reason for this is that it is hard to keep track of "
+"what compiler flags are in use if global settings change per target."
+msgstr ""
+
+#. type: Plain text
+#: IndepthTutorial.md:37
+msgid ""
+"Since `include` directory contains the header files, we need a way to tell "
+"compilations to add that directory to the compiler command line. This is "
+"done with the `include_directories` command that takes a directory and "
+"returns an object representing this directory. It is stored in variable "
+"`inc` which makes it accessible later on."
+msgstr ""
+
+#. type: Plain text
+#: IndepthTutorial.md:39
+msgid ""
+"After this are three `subdir` commands. These instruct Meson to go to the "
+"specified subdirectory, open the `meson.build` file that's in there and "
+"execute it. The last few lines are a stanza to generate a `pkg-config` file. "
+"We'll skip that for now and come back to it at the end of this document."
+msgstr ""
+
+#. type: Plain text
+#: IndepthTutorial.md:41
+msgid ""
+"The first subdirectory we go into is `include`. In it we have a a header "
+"file for the library that we want to install. This requires one line."
+msgstr ""
+
+#. type: Plain text
+#: IndepthTutorial.md:45
+msgid "```meson install_headers('foolib.h')  ```"
+msgstr ""
+
+#. type: Plain text
+#: IndepthTutorial.md:47
+msgid ""
+"This installs the given header file to the system's header directory. This "
+"is by default `/[install prefix]/include`, but it can be changed with a "
+"command line argument."
+msgstr ""
+
+#. type: Plain text
+#: IndepthTutorial.md:49
+msgid "The Meson definition of `src` subdir is simple."
+msgstr ""
+
+#. type: Plain text
+#: IndepthTutorial.md:58
+#, no-wrap
+msgid ""
+"```meson\n"
+"foo_sources = ['source1.cpp', 'source2.cpp']\n"
+"foolib = shared_library('foo',\n"
+"                        foo_sources,\n"
+"                        include_directories : inc,\n"
+"                        dependencies : glib_dep,\n"
+"                        install : true)\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: IndepthTutorial.md:60
+msgid ""
+"Here we just tell Meson to build the library with the given sources. We also "
+"tell it to use the include directories we stored to variable `inc` earlier. "
+"Since this library uses GLib, we tell Meson to add all necessary compiler "
+"and linker flags with the `dependencies` keyword argument. Its value is "
+"`glib_dep` which we set at the top level `meson.build` file. The `install` "
+"argument tells Meson to install the result. As with the headers, the shared "
+"library is installed to the system's default location (usually `/[install "
+"prefix]/lib`) but is again overridable."
+msgstr ""
+
+#. type: Plain text
+#: IndepthTutorial.md:62
+msgid ""
+"The resulting library is stored in variable `foolib` just like the include "
+"directory was stored in the previous file."
+msgstr ""
+
+#. type: Plain text
+#: IndepthTutorial.md:64
+msgid ""
+"Once Meson has processed the `src` subdir it returns to the main Meson file "
+"and executes the next line that moves it into the `test` subdir. Its "
+"contents look like this."
+msgstr ""
+
+#. type: Plain text
+#: IndepthTutorial.md:71
+#, no-wrap
+msgid ""
+"```meson\n"
+"testexe = executable('testexe', 'footest.cpp',\n"
+"                     include_directories : inc,\n"
+"                     link_with : foolib)\n"
+"test('foolib test', testexe)\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: IndepthTutorial.md:73
+msgid ""
+"First we build a test executable that has the same include directory as the "
+"main library and which also links against the freshly built shared library. "
+"Note that you don't need to specify `glib_dep` here just to be able to use "
+"the built library `foolib`. If the executable used GLib functionality "
+"itself, then we would of course need to add it as a keyword argument here."
+msgstr ""
+
+#. type: Plain text
+#: IndepthTutorial.md:75
+msgid ""
+"Finally we define a test with the name `foolib test`. It consists of running "
+"the binary we just built. If the executable exits with a zero return value, "
+"the test is considered passed. Nonzero return values mark the test as failed."
+msgstr ""
+
+#. type: Plain text
+#: IndepthTutorial.md:77
+msgid ""
+"At this point we can return to the pkg-config generator line. All shared "
+"libraries should provide a pkg-config file, which explains how that library "
+"is used. Meson provides this simple generator that should be sufficient for "
+"most simple projects. All you need to do is list a few basic pieces of "
+"information and Meson takes care of generating an appropriate file. More "
+"advanced users might want to create their own pkg-config files using Meson's "
+"[configuration file generator system](Configuration.md)."
+msgstr ""
+
+#. type: Plain text
+#: IndepthTutorial.md:79
+msgid ""
+"With these four files we are done. To configure, build and run the test "
+"suite, we just need to execute the following commands (starting at source "
+"tree root directory)."
+msgstr ""
+
+#. type: Plain text
+#: IndepthTutorial.md:85
+msgid "```console $ meson builddir && cd builddir $ ninja $ ninja test ```"
+msgstr ""
+
+#. type: Plain text
+#: IndepthTutorial.md:87
+msgid "To then install the project you only need one command."
+msgstr ""
+
+#. type: Plain text
+#: IndepthTutorial.md:90
+msgid "```console $ ninja install ```"
+msgstr ""

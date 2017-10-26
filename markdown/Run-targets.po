@@ -1,0 +1,127 @@
+# Japanese translations for PACKAGE package
+# Copyright (C) 2017 Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2017-09-30 21:44+0900\n"
+"PO-Revision-Date: 2017-09-30 21:44+0900\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: matsuand個人翻訳\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. type: Plain text
+#: Run-targets.md:1
+#, no-wrap
+msgid "---\n"
+msgstr ""
+
+#. type: Plain text
+#: Run-targets.md:4
+msgid "short-description: Targets to run external commands ..."
+msgstr "short-description: Targets to run external commands\n..."
+
+#. type: Plain text
+#: Run-targets.md:6
+msgid "# Run targets"
+msgstr "# ターゲットの実行"
+
+#. type: Plain text
+#: Run-targets.md:8
+msgid ""
+"Sometimes you need to have a target that just runs an external command. As "
+"an example you might have a build target that reformats your source code, "
+"runs `cppcheck` or something similar. In Meson this is accomplished with a "
+"so called *run target*."
+msgstr ""
+
+#. type: Plain text
+#: Run-targets.md:10
+msgid ""
+"The recommended way of doing this is writing the command(s) you want to run "
+"to a script file. Here's an example script."
+msgstr ""
+
+#. type: Plain text
+#: Run-targets.md:13
+msgid "```bash #!/bin/sh"
+msgstr "```bash\n#!/bin/sh"
+
+#. type: Plain text
+#: Run-targets.md:17
+msgid ""
+"cd \"${MESON_SOURCE_ROOT}\" inspector_command -o \"${MESON_BUILD_ROOT}/"
+"inspection_result.txt\" ```"
+msgstr ""
+"cd \"${MESON_SOURCE_ROOT}\" inspector_command -o \"${MESON_BUILD_ROOT}/"
+"inspection_result.txt\"\n```"
+
+#. type: Plain text
+#: Run-targets.md:19
+msgid ""
+"Note the two environment variables `MESON_SOURCE_ROOT` and "
+"`MESON_BUILD_ROOT`. These are absolute paths to your project's source and "
+"build directories and they are automatically set up by Meson. In addition to "
+"these Meson also sets up the variable `MESON_SUBDIR`, which points to the "
+"subdirectory where the run command was specified. Most commands don't need "
+"to set up this."
+msgstr ""
+
+#. type: Plain text
+#: Run-targets.md:21
+msgid ""
+"Note how the script starts by cd'ing into the source dir. Meson does not "
+"guarantee that the script is run in any specific directory. Whether you need "
+"to do the same depends on what your custom target wants to do."
+msgstr ""
+
+#. type: Plain text
+#: Run-targets.md:23
+msgid ""
+"To make this a run target we write it to a script file called `scripts/"
+"inspect.sh` and specify it in the top level Meson file like this."
+msgstr ""
+
+#. type: Plain text
+#: Run-targets.md:28
+#, no-wrap
+msgid ""
+"```meson\n"
+"run_target('inspector',\n"
+"  command : 'scripts/inspect.sh')\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: Run-targets.md:30
+msgid ""
+"Run targets are not run by default. To run it run the following command."
+msgstr ""
+
+#. type: Plain text
+#: Run-targets.md:34
+msgid "```console $ ninja inspector ```"
+msgstr "```console\n$ ninja inspector\n```"
+
+#. type: Plain text
+#: Run-targets.md:36
+msgid ""
+"All additional entries in `run_target`'s `command` array are passed "
+"unchanged to the inspector script, so you can do things like this:"
+msgstr ""
+
+#. type: Plain text
+#: Run-targets.md:40
+#, no-wrap
+msgid ""
+"```meson\n"
+"run_target('inspector',\n"
+"  command : ['scripts/inspect.sh', '--exclude', 'tests'])\n"
+"```\n"
+msgstr ""

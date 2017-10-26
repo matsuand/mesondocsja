@@ -1,0 +1,44 @@
+# Japanese translations for PACKAGE package
+# Copyright (C) 2017 Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2017-09-30 21:44+0900\n"
+"PO-Revision-Date: 2017-09-30 21:44+0900\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: matsuand個人翻訳\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. type: Plain text
+#: RPM-module.md:2
+msgid "# RPM module"
+msgstr ""
+
+#. type: Plain text
+#: RPM-module.md:8
+msgid ""
+"The RPM module can be used to create a sample rpm spec file for a Meson "
+"project. It autodetects installed files, dependencies and so on. Using it is "
+"very simple. At the very end of your Meson project (that is, the end of your "
+"top level `meson.build` file) add these two lines."
+msgstr ""
+
+#. type: Plain text
+#: RPM-module.md:13
+msgid "```meson rpm = import('rpm')  rpm.generate_spec_template()  ```"
+msgstr ""
+
+#. type: Plain text
+#: RPM-module.md:16
+msgid ""
+"Run Meson once on your code and the template will be written in your build "
+"directory. Then remove the two lines above and manually edit the template to "
+"add missing information. After this it is ready for use."
+msgstr ""

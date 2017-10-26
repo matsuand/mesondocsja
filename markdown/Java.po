@@ -1,0 +1,86 @@
+# Japanese translations for PACKAGE package
+# Copyright (C) 2017 Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2017-09-30 21:44+0900\n"
+"PO-Revision-Date: 2017-09-30 21:44+0900\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: matsuand個人翻訳\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. type: Plain text
+#: Java.md:1
+#, no-wrap
+msgid "---\n"
+msgstr ""
+
+#. type: Plain text
+#: Java.md:5
+msgid "title: Java short-description: Compiling Java programs ..."
+msgstr "title: Java\nshort-description: Compiling Java programs\n..."
+
+#. type: Plain text
+#: Java.md:7
+msgid "# Compiling Java applications"
+msgstr "# Java アプリケーションのコンパイル"
+
+#. type: Plain text
+#: Java.md:9
+msgid ""
+"Meson has experimental support for compiling Java programs. The basic syntax "
+"consists of only one function and would be used like this:"
+msgstr ""
+
+#. type: Plain text
+#: Java.md:12
+msgid "```meson project('javaprog', 'java')"
+msgstr "```meson\nproject('javaprog', 'java')"
+
+#. type: Plain text
+#: Java.md:15
+#, no-wrap
+msgid ""
+"myjar = jar('mything', 'com/example/Prog.java',\n"
+"            main_class : 'com.example.Prog')\n"
+msgstr ""
+
+#. type: Plain text
+#: Java.md:18
+msgid "test('javatest', myjar)  ```"
+msgstr "test('javatest', myjar) \n```"
+
+#. type: Plain text
+#: Java.md:20
+msgid ""
+"However note that Meson places limitations on how you lay out your code."
+msgstr ""
+
+#. type: Bullet: '* '
+#: Java.md:23
+msgid ""
+"all Java files for a jar must be under the subdirectory the jar definition "
+"is in"
+msgstr ""
+
+#. type: Bullet: '* '
+#: Java.md:23
+msgid ""
+"all Java files must be in paths specified by their package, e.g. a class "
+"called `com.example.Something` must be in a Java file situated at `com/"
+"example/Something.java`."
+msgstr ""
+
+#. type: Bullet: '* '
+#: Java.md:23
+msgid ""
+"Meson only deals with jar files, you cannot poke individual class files "
+"(unless you do so manually)"
+msgstr ""

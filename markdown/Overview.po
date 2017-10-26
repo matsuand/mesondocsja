@@ -1,0 +1,117 @@
+# Japanese translations for PACKAGE package
+# Copyright (C) 2017 Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2017-09-30 21:44+0900\n"
+"PO-Revision-Date: 2017-09-30 21:44+0900\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: matsuand個人翻訳\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. type: Plain text
+#: Overview.md:1
+#, no-wrap
+msgid "---\n"
+msgstr ""
+
+#. type: Plain text
+#: Overview.md:4
+msgid "short-description: Overview of the Meson build system ..."
+msgstr "short-description: Meson ビルドシステムの概要\n..."
+
+#. type: Plain text
+#: Overview.md:6
+msgid "# Overview"
+msgstr "# 概要"
+
+#. type: Plain text
+#: Overview.md:14
+msgid ""
+"Meson is a build system that is designed to be as user-friendly as possible "
+"without sacrificing performance. The main tool for this is a custom language "
+"that the user uses to describe the structure of his build. The main design "
+"goals of this language has been simplicity, clarity and conciseness. Much "
+"inspiration was drawn from the Python programming language, which is "
+"considered very readable, even to people who have not programmed in Python "
+"before."
+msgstr ""
+
+#. type: Plain text
+#: Overview.md:22
+msgid ""
+"Another main idea has been to provide first class support for modern "
+"programming tools and best practices. These include features as varied as "
+"unit testing, code coverage reporting, precompiled headers and the like. All "
+"of these features should be immediately available to any project using "
+"Meson. The user should not need to hunt for third party macros or write "
+"shell scripts to get these features. They should just work out of the box."
+msgstr ""
+
+#. type: Plain text
+#: Overview.md:28
+msgid ""
+"This power should not come at the expense of limited usability. Many "
+"software builds require unorthodox steps. A common example is that you first "
+"need to build a custom tool and then use that tool to generate more source "
+"code to build. This functionality needs to be supported and be as easy to "
+"use as other parts of the system."
+msgstr ""
+
+#. type: Plain text
+#: Overview.md:30
+#, no-wrap
+msgid ""
+"Terminology\n"
+"--\n"
+msgstr ""
+
+#. type: Plain text
+#: Overview.md:40
+msgid ""
+"Meson follows the overall structure of other popular build systems, such as "
+"CMake and GNU Autotools. This means that the build is divided into two "
+"discrete steps: *configure step* and *build step*. The first step inspects "
+"the system, checks for dependencies and does all other steps necessary to "
+"configure the build. It then generates the actual build system. The second "
+"step is simply executing this generated build system. The end result is a "
+"bunch of *build targets*, which are usually executables and shared and "
+"static libraries."
+msgstr ""
+
+#. type: Plain text
+#: Overview.md:47
+msgid ""
+"The directory that contains the source code is called the *source "
+"directory*. Correspondingly the directory where the output is written is "
+"called the *build directory*. In other build systems it is common to have "
+"these two be the same directory. This is called an *in-source build*. The "
+"case where the build directory is separate is called an *out-of-source "
+"build*."
+msgstr ""
+
+#. type: Plain text
+#: Overview.md:55
+msgid ""
+"What sets Meson apart from most build systems is that it enforces a separate "
+"build directory. All files created by the build system are put in the build "
+"directory. It is actually impossible to do an in-source build. For people "
+"used to building inside their source tree, this may seem like a needless "
+"complication. However there are several benefits to doing only out-of-source "
+"builds. These will be explained in the next chapter."
+msgstr ""
+
+#. type: Plain text
+#: Overview.md:58
+msgid ""
+"When the source code is built, a set of *unit tests* is usually run. They "
+"ensure that the program is working as it should. If it does, the build "
+"result can be *installed* after which it is ready for use."
+msgstr ""

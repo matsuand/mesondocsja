@@ -1,0 +1,81 @@
+# Japanese translations for PACKAGE package
+# Copyright (C) 2017 Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2017-09-30 21:43+0900\n"
+"PO-Revision-Date: 2017-09-30 21:43+0900\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: matsuand個人翻訳\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. type: Plain text
+#: Conference-presentations.md:2
+msgid "# Conference presentations on Meson"
+msgstr ""
+
+#. type: Plain text
+#: Conference-presentations.md:4
+msgid ""
+"- FOSDEM 2014, [Introducing the Meson build system](https://video.fosdem."
+"org/2014/H2215_Ferrer/Sunday/Introducing_the_Meson_build_system.webm) "
+"(jpakkane)"
+msgstr ""
+
+#. type: Plain text
+#: Conference-presentations.md:6
+msgid ""
+"- LCA 2015, [Making build systems not suck](https://www.youtube.com/watch?"
+"v=KPi0AuVpxLI) (jpakkane)"
+msgstr ""
+
+#. type: Plain text
+#: Conference-presentations.md:8
+msgid ""
+"- GUADEC 2015, [Improving the way Gnome apps are built](https://www.youtube."
+"com/watch?v=wTf0NjjNwTU) (jpakkane)"
+msgstr ""
+
+#. type: Plain text
+#: Conference-presentations.md:10
+msgid ""
+"- GStreamer conference 2015, [Done in 6.0 seconds](https://gstconf.ubicast."
+"tv/videos/done-in-60-seconds-a-new-build-system-for-gstreamer) (jpakkane)"
+msgstr ""
+
+#. type: Plain text
+#: Conference-presentations.md:12
+msgid ""
+"- LCA 2016, [Builds, dependencies and deployment in the modern multiplatform "
+"world](https://www.youtube.com/watch?v=CTJtKtQ8R5k&feature=youtu.be) "
+"(jpakkane)"
+msgstr ""
+
+#. type: Plain text
+#: Conference-presentations.md:14
+msgid ""
+"- GUADEC 2016, [Making your GNOME app compile 2.4x faster](https://media.ccc."
+"de/v/44-making_your_gnome_app_compile_24x_faster) (nirbheek)"
+msgstr ""
+
+#. type: Plain text
+#: Conference-presentations.md:16
+msgid ""
+"- Libre Application Summit 2016, [New world, new tools](https://youtu.be/0-"
+"gx1qU2pPo) (jpakkane)"
+msgstr ""
+
+#. type: Plain text
+#: Conference-presentations.md:17
+msgid ""
+"- GStreamer conference 2016, [GStreamer Development on Windows and faster "
+"builds everywhere with Meson](https://gstconf.ubicast.tv/videos/gstreamer-"
+"development-on-windows-ans-faster-builds-everywhere-with-meson/) (tpm)"
+msgstr ""

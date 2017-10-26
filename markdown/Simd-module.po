@@ -1,0 +1,149 @@
+# Japanese translations for PACKAGE package
+# Copyright (C) 2017 Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2017-09-30 21:44+0900\n"
+"PO-Revision-Date: 2017-09-30 21:44+0900\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: matsuand個人翻訳\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. type: Plain text
+#: Simd-module.md:2
+msgid "# Unstable SIMD module"
+msgstr ""
+
+#. type: Plain text
+#: Simd-module.md:5
+msgid ""
+"This module provides helper functionality to build code with SIMD "
+"instructions.  Available since 0.42.0."
+msgstr ""
+
+#. type: Plain text
+#: Simd-module.md:9
+#, no-wrap
+msgid ""
+"**Note**: this module is unstable. It is only provided as a technology preview.\n"
+"Its API may change in arbitrary ways between releases or it might be removed\n"
+"from Meson altogether.\n"
+msgstr ""
+
+#. type: Plain text
+#: Simd-module.md:11
+msgid "## Usage"
+msgstr ""
+
+#. type: Plain text
+#: Simd-module.md:14
+msgid ""
+"This module is designed for the use case where you have an algorithm with "
+"one or more SIMD implementation and you choose which one to use at runtime."
+msgstr ""
+
+#. type: Plain text
+#: Simd-module.md:16
+msgid "The module provides one method, `check`, which is used like this:"
+msgstr ""
+
+#. type: Plain text
+#: Simd-module.md:29
+#, no-wrap
+msgid ""
+"    rval = simd.check('mysimds',\n"
+"      mmx : 'simd_mmx.c',\n"
+"      sse : 'simd_sse.c',\n"
+"      sse2 : 'simd_sse2.c',\n"
+"      sse3 : 'simd_sse3.c',\n"
+"      ssse3 : 'simd_ssse3.c',\n"
+"      sse41 : 'simd_sse41.c',\n"
+"      sse42 : 'simd_sse42.c',\n"
+"      avx : 'simd_avx.c',\n"
+"      avx2 : 'simd_avx2.c',\n"
+"      neon : 'simd_neon.c',\n"
+"      compiler : cc)\n"
+msgstr ""
+
+#. type: Plain text
+#: Simd-module.md:40
+msgid ""
+"Here the individual files contain the accelerated versions of the functions "
+"in question. The `compiler` keyword argument takes the compiler you are "
+"going to use to compile them. The function returns an array with two "
+"values.  The first value is a bunch of libraries that contain the compiled "
+"code. Any SIMD code that the compiler can't compile (for example, Neon "
+"instructions on an x86 machine) are ignored. You should pass this value to "
+"the desired target using `link_with`. The second value is a "
+"`configuration_data` object that contains true for all the values that were "
+"supported. For example if the compiler did support sse2 instructions, then "
+"the object would have `HAVE_SSE2` set to 1."
+msgstr ""
+
+#. type: Plain text
+#: Simd-module.md:44
+msgid ""
+"Generating code to detect the proper instruction set at runtime is "
+"straightforward. First you create a header with the configuration object and "
+"then a chooser function that looks like this:"
+msgstr ""
+
+#. type: Plain text
+#: Simd-module.md:46
+#, no-wrap
+msgid "    void (*fptr)(type_of_function_here)  = NULL;\n"
+msgstr ""
+
+#. type: Plain text
+#: Simd-module.md:57
+#, no-wrap
+msgid ""
+"    #if HAVE_NEON\n"
+"    if(fptr == NULL && neon_available()) {\n"
+"        fptr = neon_accelerated_function;\n"
+"    }\n"
+"    #endif\n"
+"    #if HAVE_AVX2\n"
+"    if(fptr == NULL && avx2_available()) {\n"
+"        fptr = avx_accelerated_function;\n"
+"    }\n"
+"    #endif\n"
+msgstr ""
+
+#. type: Plain text
+#: Simd-module.md:59
+#, no-wrap
+msgid "    ...\n"
+msgstr ""
+
+#. type: Plain text
+#: Simd-module.md:63
+#, no-wrap
+msgid ""
+"    if(fptr == NULL) {\n"
+"        fptr = default_function;\n"
+"    }\n"
+msgstr ""
+
+#. type: Plain text
+#: Simd-module.md:68
+msgid ""
+"Each source file provides two functions, the `xxx_available` function to "
+"query whether the CPU currently in use supports the instruction set and "
+"`xxx_accelerated_function` that is the corresponding accelerated "
+"implementation."
+msgstr ""
+
+#. type: Plain text
+#: Simd-module.md:70
+msgid ""
+"At the end of this function the function pointer points to the fastest "
+"available implementation and can be invoked to do the computation."
+msgstr ""

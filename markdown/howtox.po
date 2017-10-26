@@ -1,0 +1,353 @@
+# Japanese translations for PACKAGE package
+# Copyright (C) 2017 Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2017-10-24 18:52+0900\n"
+"PO-Revision-Date: 2017-09-30 21:44+0900\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: matsuand個人翻訳\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. type: Plain text
+#: howtox.md:2
+msgid "# How do I do X in Meson?"
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:4
+msgid ""
+"This page lists code snippets for common tasks. These are written mostly "
+"using the C compiler, but the same approach should work on almost all other "
+"compilers."
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:6
+msgid "## Set compiler"
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:8
+msgid "When first running Meson, set it in an environment variable."
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:12
+msgid "```console $ CC=mycc meson <options> ```"
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:14
+msgid "## Set default C/C++ language version"
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:19
+#, no-wrap
+msgid ""
+"```meson\n"
+"project('myproj', 'c', 'cpp',\n"
+"        default_options : ['c_std=c11', 'cpp_std=c++11'])\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:21
+msgid "The language version can also be set on a per-target basis."
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:25
+msgid "```meson executable(..., override_options : ['c_std=c11'])  ```"
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:27
+msgid "## Enable threads"
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:29
+msgid ""
+"Lots of people seem to do this manually with `find_library('pthread')` or "
+"something similar. Do not do that. It is not portable. Instead do this."
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:34
+msgid ""
+"```meson thread_dep = dependency('threads')  executable(..., dependencies : "
+"thread_dep)  ```"
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:36
+msgid ""
+"## Set extra compiler and linker flags from the outside (when e.g. building "
+"distro packages)"
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:38
+msgid ""
+"The behavior is the same as with other build systems, with environment "
+"variables during first invocation."
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:42
+msgid ""
+"```console $ CFLAGS=-fsomething LDFLAGS=-Wl,--linker-flag meson <options> ```"
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:44
+msgid "## Use an argument only with a specific compiler"
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:46
+msgid "First check which arguments to use."
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:54
+#, no-wrap
+msgid ""
+"```meson\n"
+"if meson.get_compiler('c').get_id() == 'clang'\n"
+"  extra_args = ['-fclang-flag']\n"
+"else\n"
+"  extra_args = []\n"
+"endif\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:56
+msgid "Then use it in a target."
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:60
+msgid "```meson executable(..., c_args : extra_args)  ```"
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:62
+msgid "If you want to use the arguments on all targets, then do this."
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:68
+#, no-wrap
+msgid ""
+"```meson\n"
+"if meson.get_compiler('c').get_id() == 'clang'\n"
+"  add_global_arguments('-fclang-flag', language : 'c')\n"
+"endif\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:70
+msgid "## Set a command's output to configuration"
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:77
+msgid ""
+"```meson txt = run_command('script', 'argument').stdout().strip()  cdata = "
+"configuration_data()  cdata.set('SOMETHING', txt)  configure_file(...)  ```"
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:79
+msgid "## Generate a runnable script with `configure_file`"
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:81
+msgid ""
+"`configure_file` preserves metadata so if your template file has execute "
+"permissions, the generated file will have them too."
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:83
+msgid "## Producing a coverage report"
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:85
+msgid "First initialize the build directory with this command."
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:89
+msgid "```console $ meson <other flags> -Db_coverage=true ```"
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:91
+msgid "Then issue the following commands."
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:97
+msgid ""
+"```console $ ninja $ ninja test $ ninja coverage-html (or coverage-xml)  ```"
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:99
+msgid "The coverage report can be found in the meson-logs subdirectory."
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:101
+msgid "## Add some optimization to debug builds"
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:103
+msgid ""
+"By default the debug build does not use any optimizations. This is the "
+"desired approach most of the time. However some projects benefit from having "
+"some minor optimizations enabled. GCC even has a specific compiler flag `-"
+"Og` for this. To enable its use, just issue the following command."
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:107
+msgid "```console $ meson configure -Dc_args=-Og ```"
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:109
+msgid "This causes all subsequent builds to use this command line argument."
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:111
+msgid "## Use address sanitizer"
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:113
+msgid ""
+"Clang comes with a selection of analysis tools such as the [address "
+"sanitizer](https://clang.llvm.org/docs/AddressSanitizer.html). Meson has "
+"native support for these with the `b_sanitize` option."
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:117
+msgid "```console $ meson <other options> -Db_sanitize=address ```"
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:119
+msgid ""
+"After this you just compile your code and run the test suite. Address "
+"sanitizer will abort executables which have bugs so they show up as test "
+"failures."
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:121
+msgid "## Use Clang static analyzer"
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:123
+msgid "Install scan-build and configure your project. Then do this:"
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:127
+msgid "```console $ ninja scan-build ```"
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:129
+msgid "## Use profile guided optimization"
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:131
+msgid ""
+"Using profile guided optimization with GCC is a two phase operation. First "
+"we set up the project with profile measurements enabled and compile it."
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:136
+msgid ""
+"```console $ meson <Meson options, such as --buildtype=debugoptimized> -"
+"Db_pgo=generate $ ninja -C builddir ```"
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:138
+msgid ""
+"Then we need to run the program with some representative input. This step "
+"depends on your project."
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:140
+msgid ""
+"Once that is done we change the compiler flags to use the generated "
+"information and rebuild."
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:145
+msgid "```console $ meson configure -Db_pgo=use $ ninja ```"
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:147
+msgid "After these steps the resulting binary is fully optimized."
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:149
+msgid "## Add math library (`-lm`) portably"
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:151
+msgid ""
+"Some platforms (e.g. Linux) have a standalone math library. Other platforms "
+"(pretty much everyone else) do not. How to specify that `m` is used only "
+"when needed?"
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:157
+msgid ""
+"```meson cc = meson.get_compiler('c')  m_dep = cc.find_library('m', "
+"required : false)  executable(..., dependencies : m_dep)  ```"
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:159
+msgid "## Install an executable to `libexecdir`"
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:162
+msgid ""
+"```meson executable(..., install : true, install_dir : "
+"get_option('libexecdir'))  ```"
+msgstr ""

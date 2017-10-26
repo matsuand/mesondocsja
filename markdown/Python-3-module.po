@@ -1,0 +1,89 @@
+# Japanese translations for PACKAGE package
+# Copyright (C) 2017 Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2017-09-30 21:44+0900\n"
+"PO-Revision-Date: 2017-09-30 21:44+0900\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: matsuand個人翻訳\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. type: Plain text
+#: Python-3-module.md:2
+msgid "# Python 3 module"
+msgstr ""
+
+#. type: Plain text
+#: Python-3-module.md:5
+msgid ""
+"This module provides support for dealing with Python 3. It has the following "
+"methods."
+msgstr ""
+
+#. type: Plain text
+#: Python-3-module.md:7
+msgid "## find_python"
+msgstr ""
+
+#. type: Plain text
+#: Python-3-module.md:11
+msgid ""
+"This is a cross platform way of finding the Python 3 executable, which may "
+"have a different name on different operating systems. Returns an external "
+"program object."
+msgstr ""
+
+#. type: Plain text
+#: Python-3-module.md:13 Python-3-module.md:22
+#, no-wrap
+msgid "*Added 0.38.0*\n"
+msgstr ""
+
+#. type: Plain text
+#: Python-3-module.md:15
+msgid "## extension_module"
+msgstr ""
+
+#. type: Plain text
+#: Python-3-module.md:20
+msgid ""
+"Creates a `shared_module` target that is named according to the naming "
+"conventions of the target platform. All positional and keyword arguments are "
+"the same as for [shared_module](Reference-manual.md#shared_module)."
+msgstr ""
+
+#. type: Plain text
+#: Python-3-module.md:24
+msgid "## language_version"
+msgstr ""
+
+#. type: Plain text
+#: Python-3-module.md:26
+msgid "Returns a string with the Python language version such as `3.5`."
+msgstr ""
+
+#. type: Plain text
+#: Python-3-module.md:28 Python-3-module.md:34
+#, no-wrap
+msgid "*Added 0.40.0*\n"
+msgstr ""
+
+#. type: Plain text
+#: Python-3-module.md:30
+msgid "## sysconfig_path"
+msgstr ""
+
+#. type: Plain text
+#: Python-3-module.md:33
+msgid ""
+"Returns the Python sysconfig path without prefix, such as `lib/python3.6/"
+"site-packages`."
+msgstr ""

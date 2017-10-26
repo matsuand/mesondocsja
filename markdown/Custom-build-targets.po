@@ -1,0 +1,111 @@
+# Japanese translations for PACKAGE package
+# Copyright (C) 2017 Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2017-10-24 18:52+0900\n"
+"PO-Revision-Date: 2017-09-30 21:43+0900\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: matsuand個人翻訳\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. type: Plain text
+#: Custom-build-targets.md:1
+#, no-wrap
+msgid "---\n"
+msgstr ""
+
+#. type: Plain text
+#: Custom-build-targets.md:4
+msgid ""
+"short-description: Build targets for custom languages or corner-cases ..."
+msgstr ""
+"short-description: Build targets for custom languages or corner-cases\n"
+"..."
+
+#. type: Plain text
+#: Custom-build-targets.md:6
+msgid "# Custom build targets"
+msgstr "# カスタムビルドターゲット"
+
+#. type: Plain text
+#: Custom-build-targets.md:11
+msgid ""
+"While Meson tries to support as many languages and tools as possible, there "
+"is no possible way for it to cover all corner cases. For these cases it "
+"permits you to define custom build targets. Here is how one would use it."
+msgstr ""
+
+#. type: Plain text
+#: Custom-build-targets.md:14
+msgid "```meson comp = find_program('custom_compiler')"
+msgstr ""
+"```meson\n"
+"comp = find_program('custom_compiler')"
+
+#. type: Plain text
+#: Custom-build-targets.md:17
+msgid "infile = 'source_code.txt' outfile = 'output.bin'"
+msgstr ""
+
+#. type: Plain text
+#: Custom-build-targets.md:25
+#, no-wrap
+msgid ""
+"mytarget = custom_target('targetname',\n"
+"  output : 'output.bin',\n"
+"  input : 'source_code.txt',\n"
+"  command : [comp, '@INPUT@', '@OUTPUT@'],\n"
+"  install : true,\n"
+"  install_dir : 'subdir')\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: Custom-build-targets.md:29
+msgid ""
+"This would generate the binary `output.bin` and install it to `${prefix}/"
+"subdir/output.bin`. Variable substitution works just like it does for source "
+"generation."
+msgstr ""
+
+#. type: Plain text
+#: Custom-build-targets.md:31
+msgid "## Details on compiler invocations"
+msgstr ""
+
+#. type: Plain text
+#: Custom-build-targets.md:38
+msgid ""
+"Meson only permits you to specify one command to run. This is by design as "
+"writing shell pipelines into build definition files leads to code that is "
+"very hard to maintain. If your compilation requires multiple steps you need "
+"to write a wrapper script that does all the necessary work. When doing this "
+"you need to be mindful of the following issues:"
+msgstr ""
+
+#. type: Bullet: '* '
+#: Custom-build-targets.md:43
+msgid "do not assume that the command is invoked in any specific directory"
+msgstr ""
+
+#. type: Bullet: '* '
+#: Custom-build-targets.md:43
+msgid ""
+"a target called `target` file `outfile` defined in subdir `subdir` must be "
+"written to `build_dir/subdir/foo.dat`"
+msgstr ""
+
+#. type: Bullet: '* '
+#: Custom-build-targets.md:43
+msgid ""
+"if you need a subdirectory for temporary files, use `build_dir/subdir/target."
+"dir`"
+msgstr ""

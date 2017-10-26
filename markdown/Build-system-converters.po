@@ -1,0 +1,68 @@
+# Japanese translations for PACKAGE package
+# Copyright (C) 2017 Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2017-09-30 21:43+0900\n"
+"PO-Revision-Date: 2017-09-30 21:43+0900\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: matsuand個人翻訳\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. type: Plain text
+#: Build-system-converters.md:1
+#, no-wrap
+msgid "---\n"
+msgstr ""
+
+#. type: Plain text
+#: Build-system-converters.md:4
+msgid "short-description: Converting other build systems to Meson ..."
+msgstr "short-description: Converting other build systems to Meson\n..."
+
+#. type: Plain text
+#: Build-system-converters.md:6
+msgid "# Build system converters"
+msgstr "# ビルドシステムコンバーター"
+
+#. type: Plain text
+#: Build-system-converters.md:12
+msgid ""
+"Moving from one build system into another includes a fair bit of work. To "
+"make things easier, Meson provides scripts to convert other build systems "
+"into Meson. At the time of writing, scripts for CMake and autotools exist. "
+"It can be found in the `tools` subdirectory in Meson's source tree."
+msgstr ""
+
+#. type: Plain text
+#: Build-system-converters.md:19
+msgid ""
+"The scripts do not try to do a perfect conversion. This would be extremely "
+"difficult because the data models of other build systems are very different. "
+"The goal of the converter script is to convert as much of the low level "
+"drudgery as possible. Using the scripts is straightforward. We'll use the "
+"CMake one as an example but the Autotools one works exactly the same way."
+msgstr ""
+
+#. type: Plain text
+#: Build-system-converters.md:21
+#, no-wrap
+msgid "    cmake2meson.py path/to/CMake/project/root\n"
+msgstr ""
+
+#. type: Plain text
+#: Build-system-converters.md:27
+msgid ""
+"This command generates a skeleton Meson project definition that tries to "
+"mirror CMake's setup as close as possible. Once this is done, you need to go "
+"through these files manually and finalize the conversion. To make this task "
+"as simple as possible, the converter script will transfer all comments from "
+"the CMake definition into Meson definition."
+msgstr ""

@@ -1,0 +1,39 @@
+# Japanese translations for Release-notes-for package
+# Copyright (C) 2017 Free Software Foundation, Inc.
+# This file is distributed under the same license as the Release-notes-for package.
+# Automatically generated, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Release-notes-for 0.43.0\n"
+"POT-Creation-Date: 2017-10-03 09:35+0900\n"
+"PO-Revision-Date: 2017-10-03 09:35+0900\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: matsuand個人翻訳\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. type: Plain text
+#: 001-boost-platform-improvement.md:2
+msgid "## Portability improvements to Boost Dependency"
+msgstr ""
+
+#. type: Plain text
+#: 001-boost-platform-improvement.md:8
+msgid ""
+"The Boost dependency has been improved to better detect the various ways to "
+"install boost on multiple platforms. At the same time the `modules` "
+"semantics for the dependency has been changed. Previously it was allowed to "
+"specify header directories as `modules` but it wasn't required. Now, modules "
+"are only used to specify libraries that require linking."
+msgstr ""
+
+#. type: Plain text
+#: 001-boost-platform-improvement.md:10
+msgid ""
+"This is a breaking change and the fix is to remove all modules that aren't "
+"found."
+msgstr ""

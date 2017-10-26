@@ -1,0 +1,62 @@
+# Japanese translations for PACKAGE package
+# Copyright (C) 2017 Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2017-10-09 12:09+0900\n"
+"PO-Revision-Date: 2017-10-09 12:09+0900\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: matsuand個人翻訳\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. type: Plain text
+#: Release-notes-for-0.44.0.md:1
+#, no-wrap
+msgid "---\n"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.44.0.md:5
+msgid ""
+"title: Release 0.44 short-description: Release notes for 0.44 "
+"(preliminary)  ..."
+msgstr ""
+"title: リリース 0.44\nshort-description: リリースノート 0.44 "
+"(preliminary) \n..."
+
+#. type: Plain text
+#: Release-notes-for-0.44.0.md:7
+msgid "# New features"
+msgstr "# 新機能"
+
+#. type: Plain text
+#: Release-notes-for-0.44.0.md:9
+msgid "This page is a placeholder for the eventual release notes."
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.44.0.md:13
+msgid ""
+"Notable new features should come with release note updates. This is done by "
+"creating a file snippet called `snippets/featurename.md` and whose contents "
+"should look like this:"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.44.0.md:15
+#, no-wrap
+msgid "    # Feature name\n"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.44.0.md:16
+#, no-wrap
+msgid "    A short description explaining the new feature and how it should be used.\n"
+msgstr ""

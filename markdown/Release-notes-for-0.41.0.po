@@ -1,0 +1,195 @@
+# Japanese translations for PACKAGE package
+# Copyright (C) 2017 Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2017-09-30 21:44+0900\n"
+"PO-Revision-Date: 2017-09-30 21:44+0900\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: matsuand個人翻訳\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. type: Plain text
+#: Release-notes-for-0.41.0.md:1
+#, no-wrap
+msgid "---\n"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.41.0.md:5
+msgid "title: Release 0.41 short-description: Release notes for 0.41 ..."
+msgstr "title: Release 0.41\nshort-description: Release notes for 0.41\n..."
+
+#. type: Plain text
+#: Release-notes-for-0.41.0.md:7
+msgid "# New features"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.41.0.md:9
+msgid "## Dependency Handler for LLVM"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.41.0.md:11
+msgid ""
+"Native support for linking against LLVM using the `dependency` function."
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.41.0.md:13
+msgid "## vcs_tag keyword fallback is now optional"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.41.0.md:16
+msgid ""
+"The `fallback` keyword in `vcs_tag()` is now optional. If not given, its "
+"value defaults to the return value of `meson.project_version()`."
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.41.0.md:18
+msgid "## Better quoting of special characters in ninja command invocations"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.41.0.md:23
+msgid ""
+"The ninja backend now quotes special characters that may be interpreted by "
+"ninja itself, providing better interoperability with custom commands. This "
+"support may not be perfect; please report any issues found with special "
+"characters to the issue tracker."
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.41.0.md:25
+msgid "## Pkgconfig support for custom variables"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.41.0.md:37
+#, no-wrap
+msgid ""
+"The Pkgconfig module object can add arbitrary variables to the generated .pc\n"
+"file with the new `variables` keyword:\n"
+"```meson\n"
+"pkg.generate(libraries : libs,\n"
+"             subdirs : h,\n"
+"             version : '1.0',\n"
+"             name : 'libsimple',\n"
+"             filebase : 'simple',\n"
+"             description : 'A simple demo library.',\n"
+"             variables : ['datadir=${prefix}/data'])\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.41.0.md:39
+msgid "## A target for creating tarballs"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.41.0.md:41
+msgid "Creating distribution tarballs is simple:"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.41.0.md:43
+#, no-wrap
+msgid "    ninja dist\n"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.41.0.md:50
+msgid ""
+"This will create a `.tar.xz` archive of the source code including submodules "
+"without any revision control information. This command also verifies that "
+"the resulting archive can be built, tested and installed. This is roughly "
+"equivalent to the `distcheck` target in other build systems. Currently this "
+"only works for projects using Git and only with the Ninja backend."
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.41.0.md:52
+msgid "## Support for passing arguments to Rust compiler"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.41.0.md:54
+msgid "Targets for building rust now take a `rust_args` keyword."
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.41.0.md:56
+msgid "## Code coverage export for tests"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.41.0.md:60
+msgid ""
+"Code coverage can be generated for tests by passing the `--cov` argument to "
+"the `run_tests.py` test runner. Note, since multiple processes are used, "
+"coverage must be combined before producing a report (`coverage3 combine`)."
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.41.0.md:62
+msgid "## Reproducible builds"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.41.0.md:65
+msgid ""
+"All known issues have been fixed and Meson can now build reproducible Debian "
+"packages out of the box."
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.41.0.md:67
+msgid "## Extended template substitution in configure_file"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.41.0.md:70
+msgid ""
+"The output argument of `configure_file()` is parsed for @BASENAME@ and "
+"@PLAINNAME@ substitutions."
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.41.0.md:72
+msgid ""
+"## Cross-config property for overriding whether an exe wrapper is needed"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.41.0.md:79
+msgid ""
+"The new `needs_exe_wrapper` property allows overriding auto-detection for "
+"cases where `build_machine` appears to be compatible with `host_machine`, "
+"but actually isn't. For example when: - `build_machine` is macOS and "
+"`host_machine` is the iOS Simulator - the `build_machine`'s libc is glibc "
+"but the `host_machine` libc is uClibc - code relies on kernel features not "
+"available on the `build_machine`"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.41.0.md:81
+msgid "## Support for capturing stdout of a command in configure_file"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.41.0.md:84
+msgid ""
+"`configure_file()` now supports a new keyword - `capture`. When this "
+"argument is set to true, Meson captures `stdout` of the `command` and writes "
+"it to the target file specified as `output`."
+msgstr ""

@@ -1,0 +1,298 @@
+# Japanese translations for PACKAGE package
+# Copyright (C) 2017 Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2017-09-30 21:44+0900\n"
+"PO-Revision-Date: 2017-09-30 21:44+0900\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: matsuand個人翻訳\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. type: Plain text
+#: Wrap-best-practices-and-tips.md:2
+msgid "# Wrap best practices and tips"
+msgstr ""
+
+#. type: Plain text
+#: Wrap-best-practices-and-tips.md:7
+msgid ""
+"There are several things you need to take into consideration when writing a "
+"Meson build definition for a project. This is especially true when the "
+"project will be used as a subproject. This page lists a few things to "
+"consider when writing your definitions."
+msgstr ""
+
+#. type: Plain text
+#: Wrap-best-practices-and-tips.md:9
+msgid "## Do not put config.h in external search path"
+msgstr ""
+
+#. type: Plain text
+#: Wrap-best-practices-and-tips.md:16
+msgid ""
+"Many projects use a `config.h` header file that they use for configuring "
+"their project internally. These files are never installed to the system "
+"header files so there are no inclusion collisions. This is not the case with "
+"subprojects, your project tree may have an arbitrary number of configuration "
+"files, so we need to ensure they don't clash."
+msgstr ""
+
+#. type: Plain text
+#: Wrap-best-practices-and-tips.md:22
+msgid ""
+"The basic problem is that the users of the subproject must be able to "
+"include subproject headers without seeing its `config.h` file. The most "
+"correct solution is to rename the `config.h` file into something unique, "
+"such as `foobar-config.h`. This is usually not feasible unless you are the "
+"maintainer of the subproject in question."
+msgstr ""
+
+#. type: Plain text
+#: Wrap-best-practices-and-tips.md:27
+msgid ""
+"The pragmatic solution is to put the config header in a directory that has "
+"no other header files and then hide that from everyone else. One way is to "
+"create a top level subdirectory called `internal` and use that to build your "
+"own sources, like this:"
+msgstr ""
+
+#. type: Plain text
+#: Wrap-best-practices-and-tips.md:33
+msgid ""
+"```meson subdir('internal') # create config.h in this subdir internal_inc = "
+"include_directories('internal')  shared_library('foo', 'foo.c', "
+"include_directories : internal_inc)  ```"
+msgstr ""
+"```meson\nsubdir('internal') # create config.h in this subdir internal_inc = "
+"include_directories('internal') \nshared_library('foo', 'foo.c', "
+"include_directories : internal_inc) \n```"
+
+#. type: Plain text
+#: Wrap-best-practices-and-tips.md:37
+msgid ""
+"Many projects keep their `config.h` in the top level directory that has no "
+"other source files in it. In that case you don't need to move it but can "
+"just do this instead:"
+msgstr ""
+
+#. type: Plain text
+#: Wrap-best-practices-and-tips.md:41
+msgid ""
+"```meson internal_inc = include_directories('.') # At top level meson.build "
+"```"
+msgstr ""
+"```meson\ninternal_inc = include_directories('.') # At top level meson.build\n"
+"```"
+
+#. type: Plain text
+#: Wrap-best-practices-and-tips.md:43
+msgid "## Make libraries buildable both as static and shared"
+msgstr ""
+
+#. type: Plain text
+#: Wrap-best-practices-and-tips.md:49
+msgid ""
+"Some platforms (e.g. iOS) requires linking everything in your main app "
+"statically. In other cases you might want shared libraries. They are also "
+"faster during development due to Meson's relinking optimization. However "
+"building both library types on all builds is slow and wasteful."
+msgstr ""
+
+#. type: Plain text
+#: Wrap-best-practices-and-tips.md:53
+msgid ""
+"Your project should provide a toggle specifying which type of library it "
+"should build. As an example if you have a Meson option called `shared_lib` "
+"then you could do this:"
+msgstr ""
+
+#. type: Plain text
+#: Wrap-best-practices-and-tips.md:60
+#, no-wrap
+msgid ""
+"```meson\n"
+"if get_option('shared_lib')\n"
+"  libtype = 'shared_library'\n"
+"else\n"
+"  libtype = 'static_library'\n"
+"endif\n"
+msgstr ""
+
+#. type: Plain text
+#: Wrap-best-practices-and-tips.md:64
+#, no-wrap
+msgid ""
+"mylib = build_target('foo', 'foo.c',\n"
+"  target_type : libtype)\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: Wrap-best-practices-and-tips.md:66
+msgid "## Declare generated headers explicitly"
+msgstr ""
+
+#. type: Plain text
+#: Wrap-best-practices-and-tips.md:71
+msgid ""
+"Meson's Ninja backend works differently from Make and other systems. Rather "
+"than processing things directory per directory, it looks at the entire build "
+"definition at once and runs the individual compile jobs in what might look "
+"to the outside as a random order."
+msgstr ""
+
+#. type: Plain text
+#: Wrap-best-practices-and-tips.md:79
+msgid ""
+"The reason for this is that this is much more efficient so your builds "
+"finish faster. The downside is that you have to be careful with your "
+"dependencies. The most common problem here is headers that are generated at "
+"compile time with e.g. code generators. If these headers are needed when "
+"building code that uses these libraries, the compile job might be run before "
+"the code generation step. The fix is to make the dependency explicit like "
+"this:"
+msgstr ""
+
+#. type: Plain text
+#: Wrap-best-practices-and-tips.md:87
+#, no-wrap
+msgid ""
+"```meson\n"
+"myheader = custom_target(...)\n"
+"mylibrary = shared_library(...)\n"
+"mydep = declare_dependency(link_with : mylibrary,\n"
+"  include_directories : include_directories(...),\n"
+"  sources : myheader)\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: Wrap-best-practices-and-tips.md:89
+msgid "And then you can use the dependency in the usual way:"
+msgstr ""
+
+#. type: Plain text
+#: Wrap-best-practices-and-tips.md:94
+#, no-wrap
+msgid ""
+"```meson\n"
+"executable('dep_using_exe', 'main.c',\n"
+"  dependencies : mydep)\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: Wrap-best-practices-and-tips.md:96
+msgid ""
+"Meson will ensure that the header file has been built before compiling `main."
+"c`."
+msgstr ""
+
+#. type: Plain text
+#: Wrap-best-practices-and-tips.md:98
+msgid "## Avoid exposing compilable source files in declare_dependency"
+msgstr ""
+
+#. type: Plain text
+#: Wrap-best-practices-and-tips.md:106
+msgid ""
+"The main use for the `sources` argument in `declare_dependency` is to "
+"construct the correct dependency graph for the backends, as demonstrated in "
+"the previous section. It is extremely important to note that it should *not* "
+"be used to directly expose compilable sources (`.c`, `.cpp`, etc.) of "
+"dependencies, and should rather only be used for header/config files. The "
+"following example will illustrate what can go wrong if you accidentally "
+"expose compilable source files."
+msgstr ""
+
+#. type: Plain text
+#: Wrap-best-practices-and-tips.md:111
+msgid ""
+"So you've read about unity builds and how Meson natively supports them. You "
+"decide to expose the sources of dependencies in order to have unity builds "
+"that include their dependencies. For your support library you do"
+msgstr ""
+
+#. type: Plain text
+#: Wrap-best-practices-and-tips.md:114
+msgid "```meson my_support_sources = files(...)"
+msgstr "```meson\nmy_support_sources = files(...)"
+
+#. type: Plain text
+#: Wrap-best-practices-and-tips.md:125
+#, no-wrap
+msgid ""
+"mysupportlib = shared_library(\n"
+"  ...\n"
+"  sources : my_support_sources,\n"
+"  ...)\n"
+"mysupportlib_dep = declare_dependency(\n"
+"  ...\n"
+"  link_with : mylibrary,\n"
+"  sources : my_support_sources,\n"
+"  ...)\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: Wrap-best-practices-and-tips.md:127
+msgid "And for your main project you do:"
+msgstr ""
+
+#. type: Plain text
+#: Wrap-best-practices-and-tips.md:139
+#, no-wrap
+msgid ""
+"```meson\n"
+"mylibrary = shared_library(\n"
+"  ...\n"
+"  dependencies : mysupportlib_dep,\n"
+"  ...)\n"
+"myexe = executable(\n"
+"  ...\n"
+"  link_with : mylibrary,\n"
+"  dependencies : mysupportlib_dep,\n"
+"  ...)\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: Wrap-best-practices-and-tips.md:156
+msgid ""
+"This is extremely dangerous. When building, `mylibrary` will build and link "
+"the support sources `my_support_sources` into the resulting shared library. "
+"Then, for `myexe`, these same support sources will be compiled again, will "
+"be linked into the resulting executable, in addition to them being already "
+"present in `mylibrary`. This can quickly run afoul of the [One Definition "
+"Rule (ODR)](https://en.wikipedia.org/wiki/One_Definition_Rule) in C++, as "
+"you have more than one definition of a symbol, yielding undefined behavior. "
+"While C does not have a strict ODR rule, there is no language in the "
+"standard which guarantees such behavior to work. Violations of the ODR can "
+"lead to weird idiosyncratic failures such as segfaults. In the overwhelming "
+"number of cases, exposing library sources via the `sources` argument in "
+"`declare_dependency` is thus incorrect. If you wish to get full cross-"
+"library performance, consider building `mysupportlib` as a static library "
+"instead and employing LTO."
+msgstr ""
+
+#. type: Plain text
+#: Wrap-best-practices-and-tips.md:166
+msgid ""
+"There are exceptions to this rule. If there are some natural constraints on "
+"how your library is to be used, you can expose sources. For instance, the "
+"WrapDB module for GoogleTest directly exposes the sources of GTest and "
+"GMock. This is valid, as GTest and GMock will only ever be used in "
+"*terminal* link targets. A terminal target is the final target in a "
+"dependency link chain, for instance `myexe` in the last example, whereas "
+"`mylibrary` is an intermediate link target. For most libraries this rule is "
+"not applicable though, as you cannot in general control how others consume "
+"your library, and as such should not expose sources."
+msgstr ""

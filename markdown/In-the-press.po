@@ -1,0 +1,56 @@
+# Japanese translations for PACKAGE package
+# Copyright (C) 2017 Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2017-09-30 21:43+0900\n"
+"PO-Revision-Date: 2017-09-30 21:43+0900\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: matsuand個人翻訳\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. type: Plain text
+#: In-the-press.md:2
+msgid "# In the press"
+msgstr ""
+
+#. type: Plain text
+#: In-the-press.md:4
+msgid "This page lists cases where Meson has been presented in the press."
+msgstr ""
+
+#. type: Bullet: '* '
+#: In-the-press.md:8
+msgid ""
+"[Linux Magazin](http://www.linux-magazin.de/Ausgaben/2014/08/), in German, "
+"August 2014, and also later in [Linux Magazine](http://www.linux-magazine."
+"com/Issues/2014/166/Meson-Build-System) in English"
+msgstr ""
+
+#. type: Bullet: '* '
+#: In-the-press.md:8
+msgid ""
+"[Admin Magazine](http://www.admin-magazine.com/HPC/Articles/The-Meson-Build-"
+"System)"
+msgstr ""
+
+#. type: Bullet: '* '
+#: In-the-press.md:8
+msgid ""
+"[Phoronix](https://www.phoronix.com/scan.php?page=news_item&px=MTc1MDc) "
+"regarding compilation of Mesa3D"
+msgstr ""
+
+#. type: Bullet: '* '
+#: In-the-press.md:8
+msgid ""
+"[CppCast](http://cppcast.com/2015/12/jussi-pakkanen/) interviewed Jussi "
+"about Meson for C++ development in 12/2015"
+msgstr ""

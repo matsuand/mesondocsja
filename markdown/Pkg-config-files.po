@@ -1,0 +1,65 @@
+# Japanese translations for PACKAGE package
+# Copyright (C) 2017 Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2017-09-30 21:44+0900\n"
+"PO-Revision-Date: 2017-09-30 21:44+0900\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: matsuand個人翻訳\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. type: Plain text
+#: Pkg-config-files.md:2
+msgid "# Pkg config files"
+msgstr ""
+
+#. type: Plain text
+#: Pkg-config-files.md:4
+msgid ""
+"[Pkg-config](https://en.wikipedia.org/wiki/Pkg-config) is a way for shared "
+"libraries to declare the compiler flags needed to use them. There are two "
+"different ways of generating Pkg-config files in Meson. The first way is to "
+"build them manually with the `configure_files` command. The second way is to "
+"use Meson's built in Pkg-config file generator. The difference between the "
+"two is that the latter is very simple and meant for basic use cases. The "
+"former should be used when you need to provide a more customized solution."
+msgstr ""
+
+#. type: Plain text
+#: Pkg-config-files.md:6
+msgid ""
+"In this document we describe the simple generator approach. It is used in "
+"the following way."
+msgstr ""
+
+#. type: Plain text
+#: Pkg-config-files.md:18
+#, no-wrap
+msgid ""
+"```meson\n"
+"pkg = import('pkgconfig')\n"
+"libs = ...     # the library/libraries users need to link against\n"
+"h = ['.', ...] # subdirectories of ${prefix}/${includedir} to add to header path\n"
+"pkg.generate(libraries : libs,\n"
+"             subdirs : h,\n"
+"             version : '1.0',\n"
+"             name : 'libsimple',\n"
+"             filebase : 'simple',\n"
+"             description : 'A simple demo library.')\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: Pkg-config-files.md:19
+msgid ""
+"This causes a file called `simple.pc` to be created and placed into the "
+"install directory during the install phase."
+msgstr ""

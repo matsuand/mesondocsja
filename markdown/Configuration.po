@@ -1,0 +1,325 @@
+# Japanese translations for PACKAGE package
+# Copyright (C) 2017 Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2017-09-30 21:43+0900\n"
+"PO-Revision-Date: 2017-09-30 21:43+0900\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: matsuand個人翻訳\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. type: Plain text
+#: Configuration.md:1
+#, no-wrap
+msgid "---\n"
+msgstr ""
+
+#. type: Plain text
+#: Configuration.md:4
+msgid "short-description: Build-time configuration options ..."
+msgstr "short-description: Build-time configuration options\n..."
+
+#. type: Plain text
+#: Configuration.md:6
+msgid "# Configuration"
+msgstr "# 設定"
+
+#. type: Plain text
+#: Configuration.md:12
+msgid ""
+"If there are multiple configuration options, passing them through compiler "
+"flags becomes very burdensome. It also makes the configuration settings hard "
+"to inspect. To make things easier, Meson supports the generation of "
+"configure files. This feature is similar to one found in other build systems "
+"such as CMake."
+msgstr ""
+"コンパイラーオプションをいくつも組み合わせて設定する必要がある場合というのは、"
+"コンパイラーに対して指示を与える設定が、やっかいなものになります。"
+"If there are multiple configuration options, passing them through compiler "
+"flags becomes very burdensome. It also makes the configuration settings hard "
+"to inspect. To make things easier, Meson supports the generation of "
+"configure files. This feature is similar to one found in other build systems "
+"such as CMake."
+
+#. type: Plain text
+#: Configuration.md:14
+msgid "Suppose we have the following Meson snippet:"
+msgstr "以下のような Messon の設定を行うとします。"
+
+#. type: Plain text
+#: Configuration.md:22
+#, no-wrap
+msgid ""
+"```meson\n"
+"conf_data = configuration_data()\n"
+"conf_data.set('version', '1.2.3')\n"
+"configure_file(input : 'config.h.in',\n"
+"               output : 'config.h',\n"
+"               configuration : conf_data)\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: Configuration.md:24
+msgid "and that the contents of `config.h.in` are"
+msgstr "そして `config.h.in` には以下の内容があるとします。"
+
+#. type: Plain text
+#: Configuration.md:28
+msgid "```c #define VERSION_STR \"@version@\" ```"
+msgstr "```c\n#define VERSION_STR \"@version@\"\n```"
+
+#. type: Plain text
+#: Configuration.md:31
+msgid ""
+"Meson will then create a file called `config.h` in the corresponding build "
+"directory whose contents are the following."
+msgstr ""
+"Meson は所定のディレクトリに `config.h` というファイルを生成します。その内容"
+"は以下となります。"
+
+#. type: Plain text
+#: Configuration.md:35
+msgid "```c #define VERSION_STR \"1.2.3\" ```"
+msgstr "```c\n#define VERSION_STR \"1.2.3\"\n```"
+
+#. type: Plain text
+#: Configuration.md:42
+msgid ""
+"More specifically, Meson will find all strings of the type `@varname@` and "
+"replace them with respective values set in `conf_data`. You can use a single "
+"`configuration_data` object as many times as you like, but it becomes "
+"immutable after being passed to the `configure_file` function. That is, "
+"after it has been used once to generate output the `set` function becomes "
+"unusable and trying to call it causes an error."
+msgstr ""
+"More specifically, Meson will find all strings of the type `@varname@` and "
+"replace them with respective values set in `conf_data`. You can use a single "
+"`configuration_data` object as many times as you like, but it becomes "
+"immutable after being passed to the `configure_file` function. That is, "
+"after it has been used once to generate output the `set` function becomes "
+"unusable and trying to call it causes an error."
+
+#. type: Plain text
+#: Configuration.md:45
+msgid ""
+"For more complex configuration file generation Meson provides a second form. "
+"To use it, put a line like this in your configuration file."
+msgstr ""
+
+#. type: Plain text
+#: Configuration.md:47
+#, no-wrap
+msgid "    #mesondefine TOKEN\n"
+msgstr ""
+
+#. type: Plain text
+#: Configuration.md:49
+msgid ""
+"The replacement that happens depends on what the value and type of TOKEN is:"
+msgstr ""
+
+#. type: Plain text
+#: Configuration.md:56
+#, no-wrap
+msgid ""
+"```c\n"
+"#define TOKEN     // If TOKEN is set to boolean true.\n"
+"#undef TOKEN      // If TOKEN is set to boolean false.\n"
+"#define TOKEN 4   // If TOKEN is set to an integer or string value.\n"
+"/* undef TOKEN */ // If TOKEN has not been set to any value.\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: Configuration.md:59
+msgid ""
+"Note that if you want to define a C string, you need to do the quoting "
+"yourself like this:"
+msgstr ""
+
+#. type: Plain text
+#: Configuration.md:63
+msgid "```meson conf.set('TOKEN', '\"value\"')  ```"
+msgstr "```meson\nconf.set('TOKEN', '\"value\"') \n```"
+
+#. type: Plain text
+#: Configuration.md:66
+msgid ""
+"Since this is such a common operation, Meson provides a convenience method:"
+msgstr ""
+
+#. type: Plain text
+#: Configuration.md:71
+msgid ""
+"```meson plain_var = 'value' conf.set_quoted('TOKEN', plain_var) # becomes "
+"#define TOKEN \"value\" ```"
+msgstr ""
+"```meson\nplain_var = 'value' conf.set_quoted('TOKEN', plain_var)\n# becomes "
+"#define TOKEN \"value\"\n```"
+
+#. type: Plain text
+#: Configuration.md:75
+msgid ""
+"Often you have a boolean value in Meson but need to define the C/C++ token "
+"as 0 or 1. Meson provides a convenience function for this use case."
+msgstr ""
+
+#. type: Plain text
+#: Configuration.md:85
+#, no-wrap
+msgid ""
+"```meson\n"
+"conf.set10(token, boolean_value)\n"
+"# The line above is equivalent to this:\n"
+"if boolean_value\n"
+"  conf.set(token, 1)\n"
+"else\n"
+"  conf.set(token, 0)\n"
+"endif\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: Configuration.md:87
+msgid "## Configuring without an input file"
+msgstr ""
+
+#. type: Plain text
+#: Configuration.md:91
+msgid ""
+"If the input file is not defined then Meson will generate a header file all "
+"the entries in the configuration data object. The replacements are the same "
+"as when generating `#mesondefine` entries:"
+msgstr ""
+
+#. type: Plain text
+#: Configuration.md:100
+#, no-wrap
+msgid ""
+"```meson\n"
+"cdata.set('FOO', '\"string\"') => #define FOO \"string\"\n"
+"cdata.set('FOO', 'a_token')  => #define FOO a_token\n"
+"cdata.set('FOO', true)       => #define FOO\n"
+"cdata.set('FOO', false)      => #undef FOO\n"
+"cdata.set('FOO', 1)          => #define FOO 1\n"
+"cdata.set('FOO', 0)          => #define FOO 0\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: Configuration.md:103
+msgid ""
+"In this mode, you can also specify a comment which will be placed before the "
+"value so that your generated files are self-documenting."
+msgstr ""
+
+#. type: Plain text
+#: Configuration.md:107
+msgid ""
+"```meson cdata.set('BAR', true, description : 'Set BAR if it is available')  "
+"```"
+msgstr ""
+"```meson\ncdata.set('BAR', true, description : 'Set BAR if it is available') \n"
+"```"
+
+#. type: Plain text
+#: Configuration.md:109
+msgid "Will produce:"
+msgstr ""
+
+#. type: Plain text
+#: Configuration.md:114
+msgid "```c /* Set BAR if it is available */ #define BAR ```"
+msgstr "```c\n/* Set BAR if it is available */\n#define BAR\n```"
+
+#. type: Plain text
+#: Configuration.md:116
+msgid "# A full example"
+msgstr "# 完全な例"
+
+#. type: Plain text
+#: Configuration.md:118
+msgid "Generating and using a configuration file requires the following steps:"
+msgstr ""
+
+#. type: Bullet: ' - '
+#: Configuration.md:122
+msgid "generate the file"
+msgstr ""
+
+#. type: Bullet: ' - '
+#: Configuration.md:122
+msgid ""
+"create an include directory object for the directory that holds the file"
+msgstr ""
+
+#. type: Bullet: ' - '
+#: Configuration.md:122
+msgid "use it in a target"
+msgstr ""
+
+#. type: Plain text
+#: Configuration.md:128
+msgid ""
+"We are going to use the traditional approach of generating a header file in "
+"the top directory. The common name is `config.h` but we're going to use an "
+"unique name. This avoids the problem of accidentally including the wrong "
+"header file when building a project with many subprojects."
+msgstr ""
+
+#. type: Plain text
+#: Configuration.md:130
+msgid "At the top level we generate the file:"
+msgstr ""
+
+#. type: Plain text
+#: Configuration.md:136
+#, no-wrap
+msgid ""
+"```meson\n"
+"configure_file(input : 'projconfig.h.in',\n"
+"  output : 'projconfig.h',\n"
+"  configuration : cdata_object)\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: Configuration.md:138
+msgid "Immediately afterwards we generate the include object."
+msgstr ""
+
+#. type: Plain text
+#: Configuration.md:142
+msgid "```meson configuration_inc = include_directories('.')  ```"
+msgstr "```meson\nconfiguration_inc = include_directories('.') \n```"
+
+#. type: Plain text
+#: Configuration.md:144
+msgid "Finally we specify this in a target that can be in any subdirectory."
+msgstr ""
+
+#. type: Plain text
+#: Configuration.md:148
+msgid "```meson executable(..., include_directories : configuration_inc)  ```"
+msgstr "```meson\nexecutable(..., include_directories : configuration_inc) \n```"
+
+#. type: Plain text
+#: Configuration.md:151
+msgid ""
+"Now any source file in this target can include the configuration header like "
+"this:"
+msgstr ""
+
+#. type: Plain text
+#: Configuration.md:154
+msgid "```c #include<projconfig.h> ```"
+msgstr "```c\n#include<projconfig.h>\n```"

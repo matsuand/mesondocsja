@@ -1,0 +1,65 @@
+# Japanese translations for PACKAGE package
+# Copyright (C) 2017 Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2017-09-30 21:44+0900\n"
+"PO-Revision-Date: 2017-09-30 21:44+0900\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: matsuand個人翻訳\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. type: Plain text
+#: Modules.md:1
+#, no-wrap
+msgid "---\n"
+msgstr ""
+
+#. type: Plain text
+#: Modules.md:4
+msgid "short-description: Meson modules for common build operations ..."
+msgstr "short-description: Meson modules for common build operations\n..."
+
+#. type: Plain text
+#: Modules.md:6
+msgid "# Modules"
+msgstr "# モジュール"
+
+#. type: Plain text
+#: Modules.md:8
+msgid ""
+"In addition to core language features, Meson also provides a module system "
+"aimed at providing helper methods for common build operations. Using modules "
+"is simple, first you import them:"
+msgstr ""
+
+#. type: Plain text
+#: Modules.md:12
+msgid "```meson mymod = import('somemodule')  ```"
+msgstr "```meson\nmymod = import('somemodule') \n```"
+
+#. type: Plain text
+#: Modules.md:14
+msgid ""
+"After this you can use the returned object to use the functionality provided:"
+msgstr ""
+
+#. type: Plain text
+#: Modules.md:18
+msgid "```meson mymod.do_something('text argument')  ```"
+msgstr "```meson\nmymod.do_something('text argument') \n```"
+
+#. type: Plain text
+#: Modules.md:22
+msgid ""
+"Meson has a selection of modules to make common requirements easy to use. "
+"Modules can be thought of like the standard library of a programming "
+"language. Currently Meson provides the modules listed on subpages."
+msgstr ""

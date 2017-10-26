@@ -1,0 +1,133 @@
+# Japanese translations for PACKAGE package
+# Copyright (C) 2017 Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2017-09-30 21:43+0900\n"
+"PO-Revision-Date: 2017-09-30 21:43+0900\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: matsuand個人翻訳\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. type: Plain text
+#: Adding-arguments.md:1
+#, no-wrap
+msgid "---\n"
+msgstr ""
+
+#. type: Plain text
+#: Adding-arguments.md:4
+msgid "short-description: Adding compiler arguments ..."
+msgstr "short-description: Adding compiler arguments\n..."
+
+#. type: Plain text
+#: Adding-arguments.md:6
+msgid "# Adding arguments"
+msgstr "# 引数の追加"
+
+#. type: Plain text
+#: Adding-arguments.md:10
+msgid ""
+"Often you need to specify extra compiler arguments. Meson provides two "
+"different ways to achieve this: global arguments and per-target arguments."
+msgstr ""
+
+#. type: Plain text
+#: Adding-arguments.md:12
+#, no-wrap
+msgid ""
+"Global arguments\n"
+"--\n"
+msgstr ""
+"グローバル引数\n"
+"--\n"
+
+#. type: Plain text
+#: Adding-arguments.md:16
+msgid ""
+"Global compiler arguments are set with the following command. As an example "
+"you could do this."
+msgstr ""
+
+#. type: Plain text
+#: Adding-arguments.md:20
+msgid "```meson add_global_arguments('-DFOO=bar', language : 'c')  ```"
+msgstr "```meson\nadd_global_arguments('-DFOO=bar', language : 'c') \n```"
+
+#. type: Plain text
+#: Adding-arguments.md:26
+msgid ""
+"This makes Meson add the define to all C compilations. Usually you would use "
+"this setting for flags for global settings. Note that for setting the C/C++ "
+"language standard (the `-std=c99` argument in GCC), you would probably want "
+"to use a default option of the `project()` function. For details see the "
+"[reference manual](Reference-manual.md)."
+msgstr ""
+
+#. type: Plain text
+#: Adding-arguments.md:35
+msgid ""
+"Global arguments have certain limitations. They all have to be defined "
+"before any build targets are specified. This ensures that the global flags "
+"are the same for every single source file built in the entire project with "
+"one exception. Compilation tests that are run as part of your project "
+"configuration do not use these flags. The reason for that is that you may "
+"need to run a test compile with and without a given flag to determine your "
+"build setup. For this reason tests do not use these global arguments."
+msgstr ""
+
+#. type: Plain text
+#: Adding-arguments.md:39
+msgid ""
+"You should set only the most essential flags with this setting, you should "
+"*not* set debug or optimization flags. Instead they should be specified by "
+"selecting an appropriate build type."
+msgstr ""
+
+#. type: Plain text
+#: Adding-arguments.md:41
+#, no-wrap
+msgid ""
+"Per target arguments\n"
+"--\n"
+msgstr ""
+"Per target arguments\n"
+"--\n"
+
+#. type: Plain text
+#: Adding-arguments.md:44
+msgid "Per target arguments are just as simple to define."
+msgstr ""
+
+#. type: Plain text
+#: Adding-arguments.md:48
+msgid "```meson executable('prog', 'prog.cc', cpp_args : '-DCPPTHING')  ```"
+msgstr "```meson\nexecutable('prog', 'prog.cc', cpp_args : '-DCPPTHING') \n```"
+
+#. type: Plain text
+#: Adding-arguments.md:51
+msgid ""
+"Here we create a C++ executable with an extra argument that is used during "
+"compilation but not for linking."
+msgstr ""
+
+#. type: Plain text
+#: Adding-arguments.md:53
+msgid "Specifying extra linker arguments is done in the same way:"
+msgstr ""
+
+#. type: Plain text
+#: Adding-arguments.md:56
+msgid ""
+"```meson executable('prog', 'prog.cc', link_args : '-Wl,--linker-option')  "
+"```"
+msgstr ""
+"```meson\nexecutable('prog', 'prog.cc', link_args : '-Wl,--linker-option') \n"
+"```"

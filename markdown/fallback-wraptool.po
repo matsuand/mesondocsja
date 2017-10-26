@@ -1,0 +1,115 @@
+# Japanese translations for PACKAGE package
+# Copyright (C) 2017 Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2017-09-30 21:44+0900\n"
+"PO-Revision-Date: 2017-09-30 21:44+0900\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: matsuand個人翻訳\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. type: Plain text
+#: fallback-wraptool.md:1
+#, no-wrap
+msgid "---\n"
+msgstr ""
+
+#. type: Plain text
+#: fallback-wraptool.md:4
+msgid "title: fallback wraptool ..."
+msgstr "title: fallback wraptool\n..."
+
+#. type: Plain text
+#: fallback-wraptool.md:6
+msgid "# In case of emergency"
+msgstr ""
+
+#. type: Plain text
+#: fallback-wraptool.md:8
+msgid ""
+"In case wraptool is down we have created a backup script that you can use to "
+"download wraps directly from the GitHub repos. It is not as slick and may "
+"have bugs but at least it will allow you to use wraps."
+msgstr ""
+
+#. type: Plain text
+#: fallback-wraptool.md:10
+msgid "## Using it"
+msgstr ""
+
+#. type: Plain text
+#: fallback-wraptool.md:12
+msgid ""
+"Currently the emergency tool is only in Meson trunk so you need a git "
+"checkout to use it. It also does not on releases older than 0.32.0 because "
+"they had a bug. (A workaround for older versions is to delete existing "
+"`foobar.wrap` files if you have them.)"
+msgstr ""
+
+#. type: Plain text
+#: fallback-wraptool.md:14
+msgid "To list all available wraps:"
+msgstr ""
+
+#. type: Plain text
+#: fallback-wraptool.md:16
+#, no-wrap
+msgid "    ghwt.py list\n"
+msgstr ""
+
+#. type: Plain text
+#: fallback-wraptool.md:18
+msgid ""
+"To install a wrap, go to your source root, make sure that the `subprojects` "
+"directory exists and run this command:"
+msgstr ""
+
+#. type: Plain text
+#: fallback-wraptool.md:20
+#, no-wrap
+msgid "    ghwt.py install <projectname>\n"
+msgstr ""
+
+#. type: Plain text
+#: fallback-wraptool.md:22
+msgid ""
+"This will stage the subproject ready to use. If you have multiple "
+"subprojects you need to download them all manually."
+msgstr ""
+
+#. type: Plain text
+#: fallback-wraptool.md:24
+msgid "## How to upgrade an existing dir/fix broken state/any other problem"
+msgstr ""
+
+#. type: Plain text
+#: fallback-wraptool.md:26
+msgid "Nuke the contents of `subprojects` and start again."
+msgstr ""
+
+#. type: Plain text
+#: fallback-wraptool.md:28
+msgid "## Known issues"
+msgstr ""
+
+#. type: Plain text
+#: fallback-wraptool.md:30
+msgid ""
+"Some repositories show up in the list but are not installable. They would "
+"not show up in the real WrapDB because they are works in progress."
+msgstr ""
+
+#. type: Plain text
+#: fallback-wraptool.md:31
+msgid ""
+"GitHub web API limits the amount of queries you can do to 60/hour. If you "
+"exceed that you need to wait for the timer to reset."
+msgstr ""

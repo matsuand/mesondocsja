@@ -1,0 +1,136 @@
+# Japanese translations for PACKAGE package
+# Copyright (C) 2017 Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2017-09-30 21:44+0900\n"
+"PO-Revision-Date: 2017-09-30 21:44+0900\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: matsuand個人翻訳\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. type: Plain text
+#: Reference-tables.md:2
+msgid "# Reference tables"
+msgstr "# リファレンス表"
+
+#. type: Plain text
+#: Reference-tables.md:4
+msgid "## Compiler ids"
+msgstr "## コンパイラー ID"
+
+#. type: Plain text
+#: Reference-tables.md:6
+msgid "These are return values of the `get_id` method in a compiler object."
+msgstr ""
+
+#. type: Plain text
+#: Reference-tables.md:24
+#, no-wrap
+msgid ""
+"| Value     | Compiler family                |\n"
+"| -----     | ----------------               |\n"
+"| gcc       | The GNU Compiler Collection    |\n"
+"| clang     | The Clang compiler             |\n"
+"| msvc      | Microsoft Visual Studio        |\n"
+"| intel     | Intel compiler                 |\n"
+"| llvm      | LLVM-based compiler (Swift, D) |\n"
+"| mono      | Xamarin C# compiler            |\n"
+"| dmd       | D lang reference compiler      |\n"
+"| rustc     | Rust compiler                  |\n"
+"| valac     | Vala compiler                  |\n"
+"| pathscale | The Pathscale Fortran compiler |\n"
+"| pgi       | The Portland Fortran compiler  |\n"
+"| sun       | Sun Fortran compiler           |\n"
+"| g95       | The G95 Fortran compiler       |\n"
+"| open64    | The Open64 Fortran Compiler    |\n"
+"| nagfor    | The NAG Fortran compiler       |\n"
+msgstr ""
+
+#. type: Plain text
+#: Reference-tables.md:26
+msgid "## Script environment variables"
+msgstr ""
+
+#. type: Plain text
+#: Reference-tables.md:33
+#, no-wrap
+msgid ""
+"| Value               | Comment                         |\n"
+"| -----               | -------                         |\n"
+"| MESON_SOURCE_ROOT   | Absolute path to the source dir |\n"
+"| MESON_BUILD_ROOT    | Absolute path to the build dir  |\n"
+"| MESONINTROSPECT     | Command to run to run the introspection command, may be of the form `python /path/to/meson introspect`, user is responsible for splitting the path if necessary. |\n"
+"| MESON_SUBDIR        | Current subdirectory, only set for `run_command` |\n"
+msgstr ""
+
+#. type: Plain text
+#: Reference-tables.md:35
+msgid "## CPU families"
+msgstr ""
+
+#. type: Plain text
+#: Reference-tables.md:39
+msgid ""
+"These are returned by the `cpu_family` method of `build_machine`, "
+"`host_machine` and `target_machine`. For cross compilation they are set in "
+"the cross file."
+msgstr ""
+
+#. type: Plain text
+#: Reference-tables.md:45
+#, no-wrap
+msgid ""
+"| Value               | Comment                         |\n"
+"| -----               | -------                         |\n"
+"| x86                 | 32 bit x86 processor  |\n"
+"| x86_64              | 64 bit x86 processor  |\n"
+"| arm                 | 32 bit ARM processor |\n"
+msgstr ""
+
+#. type: Plain text
+#: Reference-tables.md:48
+msgid ""
+"Any cpu family not listed in the above list is not guaranteed to remain "
+"stable in future releases."
+msgstr ""
+
+#. type: Plain text
+#: Reference-tables.md:50
+msgid "## Operating system names"
+msgstr "## オペレーティングシステム名"
+
+#. type: Plain text
+#: Reference-tables.md:52
+msgid "These are provided by the `.system()` method call."
+msgstr "以下は `.system()` メソッドの呼び出しによって得られるものです。"
+
+#. type: Plain text
+#: Reference-tables.md:58
+#, no-wrap
+msgid ""
+"| Value               | Comment                         |\n"
+"| -----               | -------                         |\n"
+"| linux               | |\n"
+"| darwin              | Either OSX or iOS |\n"
+"| windows             | Any version of Windows |\n"
+msgstr ""
+"| 値                  | 説明                            |\n"
+"| -----               | -------                         |\n"
+"| linux               | |\n"
+"| darwin              | OSX または iOS |\n"
+"| windows             | Windows 全バージョン |\n"
+
+#. type: Plain text
+#: Reference-tables.md:60
+msgid ""
+"Any string not listed above is not guaranteed to remain stable in future "
+"releases."
+msgstr ""

@@ -1,0 +1,154 @@
+# Japanese translations for PACKAGE package
+# Copyright (C) 2017 Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2017-10-26 19:01+0900\n"
+"PO-Revision-Date: 2017-09-30 21:43+0900\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: matsuand個人翻訳\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. type: Plain text
+#: Comparisons.md:1
+#, no-wrap
+msgid "---\n"
+msgstr ""
+
+#. type: Plain text
+#: Comparisons.md:4
+msgid "title: Comparisons ..."
+msgstr ""
+"title: システム比較\n"
+"..."
+
+#. type: Plain text
+#: Comparisons.md:6
+msgid "# Comparing Meson with other build systems"
+msgstr "# Meson と他のビルドシステムとの比較"
+
+#. type: Plain text
+#: Comparisons.md:13
+msgid ""
+"A common question is *Why should I choose Meson over a different build "
+"system X?* There is no one true answer to this as it depends on the use "
+"case. Almost all build systems have all the functionality needed to build "
+"medium-to-large projects so the decision is usually made on other points. "
+"Here we list some pros and cons of various build systems to help you do the "
+"decision yourself."
+msgstr ""
+
+#. type: Plain text
+#: Comparisons.md:15
+msgid "## GNU Autotools"
+msgstr ""
+
+#. type: Plain text
+#: Comparisons.md:17 Comparisons.md:30 Comparisons.md:41 Comparisons.md:55
+#: Comparisons.md:67
+msgid "### Pros"
+msgstr ""
+
+#. type: Plain text
+#: Comparisons.md:20
+msgid ""
+"Excellent support for legacy Unix platforms, large selection of existing "
+"modules."
+msgstr ""
+
+#. type: Plain text
+#: Comparisons.md:22 Comparisons.md:34 Comparisons.md:45 Comparisons.md:59
+#: Comparisons.md:75
+msgid "### Cons"
+msgstr ""
+
+#. type: Plain text
+#: Comparisons.md:26
+msgid ""
+"Needlessly slow, complicated, hard to use correctly, unreliable, painful to "
+"debug, incomprehensible for most people, poor support for non-Unix platforms "
+"(especially Windows)."
+msgstr ""
+
+#. type: Plain text
+#: Comparisons.md:28
+msgid "## CMake"
+msgstr ""
+
+#. type: Plain text
+#: Comparisons.md:32
+msgid "Great support for multiple backends (Visual Studio, XCode, etc)."
+msgstr ""
+
+#. type: Plain text
+#: Comparisons.md:37
+msgid ""
+"The scripting language is cumbersome to work with. Some simple things are "
+"more complicated than necessary."
+msgstr ""
+
+#. type: Plain text
+#: Comparisons.md:39
+msgid "## SCons"
+msgstr ""
+
+#. type: Plain text
+#: Comparisons.md:43
+msgid "Full power of Python available for defining your build."
+msgstr ""
+
+#. type: Plain text
+#: Comparisons.md:51
+msgid ""
+"Slow. Requires you to pass your configuration settings on every invocation. "
+"That is, if you do `scons OPT1 OPT2` and then just `scons`, it will "
+"reconfigure everything without settings `OPT1` and `OPT2`. Every other build "
+"system remembers build options from the previous invocation."
+msgstr ""
+
+#. type: Plain text
+#: Comparisons.md:53
+msgid "## Bazel"
+msgstr ""
+
+#. type: Plain text
+#: Comparisons.md:57
+msgid "Proven to scale to very large projects."
+msgstr ""
+
+#. type: Plain text
+#: Comparisons.md:63
+msgid ""
+"Implemented in Java. Poor Windows support. Heavily focused on Google's way "
+"of doing things (which may be a good or a bad thing). Contributing code "
+"requires [signing a CLA](https://bazel.build/contributing.html)."
+msgstr ""
+
+#. type: Plain text
+#: Comparisons.md:65
+msgid "## Meson"
+msgstr ""
+
+#. type: Plain text
+#: Comparisons.md:73
+msgid ""
+"The fastest build system [see measurements](Performance-comparison.md), user "
+"friendly, designed to be as invisible to the developer as possible, native "
+"support for modern tools (precompiled headers, coverage, Valgrind etc). Not "
+"Turing complete so build definition files are easy to read and understand."
+msgstr ""
+
+#. type: Plain text
+#: Comparisons.md:78
+msgid ""
+"Relatively new so it does not have a large user base yet, and may thus "
+"contain some unknown bugs. Visual Studio and XCode backends not as high "
+"quality as Ninja one."
+msgstr ""

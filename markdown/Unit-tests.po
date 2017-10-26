@@ -1,0 +1,296 @@
+# Japanese translations for PACKAGE package
+# Copyright (C) 2017 Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2017-09-30 21:44+0900\n"
+"PO-Revision-Date: 2017-09-30 21:44+0900\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: matsuand個人翻訳\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. type: Plain text
+#: Unit-tests.md:1
+#, no-wrap
+msgid "---\n"
+msgstr ""
+
+#. type: Plain text
+#: Unit-tests.md:4
+msgid "short-description: Meson's own unit-test system ..."
+msgstr "short-description: Meson's own unit-test system\n..."
+
+#. type: Plain text
+#: Unit-tests.md:6
+msgid "# Unit tests"
+msgstr "# ユニットテスト"
+
+#. type: Plain text
+#: Unit-tests.md:8
+msgid ""
+"Meson comes with a fully functional unit test system. To use it simply build "
+"an executable and then use it in a test."
+msgstr ""
+
+#. type: Plain text
+#: Unit-tests.md:13
+msgid ""
+"```meson e = executable('prog', 'testprog.c')  test('name of test', e)  ```"
+msgstr ""
+"```meson\ne = executable('prog', 'testprog.c') \ntest('name of test', e) \n```"
+
+#. type: Plain text
+#: Unit-tests.md:15
+msgid ""
+"You can add as many tests as you want. They are run with the command `ninja "
+"test`."
+msgstr ""
+
+#. type: Plain text
+#: Unit-tests.md:17
+msgid ""
+"Meson captures the output of all tests and writes it in the log file `meson-"
+"logs/testlog.txt`."
+msgstr ""
+
+#. type: Plain text
+#: Unit-tests.md:19
+#, no-wrap
+msgid ""
+"Test parameters\n"
+"--\n"
+msgstr ""
+"テストパラメーター\n"
+"--\n"
+
+#. type: Plain text
+#: Unit-tests.md:22
+msgid ""
+"Some tests require the use of command line arguments or environment "
+"variables. These are simple to define."
+msgstr ""
+
+#. type: Plain text
+#: Unit-tests.md:27
+msgid ""
+"```meson test('command line test', exe, args : ['first', 'second'])  "
+"test('envvar test', exe2, env : ['key1=value1', 'key2=value2'])  ```"
+msgstr ""
+"```meson\ntest('command line test', exe, args : ['first', 'second']) \n"
+"test('envvar test', exe2, env : ['key1=value1', 'key2=value2']) \n```"
+
+#. type: Plain text
+#: Unit-tests.md:29
+msgid "Note how you need to specify multiple values as an array."
+msgstr ""
+
+#. type: Plain text
+#: Unit-tests.md:31
+#, no-wrap
+msgid ""
+"Coverage\n"
+"--\n"
+msgstr ""
+
+#. type: Plain text
+#: Unit-tests.md:34
+msgid ""
+"If you enable coverage measurements by giving Meson the command line flag `-"
+"Db_coverage=true`, you can generate coverage reports. Meson will autodetect "
+"what coverage generator tools you have installed and will generate the "
+"corresponding targets. These targets are `coverage-xml` and `coverage-text` "
+"which are both provided by [Gcovr](http://gcovr.com) and `coverage-html`, "
+"which requires [Lcov](https://ltp.sourceforge.io/coverage/lcov.php) and "
+"[GenHTML](https://linux.die.net/man/1/genhtml)."
+msgstr ""
+
+#. type: Plain text
+#: Unit-tests.md:36
+msgid ""
+"The output of these commands is written to the log directory `meson-logs` in "
+"your build directory."
+msgstr ""
+
+#. type: Plain text
+#: Unit-tests.md:38
+#, no-wrap
+msgid ""
+"Parallelism\n"
+"--\n"
+msgstr ""
+
+#. type: Plain text
+#: Unit-tests.md:41
+msgid ""
+"To reduce test times, Meson will by default run multiple unit tests in "
+"parallel. It is common to have some tests which can not be run in parallel "
+"because they require unique hold on some resource such as a file or a D-Bus "
+"name. You have to specify these tests with a keyword argument."
+msgstr ""
+
+#. type: Plain text
+#: Unit-tests.md:45
+msgid "```meson test('unique test', t, is_parallel : false)  ```"
+msgstr "```meson\ntest('unique test', t, is_parallel : false) \n```"
+
+#. type: Plain text
+#: Unit-tests.md:47
+msgid ""
+"Meson will then make sure that no other unit test is running at the same "
+"time. Non-parallel tests take longer to run so it is recommended that you "
+"write your unit tests to be parallel executable whenever possible."
+msgstr ""
+
+#. type: Plain text
+#: Unit-tests.md:49
+msgid ""
+"By default Meson uses as many concurrent processes as there are cores on the "
+"test machine. You can override this with the environment variable "
+"`MESON_TESTTHREADS` like this."
+msgstr ""
+
+#. type: Plain text
+#: Unit-tests.md:53
+msgid "```console $ MESON_TESTTHREADS=5 ninja test ```"
+msgstr "```console\n$ MESON_TESTTHREADS=5 ninja test\n```"
+
+#. type: Plain text
+#: Unit-tests.md:55
+msgid "## Skipped tests"
+msgstr ""
+
+#. type: Plain text
+#: Unit-tests.md:57
+msgid ""
+"Sometimes a test can only determine at runtime that it can not be run. The "
+"GNU standard approach in this case is to exit the program with error code "
+"77. Meson will detect this and report these tests as skipped rather than "
+"failed. This behavior was added in version 0.37.0."
+msgstr ""
+
+#. type: Plain text
+#: Unit-tests.md:59
+msgid "## Testing tool"
+msgstr "## テストツール"
+
+#. type: Plain text
+#: Unit-tests.md:61
+msgid ""
+"The goal of the meson test tool is to provide a simple way to run tests in a "
+"variety of different ways. The tool is designed to be run in the build "
+"directory."
+msgstr ""
+
+#. type: Plain text
+#: Unit-tests.md:63
+msgid ""
+"The simplest thing to do is just to run all tests, which is equivalent to "
+"running `ninja test`."
+msgstr ""
+
+#. type: Plain text
+#: Unit-tests.md:67
+msgid "```console $ meson test ```"
+msgstr "```console\n$ meson test\n```"
+
+#. type: Plain text
+#: Unit-tests.md:69
+msgid "You can also run only a single test by giving its name:"
+msgstr ""
+
+#. type: Plain text
+#: Unit-tests.md:73
+msgid "```console $ meson test testname ```"
+msgstr "```console\n$ meson test testname\n```"
+
+#. type: Plain text
+#: Unit-tests.md:75
+msgid ""
+"Sometimes you need to run the tests multiple times, which is done like this:"
+msgstr ""
+
+#. type: Plain text
+#: Unit-tests.md:79
+msgid "```console $ meson test --repeat=10 ```"
+msgstr "```console\n$ meson test --repeat=10\n```"
+
+#. type: Plain text
+#: Unit-tests.md:81
+msgid ""
+"Invoking tests via a helper executable such as Valgrind can be done with the "
+"`--wrap` argument"
+msgstr ""
+
+#. type: Plain text
+#: Unit-tests.md:85
+msgid "```console $ meson test --wrap=valgrind testname ```"
+msgstr "```console\n$ meson test --wrap=valgrind testname\n```"
+
+#. type: Plain text
+#: Unit-tests.md:87
+msgid "Arguments to the wrapper binary can be given like this:"
+msgstr ""
+
+#. type: Plain text
+#: Unit-tests.md:91
+msgid "```console $ meson test --wrap='valgrind --tool=helgrind' testname ```"
+msgstr "```console\n$ meson test --wrap='valgrind --tool=helgrind' testname\n```"
+
+#. type: Plain text
+#: Unit-tests.md:93
+msgid "Meson also supports running the tests under GDB. Just doing this:"
+msgstr ""
+
+#. type: Plain text
+#: Unit-tests.md:97
+msgid "```console $ meson test --gdb testname ```"
+msgstr "```console\n$ meson test --gdb testname\n```"
+
+#. type: Plain text
+#: Unit-tests.md:99
+msgid ""
+"Mesontest will launch `gdb` all set up to run the test. Just type `run` in "
+"the GDB command prompt to start the program."
+msgstr ""
+
+#. type: Plain text
+#: Unit-tests.md:101
+msgid ""
+"The second use case is a test that segfaults only rarely. In this case you "
+"can invoke the following command:"
+msgstr ""
+
+#. type: Plain text
+#: Unit-tests.md:105
+msgid "```console $ meson test --gdb --repeat=10000 testname ```"
+msgstr "```console\n$ meson test --gdb --repeat=10000 testname\n```"
+
+#. type: Plain text
+#: Unit-tests.md:107
+msgid ""
+"This runs the test up to 10 000 times under GDB automatically. If the "
+"program crashes, GDB will halt and the user can debug the application. Note "
+"that testing timeouts are disabled in this case so mesontest will not kill "
+"`gdb` while the developer is still debugging it. The downside is that if the "
+"test binary freezes, the test runner will wait forever."
+msgstr ""
+
+#. type: Plain text
+#: Unit-tests.md:109
+msgid ""
+"For further information see the command line help of Mesontest by running "
+"`mesontest -h`."
+msgstr ""
+
+#. type: Plain text
+#: Unit-tests.md:110
+#, no-wrap
+msgid "**NOTE:** If `meson test` does not work for you, you likely have a old version of Meson. In that case you should call `mesontest` instead. If `mesontest` doesn't work either you have a very old version prior to 0.37.0 and should upgrade.\n"
+msgstr ""

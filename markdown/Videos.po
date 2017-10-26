@@ -1,0 +1,111 @@
+# Japanese translations for PACKAGE package
+# Copyright (C) 2017 Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2017-09-30 21:44+0900\n"
+"PO-Revision-Date: 2017-09-30 21:44+0900\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: matsuand個人翻訳\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. type: Plain text
+#: Videos.md:1
+#, no-wrap
+msgid "---\n"
+msgstr ""
+
+#. type: Plain text
+#: Videos.md:4
+msgid "short-description: Videos about Meson ..."
+msgstr ""
+
+#. type: Plain text
+#: Videos.md:6
+msgid "# Videos"
+msgstr ""
+
+#. type: Plain text
+#: Videos.md:8
+msgid "## An overview of meson"
+msgstr ""
+
+#. type: Plain text
+#: Videos.md:10
+msgid "(from Linux.conf.au 2015 -- Auckland, New Zealand)"
+msgstr ""
+
+#. type: Plain text
+#: Videos.md:14
+msgid ""
+"<div class=\"video-container\"> <iframe width=\"854\" height=\"480\" style="
+"\"border:0;\" src=\"https://www.youtube.com/embed/KPi0AuVpxLI\" "
+"allowfullscreen></iframe> </div>"
+msgstr ""
+
+#. type: Plain text
+#: Videos.md:16
+msgid ""
+"## Talks about design, goals behind Meson's multiplatform dependency system "
+"was held"
+msgstr ""
+
+#. type: Plain text
+#: Videos.md:18
+msgid "(From Linux.conf.au 2016 -- Geelong, Australia)"
+msgstr ""
+
+#. type: Plain text
+#: Videos.md:22
+msgid ""
+"<div class=\"video-container\"> <iframe width=\"854\" height=\"480\" style="
+"\"border:0;\" src=\"https://www.youtube.com/embed/CTJtKtQ8R5k\" "
+"allowfullscreen></iframe> </div>"
+msgstr ""
+
+#. type: Plain text
+#: Videos.md:24
+msgid ""
+"## Features and benefits of Meson's multiplatform support for building and "
+"dependencies]"
+msgstr ""
+
+#. type: Plain text
+#: Videos.md:26
+msgid ""
+"(Libre Application Summit 2016 talk _New world, new tools_ explored further)"
+msgstr ""
+
+#. type: Plain text
+#: Videos.md:30
+msgid ""
+"<div class=\"video-container\"> <iframe width=\"854\" height=\"480\" style="
+"\"border:0;\" src=\"https://www.youtube.com/embed/0-gx1qU2pPo\" "
+"allowfullscreen></iframe> </div>"
+msgstr ""
+
+#. type: Plain text
+#: Videos.md:32
+msgid "## The first ever public presentation on Meson"
+msgstr ""
+
+#. type: Plain text
+#: Videos.md:34
+msgid "(lightning talk at FOSDEM 2014)"
+msgstr ""
+
+#. type: Plain text
+#: Videos.md:37
+#, no-wrap
+msgid ""
+"<video width=\"854\" height=\"480\" controls>\n"
+"  <source src=http://mirror.onet.pl/pub/mirrors/video.fosdem.org/2014/H2215_Ferrer/Sunday/Introducing_the_Meson_build_system.webm>\n"
+"</video>\n"
+msgstr ""

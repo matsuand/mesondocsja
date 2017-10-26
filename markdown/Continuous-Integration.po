@@ -1,0 +1,231 @@
+# Japanese translations for PACKAGE package
+# Copyright (C) 2017 Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2017-09-30 21:43+0900\n"
+"PO-Revision-Date: 2017-09-30 21:43+0900\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: matsuand個人翻訳\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. type: Plain text
+#: Continuous-Integration.md:2
+msgid "# Continuous Integration"
+msgstr ""
+
+#. type: Plain text
+#: Continuous-Integration.md:5
+msgid ""
+"Here you will find snippets to use Meson with various CI such as Travis and "
+"AppVeyor."
+msgstr ""
+
+#. type: Plain text
+#: Continuous-Integration.md:8
+msgid ""
+"Please [file an issue](https://github.com/mesonbuild/meson/issues/new)  if "
+"these instructions don't work for you."
+msgstr ""
+
+#. type: Plain text
+#: Continuous-Integration.md:10
+msgid "## Travis for OS X and Linux (with Docker)"
+msgstr ""
+
+#. type: Plain text
+#: Continuous-Integration.md:15
+msgid ""
+"Travis for Linux provides ancient versions of Ubuntu which will likely cause "
+"problems building your projects regardless of which build system you're "
+"using. We recommend using Docker to get a more-recent version of Ubuntu and "
+"installing Ninja, Python3, and Meson inside it."
+msgstr ""
+
+#. type: Plain text
+#: Continuous-Integration.md:19
+msgid ""
+"This `yml` file is derived from the [configuration used by Meson for running "
+"its own tests](https://github.com/mesonbuild/meson/blob/master/.travis.yml)."
+msgstr ""
+
+#. type: Plain text
+#: Continuous-Integration.md:22
+msgid "```yaml sudo: false"
+msgstr ""
+
+#. type: Plain text
+#: Continuous-Integration.md:26
+#, no-wrap
+msgid ""
+"os:\n"
+"  - linux\n"
+"  - osx\n"
+msgstr ""
+
+#. type: Plain text
+#: Continuous-Integration.md:29
+#, no-wrap
+msgid ""
+"language:\n"
+"  - cpp\n"
+msgstr ""
+
+#. type: Plain text
+#: Continuous-Integration.md:32
+#, no-wrap
+msgid ""
+"services:\n"
+"  - docker\n"
+msgstr ""
+
+#. type: Plain text
+#: Continuous-Integration.md:38
+#, no-wrap
+msgid ""
+"before_install:\n"
+"  - if [[ \"$TRAVIS_OS_NAME\" == \"osx\" ]]; then brew update; fi\n"
+"  - if [[ \"$TRAVIS_OS_NAME\" == \"osx\" ]]; then brew install ninja python3; fi\n"
+"  - if [[ \"$TRAVIS_OS_NAME\" == \"osx\" ]]; then pip3 install meson; fi\n"
+"  - if [[ \"$TRAVIS_OS_NAME\" == \"linux\" ]]; then docker pull YOUR/REPO:yakkety; fi\n"
+msgstr ""
+
+#. type: Plain text
+#: Continuous-Integration.md:46
+#, no-wrap
+msgid ""
+"script:\n"
+"  - if [[ \"$TRAVIS_OS_NAME\" == \"linux\" ]]; then echo FROM YOUR/REPO:yakkety > Dockerfile; fi\n"
+"  - if [[ \"$TRAVIS_OS_NAME\" == \"linux\" ]]; then echo ADD . /root >> Dockerfile; fi\n"
+"  - if [[ \"$TRAVIS_OS_NAME\" == \"linux\" ]]; then docker build -t withgit .; fi\n"
+"  - if [[ \"$TRAVIS_OS_NAME\" == \"linux\" ]]; then docker run withgit /bin/sh -c \"cd /root && TRAVIS=true CC=$CC CXX=$CXX meson builddir && ninja -C builddir test\"; fi\n"
+"  - if [[ \"$TRAVIS_OS_NAME\" == \"osx\" ]]; then SDKROOT=$(xcodebuild -version -sdk macosx Path) meson builddir && ninja -C builddir test; fi\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: Continuous-Integration.md:48
+msgid "## AppVeyor for Windows"
+msgstr ""
+
+#. type: Plain text
+#: Continuous-Integration.md:51
+msgid ""
+"For CI on Windows, [AppVeyor](https://www.appveyor.com/) is probably your "
+"best bet. Here's a sample `yml` file for use with that."
+msgstr ""
+
+#. type: Plain text
+#: Continuous-Integration.md:54
+msgid "```yaml os: Visual Studio 2015"
+msgstr ""
+
+#. type: Plain text
+#: Continuous-Integration.md:62
+#, no-wrap
+msgid ""
+"matrix:\n"
+"  - arch: x86\n"
+"    compiler: msvc2010\n"
+"  - arch: x86\n"
+"    compiler: msvc2015\n"
+"  - arch: x64\n"
+"    compiler: msvc2015\n"
+msgstr ""
+
+#. type: Plain text
+#: Continuous-Integration.md:65
+#, no-wrap
+msgid ""
+"platform:\n"
+"  - x64\n"
+msgstr ""
+
+#. type: Plain text
+#: Continuous-Integration.md:75
+#, no-wrap
+msgid ""
+"install:\n"
+"  # Use the x86 python only when building for x86 for the cpython tests.\n"
+"  # For all other archs (including, say, arm), use the x64 python.\n"
+"  - ps: (new-object net.webclient).DownloadFile('https://dl.dropboxusercontent.com/u/37517477/ninja.exe', 'C:\\projects\\meson\\ninja.exe')\n"
+"  - cmd: if %arch%==x86 (set MESON_PYTHON_PATH=C:\\python34) else (set MESON_PYTHON_PATH=C:\\python34-x64)\n"
+"  - cmd: echo Using Python at %MESON_PYTHON_PATH%\n"
+"  - cmd: %MESON_PYTHON_PATH%\\pip install meson\n"
+"  - cmd: if %compiler%==msvc2010 ( call \"C:\\Program Files (x86)\\Microsoft Visual Studio 10.0\\VC\\vcvarsall.bat\" %arch% )\n"
+"  - cmd: if %compiler%==msvc2015 ( call \"C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\vcvarsall.bat\" %arch% )\n"
+msgstr ""
+
+#. type: Plain text
+#: Continuous-Integration.md:80
+#, no-wrap
+msgid ""
+"build_script:\n"
+"  - cmd: echo Building on %arch% with %compiler%\n"
+"  - cmd: PATH=%cd%;%MESON_PYTHON_PATH%;%PATH%; && python meson.py --backend=ninja builddir\n"
+"  - cmd: PATH=%cd%;%MESON_PYTHON_PATH%;%PATH%; && ninja -C builddir\n"
+msgstr ""
+
+#. type: Plain text
+#: Continuous-Integration.md:84
+#, no-wrap
+msgid ""
+"test_script:\n"
+"  - cmd: PATH=%cd%;%MESON_PYTHON_PATH%;%PATH%; && ninja -C builddir test\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: Continuous-Integration.md:86
+msgid "## Travis without Docker"
+msgstr ""
+
+#. type: Plain text
+#: Continuous-Integration.md:88
+msgid "This setup is not recommended but included here for completeness"
+msgstr ""
+
+#. type: Plain text
+#: Continuous-Integration.md:93
+msgid "```yaml sudo: false language: cpp group: beta"
+msgstr ""
+
+#. type: Plain text
+#: Continuous-Integration.md:99
+#, no-wrap
+msgid ""
+"matrix:\n"
+"  include:\n"
+"    - os: linux\n"
+"      dist: trusty\n"
+"    - os: osx\n"
+msgstr ""
+
+#. type: Plain text
+#: Continuous-Integration.md:105
+#, no-wrap
+msgid ""
+"install:\n"
+"  - export PATH=\"`pwd`/build:${PATH}\"\n"
+"  - if [[ \"$TRAVIS_OS_NAME\" == \"osx\" ]]; then brew update && brew install python3 ninja; fi\n"
+"  - if [[ \"$TRAVIS_OS_NAME\" == \"linux\" ]]; then wget https://github.com/ninja-build/ninja/releases/download/v1.7.2/ninja-linux.zip && unzip -q ninja-linux.zip -d build; fi\n"
+"  - pip3 install meson\n"
+msgstr ""
+
+#. type: Plain text
+#: Continuous-Integration.md:110
+#, no-wrap
+msgid ""
+"script:\n"
+"  - meson builddir\n"
+"  - ninja -C builddir\n"
+"  - ninja -C builddir test\n"
+"```\n"
+msgstr ""

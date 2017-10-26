@@ -1,0 +1,117 @@
+# Japanese translations for PACKAGE package
+# Copyright (C) 2017 Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2017-09-30 21:44+0900\n"
+"PO-Revision-Date: 2017-09-30 21:44+0900\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: matsuand個人翻訳\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. type: Plain text
+#: Trial-conversions.md:1
+#, no-wrap
+msgid "---\n"
+msgstr ""
+
+#. type: Plain text
+#: Trial-conversions.md:4
+msgid "title: Trial conversions ..."
+msgstr ""
+
+#. type: Plain text
+#: Trial-conversions.md:6
+msgid "# Trial conversions of existing projects"
+msgstr ""
+
+#. type: Plain text
+#: Trial-conversions.md:8
+msgid ""
+"To verify Meson's suitability for different types of projects, its "
+"developers do experimental build system conversions. In all simplicity it "
+"means that random projects are chosen and their build system is rewritten in "
+"Meson. Usually these are not fully polished ports, but should contain most "
+"of the work necessary to use Meson as the new build system."
+msgstr ""
+
+#. type: Plain text
+#: Trial-conversions.md:10
+msgid "Here is a list of projects that have had a build system port done."
+msgstr ""
+
+#. type: Bullet: '* '
+#: Trial-conversions.md:19
+msgid ""
+"[Python 3](https://mail.python.org/pipermail/python-dev/2013-June/126748."
+"html)"
+msgstr ""
+
+#. type: Bullet: '* '
+#: Trial-conversions.md:19
+msgid ""
+"[Glib](https://mail.gnome.org/archives/gtk-devel-list/2013-August/msg00001."
+"html)"
+msgstr ""
+
+#. type: Bullet: '* '
+#: Trial-conversions.md:19
+msgid ""
+"[QtCreator](http://lists.qt-project.org/pipermail/qt-creator/2014-May/003584."
+"html), and a [followup](http://lists.qt-project.org/pipermail/qt-"
+"creator/2014-May/003598.html) on unity builds"
+msgstr ""
+
+#. type: Bullet: '* '
+#: Trial-conversions.md:19
+msgid ""
+"[SDL 2](https://forums.libsdl.org/viewtopic.php?"
+"t=10093&sid=8cf1d6c83d4d73fe6cfbb7cbb16b3d28)"
+msgstr ""
+
+#. type: Bullet: '* '
+#: Trial-conversions.md:19
+msgid ""
+"[Mesa3D](https://lists.freedesktop.org/archives/mesa-dev/2014-July/064160."
+"html)"
+msgstr ""
+
+#. type: Bullet: '* '
+#: Trial-conversions.md:19
+msgid ""
+"[Mame](http://www.mameworld.info/ubbthreads/showthreaded.php?"
+"Cat=&Number=332119&page=0&view=expanded&sb=5&o=&fpart=1&vc=1)"
+msgstr ""
+
+#. type: Bullet: '* '
+#: Trial-conversions.md:19
+msgid ""
+"[Firefox NSPR](https://groups.google.com/forum/#!topic/mozilla.dev.builds/"
+"daS3DK2F1MQ)"
+msgstr ""
+
+#. type: Bullet: '* '
+#: Trial-conversions.md:19
+msgid ""
+"[Wayland](https://lists.freedesktop.org/archives/wayland-devel/2015-"
+"February/020124.html)"
+msgstr ""
+
+#. type: Plain text
+#: Trial-conversions.md:21
+msgid "## More from WrapDB"
+msgstr ""
+
+#. type: Plain text
+#: Trial-conversions.md:22
+msgid ""
+"The [Meson Wrap database](https://wrapdb.mesonbuild.com) contains several "
+"projects that have been converted into Meson and are ready to use."
+msgstr ""

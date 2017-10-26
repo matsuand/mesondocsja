@@ -1,0 +1,392 @@
+# Japanese translations for PACKAGE package
+# Copyright (C) 2017 Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2017-09-30 21:43+0900\n"
+"PO-Revision-Date: 2017-09-30 21:43+0900\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: matsuand個人翻訳\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. type: Plain text
+#: Compiler-properties.md:2
+msgid "# Compiler properties"
+msgstr ""
+
+#. type: Plain text
+#: Compiler-properties.md:7
+msgid ""
+"Not all compilers and platforms are alike. Therefore Meson provides the "
+"tools to detect properties of the system during configure time. To get most "
+"of this information, you first need to extract the *compiler object* from "
+"the main *meson* variable."
+msgstr ""
+
+#. type: Plain text
+#: Compiler-properties.md:11
+msgid "```meson compiler = meson.get_compiler('c')  ```"
+msgstr ""
+
+#. type: Plain text
+#: Compiler-properties.md:17
+msgid ""
+"Here we extract the C compiler. We could also have given the argument `cpp` "
+"to get the C++ compiler, `objc` to get the objective C compiler and so on. "
+"The call is valid for all languages specified in the *project* declaration. "
+"Trying to obtain some other compiler will lead to an unrecoverable error."
+msgstr ""
+
+#. type: Plain text
+#: Compiler-properties.md:19
+msgid "## System information"
+msgstr ""
+
+#. type: Plain text
+#: Compiler-properties.md:23
+msgid ""
+"This is a bit complex and more thoroughly explained on the page on [cross "
+"compilation](Cross-compilation.md). But if you just want to know the "
+"operating system your code will run on, issue this command:"
+msgstr ""
+
+#. type: Plain text
+#: Compiler-properties.md:27
+msgid "```meson host_machine.system()  ```"
+msgstr ""
+
+#. type: Plain text
+#: Compiler-properties.md:29
+#, no-wrap
+msgid ""
+"Compiler id\n"
+"==\n"
+msgstr ""
+
+#. type: Plain text
+#: Compiler-properties.md:35
+msgid ""
+"The compiler object has a method called `get_id`, which returns a lower case "
+"string describing the \"family\" of the compiler. See [reference tables]"
+"(Reference-tables.md) for a list of supported compiler ids."
+msgstr ""
+
+#. type: Plain text
+#: Compiler-properties.md:37
+#, no-wrap
+msgid ""
+"Does code compile?\n"
+"==\n"
+msgstr ""
+
+#. type: Plain text
+#: Compiler-properties.md:42
+msgid ""
+"Sometimes the only way to test the system is to try to compile some sample "
+"code and see if it works. This is a two-phase operation. First we define "
+"some code using the multiline string operator:"
+msgstr ""
+
+#. type: Plain text
+#: Compiler-properties.md:48 Compiler-properties.md:73
+msgid ""
+"```meson code = '''#include<stdio.h> void func() { printf(\"Compile me.\\n"
+"\"); } ''' ```"
+msgstr ""
+
+#. type: Plain text
+#: Compiler-properties.md:50 Compiler-properties.md:75
+msgid "Then we can run the test."
+msgstr ""
+
+#. type: Plain text
+#: Compiler-properties.md:54
+msgid "```meson result = compiler.compiles(code, name : 'basic check')  ```"
+msgstr ""
+
+#. type: Plain text
+#: Compiler-properties.md:59
+msgid ""
+"The variable *result* will now contain either `true` or `false` depending on "
+"whether the compilation succeeded or not. The keyword argument `name` is "
+"optional. If it is specified, Meson will write the result of the check to "
+"its log."
+msgstr ""
+
+#. type: Plain text
+#: Compiler-properties.md:61
+#, no-wrap
+msgid ""
+"Does code compile and link?\n"
+"==\n"
+msgstr ""
+
+#. type: Plain text
+#: Compiler-properties.md:67
+msgid ""
+"Sometimes it is necessary to check whether a certain code fragment not only "
+"compiles, but also links successfully, e.g. to check if a symbol is actually "
+"present in a library. This can be done using the '''.links()''' method on a "
+"compiler object like this:"
+msgstr ""
+
+#. type: Plain text
+#: Compiler-properties.md:79
+msgid ""
+"```meson result = compiler.links(code, args : '-lfoo', name : 'link check')  "
+"```"
+msgstr ""
+
+#. type: Plain text
+#: Compiler-properties.md:84
+msgid ""
+"The variable *result* will now contain either `true` or `false` depending on "
+"whether the compilation and linking succeeded or not. The keyword argument "
+"`name` is optional. If it is specified, Meson will write the result of the "
+"check to its log."
+msgstr ""
+
+#. type: Plain text
+#: Compiler-properties.md:87
+#, no-wrap
+msgid ""
+"Compile and run test application\n"
+"==\n"
+msgstr ""
+
+#. type: Plain text
+#: Compiler-properties.md:90
+msgid "Here is how you would compile and run a small test application."
+msgstr ""
+
+#. type: Plain text
+#: Compiler-properties.md:101
+#, no-wrap
+msgid ""
+"```meson\n"
+"code = '''#include<stdio.h>\n"
+"int main(int argc, char **argv) {\n"
+"  printf(\"%s\\n\", \"stdout\");\n"
+"  fprintf(stderr, \"%s\\n\", \"stderr\");\n"
+"  return 0;\n"
+"}\n"
+"'''\n"
+"result = compiler.run(code, name : 'basic check')\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: Compiler-properties.md:105
+msgid ""
+"The `result` variable encapsulates the state of the test, which can be "
+"extracted with the following methods. The `name` keyword argument works the "
+"same as with `compiles`."
+msgstr ""
+
+#. type: Plain text
+#: Compiler-properties.md:112
+#, no-wrap
+msgid ""
+"| Method     | Return value                                                                                |\n"
+"| ------     | ------------                                                                                |\n"
+"| compiled   | `True` if compilation succeeded. If `false` then all other methods return undefined values. |\n"
+"| returncode | The return code of the application as an integer                                            |\n"
+"| stdout     | Program's standard out as text.                                                             |\n"
+"| stderr     | Program's standard error as text.                                                           |\n"
+msgstr ""
+
+#. type: Plain text
+#: Compiler-properties.md:114
+msgid "Here is an example usage:"
+msgstr ""
+
+#. type: Plain text
+#: Compiler-properties.md:120
+#, no-wrap
+msgid ""
+"```meson\n"
+"if result.stdout().strip() == 'some_value'\n"
+"  # do something\n"
+"endif\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: Compiler-properties.md:123
+#, no-wrap
+msgid ""
+"Does a header exist?\n"
+"==\n"
+msgstr ""
+
+#. type: Plain text
+#: Compiler-properties.md:130
+msgid ""
+"Header files provided by different platforms vary quite a lot. Meson has "
+"functionality to detect whether a given header file is available on the "
+"system. The test is done by trying to compile a simple test program that "
+"includes the specified header. The following snippet describes how this "
+"feature can be used."
+msgstr ""
+
+#. type: Plain text
+#: Compiler-properties.md:136
+#, no-wrap
+msgid ""
+"```meson\n"
+"if compiler.has_header('sys/fstat.h')\n"
+"  # header exists, do something\n"
+"endif\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: Compiler-properties.md:138
+#, no-wrap
+msgid ""
+"Expression size\n"
+"==\n"
+msgstr ""
+
+#. type: Plain text
+#: Compiler-properties.md:143
+msgid ""
+"Often you need to determine the size of a particular element (such as `int`, "
+"`wchar_t` or `char*`). Using the `compiler` variable mentioned above, the "
+"check can be done like this."
+msgstr ""
+
+#. type: Plain text
+#: Compiler-properties.md:147
+msgid ""
+"```meson wcharsize = compiler.sizeof('wchar_t', prefix : '#include<wchar."
+"h>')  ```"
+msgstr ""
+
+#. type: Plain text
+#: Compiler-properties.md:153
+msgid ""
+"This will put the size of `wchar_t` as reported by sizeof into variable "
+"`wcharsize`. The keyword argument `prefix` is optional. If specified its "
+"contents is put at the top of the source file. This argument is typically "
+"used for setting `#include` directives in configuration files."
+msgstr ""
+
+#. type: Plain text
+#: Compiler-properties.md:157
+msgid ""
+"In older versions (<= 0.30) meson would error out if the size could not be "
+"determined. Since version 0.31 it returns -1 if the size could not be "
+"determined."
+msgstr ""
+
+#. type: Plain text
+#: Compiler-properties.md:159
+#, no-wrap
+msgid ""
+"Does a function exist?\n"
+"==\n"
+msgstr ""
+
+#. type: Plain text
+#: Compiler-properties.md:165
+msgid ""
+"Just having a header doesn't say anything about its contents. Sometimes you "
+"need to explicitly check if some function exists. This is how we would check "
+"whether the function `somefunc` exists in header `someheader.h`"
+msgstr ""
+
+#. type: Plain text
+#: Compiler-properties.md:171
+#, no-wrap
+msgid ""
+"```meson\n"
+"if compiler.has_function('somefunc', prefix : '#include<someheader.h>')\n"
+"  # function exists, do whatever is required.\n"
+"endif\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: Compiler-properties.md:173
+#, no-wrap
+msgid ""
+"Does a structure contain a member?\n"
+"==\n"
+msgstr ""
+
+#. type: Plain text
+#: Compiler-properties.md:178
+msgid ""
+"Some platforms have different standard structures. Here's how one would "
+"check if a struct called `mystruct` from header `myheader.h</hh> contains a "
+"member called `some_member`."
+msgstr ""
+
+#. type: Plain text
+#: Compiler-properties.md:184
+#, no-wrap
+msgid ""
+"```meson\n"
+"if compiler.has_member('struct mystruct', 'some_member', prefix : '#include<myheader.h>')\n"
+"  # member exists, do whatever is required\n"
+"endif\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: Compiler-properties.md:186
+#, no-wrap
+msgid ""
+"Type alignment\n"
+"==\n"
+msgstr ""
+
+#. type: Plain text
+#: Compiler-properties.md:192
+msgid ""
+"Most platforms can't access some data types at any address. For example it "
+"is common that a `char` can be at any address but a 32 bit integer only at "
+"locations which are divisible by four. Determining the alignment of data "
+"types is simple."
+msgstr ""
+
+#. type: Plain text
+#: Compiler-properties.md:196
+msgid ""
+"```meson int_alignment = compiler.alignment('int') # Will most likely "
+"contain the value 4.  ```"
+msgstr ""
+
+#. type: Plain text
+#: Compiler-properties.md:198
+msgid "## Has argument"
+msgstr ""
+
+#. type: Plain text
+#: Compiler-properties.md:202
+msgid ""
+"This method tests if the compiler supports a given command line argument. "
+"This is implemented by compiling a small file with the given argument."
+msgstr ""
+
+#. type: Plain text
+#: Compiler-properties.md:206
+msgid ""
+"```meson has_special_flags = compiler.has_argument('-Wspecialthing')  ```"
+msgstr ""
+
+#. type: Plain text
+#: Compiler-properties.md:208
+#, no-wrap
+msgid ""
+"*Note*: some compilers silently swallow command line arguments they do\n"
+"not understand. Thus this test can not be made 100% reliable.\n"
+msgstr ""

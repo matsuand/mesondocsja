@@ -1,0 +1,75 @@
+# Japanese translations for PACKAGE package
+# Copyright (C) 2017 Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2017-09-30 21:44+0900\n"
+"PO-Revision-Date: 2017-09-30 21:44+0900\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: matsuand個人翻訳\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. type: Plain text
+#: Using-with-Visual-Studio.md:1
+#, no-wrap
+msgid "---\n"
+msgstr ""
+
+#. type: Plain text
+#: Using-with-Visual-Studio.md:4
+msgid "short-description: How to use meson in Visual Studio ..."
+msgstr "short-description: Visual Studio での Meson の利用\n..."
+
+#. type: Plain text
+#: Using-with-Visual-Studio.md:6
+msgid "# Using with Visual Studio"
+msgstr "# Visual Studio での利用"
+
+#. type: Plain text
+#: Using-with-Visual-Studio.md:8
+msgid ""
+"In order to generate Visual Studio projects, Meson needs to know the "
+"settings of your installed version of Visual Studio. The only way to get "
+"this information is to run Meson under the Visual Studio Command Prompt. The "
+"steps to set it up are as follows:"
+msgstr ""
+
+#. type: Bullet: '1. '
+#: Using-with-Visual-Studio.md:13
+msgid "Click on start menu and select \"Visual Studio 2015 Command Prompt\""
+msgstr "スタートメニューから \"Visual Studio 2015 コマンドプロンプト\" を実行"
+
+#. type: Bullet: '1. '
+#: Using-with-Visual-Studio.md:13
+msgid "cd into your source directory"
+msgstr "cd によりソースディレクトリへ移動"
+
+#. type: Bullet: '1. '
+#: Using-with-Visual-Studio.md:13
+msgid "mkdir builddir"
+msgstr ""
+
+#. type: Bullet: '1. '
+#: Using-with-Visual-Studio.md:13
+msgid "python3 path/to/meson.py builddir --backend vs2015"
+msgstr ""
+
+#. type: Plain text
+#: Using-with-Visual-Studio.md:15
+msgid ""
+"If you wish to use the Ninja backend instead of vs2015, pass `--backend "
+"ninja`. At the time of writing the Ninja backend is more mature than the VS "
+"backend so you might want to use it for serious work."
+msgstr ""
+
+#. type: Plain text
+#: Using-with-Visual-Studio.md:16
+msgid "This assumes Python3 is in your `PATH`, which is highly recommended."
+msgstr ""

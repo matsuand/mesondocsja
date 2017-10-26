@@ -1,0 +1,45 @@
+# Japanese translations for PACKAGE package
+# Copyright (C) 2017 Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2017-09-30 21:43+0900\n"
+"PO-Revision-Date: 2017-09-30 21:43+0900\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: matsuand個人翻訳\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. type: Plain text
+#: Contact-information.md:2
+msgid "# Contact information"
+msgstr ""
+
+#. type: Plain text
+#: Contact-information.md:6
+msgid ""
+"For general discussion and questions, it is strongly recommended that you "
+"use the [mailing list](https://groups.google.com/forum/#!forum/mesonbuild)."
+msgstr ""
+
+#. type: Plain text
+#: Contact-information.md:9
+msgid ""
+"If you find bugs, please file them in the [issue tracker](https://github.com/"
+"jpakkane/meson/issues)."
+msgstr ""
+
+#. type: Plain text
+#: Contact-information.md:14
+msgid ""
+"The maintainer of Meson is Jussi Pakkanen. You should usually not contact "
+"him privately but rather use the channels listed above. However if such a "
+"need arises, he can be reached at gmail where his username is `jpakkane` "
+"(that is not a typo, the last letter is indeed *e*)."
+msgstr ""

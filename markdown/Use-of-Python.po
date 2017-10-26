@@ -1,0 +1,104 @@
+# Japanese translations for PACKAGE package
+# Copyright (C) 2017 Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2017-09-30 21:44+0900\n"
+"PO-Revision-Date: 2017-09-30 21:44+0900\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: matsuand個人翻訳\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. type: Plain text
+#: Use-of-Python.md:2
+msgid "# Use of Python"
+msgstr ""
+
+#. type: Plain text
+#: Use-of-Python.md:4
+msgid ""
+"Meson is implemented in Python. This has both positive and negative sides. "
+"The main thing people seem to be mindful about is the dependency on Python "
+"to build source code. This page discusses various aspects of this problem."
+msgstr ""
+
+#. type: Plain text
+#: Use-of-Python.md:6
+msgid "# Dependency hell"
+msgstr ""
+
+#. type: Plain text
+#: Use-of-Python.md:8
+msgid ""
+"There have been many Python programs that are difficult to maintain on "
+"multiple platforms. The reasons come mostly from dependencies. The program "
+"may use dependencies that are hard to compile on certain platforms, are "
+"outdated, conflict with other dependencies, not available on a given Python "
+"version and so on."
+msgstr ""
+
+#. type: Plain text
+#: Use-of-Python.md:10
+msgid ""
+"Meson avoids dependency problems with one simple rule: Meson is not allowed "
+"to have any dependencies outside the Python basic library. The only thing "
+"you need is Python 3 (and possibly Ninja)."
+msgstr ""
+
+#. type: Plain text
+#: Use-of-Python.md:12
+msgid "## Reimplementability"
+msgstr ""
+
+#. type: Plain text
+#: Use-of-Python.md:14
+msgid ""
+"Meson has been designed in such a way that the implementation language is "
+"never exposed in the build definitions. This makes it possible (and maybe "
+"even easy) to reimplement Meson in any other programming language. There are "
+"currently no plans to reimplement Meson, but we will make sure that Python "
+"is not exposed inside the build definitions."
+msgstr ""
+
+#. type: Plain text
+#: Use-of-Python.md:16
+msgid "## Cross platform tooling"
+msgstr ""
+
+#. type: Plain text
+#: Use-of-Python.md:18
+msgid ""
+"There is no one technical solution or programming language that works "
+"natively on all operating systems currently in use. When Autotools was "
+"designed in the late 80s, Unix shell was available pretty much anywhere. "
+"This is no longer the case."
+msgstr ""
+
+#. type: Plain text
+#: Use-of-Python.md:20
+msgid ""
+"It is also the case that as any project gets larger, sooner or later it "
+"requires code generation, scripting or other tooling. This seems to be "
+"inevitable. Because there is no scripting language that would be available "
+"everywhere, these tools either need to be rewritten for each platform (which "
+"is a lot of work and is prone to errors) or the project needs to take a "
+"dependency on _something_."
+msgstr ""
+
+#. type: Plain text
+#: Use-of-Python.md:21
+msgid ""
+"Any project that uses Meson (at least the current version) can rely on the "
+"fact that Python 3 will always be available, because you can't compile the "
+"project without it. All tooling can then be done in Python 3 with the "
+"knowledge that it will run on any platform without any extra dependencies "
+"(modulo the usual porting work). This reduces maintenance effort on "
+"multiplatform projects by a fair margin."
+msgstr ""

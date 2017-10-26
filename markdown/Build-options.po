@@ -1,0 +1,122 @@
+# Japanese translations for PACKAGE package
+# Copyright (C) 2017 Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2017-09-30 21:43+0900\n"
+"PO-Revision-Date: 2017-09-30 21:43+0900\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: matsuand個人翻訳\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. type: Plain text
+#: Build-options.md:1
+#, no-wrap
+msgid "---\n"
+msgstr ""
+
+#. type: Plain text
+#: Build-options.md:4
+msgid "short-description: Build options to configure project properties ..."
+msgstr "short-description: プロジェクトプロパティを設定するビルドオプション\n..."
+
+#. type: Plain text
+#: Build-options.md:6
+msgid "# Build options"
+msgstr "# ビルドオプション"
+
+#. type: Plain text
+#: Build-options.md:12
+msgid ""
+"Most non-trivial builds require user-settable options. As an example a "
+"program may have two different data backends that are selectable at build "
+"time. Meson provides for this by having a option definition file. Its name "
+"is `meson_options.txt` and it is placed at the root of your source tree."
+msgstr ""
+
+#. type: Plain text
+#: Build-options.md:14
+msgid "Here is a simple option file."
+msgstr ""
+
+#. type: Plain text
+#: Build-options.md:20
+msgid ""
+"```meson option('someoption', type : 'string', value : 'optval', "
+"description : 'An option')  option('other_one', type : 'boolean', value : "
+"false)  option('combo_opt', type : 'combo', choices : ['one', 'two', "
+"'three'], value : 'three')  ```"
+msgstr ""
+"```meson\n"
+"option('someoption', type : 'string', value : 'optval', description : 'An option') \n"
+"option('other_one', type : 'boolean', value : false) \n"
+"option('combo_opt', type : 'combo', choices : ['one', 'two', 'three'], value : 'three') \n"
+"```"
+
+#. type: Plain text
+#: Build-options.md:29
+msgid ""
+"This demonstrates the three basic option types and their usage. String "
+"option is just a free form string and a boolean option is, unsurprisingly, "
+"true or false. The combo option can have any value from the strings listed "
+"in argument `choices`. If `value` is not set, it defaults to empty string "
+"for strings, `true` for booleans or the first element in a combo. You can "
+"specify `description`, which is a free form piece of text describing the "
+"option. It defaults to option name."
+msgstr ""
+
+#. type: Plain text
+#: Build-options.md:31
+msgid ""
+"These options are accessed in Meson code with the `get_option` function."
+msgstr ""
+
+#. type: Plain text
+#: Build-options.md:35
+msgid "```meson optval = get_option('opt_name')  ```"
+msgstr "```meson\noptval = get_option('opt_name') \n```"
+
+#. type: Plain text
+#: Build-options.md:39
+msgid ""
+"This function also allows you to query the value of Meson's built-in project "
+"options. For example, to get the installation prefix you would issue the "
+"following command:"
+msgstr ""
+
+#. type: Plain text
+#: Build-options.md:43
+msgid "```meson prefix = get_option('prefix')  ```"
+msgstr "```meson\nprefix = get_option('prefix') \n```"
+
+#. type: Plain text
+#: Build-options.md:48
+msgid ""
+"It should be noted that you can not set option values in your Meson scripts. "
+"They have to be set externally with the `meson configure` command line tool. "
+"Running `meson configure` without arguments in a build dir shows you all "
+"options you can set."
+msgstr ""
+
+#. type: Plain text
+#: Build-options.md:51
+msgid "To change their values use the `-D` option:"
+msgstr ""
+
+#. type: Plain text
+#: Build-options.md:55
+msgid "```console $ meson configure -Doption=newvalue ```"
+msgstr "```console\n$ meson configure -Doption=newvalue\n```"
+
+#. type: Plain text
+#: Build-options.md:57
+#, no-wrap
+msgid "**NOTE:** If you cannot call `meson configure` you likely have a old version of Meson. In that case you can call `mesonconf` instead, but that is deprecated in newer versions\n"
+msgstr ""

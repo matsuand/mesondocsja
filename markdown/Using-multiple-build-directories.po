@@ -1,0 +1,191 @@
+# Japanese translations for PACKAGE package
+# Copyright (C) 2017 Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2017-10-24 18:52+0900\n"
+"PO-Revision-Date: 2017-09-30 21:44+0900\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: matsuand個人翻訳\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. type: Plain text
+#: Using-multiple-build-directories.md:2
+msgid "# Using multiple build directories"
+msgstr ""
+
+#. type: Plain text
+#: Using-multiple-build-directories.md:4
+msgid ""
+"One of the main design goals of Meson has been to build all projects out-of-"
+"source. This means that *all* files generated during the build are placed in "
+"a separate subdirectory. This goes against common Unix tradition where you "
+"build your projects in-source. Building out of source gives two major "
+"advantages."
+msgstr ""
+
+#. type: Plain text
+#: Using-multiple-build-directories.md:6
+msgid ""
+"First of all this makes for very simple `.gitignore` files. In classical "
+"build systems you may need to have tens of lines of definitions, most of "
+"which contain wildcards. When doing out of source builds all of this "
+"busywork goes away. A common ignore file for a Meson project only contains a "
+"few lines that are the build directory and IDE project files."
+msgstr ""
+
+#. type: Plain text
+#: Using-multiple-build-directories.md:8
+msgid ""
+"Secondly this makes it very easy to clean your projects: just delete the "
+"build subdirectory and you are done. There is no need to guess whether you "
+"need to run `make clean`, `make distclean`, `make mrproper` or something "
+"else. When you delete a build subdirectory there is no possible way to have "
+"any lingering state from your old builds."
+msgstr ""
+
+#. type: Plain text
+#: Using-multiple-build-directories.md:10
+msgid "The true benefit comes from somewhere else, though."
+msgstr ""
+
+#. type: Plain text
+#: Using-multiple-build-directories.md:12
+msgid "## Multiple build directories for the same source tree"
+msgstr ""
+
+#. type: Plain text
+#: Using-multiple-build-directories.md:14
+msgid ""
+"Since a build directory is fully self contained and treats the source tree "
+"as a read-only piece of data, it follows that you can have arbitrarily many "
+"build trees for any source tree at the same time. Since all build trees can "
+"have different configuration, this is extremely powerful. Now you might be "
+"wondering why one would want to have multiple build setups at the same time. "
+"Let's examine this by setting up a hypothetical project."
+msgstr ""
+
+#. type: Plain text
+#: Using-multiple-build-directories.md:16
+msgid ""
+"The first thing to do is to set up the default build, that is, the one we "
+"are going to use over 90% of the time. In this we use the system compiler "
+"and build with debug enabled and no optimizations so it builds as fast as "
+"possible. This is the default project type for Meson, so setting it up is "
+"simple."
+msgstr ""
+
+#. type: Plain text
+#: Using-multiple-build-directories.md:19
+#, no-wrap
+msgid ""
+"    mkdir builddir\n"
+"    meson builddir\n"
+msgstr ""
+
+#. type: Plain text
+#: Using-multiple-build-directories.md:21
+msgid ""
+"Another common setup is to build with debug and optimizations to, for "
+"example, run performance tests. Setting this up is just as simple."
+msgstr ""
+
+#. type: Plain text
+#: Using-multiple-build-directories.md:24
+#, no-wrap
+msgid ""
+"    mkdir buildopt\n"
+"    meson --buildtype=debugoptimized buildopt\n"
+msgstr ""
+
+#. type: Plain text
+#: Using-multiple-build-directories.md:26
+msgid ""
+"For systems where the default compiler is GCC, we would like to compile with "
+"Clang, too. So let's do that."
+msgstr ""
+
+#. type: Plain text
+#: Using-multiple-build-directories.md:29
+#, no-wrap
+msgid ""
+"    mkdir buildclang\n"
+"    CC=clang CXX=clang++ meson buildclang\n"
+msgstr ""
+
+#. type: Plain text
+#: Using-multiple-build-directories.md:31
+msgid ""
+"You can add cross builds, too. As an example, let's set up a Linux -> "
+"Windows cross compilation build using MinGW."
+msgstr ""
+
+#. type: Plain text
+#: Using-multiple-build-directories.md:34
+#, no-wrap
+msgid ""
+"    mkdir buildwine\n"
+"    meson --cross-file=mingw-cross.txt buildwine\n"
+msgstr ""
+
+#. type: Plain text
+#: Using-multiple-build-directories.md:36
+msgid ""
+"The cross compilation file sets up Wine so that not only can you compile "
+"your application, you can also run the unit test suite just by issuing the "
+"command `ninja test`."
+msgstr ""
+
+#. type: Plain text
+#: Using-multiple-build-directories.md:38
+msgid ""
+"To compile any of these build types, just cd into the corresponding build "
+"directory and run `ninja` or instruct your IDE to do the same. Note that "
+"once you have set up your build directory once, you can just run Ninja and "
+"Meson will ensure that the resulting build is fully up to date according to "
+"the source. Even if you have not touched one of the directories in weeks and "
+"have done major changes to your build configuration, Meson will detect this "
+"and bring the build directory up to date (or print an error if it can't do "
+"that). This allows you to do most of your work in the default directory and "
+"use the others every now and then without having to babysit your build "
+"directories."
+msgstr ""
+
+#. type: Plain text
+#: Using-multiple-build-directories.md:40
+msgid "## Specialized uses"
+msgstr ""
+
+#. type: Plain text
+#: Using-multiple-build-directories.md:42
+msgid ""
+"Separate build directories allows easy integration for various different "
+"kinds of tools. As an example, Clang comes with a static analyzer. It is "
+"meant to be run from scratch on a given source tree. The steps to run it "
+"with Meson are very simple."
+msgstr ""
+
+#. type: Plain text
+#: Using-multiple-build-directories.md:48
+#, no-wrap
+msgid ""
+"    rm -rf buildscan\n"
+"    mkdir buildscan\n"
+"    scan-build meson buildscan\n"
+"    cd buildscan\n"
+"    scan-build ninja\n"
+msgstr ""
+
+#. type: Plain text
+#: Using-multiple-build-directories.md:49
+msgid ""
+"These commands are the same for every single Meson project, so they could "
+"even be put in a script turning static analysis into a single command."
+msgstr ""

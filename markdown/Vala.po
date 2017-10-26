@@ -1,0 +1,259 @@
+# Japanese translations for PACKAGE package
+# Copyright (C) 2017 Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2017-10-24 18:52+0900\n"
+"PO-Revision-Date: 2017-09-30 21:44+0900\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: matsuand個人翻訳\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. type: Plain text
+#: Vala.md:1
+#, no-wrap
+msgid "---\n"
+msgstr ""
+
+#. type: Plain text
+#: Vala.md:5
+msgid "title: Vala short-description: Compiling Vala and Genie programs ..."
+msgstr ""
+"title: Vala\n"
+"short-description: Compiling Vala and Genie programs\n"
+"..."
+
+#. type: Plain text
+#: Vala.md:7
+msgid "# Compiling Vala applications"
+msgstr "# Vala アプリケーションのコンパイル"
+
+#. type: Plain text
+#: Vala.md:9
+msgid ""
+"Meson has support for compiling Vala and Genie programs. A skeleton `meson."
+"build` file for Vala looks like this:"
+msgstr ""
+
+#. type: Plain text
+#: Vala.md:12
+msgid "```meson project('valaprog', 'vala', 'c')"
+msgstr ""
+"```meson\n"
+"project('valaprog', 'vala', 'c')"
+
+#. type: Plain text
+#: Vala.md:15
+msgid ""
+"glib_dep = dependency('glib-2.0')  gobject_dep = dependency('gobject-2.0')"
+msgstr ""
+
+#. type: Plain text
+#: Vala.md:19
+#, no-wrap
+msgid ""
+"executable('valaprog', 'prog.vala',\n"
+"           dependencies : [glib_dep, gobject_dep])\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: Vala.md:21
+msgid ""
+"You must always specify `glib-2.0` and `gobject-2.0` as dependencies, "
+"because all Vala applications use them."
+msgstr ""
+
+#. type: Plain text
+#: Vala.md:23
+msgid "## Using a custom VAPI"
+msgstr ""
+
+#. type: Plain text
+#: Vala.md:25
+msgid ""
+"When dealing with libraries that are not providing Vala bindings, a `--"
+"vapidir` flag can be added to extend the search path for the current project."
+msgstr ""
+
+#. type: Plain text
+#: Vala.md:28
+msgid "```meson project('vala app', 'c', 'vala')"
+msgstr ""
+"```meson\n"
+"project('vala app', 'c', 'vala')"
+
+#. type: Plain text
+#: Vala.md:31
+#, no-wrap
+msgid ""
+"add_project_arguments(['--vapidir', join_paths(meson.current_source_dir(), 'vapi')],\n"
+"                      language: 'vala')\n"
+msgstr ""
+
+#. type: Plain text
+#: Vala.md:35
+msgid ""
+"glib_dep = dependency('glib-2.0')  gobject_dep = dependency('gobject-2.0')  "
+"foo_dep = dependency('foo') # 'foo.vapi' will be resolved in './vapi/foo."
+"vapi'"
+msgstr ""
+
+#. type: Plain text
+#: Vala.md:38 Vala.md:50
+msgid ""
+"executable('app', 'app.vala', dependencies: [glib_dep, gobject_dep, "
+"foo_dep])  ```"
+msgstr ""
+"executable('app', 'app.vala', dependencies: [glib_dep, gobject_dep, "
+"foo_dep]) \n"
+"```"
+
+#. type: Plain text
+#: Vala.md:40
+msgid ""
+"In this case, make sure that the VAPI name corresponds to the pkg-config "
+"file."
+msgstr ""
+
+#. type: Plain text
+#: Vala.md:42
+msgid ""
+"If no pkg-config file is provided, you must use `find_library`. "
+"Using`declare_dependency` is cleaner because it does not require passing "
+"both dependency objects to the target."
+msgstr ""
+
+#. type: Plain text
+#: Vala.md:47
+msgid ""
+"```meson foo_lib = meson.get_compiler('c').find_library('foo') # assuming "
+"libfoo.so is installed foo_vapi = meson.get_compiler('vala')."
+"find_library('foo', dirs: join_paths(meson.current_source_dir(), 'vapi'))  "
+"foo_dep = declare_dependency(dependencies: [foo_lib, foo_vapi])"
+msgstr ""
+"```meson\n"
+"foo_lib = meson.get_compiler('c').find_library('foo') # assuming libfoo.so "
+"is installed\n"
+"foo_vapi = meson.get_compiler('vala').find_library('foo', dirs: "
+"join_paths(meson.current_source_dir(), 'vapi')) \n"
+"foo_dep = declare_dependency(dependencies: [foo_lib, foo_vapi])"
+
+#. type: Plain text
+#: Vala.md:52
+msgid "## VAPI without pkg-config file"
+msgstr ""
+
+#. type: Plain text
+#: Vala.md:54
+msgid ""
+"Some Vala bindings do not need a corresponding pkg-config file and "
+"`dependency` is unsuitable for resolving them. It's necessary to use "
+"`find_library` in this case."
+msgstr ""
+
+#. type: Plain text
+#: Vala.md:57
+msgid "```meson posix_dep = meson.get_compiler('vala').find_library('posix')"
+msgstr ""
+"```meson\n"
+"posix_dep = meson.get_compiler('vala').find_library('posix')"
+
+#. type: Plain text
+#: Vala.md:60
+msgid ""
+"executable('app', 'app.vala', dependencies: [glib_dep, gobject_dep, "
+"posix_dep])  ```"
+msgstr ""
+"executable('app', 'app.vala', dependencies: [glib_dep, gobject_dep, "
+"posix_dep]) \n"
+"```"
+
+#. type: Plain text
+#: Vala.md:62
+msgid "## Custom output names"
+msgstr ""
+
+#. type: Plain text
+#: Vala.md:64
+msgid ""
+"If a library target is used, Meson automatically outputs the C header and "
+"the VAPI. They can be renamed by setting the `vala_header` and `vala_vapi` "
+"arguments respectively. In this case, the second and third elements of the "
+"`install_dir` array indicate the destination with `true` to indicate default "
+"directories (i.e. `include` and `share/vala/vapi`)."
+msgstr ""
+
+#. type: Plain text
+#: Vala.md:73
+#, no-wrap
+msgid ""
+"```meson\n"
+"foo_lib = library('foo', 'foo.vala',\n"
+"                  vala_header: 'foo.h',\n"
+"                  vala_vapi: 'foo-1.0.vapi',\n"
+"                  dependencies: [glib_dep, gobject_dep],\n"
+"                  install: true,\n"
+"                  install_dir: [true, true, true])\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: Vala.md:75
+msgid "## GObject Introspection"
+msgstr ""
+
+#. type: Plain text
+#: Vala.md:77
+msgid ""
+"To generate GObject Introspection metadata, the `vala_gir` option has to be "
+"set with the desired name."
+msgstr ""
+
+#. type: Plain text
+#: Vala.md:79
+msgid ""
+"The fourth element in the `install_dir` array indicate where the GIR file "
+"will be installed. The `true` value tells Meson to use the default directory "
+"(i.e. `share/gir-1.0`)."
+msgstr ""
+
+#. type: Plain text
+#: Vala.md:87
+#, no-wrap
+msgid ""
+"```meson\n"
+"foo_lib = library('foo', 'foo.vala',\n"
+"                  vala_gir: 'Foo-1.0.gir',\n"
+"                  dependencies: [glib_dep, gobject_dep],\n"
+"                  install: true,\n"
+"                  install_dir: [true, true, true, true])\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: Vala.md:89
+msgid "For the typelib, use a custom target depending on the library:"
+msgstr ""
+
+#. type: Plain text
+#: Vala.md:98
+#, no-wrap
+msgid ""
+"```meson\n"
+"g_ir_compiler = find_program('g-ir-compiler')\n"
+"custom_target('foo typelib', command: [g_ir_compiler, '--output', '@OUTPUT@', '@INPUT@'],\n"
+"              input: join_paths(meson.current_build_dir(), 'Foo-1.0.gir'),\n"
+"              output: 'Foo-1.0.typelib',\n"
+"              depends: foo_lib,\n"
+"              install: true,\n"
+"              install_dir: join_paths(get_option('libdir'), 'girepository-1.0'))\n"
+"```\n"
+msgstr ""

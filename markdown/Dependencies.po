@@ -1,0 +1,352 @@
+# Japanese translations for PACKAGE package
+# Copyright (C) 2017 Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2017-10-24 18:52+0900\n"
+"PO-Revision-Date: 2017-09-30 21:43+0900\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: matsuand個人翻訳\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. type: Plain text
+#: Dependencies.md:1
+#, no-wrap
+msgid "---\n"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:4
+msgid ""
+"short-description: Dependencies for external libraries and frameworks ..."
+msgstr ""
+"short-description: Dependencies for external libraries and frameworks\n"
+"..."
+
+#. type: Plain text
+#: Dependencies.md:6
+msgid "# Dependencies"
+msgstr "# 依存関係"
+
+#. type: Plain text
+#: Dependencies.md:11
+msgid ""
+"Very few applications are fully self-contained, but rather they use external "
+"libraries and frameworks to do their work. Meson makes it very easy to find "
+"and use external dependencies. Here is how one would use the zlib "
+"compression library."
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:16
+msgid ""
+"```meson zdep = dependency('zlib', version : '>=1.2.8')  exe = "
+"executable('zlibprog', 'prog.c', dependencies : zdep)  ```"
+msgstr ""
+"```meson\n"
+"zdep = dependency('zlib', version : '>=1.2.8') \n"
+"exe = executable('zlibprog', 'prog.c', dependencies : zdep) \n"
+"```"
+
+#. type: Plain text
+#: Dependencies.md:23
+msgid ""
+"First Meson is told to find the external library `zlib` and error out if it "
+"is not found. The `version` keyword is optional and specifies a version "
+"requirement for the dependency. Then an executable is built using the "
+"specified dependency. Note how the user does not need to manually handle "
+"compiler or linker flags or deal with any other minutiae."
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:25
+msgid "If you have multiple dependencies, pass them as an array:"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:29
+msgid ""
+"```meson executable('manydeps', 'file.c', dependencies : [dep1, dep2, dep3, "
+"dep4])  ```"
+msgstr ""
+"```meson\n"
+"executable('manydeps', 'file.c', dependencies : [dep1, dep2, dep3, dep4]) \n"
+"```"
+
+#. type: Plain text
+#: Dependencies.md:32
+msgid ""
+"If the dependency is optional, you can tell Meson not to error out if the "
+"dependency is not found and then do further configuration."
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:41
+#, no-wrap
+msgid ""
+"```meson\n"
+"opt_dep = dependency('somedep', required : false)\n"
+"if opt_dep.found()\n"
+"  # Do something.\n"
+"else\n"
+"  # Do something else.\n"
+"endif\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:45
+msgid ""
+"You can pass the `opt_dep` variable to target construction functions whether "
+"the actual dependency was found or not. Meson will ignore non-found "
+"dependencies."
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:49
+msgid ""
+"The dependency detector works with all libraries that provide a `pkg-config` "
+"file. Unfortunately several packages don't provide pkg-config files. Meson "
+"has autodetection support for some of these."
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:51
+msgid "## Boost"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:55
+msgid ""
+"Boost is not a single dependency but rather a group of different libraries. "
+"To use Boost headers-only libraries, simply add Boost as a dependency."
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:60
+msgid ""
+"```meson boost_dep = dependency('boost')  exe = executable('myprog', 'file."
+"cc', dependencies : boost_dep)  ```"
+msgstr ""
+"```meson\n"
+"boost_dep = dependency('boost') \n"
+"exe = executable('myprog', 'file.cc', dependencies : boost_dep) \n"
+"```"
+
+#. type: Plain text
+#: Dependencies.md:63
+msgid ""
+"To link against boost with Meson, simply list which libraries you would like "
+"to use."
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:68
+msgid ""
+"```meson boost_dep = dependency('boost', modules : ['thread', 'utility'])  "
+"exe = executable('myprog', 'file.cc', dependencies : boost_dep)  ```"
+msgstr ""
+"```meson\n"
+"boost_dep = dependency('boost', modules : ['thread', 'utility']) \n"
+"exe = executable('myprog', 'file.cc', dependencies : boost_dep) \n"
+"```"
+
+#. type: Plain text
+#: Dependencies.md:71
+msgid ""
+"You can call `dependency` multiple times with different modules and use "
+"those to link against your targets."
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:75
+msgid ""
+"If your boost headers or libraries are in non-standard locations you can set "
+"the BOOST_ROOT, BOOST_INCLUDEDIR, and/or BOOST_LIBRARYDIR environment "
+"variables."
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:78
+msgid ""
+"You can set the argument `threading` to `single` to use boost libraries that "
+"has been compiled for single-threaded use instead."
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:80
+msgid "## GTest and GMock"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:86
+msgid ""
+"GTest and GMock come as sources that must be compiled as part of your "
+"project. With Meson you don't have to care about the details, just pass "
+"`gtest` or `gmock` to `dependency` and it will do everything for you. If you "
+"want to use GMock, it is recommended to use GTest as well, as getting it to "
+"work standalone is tricky."
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:88
+msgid "## MPI"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:95
+#, no-wrap
+msgid ""
+"MPI is supported for C, C++ and Fortran. Because dependencies are\n"
+"language-specific, you must specify the requested language using the\n"
+"`language` keyword argument, i.e.,\n"
+" * `dependency('mpi', language='c')` for the C MPI headers and libraries\n"
+" * `dependency('mpi', language='cpp')` for the C++ MPI headers and libraries\n"
+" * `dependency('mpi', language='fortran')` for the Fortran MPI headers and libraries\n"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:102
+msgid ""
+"Meson prefers pkg-config for MPI, but if your MPI implementation does not "
+"provide them, it will search for the standard wrapper executables, `mpic`, "
+"`mpicxx`, `mpic++`, `mpifort`, `mpif90`, `mpif77`. If these are not in your "
+"path, they can be specified by setting the standard environment variables "
+"`MPICC`, `MPICXX`, `MPIFC`, `MPIF90`, or `MPIF77`, during configuration."
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:104
+msgid "## Qt5"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:107
+msgid ""
+"Meson has native Qt5 support. Its usage is best demonstrated with an example."
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:111
+msgid ""
+"```meson qt5_mod = import('qt5')  qt5widgets = dependency('qt5', modules : "
+"'Widgets')"
+msgstr ""
+"```meson\n"
+"qt5_mod = import('qt5')  qt5widgets = dependency('qt5', modules : 'Widgets')"
+
+#. type: Plain text
+#: Dependencies.md:118
+#, no-wrap
+msgid ""
+"processed = qt5_mod.preprocess(\n"
+"  moc_headers : 'mainWindow.h',   # Only headers that need moc should be put here\n"
+"  moc_sources : 'helperFile.cpp', # must have #include\"moc_helperFile.cpp\"\n"
+"  ui_files    : 'mainWindow.ui',\n"
+"  qresources  : 'resources.qrc',\n"
+")\n"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:125
+#, no-wrap
+msgid ""
+"q5exe = executable('qt5test',\n"
+"  sources     : ['main.cpp',\n"
+"                 'mainWindow.cpp',\n"
+"                 processed],\n"
+"  dependencies: qt5widgets)\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:135
+msgid ""
+"Here we have an UI file created with Qt Designer and one source and header "
+"file each that require preprocessing with the `moc` tool. We also define a "
+"resource file to be compiled with `rcc`. We just have to tell Meson which "
+"files are which and it will take care of invoking all the necessary tools in "
+"the correct order, which is done with the `preprocess` method of the `qt5` "
+"module. Its output is simply put in the list of sources for the target. The "
+"`modules` keyword of `dependency` works just like it does with Boost. It "
+"tells which subparts of Qt the program uses."
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:137
+msgid "## Pcap"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:141
+msgid ""
+"The pcap library does not ship with pkg-config at the time or writing but "
+"instead it has its own `pcap-config` util. Meson will use it automatically:"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:145
+msgid "```meson pcap_dep = dependency('pcap', version : '>=1.0')  ```"
+msgstr ""
+"```meson\n"
+"pcap_dep = dependency('pcap', version : '>=1.0') \n"
+"```"
+
+#. type: Plain text
+#: Dependencies.md:147
+msgid "## CUPS"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:151
+msgid ""
+"The cups library does not ship with pkg-config at the time or writing but "
+"instead it has its own `cups-config` util. Meson will use it automatically:"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:155
+msgid "```meson cups_dep = dependency('cups', version : '>=1.4')  ```"
+msgstr ""
+"```meson\n"
+"cups_dep = dependency('cups', version : '>=1.4') \n"
+"```"
+
+#. type: Plain text
+#: Dependencies.md:157
+msgid "## Declaring your own"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:161
+msgid ""
+"You can declare your own dependency objects that can be used interchangeably "
+"with dependency objects obtained from the system. The syntax is "
+"straightforward:"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:168
+#, no-wrap
+msgid ""
+"```meson\n"
+"my_inc = include_directories(...)\n"
+"my_lib = static_library(...)\n"
+"my_dep = declare_dependency(link_with : my_lib,\n"
+"  include_directories : my_inc)\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:170
+msgid ""
+"This declares a dependency that adds the given include directories and "
+"static library to any target you use it in."
+msgstr ""

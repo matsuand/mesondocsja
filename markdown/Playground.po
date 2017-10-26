@@ -1,0 +1,88 @@
+# Japanese translations for PACKAGE package
+# Copyright (C) 2017 Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2017-09-30 21:44+0900\n"
+"PO-Revision-Date: 2017-09-30 21:44+0900\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: matsuand個人翻訳\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. type: Plain text
+#: Playground.md:2
+msgid "# playground"
+msgstr ""
+
+#. type: Plain text
+#: Playground.md:4
+msgid ""
+"This page is *not* part of official documentation. It exists merely for "
+"testing new stuff for the wiki."
+msgstr ""
+
+#. type: Plain text
+#: Playground.md:6
+msgid "## Ref manual reformat"
+msgstr ""
+
+#. type: Plain text
+#: Playground.md:8
+msgid ""
+"The current format is not very readable. We should have something more like "
+"what [glib](https://developer.gnome.org/glib/stable/glib-Hash-Tables.html) "
+"or [Python](https://docs.python.org/3/library/os.html) do."
+msgstr ""
+
+#. type: Plain text
+#: Playground.md:10
+msgid "Here's a first proposal."
+msgstr ""
+
+#. type: Plain text
+#: Playground.md:18
+#, no-wrap
+msgid ""
+"    project(<project name>,\n"
+"            <languages to use, comma separated>,\n"
+"            version         : <project version>,\n"
+"            subproject_dir  : <alternative directory to store subprojects>,\n"
+"            meson_version   : <required version of Meson>,\n"
+"            license         : <string or array of licenses>,\n"
+"            default_options : <default values for project options>,\n"
+msgstr ""
+
+#. type: Plain text
+#: Playground.md:20
+msgid "Longer descriptions of arguments go here."
+msgstr ""
+
+#. type: Plain text
+#: Playground.md:22
+msgid "Take two:"
+msgstr ""
+
+#. type: Plain text
+#: Playground.md:24
+msgid "## project"
+msgstr ""
+
+#. type: Plain text
+#: Playground.md:31
+#, no-wrap
+msgid ""
+"    <project name>\n"
+"    <languages to use, comma separated>\n"
+"    version         : <project version>\n"
+"    subproject_dir  : <alternative directory to store subprojects>\n"
+"    meson_version   : <required version of Meson>\n"
+"    license         : <string or array of licenses>\n"
+"    default_options : <default values for project options>\n"
+msgstr ""

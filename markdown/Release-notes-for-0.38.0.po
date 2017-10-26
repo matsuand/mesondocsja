@@ -1,0 +1,246 @@
+# Japanese translations for PACKAGE package
+# Copyright (C) 2017 Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2017-09-30 21:44+0900\n"
+"PO-Revision-Date: 2017-09-30 21:44+0900\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: matsuand個人翻訳\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. type: Plain text
+#: Release-notes-for-0.38.0.md:1
+#, no-wrap
+msgid "---\n"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.38.0.md:5
+msgid "title: Release 0.38 short-description: Release notes for 0.38 ..."
+msgstr "title: リリース 0.38\nshort-description: リリースノート 0.38\n..."
+
+#. type: Plain text
+#: Release-notes-for-0.38.0.md:7
+msgid "# Uninstall target"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.38.0.md:9
+msgid ""
+"Meson allows you to uninstall an install step by invoking the uninstall "
+"target. This will remove all files installed as part of install. Note that "
+"this does not restore the original files. This also does not undo changes "
+"done by custom install scripts (because they can do arbitrary install "
+"operations)."
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.38.0.md:11
+msgid "# Support for arbitrary test setups"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.38.0.md:13
+msgid ""
+"Sometimes you need to run unit tests with special settings. For example "
+"under Valgrind. Usually this requires extra command line options for the "
+"tool. This is supported with the new *test setup* feature. For example to "
+"set up a test run with Valgrind, you'd write this in a `meson.build` file:"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.38.0.md:19
+#, no-wrap
+msgid ""
+"```meson\n"
+"add_test_setup('valgrind',\n"
+"  exe_wrapper : [vg, '--error-exitcode=1', '--leak-check=full'],\n"
+"  timeout_multiplier : 100)\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.38.0.md:21
+msgid ""
+"This tells Meson to run tests with Valgrind using the given options and "
+"multiplying the test timeout values by 100. To run this test setup simply "
+"issue the following command:"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.38.0.md:25
+msgid "```console $ mesontest --setup=valgrind ```"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.38.0.md:27
+msgid "# Intel C/C++ compiler support"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.38.0.md:29
+msgid ""
+"As usual, just set `CC=icc CXX=icpc` and Meson will use it as the C/C++ "
+"compiler. Currently only Linux is supported."
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.38.0.md:31
+msgid "# Get values from configuration data objects"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.38.0.md:33
+msgid ""
+"Now it is possible to query values stored in configuration data objects."
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.38.0.md:40
+msgid ""
+"```meson cdata.set('key', 'value')  cdata.get('key') # returns 'value' cdata."
+"get('nokey', 'default') # returns 'default' cdata.get('nokey') # halts with "
+"an error ```"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.38.0.md:42
+msgid "# Python 3 module support"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.38.0.md:44
+msgid ""
+"Building Python 3 extension modules has always been possible, but it is now "
+"even easier:"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.38.0.md:51
+#, no-wrap
+msgid ""
+"```meson\n"
+"py3_mod = import('python3')\n"
+"pylib = py3_mod.extension_module('modname',\n"
+"  'modsource.c',\n"
+"  dependencies : py3_dep)\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.38.0.md:53
+msgid "# Default options to subprojects"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.38.0.md:55
+msgid ""
+"Projects can specify overriding values for subprojects' `default_options` "
+"when invoking a subproject:"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.38.0.md:60
+msgid ""
+"```meson subproject('foo', default_options : ['optname=overridevalue'])  "
+"dependency('some-dep', fallback : ['some_subproject', 'some_dep'], "
+"default_options : ['optname=overridevalue'])  ```"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.38.0.md:62
+msgid ""
+"The effect is the same as if the default options were written in the "
+"subproject's `project` call."
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.38.0.md:64
+msgid "# Set targets to be built (or not) by default"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.38.0.md:66
+msgid ""
+"Build targets got a new keyword `build_by_default` which tells whether the "
+"target should be built by default when running e.g. `ninja`. Custom targets "
+"are not built by default but other targets are. Any target that is tagged as "
+"installed or to be built always is also built by default, regardless of the "
+"value of this keyword."
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.38.0.md:68
+msgid "# Add option to mesonconf to wipe cached data."
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.38.0.md:70
+msgid ""
+"Meson caches the results of dependency lookups. Sometimes these may get out "
+"of sync with the system state. Mesonconf now has a `--clearcache` option to "
+"clear these values so they will be re-searched from the system upon next "
+"compile."
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.38.0.md:72
+msgid "# Can specify file permissions and owner when installing data"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.38.0.md:74
+msgid ""
+"The new `install_mode` keyword argument can be used to specify file "
+"permissions and uid/gid of files when doing the install. This allows you to, "
+"for example, install suid root scripts."
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.38.0.md:76
+msgid "# `has_header()` checks are now faster"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.38.0.md:78
+msgid ""
+"When using compilers that implement the [`__has_include()` preprocessor "
+"macro](https://clang.llvm.org/docs/LanguageExtensions.html#include-file-"
+"checking-macros), the check is now ~40% faster."
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.38.0.md:80
+msgid "# Array indexing now supports fallback values"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.38.0.md:88
+msgid ""
+"The second argument to the array [`.get()`](https://github.com/mesonbuild/"
+"meson/wiki/Reference-manual#array-object) function is now returned if the "
+"specified index could not be found ```meson array = [10, 11, 12, 13] array."
+"get(0) # this will return `10` array.get(4) # this will give an error about "
+"invalid index array.get(4, 0) # this will return `0` ```"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.38.0.md:90
+msgid "# Silent mode for Mesontest"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.38.0.md:91
+msgid ""
+"The Meson test executor got a new argument `-q` (and `--quiet`) that "
+"suppresses all output of successful tests. This makes interactive usage "
+"nicer because only errors are printed."
+msgstr ""

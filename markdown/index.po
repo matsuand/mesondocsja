@@ -1,0 +1,143 @@
+# Japanese translations for PACKAGE package
+# Copyright (C) 2017 Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2017-09-30 21:44+0900\n"
+"PO-Revision-Date: 2017-09-30 21:44+0900\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: matsuand個人翻訳\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. type: Plain text
+#: index.md:1
+#, no-wrap
+msgid "---\n"
+msgstr ""
+
+#. type: Plain text
+#: index.md:4
+msgid "render-subpages: false ..."
+msgstr "render-subpages: false\n..."
+
+#. type: Plain text
+#: index.md:6
+msgid "# The Meson Build system"
+msgstr "# Meson ビルドシステム"
+
+#. type: Plain text
+#: index.md:8
+msgid "## Overview"
+msgstr "## 概要"
+
+#. type: Plain text
+#: index.md:10
+msgid ""
+"Meson is an open source build system meant to be both extremely fast, and, "
+"even more importantly, as user friendly as possible."
+msgstr ""
+"Meson はオープンソースによるビルドシステムです。処理速度をできるだけ向"
+"上させるとともに、できるだけユーザーフレンドリーなシステムを目指すこと"
+"を重視しています。"
+
+#. type: Plain text
+#: index.md:12
+msgid ""
+"The main design point of Meson is that every moment a developer spends "
+"writing or debugging build definitions is a second wasted. So is every "
+"second spent waiting for the build system to actually start compiling code."
+msgstr ""
+""
+
+#. type: Plain text
+#: index.md:14
+msgid "## Features"
+msgstr "## 機能"
+
+#. type: Bullet: '*   '
+#: index.md:22
+msgid ""
+"multiplatform support for Linux, OSX, Windows, GCC, Clang, Visual Studio and "
+"others"
+msgstr ""
+
+#. type: Bullet: '*   '
+#: index.md:22
+msgid "supported languages include C, C++, D, Fortran, Java, Rust"
+msgstr ""
+
+#. type: Bullet: '*   '
+#: index.md:22
+msgid ""
+"build definitions in a very readable and user friendly non-Turing complete "
+"DSL"
+msgstr ""
+
+#. type: Bullet: '*   '
+#: index.md:22
+msgid "cross compilation for many operating systems as well as bare metal"
+msgstr ""
+
+#. type: Bullet: '*   '
+#: index.md:22
+msgid ""
+"optimized for extremely fast full and incremental builds without sacrificing "
+"correctness"
+msgstr ""
+
+#. type: Bullet: '*   '
+#: index.md:22
+msgid ""
+"built-in multiplatform dependency provider that works together with distro "
+"packages"
+msgstr ""
+
+#. type: Bullet: '*   '
+#: index.md:22
+msgid "fun!"
+msgstr ""
+
+#. type: Plain text
+#: index.md:24
+msgid "## Community"
+msgstr "## コミュニティ"
+
+#. type: Plain text
+#: index.md:26
+msgid ""
+"There are two main methods of connecting with other Meson developers. The "
+"first one is the mailing list, which is hosted at [Google Groups](https://"
+"groups.google.com/forum/#!forum/mesonbuild)."
+msgstr ""
+
+#. type: Plain text
+#: index.md:28
+msgid ""
+"The second way is via IRC. The channel to use is `#mesonbuild` at [Freenode]"
+"(https://freenode.net/)."
+msgstr ""
+
+#. type: Plain text
+#: index.md:30
+msgid "## Development"
+msgstr "## 開発"
+
+#. type: Plain text
+#: index.md:32
+msgid ""
+"All development on Meson is done on [GitHub project](https://github.com/"
+"mesonbuild/meson). For further info look into the `contributing.txt` file "
+"that comes with Meson's source checkout."
+msgstr ""
+
+#. type: Plain text
+#: index.md:33
+msgid "You do not need to sign a CLA to contribute to Meson."
+msgstr ""

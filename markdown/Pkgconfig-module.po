@@ -1,0 +1,144 @@
+# Japanese translations for PACKAGE package
+# Copyright (C) 2017 Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2017-09-30 21:44+0900\n"
+"PO-Revision-Date: 2017-09-30 21:44+0900\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: matsuand個人翻訳\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. type: Plain text
+#: Pkgconfig-module.md:2
+msgid "# Pkgconfig module"
+msgstr ""
+
+#. type: Plain text
+#: Pkgconfig-module.md:5
+msgid ""
+"This module is a simple generator for [pkg-config](https://pkg-config."
+"freedesktop.org/) files."
+msgstr ""
+
+#. type: Plain text
+#: Pkgconfig-module.md:7
+msgid "## Usage"
+msgstr ""
+
+#. type: Plain text
+#: Pkgconfig-module.md:11
+msgid ""
+"To use this module, just do: **`pkg = import('pkgconfig')`**. The following "
+"function will then be available as `pkg.generate()`. You can, of course, "
+"replace the name `pkg` with anything else."
+msgstr ""
+
+#. type: Plain text
+#: Pkgconfig-module.md:13
+msgid "### pkg.generate()"
+msgstr ""
+
+#. type: Plain text
+#: Pkgconfig-module.md:16
+msgid ""
+"The generated file's properties are specified with the following keyword "
+"arguments."
+msgstr ""
+
+#. type: Bullet: '- '
+#: Pkgconfig-module.md:45
+msgid "`description` a string describing the library"
+msgstr ""
+
+#. type: Bullet: '- '
+#: Pkgconfig-module.md:45
+msgid ""
+"`extra_cflags` a list of extra compiler flags to be added to the `Cflags` "
+"field after the header search path"
+msgstr ""
+
+#. type: Bullet: '- '
+#: Pkgconfig-module.md:45
+msgid ""
+"`filebase`, the base name to use for the pkg-config file, as an example the "
+"value of `libfoo` would produce a pkg-config file called `libfoo.pc`"
+msgstr ""
+
+#. type: Bullet: '- '
+#: Pkgconfig-module.md:45
+msgid ""
+"`install_dir` the directory to install to, defaults to the value of option "
+"`libdir` followed by `/pkgconfig`"
+msgstr ""
+
+#. type: Bullet: '- '
+#: Pkgconfig-module.md:45
+msgid ""
+"`libraries` a list of built libraries (usually results of shared_library) "
+"that the user needs to link against"
+msgstr ""
+
+#. type: Bullet: '- '
+#: Pkgconfig-module.md:45
+msgid ""
+"`libraries_private` list of strings to put in the `Libraries.private` field"
+msgstr ""
+
+#. type: Bullet: '- '
+#: Pkgconfig-module.md:45
+msgid "`name` the name of this library"
+msgstr ""
+
+#. type: Bullet: '- '
+#: Pkgconfig-module.md:45
+msgid ""
+"`subdirs` which subdirs of `include` should be added to the header search "
+"path, for example if you install headers into `${PREFIX}/include/foobar-1`, "
+"the correct value for this argument would be `foobar-1`"
+msgstr ""
+
+#. type: Bullet: '- '
+#: Pkgconfig-module.md:45
+msgid "`requires` list of strings to put in the `Requires` field"
+msgstr ""
+
+#. type: Bullet: '- '
+#: Pkgconfig-module.md:45
+msgid ""
+"`requires_private` list of strings to put in the `Requires.private` field"
+msgstr ""
+
+#. type: Bullet: '- '
+#: Pkgconfig-module.md:45
+msgid "`url` a string with a url for the library"
+msgstr ""
+
+#. type: Bullet: '- '
+#: Pkgconfig-module.md:45
+msgid ""
+"`variables` a list of strings with custom variables to add to the generated "
+"file. The strings must be in the form `name=value` and may reference other "
+"pkgconfig variables, e.g. `datadir=${prefix}/share`. The names `prefix`, "
+"`libdir` and `installdir` are reserved and may not be used."
+msgstr ""
+
+#. type: Bullet: '- '
+#: Pkgconfig-module.md:45
+msgid "`version` a string describing the version of this library"
+msgstr ""
+
+#. type: Plain text
+#: Pkgconfig-module.md:45
+#, no-wrap
+msgid ""
+"- `d_module_versions` a list of module version flags used when compiling\n"
+"   D sources referred to by this pkg-config file\n"
+msgstr ""

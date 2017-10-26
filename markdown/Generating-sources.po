@@ -1,0 +1,209 @@
+# Japanese translations for PACKAGE package
+# Copyright (C) 2017 Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2017-09-30 21:43+0900\n"
+"PO-Revision-Date: 2017-09-30 21:43+0900\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: matsuand個人翻訳\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. type: Plain text
+#: Generating-sources.md:1
+#, no-wrap
+msgid "---\n"
+msgstr ""
+
+#. type: Plain text
+#: Generating-sources.md:4
+msgid "short-description: Generation of source files before compilation ..."
+msgstr "short-description: コンパイル前のソースファイル生成\n..."
+
+#. type: Plain text
+#: Generating-sources.md:6
+msgid "# Generating sources"
+msgstr "# ソースファイル生成"
+
+#. type: Plain text
+#: Generating-sources.md:8
+#, no-wrap
+msgid "  Sometimes source files need to be preprocessed before they are passed to the actual compiler. As an example you might want build an IDL compiler and then run some files through that to generate actual source files. In Meson this is done with [`generator()`](https://github.com/mesonbuild/meson/wiki/Reference-manual#generator) or [`custom_target()`](https://github.com/mesonbuild/meson/wiki/Reference-manual#custom_target).\n"
+msgstr ""
+
+#. type: Plain text
+#: Generating-sources.md:10
+msgid "## Using custom_target()"
+msgstr "## custom_target() の利用"
+
+#. type: Plain text
+#: Generating-sources.md:12
+msgid ""
+"Let's say you have a build target that must be built using sources generated "
+"by a compiler. The compiler can either be a built target:"
+msgstr ""
+"Let's say you have a build target that must be built using sources generated "
+"by a compiler. The compiler can either be a built target:"
+
+#. type: Plain text
+#: Generating-sources.md:16
+msgid "```meson mycomp = executable('mycompiler', 'compiler.c')  ```"
+msgstr "```meson\nmycomp = executable('mycompiler', 'compiler.c') \n```"
+
+#. type: Plain text
+#: Generating-sources.md:18
+msgid ""
+"Or an external program provided by the system, or script inside the source "
+"tree:"
+msgstr ""
+
+#. type: Plain text
+#: Generating-sources.md:22
+msgid "```meson mycomp = find_program('mycompiler')  ```"
+msgstr "```meson\nmycomp = find_program('mycompiler') \n```"
+
+#. type: Plain text
+#: Generating-sources.md:24
+msgid ""
+"Custom targets can take zero or more input files and use them to generate "
+"one or more output files. Using a custom target, you can run this compiler "
+"at build time to generate the sources:"
+msgstr ""
+
+#. type: Plain text
+#: Generating-sources.md:33
+#, no-wrap
+msgid ""
+"```meson\n"
+"gen_src = custom_target('gen-output',\n"
+"                        input : ['somefile1.c', 'file2.c'],\n"
+"                        output : ['out.c', 'out.h'],\n"
+"                        command : [mycomp, '@INPUT@',\n"
+"                                   '--c-out', '@OUTPUT0@',\n"
+"                                   '--h-out', '@OUTPUT1@'])\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: Generating-sources.md:35
+msgid ""
+"The `@INPUT@` there will be transformed to `'somefile1.c' 'file2.c'`. Just "
+"like the output, you can also refer to each input file individually by index."
+msgstr ""
+
+#. type: Plain text
+#: Generating-sources.md:37
+msgid "Then you just put that in your program and you're done."
+msgstr ""
+
+#. type: Plain text
+#: Generating-sources.md:41
+msgid "```meson executable('program', 'main.c', gen_src)  ```"
+msgstr "```meson\nexecutable('program', 'main.c', gen_src) \n```"
+
+#. type: Plain text
+#: Generating-sources.md:43
+msgid "## Using generator()"
+msgstr "## generator() の利用"
+
+#. type: Plain text
+#: Generating-sources.md:45
+msgid ""
+"Generators are similar to custom targets, except that we define a "
+"*generator*, which defines how to transform an input file into one or more "
+"output files, and then use that on as many input files as we want."
+msgstr ""
+
+#. type: Plain text
+#: Generating-sources.md:47
+msgid ""
+"Note that generators should only be used for outputs that will only be used "
+"as inputs for a build target or a custom target. When you use the processed "
+"output of a generator in multiple targets, the generator will be run "
+"multiple times to create outputs for each target. Each output will be "
+"created in a target-private directory `@BUILD_DIR@`."
+msgstr ""
+
+#. type: Plain text
+#: Generating-sources.md:49
+msgid ""
+"If you want to generate files for general purposes such as for generating "
+"headers to be used by several sources, or data that will be installed, and "
+"so on, use a [`custom_target()`](https://github.com/mesonbuild/meson/wiki/"
+"Reference-manual#custom_target) instead."
+msgstr ""
+
+#. type: Plain text
+#: Generating-sources.md:56
+#, no-wrap
+msgid ""
+"```meson\n"
+"gen = generator(mycomp,\n"
+"                output  : '@BASENAME@.c',\n"
+"                arguments : ['@INPUT@', '@OUTPUT@'])\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: Generating-sources.md:58
+msgid ""
+"The first argument is the executable file to run. The next file specifies a "
+"name generation rule. It specifies how to build the output file name for a "
+"given input name. `@BASENAME@` is a placeholder for the input file name "
+"without preceding path or suffix (if any). So if the input file name were "
+"`some/path/filename.idl`, then the output name would be `filename.c`. You "
+"can also use `@PLAINNAME@`, which preserves the suffix which would result in "
+"a file called `filename.idl.c`. The last line specifies the command line "
+"arguments to pass to the executable. `@INPUT@` and `@OUTPUT@` are "
+"placeholders for the input and output files, respectively, and will be "
+"automatically filled in by Meson. If your rule produces multiple output "
+"files and you need to pass them to the command line, append the location to "
+"the output holder like this: `@OUTPUT0@`, `@OUTPUT1@` and so on."
+msgstr ""
+
+#. type: Plain text
+#: Generating-sources.md:60
+msgid ""
+"With this rule specified we can generate source files and add them to a "
+"target."
+msgstr ""
+
+#. type: Plain text
+#: Generating-sources.md:65
+msgid ""
+"```meson gen_src = gen.process('input1.idl', 'input2.idl')  "
+"executable('program', 'main.c', gen_src)  ```"
+msgstr ""
+"```meson\ngen_src = gen.process('input1.idl', 'input2.idl') \n"
+"executable('program', 'main.c', gen_src) \n```"
+
+#. type: Plain text
+#: Generating-sources.md:67
+msgid "Generators can also generate multiple output files with unknown names:"
+msgstr ""
+
+#. type: Plain text
+#: Generating-sources.md:73
+#, no-wrap
+msgid ""
+"```meson\n"
+"gen2 = generator(someprog,\n"
+"                 outputs : ['@BASENAME@.c', '@BASENAME@.h'],\n"
+"                 arguments : ['--out_dir=@BUILD_DIR@', '@INPUT@'])\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: Generating-sources.md:74
+msgid ""
+"In this case you can not use the plain `@OUTPUT@` variable, as it would be "
+"ambiguous. This program only needs to know the output directory, it will "
+"generate the file names by itself."
+msgstr ""
