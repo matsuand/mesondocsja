@@ -1,0 +1,287 @@
+<html lang="en">
+<head>
+
+<base href=".">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>チュートリアル</title>
+
+<link rel="stylesheet" href="assets/css/custom_bootstrap.css" type="text/css">
+<link rel="stylesheet" href="assets/css/frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+
+<link rel="stylesheet" href="assets/css/prism.css" type="text/css">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/isotope.pkgd.min.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<link rel="icon" type="image/png" href="assets/images/favicon.png">
+<link rel="shortcut icon" href="assets/images/favicon.png">
+
+</head>
+
+<body class="no-script
+" data-spy="scroll" data-target="#toc" data-offset="70">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<form action="" class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/meson_logo.png" alt="Home" id="home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		モジュール <span class="caret"></span>
+	</a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="Gnome-module.html">GNOME</a>
+			</li>
+					<li>
+				<a href="i18n-module.html">i18n</a>
+			</li>
+					<li>
+				<a href="Pkgconfig-module.html">Pkgconfig</a>
+			</li>
+					<li>
+				<a href="Python-3-module.html">Python 3</a>
+			</li>
+					<li>
+				<a href="Qt4-module.html">Qt4</a>
+			</li>
+					<li>
+				<a href="Qt5-module.html">Qt5</a>
+			</li>
+					<li>
+				<a href="RPM-module.html">RPM</a>
+			</li>
+					<li>
+				<a href="Windows-module.html">Windows</a>
+			</li>
+			</ul>
+</li>
+<li class="dropdown">
+	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		クィックリファレンス <span class="caret"></span>
+	</a>
+	<ul class="dropdown-menu" id="quick-refs-menu">
+					<li>
+				<a href="Reference-manual.html">関数</a>
+			</li>
+					<li>
+				<a href="Build-options.html">オプション</a>
+			</li>
+					<li>
+				<a href="Configuration.html">設定</a>
+			</li>
+					<li>
+				<a href="Dependencies.html">依存関係</a>
+			</li>
+					<li>
+				<a href="Unit-tests.html">テスト</a>
+			</li>
+					<li>
+				<a href="Syntax.html">文法</a>
+			</li>
+			</ul>
+</li>
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+				<p><b>Meson ビルドシステム</b></p>
+			</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="core" data-hotdoc-in-toplevel="True" data-hotdoc-project="Meson-documentation-1.0" data-hotdoc-ref="Tutorial.html" class="page_container" id="page-wrapper">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/navigation.js"></script>
+	<script src="assets/js/sitemap.js"></script>
+</div>
+
+<div id="body">
+	<div id="main">
+				
+<div id="page-description" data-hotdoc-source="Tutorial.md" data-hotdoc-role="main">
+<h1 id="">チュートリアル</h1>
+<p>このページでは、単純なプロジェクトに対しての Meson ビルド定義（Meson build
+definition）を新規に生成するところから始めます。そして外部の依存モジュールを利用するように拡張します。この様子から、プロジェクトの統合が簡単にできることがわかります。</p>
+<h2 id="1">単純な例から</h2>
+<p>最も基本的なプログラムから始めます。いつもの hello プログラムです。まずはソースコードを記述した <code>main.c</code>
+ファイルを生成します。これは以下のようなものです。</p>
+<pre><code class="language-c">#include&lt;stdio.h&gt;
+
+int main(int argc, char **argv) {
+  printf("Hello there.\n");
+  return 0;
+}
+</code></pre>
+<p>そして Meson ビルド定義を作り上げて、同一ディレクトリ内に <code>meson.build</code>
+というファイルとして生成します。その内容は以下のとおりです。</p>
+<pre><code class="language-meson">project('tutorial', 'c')
+executable('demo', 'main.c')
+</code></pre>
+<p>記述はたったこれだけです。アプリケーションをビルドする準備は、これでできてしまいました。まずはビルドのための初期化が必要なので、ソースディレクトリに移動して、以下のコマンドを実行します。</p>
+<pre><code class="language-console">$ meson builddir
+</code></pre>
+<p>ビルドディレクトリが 1 つ生成されて、コンパイラーの出力はここに収められます。Meson
+は他のビルドシステムとは異なり、ソースディレクトリ内でのビルドは許可されません。常にビルドディレクトリを用意することが必要です。通常は慣例として、ソースディレクトリ最上位のサブディレクトリとします。</p>
+<p>Meson を実行すると、以下のように出力されます。</p>
+<pre><code>The Meson build system
+ version: 0.13.0-research
+Source dir: /home/jpakkane/mesontutorial
+Build dir: /home/jpakkane/mesontutorial/builddir
+Build type: native build
+Project name is "tutorial".
+Using native c compiler "ccache cc". (gcc 4.8.2)
+Creating build target "demo" with 1 files.
+</code></pre>
+<p>これによりプログラムのビルドができたことになります。</p>
+<pre><code>$ cd builddir
+$ ninja
+</code></pre>
+<p>これを行ったら、生成されたバイナリーを以下のように実行します。</p>
+<pre><code class="language-console">$ ./demo
+</code></pre>
+<p>期待どおりに出力が得られます。</p>
+<pre><code>Hello there.
+</code></pre>
+<h2 id="2">依存モジュールの追加</h2>
+<p>テキストを出力するだけなのは、なんとも古いやり方です。ここからはこのプログラムを、グラフィックウィンドウを用いたものに作り変えます。ここでは
+<a href="https://gtk.org">GTK+</a> ウィジェットツールキットを利用します。まずはメインプログラムが GTK+
+を利用するように修正します。新たなプログラムは以下のようになります。</p>
+<pre><code class="language-c">#include&lt;gtk/gtk.h&gt;
+
+int main(int argc, char **argv) {
+  GtkWidget *win;
+  gtk_init(&amp;argc, &amp;argv);
+  win = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+  gtk_window_set_title(GTK_WINDOW(win), "Hello there");
+  g_signal_connect(win, "destroy", G_CALLBACK(gtk_main_quit), NULL);
+  gtk_widget_show(win);
+  gtk_main();
+}
+</code></pre>
+<p>そして Meson ビルド定義を編集します。GTK+ ライブラリを検索して利用できるように指示します。</p>
+<pre><code class="language-meson">project('tutorial', 'c')
+gtkdep = dependency('gtk+-3.0')
+executable('demo', 'main.c', dependencies : gtkdep)
+</code></pre>
+<p>ビルドができるようになりました。念のため説明しておきますが、ビルドディレクトリは再度生成する必要もなく、特別なコマンドなどを実行する必要もありません。先ほどとまったく同じコマンドを実行するだけです。ビルド方法のどこも変わっていないかのように、ただビルドするだけです。</p>
+<pre><code>$ ninja
+</code></pre>
+<p>初めにビルドディレクトリを生成しておけば、<code>meson</code> コマンドを実行する必要はなくなり、その後は <code>ninja</code> を実行します。Meson
+はビルド定義に加えられた変更を自動検知して、すべてを考慮した動作を行います。したがってユーザーは何も気にする必要はありません。上のコマンド実行からは、以下の出力が得られます。</p>
+<pre><code>[1/1] Regenerating build files
+The Meson build system
+ version: 0.13.0-research
+Source dir: /home/jpakkane/mesontutorial
+Build dir: /home/jpakkane/mesontutorial/builddir
+Build type: native build
+Project name is "tutorial".
+Using native c compiler "ccache cc". (gcc 4.8.2)
+Found pkg-config version 0.26.
+Dependency gtk+-3.0 found: YES
+Creating build target "demo" with 1 files.
+[1/2] Compiling c object demo.dir/main.c.o
+[2/2] Linking target demo
+</code></pre>
+<p>この出力から Meson がビルド定義の変更を検知して自動的に再ビルドを行っている様子がわかります。実行プログラムは以下のようにして実行します。</p>
+<pre><code>$ ./demo
+</code></pre>
+<p>プログラム実行によって、以下のような GUI アプリケーションが表示されます。</p>
+<p><img src="images/gtksample.png" alt="GTK+ sample application screenshot" id="gtk-sample-application-screenshot"></p>
+
+</div>
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		
+
+<hr>
+
+<div class="license-description">
+    Web サイトのライセンス情報は <a href="legal.html">Legal</a> ページに示しています。
+</div>
+
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		<a href="https://github.com/mesonbuild/meson//edit/master/markdown/Tutorial.md" data-hotdoc-role="edit-button">Edit on github</a>
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+</body>
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</html>

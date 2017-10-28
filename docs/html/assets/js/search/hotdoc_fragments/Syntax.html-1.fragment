@@ -1,0 +1,1 @@
+fragment_downloaded_cb({"url": "Syntax.html#1", "fragment": "\nMeson \nOne important difference in how variables work in Meson is that all variables are immutable. This is different from for example how Python works. \n"});

@@ -21,8 +21,10 @@ AC_PROG_SPHINXBUILD
 # Checks for library functions.
 
 AC_CHECK_MESON_DIR
+AC_CHECK_BUILD_DIR
 
 AC_CONFIG_FILES([Makefile
+                 hotdoc.json
                  markdown/Makefile
                  markdown/Release-notes-for-0.43.0/Makefile
                  markdown/snippets/Makefile

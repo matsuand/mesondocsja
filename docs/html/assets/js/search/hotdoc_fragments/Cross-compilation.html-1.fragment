@@ -1,0 +1,1 @@
+fragment_downloaded_cb({"url": "Cross-compilation.html#1", "fragment": "\nOnce you have the cross file starting a build is simple \nOnce configuration is done compilation is started by invoking Ninja in the usual way. \n"});

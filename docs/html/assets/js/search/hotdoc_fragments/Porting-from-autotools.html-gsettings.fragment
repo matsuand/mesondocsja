@@ -1,0 +1,1 @@
+fragment_downloaded_cb({"url": "Porting-from-autotools.html#gsettings", "fragment": "GSettings \nconfigure.ac sh GLIB_GSETTINGS \nMakefile.am make gsettings_SCHEMAS foo.gschema.xml GSETTINGS_RULES \n"});

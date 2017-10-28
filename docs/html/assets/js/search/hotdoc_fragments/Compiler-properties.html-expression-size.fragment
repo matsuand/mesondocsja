@@ -1,0 +1,1 @@
+fragment_downloaded_cb({"url": "Compiler-properties.html#expression-size", "fragment": "Expression size \nOften you need to determine the size of a particular element such as int wchar_t or char Using the compiler variable mentioned above the check can be done like this. \n"});

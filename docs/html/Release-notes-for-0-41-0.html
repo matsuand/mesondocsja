@@ -1,0 +1,253 @@
+<html lang="en">
+<head>
+
+<base href=".">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>Release 0.41</title>
+
+<link rel="stylesheet" href="assets/css/custom_bootstrap.css" type="text/css">
+<link rel="stylesheet" href="assets/css/frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+
+<link rel="stylesheet" href="assets/css/prism.css" type="text/css">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/isotope.pkgd.min.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<link rel="icon" type="image/png" href="assets/images/favicon.png">
+<link rel="shortcut icon" href="assets/images/favicon.png">
+
+</head>
+
+<body class="no-script
+" data-spy="scroll" data-target="#toc" data-offset="70">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<form action="" class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/meson_logo.png" alt="Home" id="home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		モジュール <span class="caret"></span>
+	</a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="Gnome-module.html">GNOME</a>
+			</li>
+					<li>
+				<a href="i18n-module.html">i18n</a>
+			</li>
+					<li>
+				<a href="Pkgconfig-module.html">Pkgconfig</a>
+			</li>
+					<li>
+				<a href="Python-3-module.html">Python 3</a>
+			</li>
+					<li>
+				<a href="Qt4-module.html">Qt4</a>
+			</li>
+					<li>
+				<a href="Qt5-module.html">Qt5</a>
+			</li>
+					<li>
+				<a href="RPM-module.html">RPM</a>
+			</li>
+					<li>
+				<a href="Windows-module.html">Windows</a>
+			</li>
+			</ul>
+</li>
+<li class="dropdown">
+	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		クィックリファレンス <span class="caret"></span>
+	</a>
+	<ul class="dropdown-menu" id="quick-refs-menu">
+					<li>
+				<a href="Reference-manual.html">関数</a>
+			</li>
+					<li>
+				<a href="Build-options.html">オプション</a>
+			</li>
+					<li>
+				<a href="Configuration.html">設定</a>
+			</li>
+					<li>
+				<a href="Dependencies.html">依存関係</a>
+			</li>
+					<li>
+				<a href="Unit-tests.html">テスト</a>
+			</li>
+					<li>
+				<a href="Syntax.html">文法</a>
+			</li>
+			</ul>
+</li>
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+				<p><b>Meson ビルドシステム</b></p>
+			</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="core" data-hotdoc-in-toplevel="True" data-hotdoc-project="Meson-documentation-1.0" data-hotdoc-ref="Release-notes-for-0-41-0.html" class="page_container" id="page-wrapper">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/navigation.js"></script>
+	<script src="assets/js/sitemap.js"></script>
+</div>
+
+<div id="body">
+	<div id="main">
+				
+<div id="page-description" data-hotdoc-source="Release-notes-for-0.41.0.md" data-hotdoc-role="main">
+<h1 id="new-features">New features</h1>
+<h2 id="dependency-handler-for-llvm">Dependency Handler for LLVM</h2>
+<p>Native support for linking against LLVM using the <code>dependency</code> function.</p>
+<h2 id="vcs_tag-keyword-fallback-is-now-optional">vcs_tag keyword fallback is now optional</h2>
+<p>The <code>fallback</code> keyword in <code>vcs_tag()</code> is now optional. If not given, its
+value defaults to the return value of <code>meson.project_version()</code>.</p>
+<h2 id="better-quoting-of-special-characters-in-ninja-command-invocations">Better quoting of special characters in ninja command invocations</h2>
+<p>The ninja backend now quotes special characters that may be interpreted by
+ninja itself, providing better interoperability with custom commands. This
+support may not be perfect; please report any issues found with special
+characters to the issue tracker.</p>
+<h2 id="pkgconfig-support-for-custom-variables">Pkgconfig support for custom variables</h2>
+<p>The Pkgconfig module object can add arbitrary variables to the generated .pc
+file with the new <code>variables</code> keyword:</p>
+<pre><code class="language-meson">pkg.generate(libraries : libs,
+             subdirs : h,
+             version : '1.0',
+             name : 'libsimple',
+             filebase : 'simple',
+             description : 'A simple demo library.',
+             variables : ['datadir=${prefix}/data'])
+</code></pre>
+<h2 id="a-target-for-creating-tarballs">A target for creating tarballs</h2>
+<p>Creating distribution tarballs is simple:</p>
+<pre><code>ninja dist
+</code></pre>
+<p>This will create a <code>.tar.xz</code> archive of the source code including submodules
+without any revision control information. This command also verifies that
+the resulting archive can be built, tested and installed. This is roughly
+equivalent to the <code>distcheck</code> target in other build systems. Currently this
+only works for projects using Git and only with the Ninja backend.</p>
+<h2 id="support-for-passing-arguments-to-rust-compiler">Support for passing arguments to Rust compiler</h2>
+<p>Targets for building rust now take a <code>rust_args</code> keyword.</p>
+<h2 id="code-coverage-export-for-tests">Code coverage export for tests</h2>
+<p>Code coverage can be generated for tests by passing the <code>--cov</code> argument to
+the <code>run_tests.py</code> test runner. Note, since multiple processes are used,
+coverage must be combined before producing a report (<code>coverage3 combine</code>).</p>
+<h2 id="reproducible-builds">Reproducible builds</h2>
+<p>All known issues have been fixed and Meson can now build reproducible Debian
+packages out of the box.</p>
+<h2 id="extended-template-substitution-in-configure_file">Extended template substitution in configure_file</h2>
+<p>The output argument of <code>configure_file()</code> is parsed for @BASENAME@ and
+@PLAINNAME@ substitutions.</p>
+<h2 id="crossconfig-property-for-overriding-whether-an-exe-wrapper-is-needed">Cross-config property for overriding whether an exe wrapper is needed</h2>
+<p>The new <code>needs_exe_wrapper</code> property allows overriding auto-detection for
+cases where <code>build_machine</code> appears to be compatible with <code>host_machine</code>,
+but actually isn't. For example when: - <code>build_machine</code> is macOS and
+<code>host_machine</code> is the iOS Simulator - the <code>build_machine</code>'s libc is glibc
+but the <code>host_machine</code> libc is uClibc - code relies on kernel features not
+available on the <code>build_machine</code></p>
+<h2 id="support-for-capturing-stdout-of-a-command-in-configure_file">Support for capturing stdout of a command in configure_file</h2>
+<p><code>configure_file()</code> now supports a new keyword - <code>capture</code>. When this
+argument is set to true, Meson captures <code>stdout</code> of the <code>command</code> and writes
+it to the target file specified as <code>output</code>.</p>
+
+</div>
+
+
+		
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		
+
+<hr>
+
+<div class="license-description">
+    Web サイトのライセンス情報は <a href="legal.html">Legal</a> ページに示しています。
+</div>
+
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		<a href="https://github.com/mesonbuild/meson//edit/master/markdown/Release-notes-for-0.41.0.md" data-hotdoc-role="edit-button">Edit on github</a>
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+</body>
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</html>

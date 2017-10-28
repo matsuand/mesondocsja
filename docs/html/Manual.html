@@ -1,0 +1,418 @@
+<html lang="en">
+<head>
+
+<base href=".">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>マニュアル</title>
+
+<link rel="stylesheet" href="assets/css/custom_bootstrap.css" type="text/css">
+<link rel="stylesheet" href="assets/css/frontend.css" type="text/css">
+<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+
+<link rel="stylesheet" href="assets/css/prism.css" type="text/css">
+
+<script src="assets/js/mustache.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+<script src="assets/js/typeahead.jquery.min.js"></script>
+<script src="assets/js/search.js"></script>
+<script src="assets/js/isotope.pkgd.min.js"></script>
+<script src="assets/js/compare-versions.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/bootstrap-toc.min.js"></script>
+<script src="assets/js/jquery.touchSwipe.min.js"></script>
+<script src="assets/js/anchor.min.js"></script>
+<script src="assets/js/tag_filtering.js"></script>
+<script src="assets/js/language_switching.js"></script>
+
+<script src="assets/js/lines_around_headings.js"></script>
+
+<script src="assets/js/prism-core.js"></script>
+<script src="assets/js/prism-autoloader.js"></script>
+<script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
+
+<link rel="icon" type="image/png" href="assets/images/favicon.png">
+<link rel="shortcut icon" href="assets/images/favicon.png">
+
+</head>
+
+<body class="no-script
+" data-spy="scroll" data-target="#toc" data-offset="70">
+
+<script>
+$('body').removeClass('no-script');
+</script>
+
+<nav class="navbar navbar-fixed-top navbar-default" id="topnav">
+	<div class="container-fluid">
+		<div class="navbar-right">
+			<a id="toc-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-wrapper" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<form action="" class="navbar-form pull-right" id="navbar-search-form">
+                               <div class="form-group has-feedback">
+                                       <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
+				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
+                               </div>
+                        </form>
+		</div>
+		<div class="navbar-header">
+			<a id="sidenav-toggle">
+				<span class="glyphicon glyphicon-menu-right"></span>
+				<span class="glyphicon glyphicon-menu-left"></span>
+			</a>
+			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
+				<img src="assets/images/meson_logo.png" alt="Home" id="home">
+			</a>
+		</div>
+		<div class="navbar-collapse collapse" id="navbar-wrapper">
+			<ul class="nav navbar-nav" id="menu">
+				
+<li class="dropdown">
+	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		モジュール <span class="caret"></span>
+	</a>
+	<ul class="dropdown-menu" id="modules-menu">
+					<li>
+				<a href="Gnome-module.html">GNOME</a>
+			</li>
+					<li>
+				<a href="i18n-module.html">i18n</a>
+			</li>
+					<li>
+				<a href="Pkgconfig-module.html">Pkgconfig</a>
+			</li>
+					<li>
+				<a href="Python-3-module.html">Python 3</a>
+			</li>
+					<li>
+				<a href="Qt4-module.html">Qt4</a>
+			</li>
+					<li>
+				<a href="Qt5-module.html">Qt5</a>
+			</li>
+					<li>
+				<a href="RPM-module.html">RPM</a>
+			</li>
+					<li>
+				<a href="Windows-module.html">Windows</a>
+			</li>
+			</ul>
+</li>
+<li class="dropdown">
+	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		クィックリファレンス <span class="caret"></span>
+	</a>
+	<ul class="dropdown-menu" id="quick-refs-menu">
+					<li>
+				<a href="Reference-manual.html">関数</a>
+			</li>
+					<li>
+				<a href="Build-options.html">オプション</a>
+			</li>
+					<li>
+				<a href="Configuration.html">設定</a>
+			</li>
+					<li>
+				<a href="Dependencies.html">依存関係</a>
+			</li>
+					<li>
+				<a href="Unit-tests.html">テスト</a>
+			</li>
+					<li>
+				<a href="Syntax.html">文法</a>
+			</li>
+			</ul>
+</li>
+			</ul>
+			<div class="hidden-xs hidden-sm navbar-text navbar-center">
+				<p><b>Meson ビルドシステム</b></p>
+			</div>
+		</div>
+	</div>
+</nav>
+
+<main>
+<div data-extension="core" data-hotdoc-in-toplevel="True" data-hotdoc-project="Meson-documentation-1.0" data-hotdoc-ref="Manual.html" class="page_container" id="page-wrapper">
+<script src="assets/js/utils.js"></script>
+
+<div class="panel panel-collapse oc-collapsed" id="sidenav" data-hotdoc-role="navigation">
+	<script src="assets/js/navigation.js"></script>
+	<script src="assets/js/sitemap.js"></script>
+</div>
+
+<div id="body">
+	<div id="main">
+				
+<div id="page-description" data-hotdoc-source="Manual.md" data-hotdoc-role="main">
+<h1 id="">マニュアル</h1>
+<p>これは Meson のユーザーマニュアルです。Git head
+の内容に基づいています。これよりも古い版では、説明内容がうまく動作しないものがあるかもしれません。</p>
+
+</div>
+
+
+		<div id="subpages">
+	<h4>下位ページ</h4>
+	<div class="container-fluid">
+		<div class="row">
+						<div class="col-sm-12 col-md-4">
+				<a href="Overview.html">概要</a>
+			</div>
+			<div class="col-sm-12 col-md-8 subpage-description">
+								<p>Meson ビルドシステムの概要</p>
+							</div>
+						<div class="col-sm-12 col-md-4">
+				<a href="Running-Meson.html">Meson の実行</a>
+			</div>
+			<div class="col-sm-12 col-md-8 subpage-description">
+								<p>Meson プロジェクトの構築</p>
+							</div>
+						<div class="col-sm-12 col-md-4">
+				<a href="Using-with-Visual-Studio.html">Visual Studio での利用</a>
+			</div>
+			<div class="col-sm-12 col-md-8 subpage-description">
+								<p>Visual Studio での Meson の利用</p>
+							</div>
+						<div class="col-sm-12 col-md-4">
+				<a href="Meson-sample.html">Meson サンプル</a>
+			</div>
+			<div class="col-sm-12 col-md-8 subpage-description">
+								<p>単純なプロジェクトによる説明</p>
+							</div>
+						<div class="col-sm-12 col-md-4">
+				<a href="Syntax.html">文法</a>
+			</div>
+			<div class="col-sm-12 col-md-8 subpage-description">
+								<p>Meson ファイルの文法と構造</p>
+							</div>
+						<div class="col-sm-12 col-md-4">
+				<a href="Build-targets.html">ビルドターゲット</a>
+			</div>
+			<div class="col-sm-12 col-md-8 subpage-description">
+								<p>ビルドターゲットの定義</p>
+							</div>
+						<div class="col-sm-12 col-md-4">
+				<a href="Include-directories.html">インクルードディレクトリ</a>
+			</div>
+			<div class="col-sm-12 col-md-8 subpage-description">
+								<p>Instructions on handling include directories</p>
+							</div>
+						<div class="col-sm-12 col-md-4">
+				<a href="Installing.html">インストール</a>
+			</div>
+			<div class="col-sm-12 col-md-8 subpage-description">
+								<p>Installing targets</p>
+							</div>
+						<div class="col-sm-12 col-md-4">
+				<a href="Adding-arguments.html">引数の追加</a>
+			</div>
+			<div class="col-sm-12 col-md-8 subpage-description">
+								<p>Adding compiler arguments</p>
+							</div>
+						<div class="col-sm-12 col-md-4">
+				<a href="Configuration.html">設定</a>
+			</div>
+			<div class="col-sm-12 col-md-8 subpage-description">
+								<p>Build-time configuration options</p>
+							</div>
+						<div class="col-sm-12 col-md-4">
+				<a href="Compiler-properties.html">Compiler properties</a>
+			</div>
+			<div class="col-sm-12 col-md-8 subpage-description">
+								<p>（概要の記述はありません）</p>
+							</div>
+						<div class="col-sm-12 col-md-4">
+				<a href="Dependencies.html">依存関係</a>
+			</div>
+			<div class="col-sm-12 col-md-8 subpage-description">
+								<p>Dependencies for external libraries and frameworks</p>
+							</div>
+						<div class="col-sm-12 col-md-4">
+				<a href="Threads.html">スレッド</a>
+			</div>
+			<div class="col-sm-12 col-md-8 subpage-description">
+								<p>スレッドサポートの有効化</p>
+							</div>
+						<div class="col-sm-12 col-md-4">
+				<a href="External-commands.html">外部コマンド</a>
+			</div>
+			<div class="col-sm-12 col-md-8 subpage-description">
+								<p>外部コマンドの実行</p>
+							</div>
+						<div class="col-sm-12 col-md-4">
+				<a href="Precompiled-headers.html">プリコンパイルヘッダー</a>
+			</div>
+			<div class="col-sm-12 col-md-8 subpage-description">
+								<p>Using precompiled headers to reduce compilation time</p>
+							</div>
+						<div class="col-sm-12 col-md-4">
+				<a href="Unity-builds.html">Unity builds</a>
+			</div>
+			<div class="col-sm-12 col-md-8 subpage-description">
+								<p>Unity builds are a technique for reducing build times</p>
+							</div>
+						<div class="col-sm-12 col-md-4">
+				<a href="Feature-autodetection.html">Feature autodetection</a>
+			</div>
+			<div class="col-sm-12 col-md-8 subpage-description">
+								<p>Auto-detection of features like ccache and code coverage</p>
+							</div>
+						<div class="col-sm-12 col-md-4">
+				<a href="Generating-sources.html">ソースファイル生成</a>
+			</div>
+			<div class="col-sm-12 col-md-8 subpage-description">
+								<p>コンパイル前のソースファイル生成</p>
+							</div>
+						<div class="col-sm-12 col-md-4">
+				<a href="Unit-tests.html">ユニットテスト</a>
+			</div>
+			<div class="col-sm-12 col-md-8 subpage-description">
+								<p>Meson's own unit-test system</p>
+							</div>
+						<div class="col-sm-12 col-md-4">
+				<a href="Cross-compilation.html">クロスコンパイル</a>
+			</div>
+			<div class="col-sm-12 col-md-8 subpage-description">
+								<p>クロスコンパイルの設定</p>
+							</div>
+						<div class="col-sm-12 col-md-4">
+				<a href="Localisation.html">Localisation</a>
+			</div>
+			<div class="col-sm-12 col-md-8 subpage-description">
+								<p>（概要の記述はありません）</p>
+							</div>
+						<div class="col-sm-12 col-md-4">
+				<a href="Build-options.html">ビルドオプション</a>
+			</div>
+			<div class="col-sm-12 col-md-8 subpage-description">
+								<p>プロジェクトプロパティを設定するビルドオプション</p>
+							</div>
+						<div class="col-sm-12 col-md-4">
+				<a href="Subprojects.html">サブプロジェクト</a>
+			</div>
+			<div class="col-sm-12 col-md-8 subpage-description">
+								<p>他の Meson プロジェクト内にサブプロジェクトとして利用する</p>
+							</div>
+						<div class="col-sm-12 col-md-4">
+				<a href="Modules.html">モジュール</a>
+			</div>
+			<div class="col-sm-12 col-md-8 subpage-description">
+								<p>Meson modules for common build operations</p>
+							</div>
+						<div class="col-sm-12 col-md-4">
+				<a href="Java.html">Java</a>
+			</div>
+			<div class="col-sm-12 col-md-8 subpage-description">
+								<p>Compiling Java programs</p>
+							</div>
+						<div class="col-sm-12 col-md-4">
+				<a href="Vala.html">Vala</a>
+			</div>
+			<div class="col-sm-12 col-md-8 subpage-description">
+								<p>Compiling Vala and Genie programs</p>
+							</div>
+						<div class="col-sm-12 col-md-4">
+				<a href="D.html">D</a>
+			</div>
+			<div class="col-sm-12 col-md-8 subpage-description">
+								<p>Compiling D sources</p>
+							</div>
+						<div class="col-sm-12 col-md-4">
+				<a href="IDE-integration.html">IDE integration</a>
+			</div>
+			<div class="col-sm-12 col-md-8 subpage-description">
+								<p>（概要の記述はありません）</p>
+							</div>
+						<div class="col-sm-12 col-md-4">
+				<a href="Custom-build-targets.html">カスタムビルドターゲット</a>
+			</div>
+			<div class="col-sm-12 col-md-8 subpage-description">
+								<p>Build targets for custom languages or corner-cases</p>
+							</div>
+						<div class="col-sm-12 col-md-4">
+				<a href="Build-system-converters.html">ビルドシステムコンバーター</a>
+			</div>
+			<div class="col-sm-12 col-md-8 subpage-description">
+								<p>Converting other build systems to Meson</p>
+							</div>
+						<div class="col-sm-12 col-md-4">
+				<a href="Configuring-a-build-directory.html">ビルドディレクトリの設定</a>
+			</div>
+			<div class="col-sm-12 col-md-8 subpage-description">
+								<p>Configuring a pre-generated build directory</p>
+							</div>
+						<div class="col-sm-12 col-md-4">
+				<a href="Run-targets.html">ターゲットの実行</a>
+			</div>
+			<div class="col-sm-12 col-md-8 subpage-description">
+								<p>Targets to run external commands</p>
+							</div>
+						<div class="col-sm-12 col-md-4">
+				<a href="Creating-releases.html">リリースの生成</a>
+			</div>
+			<div class="col-sm-12 col-md-8 subpage-description">
+								<p>Creating releases</p>
+							</div>
+						<div class="col-sm-12 col-md-4">
+				<a href="Creating-OSX-packages.html">OSX パッケージの生成</a>
+			</div>
+			<div class="col-sm-12 col-md-8 subpage-description">
+								<p>Tools to create OS X packages</p>
+							</div>
+						<div class="col-sm-12 col-md-4">
+				<a href="Creating-Linux-binaries.html">Linux バイナリの生成</a>
+			</div>
+			<div class="col-sm-12 col-md-8 subpage-description">
+								<p>Creating universal Linux binaries</p>
+							</div>
+					</div>
+	</div>
+</div>
+	</div>
+	<div id="search_results">
+		<p>The results of the search are</p>
+	</div>
+	<div id="footer">
+		
+
+<hr>
+
+<div class="license-description">
+    Web サイトのライセンス情報は <a href="legal.html">Legal</a> ページに示しています。
+</div>
+
+
+	</div>
+</div>
+
+<div id="toc-column">
+	
+		<div class="edit-button">
+		<a href="https://github.com/mesonbuild/meson//edit/master/markdown/Manual.md" data-hotdoc-role="edit-button">Edit on github</a>
+
+	</div>
+		<div id="toc-wrapper">
+		<nav id="toc"></nav>
+	</div>
+</div>
+</div>
+</main>
+
+</body>
+
+<script src="assets/js/navbar_offset_scroller.js"></script>
+</html>

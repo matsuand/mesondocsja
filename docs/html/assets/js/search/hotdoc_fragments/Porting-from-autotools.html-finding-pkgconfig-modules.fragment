@@ -1,0 +1,1 @@
+fragment_downloaded_cb({"url": "Porting-from-autotools.html#finding-pkgconfig-modules", "fragment": "Finding pkg config modules \nconfigure.ac \nautoconf PKG_CHECK_MODULES SOUP libsoup \nmeson.build \nmeson soup dependency libsoup version \n"});

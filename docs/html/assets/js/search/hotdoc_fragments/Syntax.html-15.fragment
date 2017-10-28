@@ -1,0 +1,1 @@
+fragment_downloaded_cb({"url": "Syntax.html#15", "fragment": "\n\nThe only exception is that nested ternary operators are forbidden to improve legibility. If your branching needs are more complex than this you need to write an if else construct. \n"});
