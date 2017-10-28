@@ -1,4 +1,3 @@
-dnl for the original directory
 dnl
 dnl To specify the original source directory
 dnl
@@ -23,6 +22,27 @@ AC_DEFUN([AC_CHECK_MESON_DIR],[
   abs_mesondir=`(cd ${MESONDIR} && pwd)`
   AC_SUBST(abs_mesondir)
   AC_MSG_RESULT([found])
+])
+
+dnl
+dnl To specify the build directory
+dnl
+AC_DEFUN([AC_CHECK_BUILD_DIR],[
+  AC_MSG_CHECKING([for build directory])
+  AC_ARG_WITH(builddir,
+    AS_HELP_STRING([--with-builddir=DIR],
+        [Path to the build directory]),
+      [BUILDDOCDIR="$withval"])
+
+  if test "x${BUILDDOCDIR}" = "x"; then
+    AC_MSG_RESULT([not specified, using default value: built_docs])
+    BUILDDOCDIR=built_docs
+  else
+    AC_MSG_RESULT([specified: $withval])
+  fi
+  AC_SUBST(BUILDDOCDIR)
+  abs_builddocdir=`(cd ${BUILDDOCDIR} && pwd)`
+  AC_SUBST(abs_builddocdir)
 ])
 
 dnl
