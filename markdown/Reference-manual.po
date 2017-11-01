@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-10-24 18:52+0900\n"
+"POT-Creation-Date: 2017-11-01 10:07+0900\n"
 "PO-Revision-Date: 2017-09-30 21:44+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -220,14 +220,14 @@ msgstr ""
 #. type: Plain text
 #: Reference-manual.md:99
 msgid ""
-"To use the test setup, run `mesontest --setup=*name*` inside the build dir."
+"To use the test setup, run `meson test --setup=*name*` inside the build dir."
 msgstr ""
 
 #. type: Plain text
 #: Reference-manual.md:103
 msgid ""
-"Note that all these options are also available while running the `mesontest` "
-"script for running tests instead of `ninja test` or `msbuild RUN_TESTS."
+"Note that all these options are also available while running the `meson "
+"test` script for running tests instead of `ninja test` or `msbuild RUN_TESTS."
 "vcxproj`, etc depending on the backend."
 msgstr ""
 
@@ -1848,11 +1848,30 @@ msgstr ""
 
 #. type: Plain text
 #: Reference-manual.md:851
-msgid "### project()"
+msgid "### warning()"
 msgstr ""
 
 #. type: Plain text
 #: Reference-manual.md:855
+#, no-wrap
+msgid ""
+"``` meson\n"
+"    void warning(text)\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: Reference-manual.md:857
+msgid "This function prints its argument to stdout prefixed with WARNING:."
+msgstr ""
+
+#. type: Plain text
+#: Reference-manual.md:859
+msgid "### project()"
+msgstr ""
+
+#. type: Plain text
+#: Reference-manual.md:863
 #, no-wrap
 msgid ""
 "``` meson\n"
@@ -1861,7 +1880,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:862
+#: Reference-manual.md:870
 msgid ""
 "The first argument to this function must be a string defining the name of "
 "this project. It is followed by programming languages that the project uses. "
@@ -1871,7 +1890,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:869
+#: Reference-manual.md:877
 msgid ""
 "The project name can be any string you want, it's not used for anything "
 "except descriptive purposes. However since it is written to e.g. the "
@@ -1881,12 +1900,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:871
+#: Reference-manual.md:879
 msgid "Project supports the following keyword arguments."
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Reference-manual.md:880
+#: Reference-manual.md:888
 msgid ""
 "`default_options` takes an array of strings. The strings are in the form "
 "`key=value` and have the same format as options to `meson configure`. For "
@@ -1899,7 +1918,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '  - '
-#: Reference-manual.md:890
+#: Reference-manual.md:898
 msgid ""
 "`license` takes a string or array of strings describing the license(s) the "
 "code is under. Usually this would be something like `license : 'GPL2+'`, but "
@@ -1911,14 +1930,14 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '  - '
-#: Reference-manual.md:893
+#: Reference-manual.md:901
 msgid ""
 "`meson_version` takes a string describing which Meson version the project "
 "requires. Usually something like `>0.28.0`."
 msgstr ""
 
 #. type: Bullet: '  - '
-#: Reference-manual.md:901
+#: Reference-manual.md:909
 msgid ""
 "`subproject_dir` specifies the top level directory name that holds Meson "
 "subprojects. This is only meant as a compatibility option for existing code "
@@ -1929,7 +1948,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Reference-manual.md:905
+#: Reference-manual.md:913
 msgid ""
 "`version`, which is a free form string describing the version of this "
 "project. You can access the value in your Meson build files with `meson."
@@ -1937,12 +1956,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:907
+#: Reference-manual.md:915
 msgid "### run_command()"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:911
+#: Reference-manual.md:919
 #, no-wrap
 msgid ""
 "``` meson\n"
@@ -1951,7 +1970,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:919
+#: Reference-manual.md:927
 msgid ""
 "Runs the command specified in positional arguments. Returns [an opaque "
 "object](#run-result-object) containing the result of the invocation. The "
@@ -1962,12 +1981,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:921
+#: Reference-manual.md:929
 msgid "### run_target"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:925
+#: Reference-manual.md:933
 #, no-wrap
 msgid ""
 "``` meson\n"
@@ -1976,7 +1995,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:930
+#: Reference-manual.md:938
 msgid ""
 "This function creates a new top-level target that runs a specified command "
 "with the specified arguments. Like all top-level targets, this integrates "
@@ -1985,7 +2004,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:935
+#: Reference-manual.md:943
 msgid ""
 "The script is run from an *unspecified* directory, and Meson will set three "
 "environment variables `MESON_SOURCE_ROOT`, `MESON_BUILD_ROOT` and "
@@ -1994,7 +2013,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:944
+#: Reference-manual.md:952
 #, no-wrap
 msgid ""
 " - `command` is a list containing the command to run and the arguments\n"
@@ -2008,12 +2027,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:946
+#: Reference-manual.md:954
 msgid "### set_variable()"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:950
+#: Reference-manual.md:958
 #, no-wrap
 msgid ""
 "``` meson\n"
@@ -2022,19 +2041,19 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:953
+#: Reference-manual.md:961
 msgid ""
 "Assigns a value to the given variable name. Calling `set_variable('foo', "
 "bar)` is equivalent to `foo = bar`."
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:955
+#: Reference-manual.md:963
 msgid "### shared_library()"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:959
+#: Reference-manual.md:967
 #, no-wrap
 msgid ""
 "``` meson\n"
@@ -2043,7 +2062,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:963
+#: Reference-manual.md:971
 msgid ""
 "Builds a shared library with the given sources. Positional and keyword "
 "arguments are the same as for [`library`](#library) with the following extra "
@@ -2051,7 +2070,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:980
+#: Reference-manual.md:988
 msgid ""
 "`soversion` a string specifying the soversion of this shared library, such "
 "as `0`. On Linux and Windows this is used to set the soversion (or "
@@ -2063,7 +2082,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:980
+#: Reference-manual.md:988
 msgid ""
 "`version` a string specifying the version of this shared library, such as "
 "`1.1.0`. On Linux and OS X, this is used to set the shared library version "
@@ -2072,7 +2091,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:980
+#: Reference-manual.md:988
 msgid ""
 "`vs_module_defs` a string, a File object, or Custom Target for a Microsoft "
 "module definition file for controlling symbol exports, etc., on platforms "
@@ -2080,12 +2099,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:982
+#: Reference-manual.md:990
 msgid "### shared_module()"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:986
+#: Reference-manual.md:994
 #, no-wrap
 msgid ""
 "``` meson\n"
@@ -2094,14 +2113,14 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:989
+#: Reference-manual.md:997
 msgid ""
 "Builds a shared module with the given sources. Positional and keyword "
 "arguments are the same as for [`library`](#library)."
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:993
+#: Reference-manual.md:1001
 msgid ""
 "This is useful for building modules that will be `dlopen()`ed and hence may "
 "contain undefined symbols that will be provided by the library that is "
@@ -2109,18 +2128,18 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:995
+#: Reference-manual.md:1003
 #, no-wrap
 msgid "*Added 0.37.0*\n"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:997
+#: Reference-manual.md:1005
 msgid "### static_library()"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1001
+#: Reference-manual.md:1009
 #, no-wrap
 msgid ""
 "``` meson\n"
@@ -2129,7 +2148,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1005
+#: Reference-manual.md:1013
 msgid ""
 "Builds a static library with the given sources. Positional and keyword "
 "arguments are otherwise the same as for [`library`](#library), but it has "
@@ -2137,7 +2156,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Reference-manual.md:1010
+#: Reference-manual.md:1018
 msgid ""
 "`pic`, (*Added 0.36.0*) builds the library as positional independent code "
 "(so it can be linked into a shared library). This option has no effect on "
@@ -2146,12 +2165,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1012
+#: Reference-manual.md:1020
 msgid "### subdir()"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1016
+#: Reference-manual.md:1024
 #, no-wrap
 msgid ""
 "``` meson\n"
@@ -2160,7 +2179,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1023
+#: Reference-manual.md:1031
 msgid ""
 "Enters the specified subdirectory and executes the `meson.build` file in it. "
 "Once that is done, it returns and execution continues on the line following "
@@ -2170,19 +2189,19 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1026
+#: Reference-manual.md:1034
 msgid ""
 "Note that this means that each `meson.build` file in a source tree can and "
 "must only be executed once."
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1028
+#: Reference-manual.md:1036
 msgid "### subproject()"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1032
+#: Reference-manual.md:1040
 #, no-wrap
 msgid ""
 "``` meson\n"
@@ -2191,7 +2210,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1040
+#: Reference-manual.md:1048
 msgid ""
 "Takes the project specified in the positional argument and brings that in "
 "the current build specification by returning a [subproject object]"
@@ -2202,7 +2221,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Reference-manual.md:1049
+#: Reference-manual.md:1057
 msgid ""
 "`default_options`, *(added 0.37.0)* an array of default option values that "
 "override those set in the project's `default_options` invocation (like "
@@ -2212,14 +2231,14 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Reference-manual.md:1049
+#: Reference-manual.md:1057
 msgid ""
 "`version` keyword argument that works just like the one in `dependency`. It "
 "specifies what version the subproject should be, as an example `>=1.0.1`"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1055
+#: Reference-manual.md:1063
 msgid ""
 "Note that you can use the returned [subproject object](#subproject-object) "
 "to access any variable in the subproject. However, if you want to use a "
@@ -2228,12 +2247,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1057
+#: Reference-manual.md:1065
 msgid "### test()"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1061
+#: Reference-manual.md:1069
 #, no-wrap
 msgid ""
 "``` meson\n"
@@ -2242,7 +2261,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1065
+#: Reference-manual.md:1073
 msgid ""
 "Defines a unit test. Takes two positional arguments, the first is the name "
 "of this test and the second is the executable to run. Keyword arguments are "
@@ -2250,12 +2269,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1067
+#: Reference-manual.md:1075
 msgid "- `args` arguments to pass to the executable"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1072
+#: Reference-manual.md:1080
 msgid ""
 "`env` environment variables to set, such as `['NAME1=value1', "
 "'NAME2=value2']`, or an [`environment()` object](#environment-object) which "
@@ -2263,48 +2282,48 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1075
+#: Reference-manual.md:1083
 msgid ""
 "`is_parallel` when false, specifies that no other test must be running at "
 "the same time as this test"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1078
+#: Reference-manual.md:1086
 msgid ""
 "`should_fail` when true the test is considered passed if the executable "
 "returns a non-zero return value (i.e. reports an error)"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1082
+#: Reference-manual.md:1090
 msgid ""
 "`timeout` the amount of seconds the test is allowed to run, a test that "
 "exceeds its time limit is always considered failed, defaults to 30 seconds"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1085
+#: Reference-manual.md:1093
 msgid ""
 "`workdir` absolute path that will be used as the working directory for the "
 "test"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1089
+#: Reference-manual.md:1097
 msgid ""
-"Defined tests can be run in a backend-agnostic way by calling `mesontest` "
+"Defined tests can be run in a backend-agnostic way by calling `meson test` "
 "inside the build dir, or by using backend-specific commands, such as `ninja "
 "test` or `msbuild RUN_TESTS.vcxproj`."
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1091
+#: Reference-manual.md:1099
 msgid "### vcs_tag()"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1095
+#: Reference-manual.md:1103
 #, no-wrap
 msgid ""
 "``` meson\n"
@@ -2313,7 +2332,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1099
+#: Reference-manual.md:1107
 msgid ""
 "This command detects revision control commit information at build time and "
 "places it in the specified output file. This file is guaranteed to be up to "
@@ -2321,14 +2340,14 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1110
+#: Reference-manual.md:1118
 msgid ""
 "`command` string list with the command to execute, see [`custom_target`]"
 "(#custom_target) for details on how this command must be specified"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1110
+#: Reference-manual.md:1118
 msgid ""
 "`fallback` version number to use when no revision control information is "
 "present, such as when building from a release tarball (defaults to `meson."
@@ -2336,24 +2355,24 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1110
+#: Reference-manual.md:1118
 msgid "`input` file to modify (e.g. `version.c.in`) (required)"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1110
+#: Reference-manual.md:1118
 msgid "`output` file to write the results to (e.g. `version.c`) (required)"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1110
+#: Reference-manual.md:1118
 msgid ""
 "`replace_string` string in the input file to substitute with the commit "
 "information (defaults to `@VCS_TAG@`)"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1117
+#: Reference-manual.md:1125
 msgid ""
 "Meson will read the contents of `input`, substitute the `replace_string` "
 "with the detected revision number, and write the result to `output`. This "
@@ -2363,22 +2382,22 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1119
+#: Reference-manual.md:1127
 msgid "## Built-in objects"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1121
+#: Reference-manual.md:1129
 msgid "These are built-in objects that are always available."
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1123
+#: Reference-manual.md:1131
 msgid "### `meson` object"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1127
+#: Reference-manual.md:1135
 msgid ""
 "The `meson` object allows you to introspect various properties of the "
 "system. This object is always mapped in the `meson` variable. It has the "
@@ -2386,7 +2405,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1134
+#: Reference-manual.md:1142
 msgid ""
 "`add_install_script(script_name, arg1, arg2, ...)` causes the script given "
 "as an argument to be run during the install step, this script will have the "
@@ -2396,7 +2415,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1139
+#: Reference-manual.md:1147
 msgid ""
 "`add_postconf_script(script_name, arg1, arg2, ...)` will run the executable "
 "given as an argument after all project files have been generated. This "
@@ -2405,28 +2424,28 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1142
+#: Reference-manual.md:1150
 msgid ""
 "`backend()` *(added 0.37.0)* returns a string representing the current "
 "backend: `ninja`, `vs2010`, `vs2015`, `vs2017`, or `xcode`."
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1145
+#: Reference-manual.md:1153
 msgid ""
 "`build_root()` returns a string with the absolute path to the build root "
 "directory."
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1148
+#: Reference-manual.md:1156
 msgid ""
 "`current_build_dir()` returns a string with the absolute path to the current "
 "build directory."
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1155
+#: Reference-manual.md:1163
 msgid ""
 "`current_source_dir()` returns a string to the current source directory. "
 "Note: **you do not need to use this function** when passing files from the "
@@ -2437,7 +2456,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1159
+#: Reference-manual.md:1167
 msgid ""
 "`get_cross_property(propname, fallback_value)` returns the given property "
 "from a cross file, the optional second argument is returned if not cross "
@@ -2445,7 +2464,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1168
+#: Reference-manual.md:1176
 msgid ""
 "`get_compiler(language)` returns [an object describing a compiler](#compiler-"
 "object), takes one positional argument which is the language to use. It also "
@@ -2457,7 +2476,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1173
+#: Reference-manual.md:1181
 msgid ""
 "`has_exe_wrapper()` returns true when doing a cross build if there is a "
 "wrapper command that can be used to execute cross built binaries (for "
@@ -2466,7 +2485,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1177
+#: Reference-manual.md:1185
 msgid ""
 "`install_dependency_manifest(output_name)` installs a manifest file "
 "containing a list of all subprojects, their versions and license files to "
@@ -2474,21 +2493,21 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1180
+#: Reference-manual.md:1188
 msgid ""
 "`is_cross_build()` returns `true` if the current build is a [cross build]"
 "(Cross-compilation.md) and `false` otherwise."
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1183
+#: Reference-manual.md:1191
 msgid ""
 "`is_subproject()` returns `true` if the current project is being built as a "
 "subproject of some other project and `false` otherwise."
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1187
+#: Reference-manual.md:1195
 msgid ""
 "`is_unity()` returns `true` when doing a [unity build](Unity-builds.md) "
 "(multiple sources are combined before compilation to reduce build time) and "
@@ -2496,7 +2515,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1199
+#: Reference-manual.md:1207
 #, no-wrap
 msgid ""
 "  To determine the installation location, the script should use the\n"
@@ -2513,7 +2532,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1207
+#: Reference-manual.md:1215
 #, no-wrap
 msgid ""
 "  `MESONINTROSPECT` contains the path to the introspect command that\n"
@@ -2526,7 +2545,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1212
+#: Reference-manual.md:1220
 msgid ""
 "`source_root()` returns a string with the absolute path to the source root "
 "directory. Note: you should use the `files()` function to refer to files in "
@@ -2535,31 +2554,31 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1214
+#: Reference-manual.md:1222
 msgid ""
 "- `project_version()` returns the version string specified in `project` "
 "function call."
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1216
+#: Reference-manual.md:1224
 msgid ""
 "- `project_name()` returns the project name specified in the `project` "
 "function call."
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1218
+#: Reference-manual.md:1226
 msgid "- `version()` return a string with the version of Meson."
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1220
+#: Reference-manual.md:1228
 msgid "### `build_machine` object"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1225
+#: Reference-manual.md:1233
 msgid ""
 "Provides information about the build machine — the machine that is doing the "
 "actual compilation. See [Cross-compilation](Cross-compilation.md). It has "
@@ -2567,7 +2586,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1229
+#: Reference-manual.md:1237
 msgid ""
 "`cpu_family()` returns the CPU family name. Guaranteed to return `x86` for "
 "32-bit userland on x86 CPUs, `x86_64` for 64-bit userland on x86 CPUs, `arm` "
@@ -2575,12 +2594,12 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1232
+#: Reference-manual.md:1240
 msgid "`cpu()` returns a more specific CPU name, such as `i686`, `amd64`, etc."
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1237
+#: Reference-manual.md:1245
 msgid ""
 "`system()` returns the operating system name, such as `windows` (all "
 "versions of Windows), `linux` (all Linux distros), `darwin` (all versions of "
@@ -2588,14 +2607,14 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1240
+#: Reference-manual.md:1248
 msgid ""
 "`endian()` returns `big` on big-endian systems and `little` on little-endian "
 "systems."
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1249
+#: Reference-manual.md:1257
 msgid ""
 "Currently, these values are populated using [`platform.system()`](https://"
 "docs.python.org/3.4/library/platform.html#platform.system)  and [`platform."
@@ -2607,43 +2626,43 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1251
+#: Reference-manual.md:1259
 msgid "### `host_machine` object"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1255
+#: Reference-manual.md:1263
 msgid ""
 "Provides information about the host machine — the machine on which the "
 "compiled binary will run. See [Cross-compilation](Cross-compilation.md)."
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1257 Reference-manual.md:1272
+#: Reference-manual.md:1265 Reference-manual.md:1280
 msgid "It has the same methods as [`build_machine`](#build_machine-object)."
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1260
+#: Reference-manual.md:1268
 msgid ""
 "When not cross-compiling, all the methods return the same values as "
 "`build_machine` (because the build machine is the host machine)"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1263
+#: Reference-manual.md:1271
 msgid ""
 "Note that while cross-compiling, it simply returns the values defined in the "
 "cross-info file."
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1265
+#: Reference-manual.md:1273
 msgid "### `target_machine` object"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1270
+#: Reference-manual.md:1278
 msgid ""
 "Provides information about the target machine — the machine on which the "
 "compiled binary's output will run. Hence, this object should only be used "
@@ -2652,7 +2671,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1276
+#: Reference-manual.md:1284
 msgid ""
 "When all compilation is 'native', all the methods return the same values as "
 "`build_machine` (because the build machine is the host machine and the "
@@ -2660,7 +2679,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1280
+#: Reference-manual.md:1288
 msgid ""
 "Note that while cross-compiling, it simply returns the values defined in the "
 "cross-info file. If `target_machine` values are not defined in the cross-"
@@ -2668,12 +2687,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1282
+#: Reference-manual.md:1290
 msgid "### `compiler` object"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1287
+#: Reference-manual.md:1295
 msgid ""
 "This object is returned by [`meson.get_compiler(lang)`](#meson-object). It "
 "represents a compiler for a given language and allows you to query its "
@@ -2681,7 +2700,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1291
+#: Reference-manual.md:1299
 msgid ""
 "`alignment(typename)` returns the alignment of the type specified in the "
 "positional argument, you can specify external dependencies to use with "
@@ -2689,7 +2708,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1297
+#: Reference-manual.md:1305
 msgid ""
 "`compiles(code)` returns true if the code fragment given in the positional "
 "argument compiles, you can specify external dependencies to use with "
@@ -2698,7 +2717,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1304
+#: Reference-manual.md:1312
 msgid ""
 "`compute_int(expr, ...')` computes the value of the given expression (as an "
 "example `1 + 2`). When cross compiling this is evaluated with an iterative "
@@ -2708,7 +2727,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1313
+#: Reference-manual.md:1321
 msgid ""
 "`find_library(lib_name, ...)` tries to find the library specified in the "
 "positional argument. The [result object](#external-library-object) can be "
@@ -2720,7 +2739,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1317
+#: Reference-manual.md:1325
 msgid ""
 "`first_supported_argument(list_of_strings)`, given a list of strings, "
 "returns the first argument that passes the `has_argument` test above or an "
@@ -2728,21 +2747,21 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1320
+#: Reference-manual.md:1328
 msgid ""
 "`get_define(definename)` returns the given preprocessor symbol's value as a "
 "string or empty string if it is not defined."
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1323
+#: Reference-manual.md:1331
 msgid ""
 "`get_id()` returns a string identifying the compiler. For example, `gcc`, "
 "`msvc`, [and more](Compiler-properties.md#compiler-id)."
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1327
+#: Reference-manual.md:1335
 msgid ""
 "`get_supported_arguments(list_of_string)` *(added 0.43.0)* returns an array "
 "containing only the arguments supported by the compiler, as if "
@@ -2750,7 +2769,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1333
+#: Reference-manual.md:1341
 msgid ""
 "`has_argument(argument_name)` returns true if the compiler accepts the "
 "specified command line argument, that is, can compile code without erroring "
@@ -2759,7 +2778,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1338
+#: Reference-manual.md:1346
 msgid ""
 "`has_function(funcname)` returns true if the given function is provided by "
 "the standard library or a library passed in with the `args` keyword, you can "
@@ -2767,7 +2786,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1346
+#: Reference-manual.md:1354
 msgid ""
 "`has_header` returns true if the specified header can be included, you can "
 "specify external dependencies to use with `dependencies` keyword argument "
@@ -2778,7 +2797,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1352
+#: Reference-manual.md:1360
 msgid ""
 "`has_header_symbol(headername, symbolname)` allows one to detect whether a "
 "particular symbol (function, variable, #define, type definition, etc) is "
@@ -2787,7 +2806,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1357
+#: Reference-manual.md:1365
 msgid ""
 "`has_member(typename, membername)` takes two arguments, type name and member "
 "name and returns true if the type has the specified member, you can specify "
@@ -2795,7 +2814,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1362
+#: Reference-manual.md:1370
 msgid ""
 "`has_members(typename, membername1, membername2, ...)` takes at least two "
 "arguments, type name and one or more member names, returns true if the type "
@@ -2804,7 +2823,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1366
+#: Reference-manual.md:1374
 msgid ""
 "`has_multi_arguments(arg1, arg2, arg3, ...)` is the same as `has_argument` "
 "but takes multiple arguments and uses them all in a single compiler "
@@ -2812,14 +2831,14 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1370
+#: Reference-manual.md:1378
 msgid ""
 "`has_type(typename)` returns true if the specified token is a type, you can "
 "specify external dependencies to use with `dependencies` keyword argument."
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1376
+#: Reference-manual.md:1384
 msgid ""
 "`links(code)` returns true if the code fragment given in the positional "
 "argument compiles and links, you can specify external dependencies to use "
@@ -2828,7 +2847,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1382
+#: Reference-manual.md:1390
 msgid ""
 "`run(code)` attempts to compile and execute the given code fragment, returns "
 "a run result object, you can specify external dependencies to use with "
@@ -2837,14 +2856,14 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1386
+#: Reference-manual.md:1394
 msgid ""
 "`symbols_have_underscore_prefix()` returns `true` if the C symbol mangling "
 "is one underscore (`_`) prefixed to the symbol, available since 0.37.0."
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1391
+#: Reference-manual.md:1399
 msgid ""
 "`sizeof(typename, ...)` returns the size of the given type (e.g. `'int'`) or "
 "-1 if the type is unknown, to add includes set them in the `prefix` keyword "
@@ -2853,17 +2872,17 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1393
+#: Reference-manual.md:1401
 msgid "- `version()` returns the compiler's version number as a string."
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1395
+#: Reference-manual.md:1403
 msgid "The following keyword arguments can be used:"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1404
+#: Reference-manual.md:1412
 msgid ""
 "`args` can be used to pass a list of compiler arguments that are required to "
 "find the header or symbol. For example, you might need to pass the include "
@@ -2875,14 +2894,14 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1407
+#: Reference-manual.md:1415
 msgid ""
 "`include_directories` specifies extra directories for header searches. "
 "*(added 0.38.0)*"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1412
+#: Reference-manual.md:1420
 msgid ""
 "`name` the name to use for printing a message about the compiler check. "
 "Supported by the methods `compiles()`, `links()`, and `run()`. If this "
@@ -2891,7 +2910,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1420
+#: Reference-manual.md:1428
 msgid ""
 "`prefix` can be used to add #includes and other things that are required for "
 "the symbol to be declared. System definitions should be passed via compiler "
@@ -2902,7 +2921,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1426
+#: Reference-manual.md:1434
 msgid ""
 "Note that if you have a single prefix with all your dependencies, you might "
 "find it easier to append to the environment variables `C_INCLUDE_PATH` with "
@@ -2912,7 +2931,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1430
+#: Reference-manual.md:1438
 msgid ""
 "However, with GCC, these variables will be ignored when cross-compiling. In "
 "that case you need to use a specs file. See: <http://www.mingw.org/wiki/"
@@ -2920,61 +2939,61 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1432
+#: Reference-manual.md:1440
 msgid "### `string` object"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1435
+#: Reference-manual.md:1443
 msgid ""
 "All [strings](Syntax.md#strings) have the following methods. Strings are "
 "immutable, all operations return their results as a new string."
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1438
+#: Reference-manual.md:1446
 msgid ""
 "`contains(string)` returns true if string contains the string specified as "
 "the argument"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1441
+#: Reference-manual.md:1449
 msgid ""
 "`endswith(string)` returns true if string ends with the string specified as "
 "the argument"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1444
+#: Reference-manual.md:1452
 msgid ""
 "`format()` formats text, see the [Syntax manual](Syntax.md#string-"
 "formatting) for usage info"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1447
+#: Reference-manual.md:1455
 msgid ""
 "`join(list_of_strings)` is the opposite of split, for example `'.'."
 "join(['a', 'b', 'c']` yields `'a.b.c'`"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1451
+#: Reference-manual.md:1459
 msgid ""
 "`split(split_character)` splits the string at the specified character (or "
 "whitespace if not set) and returns the parts in an array"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1454
+#: Reference-manual.md:1462
 msgid ""
 "`startswith(string)` returns true if string starts with the string specified "
 "as the argument"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1458
+#: Reference-manual.md:1466
 msgid ""
 "`strip()` removes whitespace at the beginning and end of the string *(added "
 "0.43.0)* optionally can take one positional string argument, and all "
@@ -2982,73 +3001,73 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1461
+#: Reference-manual.md:1469
 msgid ""
 "`to_int` returns the string converted to an integer (error if string is not "
 "a number)"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1463
+#: Reference-manual.md:1471
 msgid "- `to_lower()` creates a lower case version of the string"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1465
+#: Reference-manual.md:1473
 msgid "- `to_upper()` creates an upper case version of the string"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1468
+#: Reference-manual.md:1476
 msgid ""
 "`underscorify()` creates a string where every non-alphabetical non-number "
 "character is replaced with `_`"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1472
+#: Reference-manual.md:1480
 msgid ""
 "`version_compare(comparison_string)` does semantic version comparison, if `x "
 "= '1.2.3'` then `x.version_compare('>1.0.0')` returns `true`"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1474
+#: Reference-manual.md:1482
 msgid "### `Number` object"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1476
+#: Reference-manual.md:1484
 msgid "[Numbers](Syntax.md#numbers) support these methods:"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Reference-manual.md:1479
+#: Reference-manual.md:1487
 msgid "`is_even()` returns true if the number is even"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Reference-manual.md:1479
+#: Reference-manual.md:1487
 msgid "`is_odd()` returns true if the number is odd"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1481
+#: Reference-manual.md:1489
 msgid "### `boolean` object"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1483
+#: Reference-manual.md:1491
 msgid "A [boolean](Syntax.md#booleans) object has two simple methods:"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1485
+#: Reference-manual.md:1493
 msgid "- `to_int()` as above, but returns either `1` or `0`"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1491
+#: Reference-manual.md:1499
 msgid ""
 "`to_string()` returns the string `'true'` if the boolean is true or "
 "`'false'` otherwise. You can also pass it two strings as positional "
@@ -3058,24 +3077,24 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1493
+#: Reference-manual.md:1501
 msgid "### `array` object"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1495
+#: Reference-manual.md:1503
 msgid "The following methods are defined for all [arrays](Syntax.md#arrays):"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1498
+#: Reference-manual.md:1506
 msgid ""
 "`contains(item)`, returns `true` if the array contains the object given as "
 "argument, `false` otherwise"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1503
+#: Reference-manual.md:1511
 msgid ""
 "`get(index, fallback)`, returns the object at the given index, negative "
 "indices count from the back of the array, indexing out of bounds returns the "
@@ -3084,34 +3103,34 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1505
+#: Reference-manual.md:1513
 msgid "- `length()`, the size of the array"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1508
+#: Reference-manual.md:1516
 msgid ""
 "You can also iterate over arrays with the [`foreach` statement](https://"
 "github.com/mesonbuild/meson/wiki/Syntax#foreach-statements)."
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1510
+#: Reference-manual.md:1518
 msgid "## Returned objects"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1512
+#: Reference-manual.md:1520
 msgid "These are objects returned by the [functions listed above](#functions)."
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1514
+#: Reference-manual.md:1522
 msgid "### `build target` object"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1518
+#: Reference-manual.md:1526
 msgid ""
 "A build target is either an [executable](#executable), [shared]"
 "(#shared_library), [static library](#static_library) or [shared module]"
@@ -3119,14 +3138,14 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1521
+#: Reference-manual.md:1529
 msgid ""
 "`extract_all_objects()` is same as `extract_objects` but returns all object "
 "files generated by this target"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1527
+#: Reference-manual.md:1535
 msgid ""
 "`extract_objects()` returns an opaque value representing the generated "
 "object files of arguments, usually used to take single object files and link "
@@ -3136,7 +3155,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1532
+#: Reference-manual.md:1540
 msgid ""
 "`full_path()` returns a full path pointing to the result target file.  NOTE: "
 "In most cases using the object itself will do the same job as this and will "
@@ -3145,7 +3164,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1537
+#: Reference-manual.md:1545
 msgid ""
 "`private_dir_include()` returns a opaque value that works like "
 "`include_directories` but points to the private directory of this target, "
@@ -3154,12 +3173,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1540
+#: Reference-manual.md:1548
 msgid "### `configuration` data object"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1546
+#: Reference-manual.md:1554
 msgid ""
 "This object is returned by [`configuration_data()`](#configuration_data) and "
 "encapsulates configuration values to be used for generating configuration "
@@ -3168,7 +3187,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1550
+#: Reference-manual.md:1558
 msgid ""
 "`get(varname, default_value)` returns the value of `varname`, if the value "
 "has not been set returns `default_value` if it is defined *(added 0.38.0)* "
@@ -3176,12 +3195,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1552
+#: Reference-manual.md:1560
 msgid "- `has(varname)`, returns `true` if the specified variable is set"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1556
+#: Reference-manual.md:1564
 msgid ""
 "`merge_from(other)` takes as argument a different configuration data object "
 "and copies all entries from that object to the current object, available "
@@ -3189,26 +3208,26 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1558
+#: Reference-manual.md:1566
 msgid "- `set(varname, value)`, sets a variable to a given value"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1562
+#: Reference-manual.md:1570
 msgid ""
 "`set10(varname, boolean_value)` is the same as above but the value is either "
 "`true` or `false` and will be written as 1 or 0, respectively"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1565
+#: Reference-manual.md:1573
 msgid ""
 "`set_quoted(varname, value)` is same as `set` but quotes the value in double "
 "quotes (`\"`)"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1571
+#: Reference-manual.md:1579
 msgid ""
 "They all take the `description` keyword that will be written in the result "
 "file. The replacement assumes a file with C syntax. If your generated file "
@@ -3217,19 +3236,19 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1573
+#: Reference-manual.md:1581
 msgid "### `custom target` object"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1576
+#: Reference-manual.md:1584
 msgid ""
 "This object is returned by [`custom_target`](#custom_target) and contains a "
 "target with the following methods:"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1581
+#: Reference-manual.md:1589
 msgid ""
 "`full_path()` returns a full path pointing to the result target file NOTE: "
 "In most cases using the object itself will do the same job as this and will "
@@ -3238,7 +3257,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1586
+#: Reference-manual.md:1594
 msgid ""
 "`[index]` returns an opaque object that references this target, and can be "
 "used as a source in other targets. When it is used as such it will make that "
@@ -3247,31 +3266,31 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1588
+#: Reference-manual.md:1596
 msgid "### `dependency` object"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1591
+#: Reference-manual.md:1599
 msgid ""
 "This object is returned by [`dependency()`](#dependency) and contains an "
 "external dependency with the following methods:"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Reference-manual.md:1593
+#: Reference-manual.md:1601
 msgid "`found()` which returns whether the dependency was found"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Reference-manual.md:1597
+#: Reference-manual.md:1605
 msgid ""
 "`get_pkgconfig_variable(varname)` (*Added 0.36.0*) will get the pkg-config "
 "variable specified, or, if invoked on a non pkg-config dependency, error out"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Reference-manual.md:1602
+#: Reference-manual.md:1610
 msgid ""
 "`type_name()` which returns a string describing the type of the dependency, "
 "the most common values are `internal` for deps created with "
@@ -3280,17 +3299,17 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Reference-manual.md:1604
+#: Reference-manual.md:1612
 msgid "`version()` is the version number as a string, for example `1.2.8`"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1607
+#: Reference-manual.md:1615
 msgid "### `external program` object"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1611
+#: Reference-manual.md:1619
 msgid ""
 "This object is returned by [`find_program()`](#find_program) and contains an "
 "external (i.e. not built as part of this project) program and has the "
@@ -3298,12 +3317,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1613
+#: Reference-manual.md:1621
 msgid "- `found()` which returns whether the executable was found"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1617
+#: Reference-manual.md:1625
 msgid ""
 "`path()` which returns an array pointing to the executable (this is an array "
 "as opposed to a string because the program might be `['python', 'foo.py']`, "
@@ -3311,12 +3330,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1619
+#: Reference-manual.md:1627
 msgid "### `environment` object"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1624
+#: Reference-manual.md:1632
 msgid ""
 "This object is returned by [`environment()`](#environment) and stores "
 "detailed information about how environment variables should be set during "
@@ -3325,7 +3344,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1632
+#: Reference-manual.md:1640
 msgid ""
 "`append(varname, value)` appends the given value to the old value of the "
 "environment variable, e.g.  `env.append('FOO', 'BAR', separator : ';')` "
@@ -3336,14 +3355,14 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1635
+#: Reference-manual.md:1643
 msgid ""
 "`prepend(varname, value)` is the same as `append` except that it writes to "
 "the beginning of the variable"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1639
+#: Reference-manual.md:1647
 msgid ""
 "`set(varname, value)` sets environment variable in the first argument to the "
 "value in the second argument, e.g.  `env.set('FOO', 'BAR') sets "
@@ -3351,12 +3370,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1641
+#: Reference-manual.md:1649
 msgid "### `external library` object"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1646
+#: Reference-manual.md:1654
 msgid ""
 "This object is returned by [`find_library()`](#find_library) and contains an "
 "external (i.e. not built as part of this project)  library. This object has "
@@ -3364,12 +3383,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1648
+#: Reference-manual.md:1656
 msgid "### `generator` object"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1652
+#: Reference-manual.md:1660
 msgid ""
 "This object is returned by [`generator()`](#generator) and contains a "
 "generator that is used to transform files from one type to another by an "
@@ -3377,7 +3396,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: Reference-manual.md:1658
+#: Reference-manual.md:1666
 msgid ""
 "`process(list_of_files)` takes a list of files, causes them to be processed "
 "and returns an object containing the result which can then, for example, be "
@@ -3387,19 +3406,19 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1660
+#: Reference-manual.md:1668
 msgid "### `subproject` object"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1663
+#: Reference-manual.md:1671
 msgid ""
 "This object is returned by [`subproject()`](#subproject) and is an opaque "
 "object representing it."
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1667
+#: Reference-manual.md:1675
 msgid ""
 "`get_variable(name)` fetches the specified variable from inside the "
 "subproject. This is useful to, for instance, get a [declared dependency]"
@@ -3407,12 +3426,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1669
+#: Reference-manual.md:1677
 msgid "### `run result` object"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1673
+#: Reference-manual.md:1681
 msgid ""
 "This object encapsulates the result of trying to compile and run a sample "
 "piece of code with [`compiler.run()`](#compiler-object) or [`run_command()`]"
@@ -3420,23 +3439,23 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1678
+#: Reference-manual.md:1686
 msgid ""
 "`compiled()` if true, the compilation succeeded, if false it did not and the "
 "other methods return unspecified data"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1678
+#: Reference-manual.md:1686
 msgid "`returncode()` the return code of executing the compiled binary"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1678
+#: Reference-manual.md:1686
 msgid "`stderr()` the standard error produced when the command was run"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1678
+#: Reference-manual.md:1686
 msgid "`stdout()` the standard out produced when the command was run"
 msgstr ""

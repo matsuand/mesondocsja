@@ -32,10 +32,10 @@
 
 <script src="assets/js/lines_around_headings.js"></script>
 
+<script src="assets/js/trie.js"></script>
 <script src="assets/js/prism-core.js"></script>
 <script src="assets/js/prism-autoloader.js"></script>
 <script src="assets/js/prism_autoloader_path_override.js"></script>
-<script src="assets/js/trie.js"></script>
 
 <link rel="icon" type="image/png" href="assets/images/favicon.png">
 <link rel="shortcut icon" href="assets/images/favicon.png">
@@ -212,24 +212,24 @@ might take a while to click, but you will get the hang of it eventually.</p>
 various properties of the cross build environment. The cross file consists
 of different sections. The first one is the list of executables that we are
 going to use. A sample snippet might look like this:</p>
-<pre><code class="language-ini">'/usr/bin/i586-mingw32msvc-g++' ar = '/usr/i586-mingw32msvc/bin/ar' strip =
-'/usr/i586-mingw32msvc/bin/strip' pkgconfig =
-'/usr/bin/i586-mingw32msvc-pkg-config' exe_wrapper = 'wine' # A command used
-to run generated executables.  ```
-
-The entries are pretty self explanatory but the last line is special. It
-defines a *wrapper command* that can be used to run executables for this
+<pre><code class="language-ini">[binaries]
+c = '/usr/bin/i586-mingw32msvc-gcc'
+cpp = '/usr/bin/i586-mingw32msvc-g++'
+ar = '/usr/i586-mingw32msvc/bin/ar'
+strip = '/usr/i586-mingw32msvc/bin/strip'
+pkgconfig = '/usr/bin/i586-mingw32msvc-pkg-config'
+exe_wrapper = 'wine' # A command used to run generated executables.
+</code></pre>
+<p>The entries are pretty self explanatory but the last line is special. It
+defines a <em>wrapper command</em> that can be used to run executables for this
 host. In this case we can use Wine, which runs Windows applications on
 Linux. Other choices include running the application with qemu or a hardware
 simulator. If you have this kind of a wrapper, these lines are all you need
 to write. Meson will automatically use the given wrapper when it needs to
-run host binaries. This happens e.g. when running the project's test suite.
-
-The next section lists properties of the cross compiler and thus of the
-target system. It looks like this:
-
-```ini
-[properties]
+run host binaries. This happens e.g. when running the project's test suite.</p>
+<p>The next section lists properties of the cross compiler and thus of the
+target system. It looks like this:</p>
+<pre><code class="language-ini">[properties]
 sizeof_int = 4
 sizeof_wchar_t = 4
 sizeof_void* = 4

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-10-24 18:52+0900\n"
+"POT-Creation-Date: 2017-11-01 10:07+0900\n"
 "PO-Revision-Date: 2017-09-30 21:43+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -321,11 +321,32 @@ msgstr ""
 
 #. type: Plain text
 #: Dependencies.md:157
-msgid "## Declaring your own"
+msgid "## LibWMF"
 msgstr ""
 
 #. type: Plain text
 #: Dependencies.md:161
+msgid ""
+"The libwmf library does not ship with pkg-config at the time or writing but "
+"instead it has its own `libwmf-config` util. Meson will use it automatically:"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:165
+#, fuzzy
+msgid "```meson libwmf_dep = dependency('libwmf', version : '>=0.2.8')  ```"
+msgstr ""
+"```meson\n"
+"pcap_dep = dependency('pcap', version : '>=1.0') \n"
+"```"
+
+#. type: Plain text
+#: Dependencies.md:167
+msgid "## Declaring your own"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:171
 msgid ""
 "You can declare your own dependency objects that can be used interchangeably "
 "with dependency objects obtained from the system. The syntax is "
@@ -333,7 +354,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:168
+#: Dependencies.md:178
 #, no-wrap
 msgid ""
 "```meson\n"
@@ -345,7 +366,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:170
+#: Dependencies.md:180
 msgid ""
 "This declares a dependency that adds the given include directories and "
 "static library to any target you use it in."
