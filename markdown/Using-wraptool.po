@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-09-30 21:44+0900\n"
+"POT-Creation-Date: 2017-11-07 17:30+0900\n"
 "PO-Revision-Date: 2017-09-30 21:44+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -166,7 +166,7 @@ msgstr ""
 #: Using-wraptool.md:58
 #, no-wrap
 msgid ""
-"    $ wraptool.py update zlib\n"
+"    $ wraptool update zlib\n"
 "    Updated zlib to branch 1.2.8 revision 4\n"
 msgstr ""
 
