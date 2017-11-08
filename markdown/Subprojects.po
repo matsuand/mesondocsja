@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-09-30 21:44+0900\n"
+"POT-Creation-Date: 2017-11-08 17:35+0900\n"
 "PO-Revision-Date: 2017-09-30 21:44+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -24,12 +24,12 @@ msgstr ""
 
 #. type: Plain text
 #: Subprojects.md:4
-#, nowrap
 msgid ""
 "short-description: Using meson projects as subprojects within other meson "
 "projects ..."
 msgstr ""
-"short-description: 他の Meson プロジェクト内にサブプロジェクトとして利用する\n"
+"short-description: 他の Meson プロジェクト内にサブプロジェクトとして利用す"
+"る\n"
 "..."
 
 #. type: Plain text
@@ -97,9 +97,12 @@ msgid ""
 "shared_library('simple', 'simple.c', include_directories : i, install : "
 "true)  ```"
 msgstr ""
-"```meson\nproject('simple', 'c') \ni = include_directories('include') \nl = "
-"shared_library('simple', 'simple.c', include_directories : i, install : "
-"true) \n```"
+"```meson\n"
+"project('simple', 'c') \n"
+"i = include_directories('include') \n"
+"l = shared_library('simple', 'simple.c', include_directories : i, install : "
+"true) \n"
+"```"
 
 #. type: Plain text
 #: Subprojects.md:32
@@ -126,7 +129,7 @@ msgid ""
 "  l = sp.get_variable('l')\n"
 "endif\n"
 "exe = executable('prog', 'prog.c', include_directories : i, link_with : l,\n"
-"                 deps : dep, install : true)\n"
+"                 dependencies : dep, install : true)\n"
 "```\n"
 msgstr ""
 
@@ -173,7 +176,10 @@ msgstr ""
 #. type: Plain text
 #: Subprojects.md:61
 msgid "```meson proj_dep = declare_dependency(...)  ```"
-msgstr "```meson\nproj_dep = declare_dependency(...) \n```"
+msgstr ""
+"```meson\n"
+"proj_dep = declare_dependency(...) \n"
+"```"
 
 #. type: Plain text
 #: Subprojects.md:63
@@ -186,8 +192,10 @@ msgid ""
 "```meson sp_dep = dependency('subproj_pkgconfig_name', fallback : "
 "['subproj_name', 'proj_dep'])  ```"
 msgstr ""
-"```meson\nsp_dep = dependency('subproj_pkgconfig_name', fallback : "
-"['subproj_name', 'proj_dep']) \n```"
+"```meson\n"
+"sp_dep = dependency('subproj_pkgconfig_name', fallback : ['subproj_name', "
+"'proj_dep']) \n"
+"```"
 
 #. type: Plain text
 #: Subprojects.md:69
