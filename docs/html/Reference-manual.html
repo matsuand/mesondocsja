@@ -32,10 +32,10 @@
 
 <script src="assets/js/lines_around_headings.js"></script>
 
+<script src="assets/js/trie.js"></script>
 <script src="assets/js/prism-core.js"></script>
 <script src="assets/js/prism-autoloader.js"></script>
 <script src="assets/js/prism_autoloader_path_override.js"></script>
-<script src="assets/js/trie.js"></script>
 
 <link rel="icon" type="image/png" href="assets/images/favicon.png">
 <link rel="shortcut icon" href="assets/images/favicon.png">
@@ -404,8 +404,8 @@ fallback detection logic</a>  otherwise. This function
 supports the following keyword arguments:</p>
 <ul>
 <li>
-<code>default_options</code> <em>(added 0.37.0)</em> an array of option values that override
-those set in the project's <code>default_options</code> invocation (like
+<code>default_options</code> <em>(added 0.37.0)</em> an array of default option values that
+override those set in the subproject's <code>meson_options.txt</code> (like
 <code>default_options</code> in <a href="Reference-manual.html#project"><code>project()</code></a>, they only have effect when
 Meson is run for the first time, and command line arguments override any
 default options in build files)</li>
@@ -1034,10 +1034,10 @@ subproject called <code>foo</code> must be located in
 arguments:</p>
 <ul>
 <li>
-<code>default_options</code>, <em>(added 0.37.0)</em> an array of default option values
-that override those set in the project's <code>default_options</code> invocation
-(like <code>default_options</code> in <code>project</code>, they only have effect when Meson is
-run for the first time, and command line arguments override any default
+<code>default_options</code> <em>(added 0.37.0)</em> an array of default option values that
+override those set in the subproject's <code>meson_options.txt</code> (like
+<code>default_options</code> in <code>project</code>, they only have effect when Meson is run
+for the first time, and command line arguments override any default
 options in build files)</li>
 <li>
 <code>version</code> keyword argument that works just like the one in
@@ -1581,6 +1581,12 @@ wiki page</a> It has three methods:</p>
 <p><code>get(varname, default_value)</code> returns the value of <code>varname</code>, if the value
 has not been set returns <code>default_value</code> if it is defined <em>(added 0.38.0)</em>
 and errors out if not</p>
+</li>
+<li>
+<p><code>get_unquoted(varname, default_value)</code> returns the value of <code>varname</code> but
+without surrounding double quotes (<code>"</code>). If the value has not been set
+returns <code>default_value</code> if it is defined and errors out if not.  Available
+since 0.43.0</p>
 </li>
 <li>
 <p><code>has(varname)</code>, returns <code>true</code> if the specified variable is set</p>

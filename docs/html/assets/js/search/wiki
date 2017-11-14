@@ -1,1 +1,1 @@
-urls_downloaded_cb({"urls": ["Reference-manual.html#compiler-object", "Reference-manual.html#configuration-data-object", "FAQ.html#page-description", "Playground.html#playground"], "token": "wiki"});
+urls_downloaded_cb({"token": "wiki", "urls": ["Reference-manual.html#compiler-object", "Reference-manual.html#configuration-data-object", "FAQ.html#page-description", "Playground.html#playground"]});

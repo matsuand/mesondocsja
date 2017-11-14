@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-09-30 21:44+0900\n"
+"POT-Creation-Date: 2017-11-14 11:10+0900\n"
 "PO-Revision-Date: 2017-09-30 21:44+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -54,14 +54,14 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: i18n-module.md:20
+#: i18n-module.md:32
 msgid ""
 "`args`: list of extra arguments to pass to `xgettext` when generating the "
 "pot file"
 msgstr ""
 
 #. type: Bullet: '* '
-#: i18n-module.md:24
+#: i18n-module.md:32
 msgid ""
 "`data_dirs`: (*Added 0.36.0*) list of directories to be set for "
 "`GETTEXTDATADIRS` env var (Requires gettext 0.19.8+), used for local its "
@@ -69,7 +69,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: i18n-module.md:29
+#: i18n-module.md:32
 msgid ""
 "`languages`: list of languages that are to be generated. As of 0.37.0 this "
 "is optional and the [LINGUAS](https://www.gnu.org/software/gettext/manual/"
@@ -77,7 +77,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: i18n-module.md:34
+#: i18n-module.md:32
 msgid ""
 "`preset`: (*Added 0.37.0*) name of a preset list of arguments, current "
 "option is `'glib'`, see [source](https://github.com/mesonbuild/meson/blob/"
@@ -85,42 +85,42 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: i18n-module.md:36
+#: i18n-module.md:32
 msgid ""
 "`install`: (*Added 0.43.0*) if false, do not install the built translations."
 msgstr ""
 
 #. type: Plain text
-#: i18n-module.md:39
+#: i18n-module.md:35
 msgid ""
 "This function also defines targets for maintainers to use: **Note**: These "
 "output to the source directory"
 msgstr ""
 
 #. type: Bullet: '* '
-#: i18n-module.md:43
+#: i18n-module.md:39
 msgid "`<project_id>-pot`: runs `xgettext` to regenerate the pot file"
 msgstr ""
 
 #. type: Bullet: '* '
-#: i18n-module.md:43
+#: i18n-module.md:39
 msgid ""
 "`<project_id>-update-po`: regenerates the `.po` files from current `.pot` "
 "file"
 msgstr ""
 
 #. type: Bullet: '* '
-#: i18n-module.md:43
+#: i18n-module.md:39
 msgid "`<project_id>-gmo`: builds the translations without installing"
 msgstr ""
 
 #. type: Plain text
-#: i18n-module.md:45
+#: i18n-module.md:41
 msgid "### i18n.merge_file()"
 msgstr ""
 
 #. type: Plain text
-#: i18n-module.md:49
+#: i18n-module.md:45
 msgid ""
 "This merges translations into a text file using `msgfmt`. See [custom_target]"
 "(https://github.com/mesonbuild/meson/wiki/Reference%20manual#custom_target)  "
@@ -128,26 +128,26 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: i18n-module.md:54
+#: i18n-module.md:50
 msgid ""
 "`data_dirs`: (*Added 0.41.0*) list of directories for its files (See also "
 "`i18n.gettext()`)"
 msgstr ""
 
 #. type: Bullet: '* '
-#: i18n-module.md:54
+#: i18n-module.md:50
 msgid ""
 "`po_dir`: directory containing translations, relative to current directory"
 msgstr ""
 
 #. type: Bullet: '* '
-#: i18n-module.md:54
+#: i18n-module.md:50
 msgid ""
 "`type`: type of file, valid options are `'xml'` (default) and `'desktop'`"
 msgstr ""
 
 #. type: Plain text
-#: i18n-module.md:55
+#: i18n-module.md:51
 #, no-wrap
 msgid "*Added 0.37.0*\n"
 msgstr ""

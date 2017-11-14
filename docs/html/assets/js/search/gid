@@ -1,1 +1,1 @@
-urls_downloaded_cb({"urls": ["Reference-manual.html#install_data"], "token": "gid"});
+urls_downloaded_cb({"token": "gid", "urls": ["Reference-manual.html#install_data"]});

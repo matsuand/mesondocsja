@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-10-24 18:52+0900\n"
+"POT-Creation-Date: 2017-11-14 11:10+0900\n"
 "PO-Revision-Date: 2017-09-30 21:44+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -35,7 +35,7 @@ msgid "# Syntax"
 msgstr "# 文法"
 
 #. type: Plain text
-#: Syntax.md:8
+#: Syntax.md:11
 msgid ""
 "The syntax of Meson's specification language has been kept as simple as "
 "possible. It is *strongly typed* so no object is ever converted to another "
@@ -44,7 +44,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Syntax.md:10
+#: Syntax.md:15
 msgid ""
 "The main building blocks of the language are *variables*, *numbers*, "
 "*booleans*, *strings*, *arrays*, *function calls*, *method calls*, *if "
@@ -52,7 +52,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Syntax.md:12
+#: Syntax.md:22
 msgid ""
 "Usually one Meson statement takes just one line. There is no way to have "
 "multiple statements on one line as in e.g. *C*. Function and method calls' "
@@ -63,7 +63,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Syntax.md:14
+#: Syntax.md:24
 #, no-wrap
 msgid ""
 "Variables\n"
@@ -73,7 +73,7 @@ msgstr ""
 "--\n"
 
 #. type: Plain text
-#: Syntax.md:17
+#: Syntax.md:31
 msgid ""
 "Variables in Meson work just like in other high level programming languages. "
 "A variable can contain a value of any type, such as an integer or a string. "
@@ -86,7 +86,7 @@ msgstr ""
 "値を割り当てた例です。"
 
 #. type: Plain text
-#: Syntax.md:22
+#: Syntax.md:36
 msgid "```meson var1 = 'hello' var2 = 102 ```"
 msgstr ""
 "```meson\n"
@@ -95,15 +95,14 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Syntax.md:24
+#: Syntax.md:40
 msgid ""
-"One important difference in how variables work in Meson is that all "
-"variables are immutable. This is different from, for example, how Python "
-"works."
+"One important difference in how variables work in Meson is that all objects "
+"are immutable. This is different from, for example, how Python works."
 msgstr ""
 
 #. type: Plain text
-#: Syntax.md:32
+#: Syntax.md:48
 msgid ""
 "```meson var1 = [1, 2, 3] var2 = var1 var2 += [4] # var2 is now [1, 2, 3, 4] "
 "# var1 is still [1, 2, 3] ```"
@@ -117,7 +116,7 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Syntax.md:34
+#: Syntax.md:50
 #, no-wrap
 msgid ""
 "Numbers\n"
@@ -127,7 +126,7 @@ msgstr ""
 "--\n"
 
 #. type: Plain text
-#: Syntax.md:37
+#: Syntax.md:54
 msgid ""
 "Meson supports only integer numbers. They are declared simply by writing "
 "them out. Basic arithmetic operations are supported."
@@ -136,7 +135,7 @@ msgstr ""
 "純な算術であればサポートされています。"
 
 #. type: Plain text
-#: Syntax.md:43
+#: Syntax.md:60
 msgid "```meson x = 1 + 2 y = 3 * 4 d = 5 % 3 # Yields 2.  ```"
 msgstr ""
 "```meson\n"
@@ -146,12 +145,12 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Syntax.md:45
+#: Syntax.md:62
 msgid "Strings can be converted to a number like this:"
 msgstr "文字列は以下のようにして数値に変換できます。"
 
 #. type: Plain text
-#: Syntax.md:50
+#: Syntax.md:67
 msgid "```meson string_var = '42' num = string_var.to_int()  ```"
 msgstr ""
 "```meson\n"
@@ -160,7 +159,7 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Syntax.md:52
+#: Syntax.md:69
 #, no-wrap
 msgid ""
 "Booleans\n"
@@ -170,12 +169,12 @@ msgstr ""
 "--\n"
 
 #. type: Plain text
-#: Syntax.md:55
+#: Syntax.md:72
 msgid "A boolean is either `true` or `false`."
 msgstr "論理値は `true` と `false` です。"
 
 #. type: Plain text
-#: Syntax.md:59
+#: Syntax.md:76
 msgid "```meson truth = true ```"
 msgstr ""
 "```meson\n"
@@ -183,7 +182,7 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Syntax.md:61
+#: Syntax.md:78
 #, no-wrap
 msgid ""
 "Strings\n"
@@ -193,14 +192,14 @@ msgstr ""
 "--\n"
 
 #. type: Plain text
-#: Syntax.md:64
+#: Syntax.md:82
 msgid ""
 "Strings in Meson are declared with single quotes. To enter a literal single "
 "quote do it like this:"
 msgstr "Meson における文字列はシングルクォートで囲みます。"
 
 #. type: Plain text
-#: Syntax.md:68
+#: Syntax.md:86
 msgid "```meson single quote = 'contains a \\' character' ```"
 msgstr ""
 "```meson\n"
@@ -208,24 +207,24 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Syntax.md:70
+#: Syntax.md:89
 msgid ""
 "Similarly `\\n` gets converted to a newline and `\\\\\\\\` to a single "
 "backslash."
 msgstr ""
 
 #. type: Plain text
-#: Syntax.md:72
+#: Syntax.md:91
 msgid "#### String concatenation"
 msgstr "#### 文字列の連結"
 
 #. type: Plain text
-#: Syntax.md:74
+#: Syntax.md:93
 msgid "Strings can be concatenated to form a new string using the `+` symbol."
 msgstr "文字列は `+` によって結合され、新たな文字列となります。"
 
 #. type: Plain text
-#: Syntax.md:80
+#: Syntax.md:99
 msgid ""
 "```meson str1 = 'abc' str2 = 'xyz' combined = str1 + '_' + str2 # combined "
 "is now abc_xyz ```"
@@ -237,19 +236,19 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Syntax.md:82
+#: Syntax.md:101
 msgid "#### Strings running over multiple lines"
 msgstr "#### 複数行にわたった文字列の定義"
 
 #. type: Plain text
-#: Syntax.md:84
+#: Syntax.md:104
 msgid ""
 "Strings running over multiple lines can be declared with three single "
 "quotes, like this:"
 msgstr ""
 
 #. type: Plain text
-#: Syntax.md:91
+#: Syntax.md:111
 #, no-wrap
 msgid ""
 "```meson\n"
@@ -261,24 +260,24 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Syntax.md:93
+#: Syntax.md:114
 msgid ""
 "This can also be combined with the string formatting functionality described "
 "below."
 msgstr ""
 
 #. type: Plain text
-#: Syntax.md:95
+#: Syntax.md:116
 msgid "#### String formatting"
 msgstr "#### 文字列の整形"
 
 #. type: Plain text
-#: Syntax.md:97
+#: Syntax.md:118
 msgid "Strings can be built using the string formatting functionality."
 msgstr ""
 
 #. type: Plain text
-#: Syntax.md:103
+#: Syntax.md:124
 msgid ""
 "```meson template = 'string: @0@, number: @1@, bool: @2@' res = template."
 "format('text', 1, true)  # res now has value 'string: text, number: 1, bool: "
@@ -291,32 +290,32 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Syntax.md:105
+#: Syntax.md:127
 msgid ""
 "As can be seen, the formatting works by replacing placeholders of type "
 "`@number@` with the corresponding argument."
 msgstr ""
 
 #. type: Plain text
-#: Syntax.md:107
+#: Syntax.md:129
 msgid "#### String methods"
 msgstr "#### 文字操作メソッド"
 
 #. type: Plain text
-#: Syntax.md:109
+#: Syntax.md:132
 msgid ""
 "Strings also support a number of other methods that return transformed "
 "copies."
 msgstr ""
 
 #. type: Plain text
-#: Syntax.md:111
+#: Syntax.md:134
 #, no-wrap
 msgid "**.strip()**\n"
 msgstr ""
 
 #. type: Plain text
-#: Syntax.md:118
+#: Syntax.md:141
 msgid ""
 "```meson # Similar to the Python str.strip(). Removes leading/ending spaces "
 "and newlines define = ' -Dsomedefine ' stripped_define = define.strip()  # "
@@ -331,13 +330,13 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Syntax.md:120
+#: Syntax.md:143
 #, no-wrap
 msgid "**.to_upper()**, **.to_lower()**\n"
 msgstr "**.to_upper()**、 **.to_lower()**\n"
 
 #. type: Plain text
-#: Syntax.md:126
+#: Syntax.md:149
 msgid ""
 "```meson target = 'x86_FreeBSD' upper = target.to_upper() # t now has the "
 "value 'X86_FREEBSD' lower = target.to_lower() # t now has the value "
@@ -350,13 +349,13 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Syntax.md:128
+#: Syntax.md:151
 #, no-wrap
 msgid "**.to_int()**\n"
 msgstr ""
 
 #. type: Plain text
-#: Syntax.md:134
+#: Syntax.md:157
 msgid ""
 "```meson version = '1' # Converts the string to an int and throws an error "
 "if it can't be ver_int = version.to_int()  ```"
@@ -368,13 +367,13 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Syntax.md:136
+#: Syntax.md:159
 #, no-wrap
 msgid "**.contains()**, **.startswith()**, **.endswith()**\n"
 msgstr "**.contains()**、 **.startswith()**、 **.endswith()**\n"
 
 #. type: Plain text
-#: Syntax.md:144
+#: Syntax.md:167
 msgid ""
 "```meson target = 'x86_FreeBSD' is_fbsd = target.to_lower()."
 "contains('freebsd')  # is_fbsd now has the boolean value 'true' is_x86 = "
@@ -390,13 +389,13 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Syntax.md:146
+#: Syntax.md:169
 #, no-wrap
 msgid "**.split()**, **.join()**\n"
 msgstr "**.split()**、 **.join()**\n"
 
 #. type: Plain text
-#: Syntax.md:153
+#: Syntax.md:176
 #, no-wrap
 msgid ""
 "```meson\n"
@@ -408,7 +407,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Syntax.md:160
+#: Syntax.md:183
 msgid ""
 "# Similar to the Python str.join()  output = ' '.join(['foo', 'bar'])  # "
 "Output value is 'foo bar' pathsep = ':' path = pathsep.join(['/usr/bin', '/"
@@ -417,7 +416,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Syntax.md:165
+#: Syntax.md:188
 msgid ""
 "# For joining paths, you should use join_paths()  # This has the advantage "
 "of being cross-platform path = join_paths(['/usr', 'local', 'bin'])  # path "
@@ -425,7 +424,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Syntax.md:172
+#: Syntax.md:195
 msgid ""
 "# Example to set an API version for use in library(), install_header(), etc "
 "project('project', 'c', version: '0.2.3')  version_array = meson."
@@ -435,7 +434,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Syntax.md:177
+#: Syntax.md:200
 msgid ""
 "# We can do the same with .format() too: api_version = '@0@.@1@'."
 "format(version_array[0], version_array[1])  # api_version now (again) has "
@@ -447,13 +446,13 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Syntax.md:179
+#: Syntax.md:202
 #, no-wrap
 msgid "**.underscorify()**\n"
 msgstr ""
 
 #. type: Plain text
-#: Syntax.md:187
+#: Syntax.md:210
 msgid ""
 "```meson name = 'Meson Docs.txt#Reference-manual' # Replaces all characters "
 "other than `a-zA-Z0-9` with `_` (underscore)  # Useful for substituting into "
@@ -469,13 +468,13 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Syntax.md:189
+#: Syntax.md:212
 #, no-wrap
 msgid "**.version_compare()**\n"
 msgstr ""
 
 #. type: Plain text
-#: Syntax.md:197
+#: Syntax.md:220
 msgid ""
 "```meson version = '1.2.3' # Compare version numbers semantically is_new = "
 "version.version_compare('>=2.0')  # is_new now has the boolean value false # "
@@ -490,7 +489,7 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Syntax.md:199
+#: Syntax.md:222
 #, no-wrap
 msgid ""
 "Arrays\n"
@@ -500,14 +499,14 @@ msgstr ""
 "--\n"
 
 #. type: Plain text
-#: Syntax.md:202
+#: Syntax.md:225
 msgid ""
 "Arrays are delimited by brackets. An array can contain an arbitrary number "
 "of objects of any type."
 msgstr ""
 
 #. type: Plain text
-#: Syntax.md:206
+#: Syntax.md:229
 msgid "```meson my_array = [1, 2, 'string', some_obj] ```"
 msgstr ""
 "```meson\n"
@@ -515,12 +514,12 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Syntax.md:208
+#: Syntax.md:231
 msgid "Accessing elements of an array can be done via array indexing:"
 msgstr ""
 
 #. type: Plain text
-#: Syntax.md:214
+#: Syntax.md:237
 msgid ""
 "```meson my_array = [1, 2, 'string', some_obj] second_element = my_array[1] "
 "last_element = my_array[-1] ```"
@@ -532,12 +531,12 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Syntax.md:216
+#: Syntax.md:239
 msgid "You can add more items to an array like this:"
 msgstr ""
 
 #. type: Plain text
-#: Syntax.md:220
+#: Syntax.md:243
 msgid "```meson my_array += ['foo', 3, 4, another_obj] ```"
 msgstr ""
 "```meson\n"
@@ -545,12 +544,12 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Syntax.md:222
+#: Syntax.md:245
 msgid "When adding a single item, you do not need to enclose it in an array:"
 msgstr ""
 
 #. type: Plain text
-#: Syntax.md:228
+#: Syntax.md:251
 msgid ""
 "```meson my_array += ['something'] # This also works my_array += 'else' ```"
 msgstr ""
@@ -561,7 +560,7 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Syntax.md:230
+#: Syntax.md:255
 msgid ""
 "Note appending to an array will always create a new array object and assign "
 "it to `my_array` instead of modifying the original since all objects in "
@@ -569,29 +568,29 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Syntax.md:232
+#: Syntax.md:257
 msgid "#### Array methods"
 msgstr "#### 配列操作メソッド"
 
 #. type: Plain text
-#: Syntax.md:234
+#: Syntax.md:259
 msgid "The following methods are defined for all arrays:"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Syntax.md:238
+#: Syntax.md:263
 msgid "`length`, the size of the array"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Syntax.md:238
+#: Syntax.md:263
 msgid ""
 "`contains`, returns `true` if the array contains the object given as "
 "argument, `false` otherwise"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Syntax.md:238
+#: Syntax.md:263
 msgid ""
 "`get`, returns the object at the given index, negative indices count from "
 "the back of the array, indexing out of bounds is a fatal error. Provided for "
@@ -599,7 +598,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Syntax.md:240
+#: Syntax.md:265
 #, no-wrap
 msgid ""
 "Function calls\n"
@@ -609,14 +608,14 @@ msgstr ""
 "--\n"
 
 #. type: Plain text
-#: Syntax.md:243
+#: Syntax.md:269
 msgid ""
 "Meson provides a set of usable functions. The most common use case is "
 "creating build objects."
 msgstr ""
 
 #. type: Plain text
-#: Syntax.md:247
+#: Syntax.md:273
 msgid "```meson executable('progname', 'prog.c')  ```"
 msgstr ""
 "```meson\n"
@@ -624,7 +623,7 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Syntax.md:249
+#: Syntax.md:275
 #, no-wrap
 msgid ""
 "Method calls\n"
@@ -634,14 +633,14 @@ msgstr ""
 "--\n"
 
 #. type: Plain text
-#: Syntax.md:252
+#: Syntax.md:279
 msgid ""
 "Objects can have methods, which are called with the dot operator. The exact "
 "methods it provides depends on the object."
 msgstr ""
 
 #. type: Plain text
-#: Syntax.md:257
+#: Syntax.md:284
 msgid "```meson myobj = some_function()  myobj.do_something('now')  ```"
 msgstr ""
 "```meson\n"
@@ -650,7 +649,7 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Syntax.md:259
+#: Syntax.md:286
 #, no-wrap
 msgid ""
 "If statements\n"
@@ -660,12 +659,12 @@ msgstr ""
 "--\n"
 
 #. type: Plain text
-#: Syntax.md:262
+#: Syntax.md:289
 msgid "If statements work just like in other languages."
 msgstr "if ステートメントは他の言語と同様に動作します。"
 
 #. type: Plain text
-#: Syntax.md:273
+#: Syntax.md:300
 #, no-wrap
 msgid ""
 "```meson\n"
@@ -681,7 +680,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Syntax.md:279
+#: Syntax.md:306
 #, no-wrap
 msgid ""
 "opt = get_option('someoption')\n"
@@ -692,12 +691,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Syntax.md:281
+#: Syntax.md:308
 msgid "## Foreach statements"
 msgstr "## foreach ステートメント"
 
 #. type: Plain text
-#: Syntax.md:283
+#: Syntax.md:312
 msgid ""
 "To do an operation on all elements of an array, use the `foreach` command. "
 "As an example, here's how you would define two executables with "
@@ -705,7 +704,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Syntax.md:287
+#: Syntax.md:316
 #, no-wrap
 msgid ""
 "```meson\n"
@@ -714,7 +713,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Syntax.md:293
+#: Syntax.md:322
 #, no-wrap
 msgid ""
 "foreach p : progs\n"
@@ -725,14 +724,14 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Syntax.md:295
+#: Syntax.md:326
 msgid ""
 "Note that Meson variables are immutable. Trying to assign a new value to "
 "`progs` inside a foreach loop will not affect foreach's control flow."
 msgstr ""
 
 #. type: Plain text
-#: Syntax.md:297
+#: Syntax.md:328
 #, no-wrap
 msgid ""
 "Logical operations\n"
@@ -742,12 +741,12 @@ msgstr ""
 "--\n"
 
 #. type: Plain text
-#: Syntax.md:300
+#: Syntax.md:331
 msgid "Meson has the standard range of logical operations."
 msgstr ""
 
 #. type: Plain text
-#: Syntax.md:315
+#: Syntax.md:346
 #, no-wrap
 msgid ""
 "```meson\n"
@@ -767,12 +766,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Syntax.md:317
+#: Syntax.md:348
 msgid "Logical operations work only on boolean values."
 msgstr ""
 
 #. type: Plain text
-#: Syntax.md:319
+#: Syntax.md:350
 #, no-wrap
 msgid ""
 "Comments\n"
@@ -782,14 +781,14 @@ msgstr ""
 "--\n"
 
 #. type: Plain text
-#: Syntax.md:322
+#: Syntax.md:353
 msgid ""
 "A comment starts with the `#` character and extends until the end of the "
 "line."
 msgstr ""
 
 #. type: Plain text
-#: Syntax.md:327
+#: Syntax.md:358
 msgid "```meson some_function() # This is a comment some_other_function()  ```"
 msgstr ""
 "```meson\n"
@@ -798,7 +797,7 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Syntax.md:329
+#: Syntax.md:360
 #, no-wrap
 msgid ""
 "Ternary operator\n"
@@ -808,12 +807,12 @@ msgstr ""
 "--\n"
 
 #. type: Plain text
-#: Syntax.md:332
+#: Syntax.md:363
 msgid "The ternary operator works just like in other languages."
 msgstr "三項演算子は他の言語と同様に動作します。"
 
 #. type: Plain text
-#: Syntax.md:336
+#: Syntax.md:367
 msgid "```meson x = condition ? true_value : false_value ```"
 msgstr ""
 "```meson\n"
@@ -821,7 +820,7 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Syntax.md:338
+#: Syntax.md:371
 msgid ""
 "The only exception is that nested ternary operators are forbidden to improve "
 "legibility. If your branching needs are more complex than this you need to "
@@ -829,7 +828,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Syntax.md:340
+#: Syntax.md:373
 #, no-wrap
 msgid ""
 "Includes\n"
@@ -837,7 +836,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Syntax.md:343
+#: Syntax.md:382
 msgid ""
 "Most source trees have multiple subdirectories to process. These can be "
 "handled by Meson's `subdir` command. It changes to the given subdirectory "
@@ -848,7 +847,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Syntax.md:348
+#: Syntax.md:387
 msgid "```meson test_data_dir = 'data' subdir('tests')  ```"
 msgstr ""
 "```meson\n"
@@ -857,7 +856,7 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Syntax.md:350
+#: Syntax.md:389
 #, no-wrap
 msgid ""
 "User-defined functions and methods\n"
@@ -867,7 +866,7 @@ msgstr ""
 "--\n"
 
 #. type: Plain text
-#: Syntax.md:352
+#: Syntax.md:399
 msgid ""
 "Meson does not currently support user-defined functions or methods. The "
 "addition of user-defined functions would make Meson Turing-complete which "

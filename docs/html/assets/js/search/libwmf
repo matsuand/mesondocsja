@@ -1,1 +1,1 @@
-urls_downloaded_cb({"urls": ["Dependencies.html#libwmf"], "token": "libwmf"});
+urls_downloaded_cb({"token": "libwmf", "urls": ["Dependencies.html#libwmf"]});

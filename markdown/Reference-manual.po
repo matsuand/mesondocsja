@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-11-01 10:07+0900\n"
+"POT-Creation-Date: 2017-11-14 11:10+0900\n"
 "PO-Revision-Date: 2017-09-30 21:44+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -650,8 +650,8 @@ msgstr ""
 #. type: Bullet: '- '
 #: Reference-manual.md:318
 msgid ""
-"`default_options` *(added 0.37.0)* an array of option values that override "
-"those set in the project's `default_options` invocation (like "
+"`default_options` *(added 0.37.0)* an array of default option values that "
+"override those set in the subproject's `meson_options.txt` (like "
 "`default_options` in [`project()`](#project), they only have effect when "
 "Meson is run for the first time, and command line arguments override any "
 "default options in build files)"
@@ -2223,8 +2223,8 @@ msgstr ""
 #. type: Bullet: ' - '
 #: Reference-manual.md:1057
 msgid ""
-"`default_options`, *(added 0.37.0)* an array of default option values that "
-"override those set in the project's `default_options` invocation (like "
+"`default_options` *(added 0.37.0)* an array of default option values that "
+"override those set in the subproject's `meson_options.txt` (like "
 "`default_options` in `project`, they only have effect when Meson is run for "
 "the first time, and command line arguments override any default options in "
 "build files)"
@@ -3194,13 +3194,22 @@ msgid ""
 "and errors out if not"
 msgstr ""
 
+#. type: Bullet: '- '
+#: Reference-manual.md:1563
+msgid ""
+"`get_unquoted(varname, default_value)` returns the value of `varname` but "
+"without surrounding double quotes (`\"`). If the value has not been set "
+"returns `default_value` if it is defined and errors out if not.  Available "
+"since 0.43.0"
+msgstr ""
+
 #. type: Plain text
-#: Reference-manual.md:1560
+#: Reference-manual.md:1565
 msgid "- `has(varname)`, returns `true` if the specified variable is set"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1564
+#: Reference-manual.md:1569
 msgid ""
 "`merge_from(other)` takes as argument a different configuration data object "
 "and copies all entries from that object to the current object, available "
@@ -3208,26 +3217,26 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1566
+#: Reference-manual.md:1571
 msgid "- `set(varname, value)`, sets a variable to a given value"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1570
+#: Reference-manual.md:1575
 msgid ""
 "`set10(varname, boolean_value)` is the same as above but the value is either "
 "`true` or `false` and will be written as 1 or 0, respectively"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1573
+#: Reference-manual.md:1578
 msgid ""
 "`set_quoted(varname, value)` is same as `set` but quotes the value in double "
 "quotes (`\"`)"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1579
+#: Reference-manual.md:1584
 msgid ""
 "They all take the `description` keyword that will be written in the result "
 "file. The replacement assumes a file with C syntax. If your generated file "
@@ -3236,19 +3245,19 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1581
+#: Reference-manual.md:1586
 msgid "### `custom target` object"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1584
+#: Reference-manual.md:1589
 msgid ""
 "This object is returned by [`custom_target`](#custom_target) and contains a "
 "target with the following methods:"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1589
+#: Reference-manual.md:1594
 msgid ""
 "`full_path()` returns a full path pointing to the result target file NOTE: "
 "In most cases using the object itself will do the same job as this and will "
@@ -3257,7 +3266,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1594
+#: Reference-manual.md:1599
 msgid ""
 "`[index]` returns an opaque object that references this target, and can be "
 "used as a source in other targets. When it is used as such it will make that "
@@ -3266,31 +3275,31 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1596
+#: Reference-manual.md:1601
 msgid "### `dependency` object"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1599
+#: Reference-manual.md:1604
 msgid ""
 "This object is returned by [`dependency()`](#dependency) and contains an "
 "external dependency with the following methods:"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Reference-manual.md:1601
+#: Reference-manual.md:1606
 msgid "`found()` which returns whether the dependency was found"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Reference-manual.md:1605
+#: Reference-manual.md:1610
 msgid ""
 "`get_pkgconfig_variable(varname)` (*Added 0.36.0*) will get the pkg-config "
 "variable specified, or, if invoked on a non pkg-config dependency, error out"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Reference-manual.md:1610
+#: Reference-manual.md:1615
 msgid ""
 "`type_name()` which returns a string describing the type of the dependency, "
 "the most common values are `internal` for deps created with "
@@ -3299,17 +3308,17 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Reference-manual.md:1612
+#: Reference-manual.md:1617
 msgid "`version()` is the version number as a string, for example `1.2.8`"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1615
+#: Reference-manual.md:1620
 msgid "### `external program` object"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1619
+#: Reference-manual.md:1624
 msgid ""
 "This object is returned by [`find_program()`](#find_program) and contains an "
 "external (i.e. not built as part of this project) program and has the "
@@ -3317,12 +3326,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1621
+#: Reference-manual.md:1626
 msgid "- `found()` which returns whether the executable was found"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1625
+#: Reference-manual.md:1630
 msgid ""
 "`path()` which returns an array pointing to the executable (this is an array "
 "as opposed to a string because the program might be `['python', 'foo.py']`, "
@@ -3330,12 +3339,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1627
+#: Reference-manual.md:1632
 msgid "### `environment` object"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1632
+#: Reference-manual.md:1637
 msgid ""
 "This object is returned by [`environment()`](#environment) and stores "
 "detailed information about how environment variables should be set during "
@@ -3344,7 +3353,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1640
+#: Reference-manual.md:1645
 msgid ""
 "`append(varname, value)` appends the given value to the old value of the "
 "environment variable, e.g.  `env.append('FOO', 'BAR', separator : ';')` "
@@ -3355,14 +3364,14 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1643
+#: Reference-manual.md:1648
 msgid ""
 "`prepend(varname, value)` is the same as `append` except that it writes to "
 "the beginning of the variable"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1647
+#: Reference-manual.md:1652
 msgid ""
 "`set(varname, value)` sets environment variable in the first argument to the "
 "value in the second argument, e.g.  `env.set('FOO', 'BAR') sets "
@@ -3370,12 +3379,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1649
+#: Reference-manual.md:1654
 msgid "### `external library` object"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1654
+#: Reference-manual.md:1659
 msgid ""
 "This object is returned by [`find_library()`](#find_library) and contains an "
 "external (i.e. not built as part of this project)  library. This object has "
@@ -3383,12 +3392,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1656
+#: Reference-manual.md:1661
 msgid "### `generator` object"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1660
+#: Reference-manual.md:1665
 msgid ""
 "This object is returned by [`generator()`](#generator) and contains a "
 "generator that is used to transform files from one type to another by an "
@@ -3396,7 +3405,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: Reference-manual.md:1666
+#: Reference-manual.md:1671
 msgid ""
 "`process(list_of_files)` takes a list of files, causes them to be processed "
 "and returns an object containing the result which can then, for example, be "
@@ -3406,19 +3415,19 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1668
+#: Reference-manual.md:1673
 msgid "### `subproject` object"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1671
+#: Reference-manual.md:1676
 msgid ""
 "This object is returned by [`subproject()`](#subproject) and is an opaque "
 "object representing it."
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1675
+#: Reference-manual.md:1680
 msgid ""
 "`get_variable(name)` fetches the specified variable from inside the "
 "subproject. This is useful to, for instance, get a [declared dependency]"
@@ -3426,12 +3435,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1677
+#: Reference-manual.md:1682
 msgid "### `run result` object"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1681
+#: Reference-manual.md:1686
 msgid ""
 "This object encapsulates the result of trying to compile and run a sample "
 "piece of code with [`compiler.run()`](#compiler-object) or [`run_command()`]"
@@ -3439,23 +3448,23 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1686
+#: Reference-manual.md:1691
 msgid ""
 "`compiled()` if true, the compilation succeeded, if false it did not and the "
 "other methods return unspecified data"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1686
+#: Reference-manual.md:1691
 msgid "`returncode()` the return code of executing the compiled binary"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1686
+#: Reference-manual.md:1691
 msgid "`stderr()` the standard error produced when the command was run"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1686
+#: Reference-manual.md:1691
 msgid "`stdout()` the standard out produced when the command was run"
 msgstr ""

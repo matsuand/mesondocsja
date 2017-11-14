@@ -1,1 +1,1 @@
-urls_downloaded_cb({"urls": ["Reference-manual.html#install_data", "Reference-manual.html#install_headers", "Reference-manual.html#install_subdir", "Gnome-module.html#gnomeyelp"], "token": "Installs"});
+urls_downloaded_cb({"token": "Installs", "urls": ["Reference-manual.html#install_data", "Reference-manual.html#install_headers", "Reference-manual.html#install_subdir", "Gnome-module.html#gnomeyelp"]});

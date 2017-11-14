@@ -1,1 +1,1 @@
-urls_downloaded_cb({"urls": ["Reference-manual.html#configure_file", "Reference-manual.html#configuration-data-object", "Simd-module.html#usage", "Configuration.html#page-description", "Porting-from-autotools.html#auto-headers"], "token": "configuration_data"});
+urls_downloaded_cb({"token": "configuration_data", "urls": ["Reference-manual.html#configure_file", "Reference-manual.html#configuration-data-object", "Simd-module.html#usage", "Configuration.html#page-description", "Porting-from-autotools.html#auto-headers"]});
