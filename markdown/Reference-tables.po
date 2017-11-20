@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-09-30 21:44+0900\n"
+"POT-Creation-Date: 2017-11-20 13:47+0900\n"
 "PO-Revision-Date: 2017-09-30 21:44+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -113,7 +113,7 @@ msgid "These are provided by the `.system()` method call."
 msgstr "以下は `.system()` メソッドの呼び出しによって得られるものです。"
 
 #. type: Plain text
-#: Reference-tables.md:58
+#: Reference-tables.md:59
 #, no-wrap
 msgid ""
 "| Value               | Comment                         |\n"
@@ -121,15 +121,17 @@ msgid ""
 "| linux               | |\n"
 "| darwin              | Either OSX or iOS |\n"
 "| windows             | Any version of Windows |\n"
+"| cygwin              | The Cygwin environment for Windows |\n"
 msgstr ""
 "| 値                  | 説明                            |\n"
 "| -----               | -------                         |\n"
 "| linux               | |\n"
 "| darwin              | OSX または iOS |\n"
 "| windows             | Windows 全バージョン |\n"
+"| cygwin              | Windows での Cygwin 環境 |\n"
 
 #. type: Plain text
-#: Reference-tables.md:60
+#: Reference-tables.md:61
 msgid ""
 "Any string not listed above is not guaranteed to remain stable in future "
 "releases."

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-10-24 18:52+0900\n"
+"POT-Creation-Date: 2017-11-20 13:47+0900\n"
 "PO-Revision-Date: 2017-09-30 21:44+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -278,55 +278,62 @@ msgid "```console $ ninja scan-build ```"
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:129
+#: howtox.md:132
+msgid ""
+"You can use the `SCAN_BUILD` environment variable to choose the scan-build "
+"executable.  ```console $ SCAN_BUILD=<your exe> ninja scan-build ```"
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:135
 msgid "## Use profile guided optimization"
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:131
+#: howtox.md:137
 msgid ""
 "Using profile guided optimization with GCC is a two phase operation. First "
 "we set up the project with profile measurements enabled and compile it."
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:136
+#: howtox.md:142
 msgid ""
 "```console $ meson <Meson options, such as --buildtype=debugoptimized> -"
 "Db_pgo=generate $ ninja -C builddir ```"
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:138
+#: howtox.md:144
 msgid ""
 "Then we need to run the program with some representative input. This step "
 "depends on your project."
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:140
+#: howtox.md:146
 msgid ""
 "Once that is done we change the compiler flags to use the generated "
 "information and rebuild."
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:145
+#: howtox.md:151
 msgid "```console $ meson configure -Db_pgo=use $ ninja ```"
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:147
+#: howtox.md:153
 msgid "After these steps the resulting binary is fully optimized."
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:149
+#: howtox.md:155
 msgid "## Add math library (`-lm`) portably"
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:151
+#: howtox.md:157
 msgid ""
 "Some platforms (e.g. Linux) have a standalone math library. Other platforms "
 "(pretty much everyone else) do not. How to specify that `m` is used only "
@@ -334,19 +341,19 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:157
+#: howtox.md:163
 msgid ""
 "```meson cc = meson.get_compiler('c')  m_dep = cc.find_library('m', "
 "required : false)  executable(..., dependencies : m_dep)  ```"
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:159
+#: howtox.md:165
 msgid "## Install an executable to `libexecdir`"
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:162
+#: howtox.md:168
 msgid ""
 "```meson executable(..., install : true, install_dir : "
 "get_option('libexecdir'))  ```"

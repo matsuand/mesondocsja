@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-11-14 11:10+0900\n"
+"POT-Creation-Date: 2017-11-20 13:47+0900\n"
 "PO-Revision-Date: 2017-09-30 21:44+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -209,8 +209,7 @@ msgstr ""
 #. type: Plain text
 #: Syntax.md:89
 msgid ""
-"Similarly `\\n` gets converted to a newline and `\\\\\\\\` to a single "
-"backslash."
+"Similarly `\\n` gets converted to a newline and `\\\\` to a single backslash."
 msgstr ""
 
 #. type: Plain text

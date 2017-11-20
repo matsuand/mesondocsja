@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-09-30 21:43+0900\n"
+"POT-Creation-Date: 2017-11-20 13:47+0900\n"
 "PO-Revision-Date: 2017-09-30 21:43+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -128,20 +128,21 @@ msgid "```yaml os: Visual Studio 2015"
 msgstr ""
 
 #. type: Plain text
-#: Continuous-Integration.md:62
+#: Continuous-Integration.md:63
 #, no-wrap
 msgid ""
-"matrix:\n"
-"  - arch: x86\n"
-"    compiler: msvc2010\n"
-"  - arch: x86\n"
-"    compiler: msvc2015\n"
-"  - arch: x64\n"
-"    compiler: msvc2015\n"
+"environment:\n"
+"  matrix:\n"
+"    - arch: x86\n"
+"      compiler: msvc2010\n"
+"    - arch: x86\n"
+"      compiler: msvc2015\n"
+"    - arch: x64\n"
+"      compiler: msvc2015\n"
 msgstr ""
 
 #. type: Plain text
-#: Continuous-Integration.md:65
+#: Continuous-Integration.md:66
 #, no-wrap
 msgid ""
 "platform:\n"
@@ -149,22 +150,22 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Continuous-Integration.md:75
+#: Continuous-Integration.md:76
 #, no-wrap
 msgid ""
 "install:\n"
 "  # Use the x86 python only when building for x86 for the cpython tests.\n"
 "  # For all other archs (including, say, arm), use the x64 python.\n"
-"  - ps: (new-object net.webclient).DownloadFile('https://dl.dropboxusercontent.com/u/37517477/ninja.exe', 'C:\\projects\\meson\\ninja.exe')\n"
+"  - ps: (new-object net.webclient).DownloadFile('https://www.dropbox.com/s/cyghxjrvgplu7sy/ninja.exe?dl=1', 'C:\\projects\\meson\\ninja.exe')\n"
 "  - cmd: if %arch%==x86 (set MESON_PYTHON_PATH=C:\\python34) else (set MESON_PYTHON_PATH=C:\\python34-x64)\n"
 "  - cmd: echo Using Python at %MESON_PYTHON_PATH%\n"
-"  - cmd: %MESON_PYTHON_PATH%\\pip install meson\n"
+"  - cmd: \"%MESON_PYTHON_PATH%\\\\pip install meson\"\n"
 "  - cmd: if %compiler%==msvc2010 ( call \"C:\\Program Files (x86)\\Microsoft Visual Studio 10.0\\VC\\vcvarsall.bat\" %arch% )\n"
 "  - cmd: if %compiler%==msvc2015 ( call \"C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\vcvarsall.bat\" %arch% )\n"
 msgstr ""
 
 #. type: Plain text
-#: Continuous-Integration.md:80
+#: Continuous-Integration.md:81
 #, no-wrap
 msgid ""
 "build_script:\n"
@@ -174,7 +175,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Continuous-Integration.md:84
+#: Continuous-Integration.md:85
 #, no-wrap
 msgid ""
 "test_script:\n"
@@ -183,22 +184,22 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Continuous-Integration.md:86
+#: Continuous-Integration.md:87
 msgid "## Travis without Docker"
 msgstr ""
 
 #. type: Plain text
-#: Continuous-Integration.md:88
+#: Continuous-Integration.md:89
 msgid "This setup is not recommended but included here for completeness"
 msgstr ""
 
 #. type: Plain text
-#: Continuous-Integration.md:93
+#: Continuous-Integration.md:94
 msgid "```yaml sudo: false language: cpp group: beta"
 msgstr ""
 
 #. type: Plain text
-#: Continuous-Integration.md:99
+#: Continuous-Integration.md:100
 #, no-wrap
 msgid ""
 "matrix:\n"
@@ -209,7 +210,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Continuous-Integration.md:105
+#: Continuous-Integration.md:106
 #, no-wrap
 msgid ""
 "install:\n"
@@ -220,7 +221,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Continuous-Integration.md:110
+#: Continuous-Integration.md:111
 #, no-wrap
 msgid ""
 "script:\n"
