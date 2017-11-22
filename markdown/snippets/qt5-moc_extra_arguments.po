@@ -1,0 +1,37 @@
+# Japanese translations for PACKAGE package
+# Copyright (C) 2017 Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2017-11-22 15:02+0900\n"
+"PO-Revision-Date: 2017-11-22 15:02+0900\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: matsuand個人翻訳\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. type: Plain text
+#: qt5-moc_extra_arguments.md:2
+msgid "# Adds support for additional Qt5-Module keyword `moc_extra_arguments`"
+msgstr ""
+
+#. type: Plain text
+#: qt5-moc_extra_arguments.md:6
+msgid ""
+"When `moc`-ing sources, the `moc` tool does not know about any preprocessor "
+"macros. The generated code might not match the input files when the linking "
+"with the moc input sources happens."
+msgstr ""
+
+#. type: Plain text
+#: qt5-moc_extra_arguments.md:8
+msgid ""
+"This amendment allows to specify a a list of additional arguments passed to "
+"the `moc` tool. They are called `moc_extra_arguments`."
+msgstr ""
