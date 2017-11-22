@@ -1,1 +1,1 @@
-urls_downloaded_cb({"token": "group", "urls": ["Reference-manual.html#install_data", "Dependencies.html#boost"]});
+urls_downloaded_cb({"urls": ["Reference-manual.html#install_data", "Dependencies.html#boost"], "token": "group"});

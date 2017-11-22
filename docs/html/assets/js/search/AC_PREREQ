@@ -1,1 +1,1 @@
-urls_downloaded_cb({"token": "AC_PREREQ", "urls": ["Porting-from-autotools.html#configureac"]});
+urls_downloaded_cb({"urls": ["Porting-from-autotools.html#configureac"], "token": "AC_PREREQ"});

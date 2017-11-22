@@ -1,1 +1,1 @@
-urls_downloaded_cb({"token": "compared", "urls": ["ARM-performance-test.html#arm-performance-test", "ARM-performance-test.html#conclusions"]});
+urls_downloaded_cb({"urls": ["ARM-performance-test.html#arm-performance-test", "ARM-performance-test.html#conclusions"], "token": "compared"});

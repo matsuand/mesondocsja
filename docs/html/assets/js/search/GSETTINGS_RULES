@@ -1,1 +1,1 @@
-urls_downloaded_cb({"token": "GSETTINGS_RULES", "urls": ["Porting-from-autotools.html#gsettings"]});
+urls_downloaded_cb({"urls": ["Porting-from-autotools.html#gsettings"], "token": "GSETTINGS_RULES"});
