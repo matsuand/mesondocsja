@@ -1,1 +1,1 @@
-urls_downloaded_cb({"urls": ["Reference-manual.html#compiler-object", "Simd-module.html#usage"], "token": "algorithm"});
+urls_downloaded_cb({"token": "algorithm", "urls": ["Reference-manual.html#compiler-object", "Simd-module.html#usage"]});

@@ -1,1 +1,1 @@
-urls_downloaded_cb({"urls": ["RPM-module.html#rpm-module"], "token": "autodetects"});
+urls_downloaded_cb({"token": "autodetects", "urls": ["RPM-module.html#rpm-module"]});

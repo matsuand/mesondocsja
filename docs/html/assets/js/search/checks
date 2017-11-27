@@ -1,1 +1,1 @@
-urls_downloaded_cb({"urls": ["Cross-compilation.html#page-description", "Feature-autodetection.html#ccache", "Overview.html#terminology", "Porting-from-autotools.html#porting-from-autotools"], "token": "checks"});
+urls_downloaded_cb({"token": "checks", "urls": ["Cross-compilation.html#page-description", "Feature-autodetection.html#ccache", "Overview.html#terminology", "Porting-from-autotools.html#porting-from-autotools"]});

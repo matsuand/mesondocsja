@@ -1,1 +1,1 @@
-urls_downloaded_cb({"urls": ["RPM-module.html#rpm-module"], "token": "rpm.generate_spec_template"});
+urls_downloaded_cb({"token": "rpm.generate_spec_template", "urls": ["RPM-module.html#rpm-module"]});

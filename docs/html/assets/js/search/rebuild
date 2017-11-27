@@ -1,1 +1,1 @@
-urls_downloaded_cb({"urls": ["ARM-performance-test.html#glib-link-time", "Reference-manual.html#executable"], "token": "rebuild"});
+urls_downloaded_cb({"token": "rebuild", "urls": ["ARM-performance-test.html#glib-link-time", "Reference-manual.html#executable"]});

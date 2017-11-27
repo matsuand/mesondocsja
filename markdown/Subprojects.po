@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-11-08 17:35+0900\n"
+"POT-Creation-Date: 2017-11-27 13:08+0900\n"
 "PO-Revision-Date: 2017-09-30 21:44+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -38,7 +38,7 @@ msgid "# Subprojects"
 msgstr "# サブプロジェクト"
 
 #. type: Plain text
-#: Subprojects.md:8
+#: Subprojects.md:12
 msgid ""
 "Some platforms do not provide a native packaging system. In these cases it "
 "is common to bundle all third party libraries in your source tree. This is "
@@ -47,7 +47,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Subprojects.md:10
+#: Subprojects.md:19
 msgid ""
 "Meson tries to solve this problem by making it extremely easy to provide "
 "both at the same time. The way this is done is that Meson allows you to take "
@@ -57,55 +57,44 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Subprojects.md:20
-#, no-wrap
+#: Subprojects.md:23
+#, fuzzy
 msgid ""
+"```meson dep = dependency('foo', fallback : [subproject_name, variable_name] "
+"```"
+msgstr ""
 "```meson\n"
-"dep = dependency('foo', required : false)\n"
-"if dep.found()\n"
-"  # set up project using external dependency\n"
-"else\n"
-"  subproject('foo')\n"
-"  # set up rest of project as if foo was provided by this project\n"
-"endif\n"
-"```\n"
-msgstr ""
+"sp_dep = dependency('subproj_pkgconfig_name', fallback : ['subproj_name', "
+"'proj_dep']) \n"
+"```"
 
 #. type: Plain text
-#: Subprojects.md:22
-msgid ""
-"All Meson features of the subproject, such as project options keep working "
-"and can be set in the master project. There are a few limitations, the most "
-"important being that global compiler arguments must be set in the main "
-"project before calling subproject. Subprojects must not set global arguments "
-"because there is no way to do that reliably over multiple subprojects. To "
-"check whether you are running as a subproject, use the `is_subproject` "
-"function."
-msgstr ""
-
-#. type: Plain text
-#: Subprojects.md:24
+#: Subprojects.md:26
 msgid ""
 "As an example, suppose we have a simple project that provides a shared "
-"library."
+"library. It would be set up like this."
 msgstr ""
 
 #. type: Plain text
-#: Subprojects.md:30
+#: Subprojects.md:34
+#, fuzzy, no-wrap
 msgid ""
-"```meson project('simple', 'c')  i = include_directories('include')  l = "
-"shared_library('simple', 'simple.c', include_directories : i, install : "
-"true)  ```"
+"```meson\n"
+"project('simple', 'c')\n"
+"i = include_directories('include')\n"
+"l = shared_library('simple', 'simple.c', include_directories : i, install : true)\n"
+"simple_dep = declare_dependency(include_directories : i,\n"
+"  link_with : l)\n"
+"```\n"
 msgstr ""
 "```meson\n"
 "project('simple', 'c') \n"
 "i = include_directories('include') \n"
-"l = shared_library('simple', 'simple.c', include_directories : i, install : "
-"true) \n"
+"l = shared_library('simple', 'simple.c', include_directories : i, install : true) \n"
 "```"
 
 #. type: Plain text
-#: Subprojects.md:32
+#: Subprojects.md:40
 msgid ""
 "Then we could use that from a master project. First we generate a "
 "subdirectory called `subprojects` in the root of the master directory. Then "
@@ -119,29 +108,41 @@ msgstr ""
 msgid ""
 "```meson\n"
 "project('master', 'c')\n"
-"dep = dependency('simple', required : false)\n"
-"if dep.found()\n"
-"  i = []\n"
-"  l = []\n"
-"else\n"
-"  sp = subproject('simple') # This is a name of a subdirectory in subprojects.\n"
-"  i = sp.get_variable('i')\n"
-"  l = sp.get_variable('l')\n"
-"endif\n"
-"exe = executable('prog', 'prog.c', include_directories : i, link_with : l,\n"
+"dep = dependency('simple', fallback : ['simple', 'simple_dep']\n"
+"exe = executable('prog', 'prog.c',\n"
 "                 dependencies : dep, install : true)\n"
 "```\n"
 msgstr ""
 
 #. type: Plain text
-#: Subprojects.md:49
+#: Subprojects.md:51
 msgid ""
 "With this setup the system dependency is used when it is available, "
-"otherwise we fall back on the bundled version."
+"otherwise we fall back on the bundled version. If you wish to always use the "
+"embedded version, then you would declare it like this:"
 msgstr ""
 
 #. type: Plain text
-#: Subprojects.md:51
+#: Subprojects.md:56
+msgid ""
+"```meson simple_sp = subproject('simple')  dep = simple_sp."
+"get_variable('simple_dep')  ```"
+msgstr ""
+
+#. type: Plain text
+#: Subprojects.md:64
+msgid ""
+"All Meson features of the subproject, such as project options keep working "
+"and can be set in the master project. There are a few limitations, the most "
+"important being that global compiler arguments must be set in the main "
+"project before calling subproject. Subprojects must not set global arguments "
+"because there is no way to do that reliably over multiple subprojects. To "
+"check whether you are running as a subproject, use the `is_subproject` "
+"function."
+msgstr ""
+
+#. type: Plain text
+#: Subprojects.md:69
 msgid ""
 "It should be noted that this only works for subprojects that are built with "
 "Meson. It can not be used with any other build system. The reason is the "
@@ -150,7 +151,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Subprojects.md:53
+#: Subprojects.md:74
 msgid ""
 "Subprojects can use other subprojects, but all subprojects must reside in "
 "the top level `subprojects` directory. Recursive use of subprojects is not "
@@ -159,60 +160,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Subprojects.md:55
-msgid "## Subprojects and dependencies"
-msgstr "## Subprojects and dependencies"
-
-#. type: Plain text
-#: Subprojects.md:57
-msgid ""
-"A common use case is to use subprojects to provide dependencies on platforms "
-"that do not provide them out of the box. This is especially common on "
-"Windows. Meson makes this easy while at the same time using system "
-"dependencies if are available. The way to do this is to set up a subproject "
-"that builds the dependency and has an internal dependency declared like this:"
-msgstr ""
-
-#. type: Plain text
-#: Subprojects.md:61
-msgid "```meson proj_dep = declare_dependency(...)  ```"
-msgstr ""
-"```meson\n"
-"proj_dep = declare_dependency(...) \n"
-"```"
-
-#. type: Plain text
-#: Subprojects.md:63
-msgid "Then you can use the subproject in the master project like this:"
-msgstr ""
-
-#. type: Plain text
-#: Subprojects.md:67
-msgid ""
-"```meson sp_dep = dependency('subproj_pkgconfig_name', fallback : "
-"['subproj_name', 'proj_dep'])  ```"
-msgstr ""
-"```meson\n"
-"sp_dep = dependency('subproj_pkgconfig_name', fallback : ['subproj_name', "
-"'proj_dep']) \n"
-"```"
-
-#. type: Plain text
-#: Subprojects.md:69
-msgid ""
-"This uses the system dependency when available and the self built version if "
-"not. If you want to always use the subproject, that is also possible, just "
-"use `subproject` and `get_variable` as discussed above to get the dependency "
-"object."
-msgstr ""
-
-#. type: Plain text
-#: Subprojects.md:71
+#: Subprojects.md:76
 msgid "# Obtaining subprojects"
 msgstr ""
 
 #. type: Plain text
-#: Subprojects.md:72
+#: Subprojects.md:79
 msgid ""
 "Meson ships with a dependency system to automatically obtain dependency "
 "subprojects. It is documented in the [Wrap dependency system manual](Wrap-"

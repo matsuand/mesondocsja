@@ -1,1 +1,1 @@
-urls_downloaded_cb({"urls": ["Reference-manual.html#configure_file", "FAQ.html#page-description"], "token": "produced"});
+urls_downloaded_cb({"token": "produced", "urls": ["Reference-manual.html#configure_file", "FAQ.html#page-description"]});

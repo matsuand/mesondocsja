@@ -1,1 +1,1 @@
-urls_downloaded_cb({"urls": ["Reference-manual.html#install_headers", "Porting-from-autotools.html#porting-from-autotools"], "token": "man"});
+urls_downloaded_cb({"token": "man", "urls": ["Reference-manual.html#install_headers", "Porting-from-autotools.html#porting-from-autotools"]});

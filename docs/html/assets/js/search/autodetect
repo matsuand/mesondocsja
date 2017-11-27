@@ -1,1 +1,1 @@
-urls_downloaded_cb({"urls": ["Reference-manual.html#find_program", "Unit-tests.html#coverage", "Syntax.html#page-description"], "token": "autodetect"});
+urls_downloaded_cb({"token": "autodetect", "urls": ["Reference-manual.html#find_program", "Unit-tests.html#coverage", "Syntax.html#page-description"]});

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-11-14 11:10+0900\n"
+"POT-Creation-Date: 2017-11-27 13:08+0900\n"
 "PO-Revision-Date: 2017-09-30 21:44+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -1002,7 +1002,7 @@ msgstr ""
 #: Reference-manual.md:436
 msgid ""
 "`d_import_dirs` list of directories to look in for string imports used in "
-"the D programmling language"
+"the D programming language"
 msgstr ""
 
 #. type: Bullet: '- '

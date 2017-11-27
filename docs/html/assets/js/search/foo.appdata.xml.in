@@ -1,1 +1,1 @@
-urls_downloaded_cb({"urls": ["Porting-from-autotools.html#gettext"], "token": "foo.appdata.xml.in"});
+urls_downloaded_cb({"token": "foo.appdata.xml.in", "urls": ["Porting-from-autotools.html#gettext"]});
