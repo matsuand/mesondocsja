@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-11-10 14:33+0900\n"
+"POT-Creation-Date: 2017-11-29 10:49+0900\n"
 "PO-Revision-Date: 2017-09-30 21:43+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -372,61 +372,44 @@ msgstr ""
 
 #. type: Plain text
 #: Dependencies.md:182
-msgid "## Pcap"
+msgid "## Dependencies using config tools"
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:186
+#: Dependencies.md:187
 msgid ""
-"The pcap library does not ship with pkg-config at the time or writing but "
-"instead it has its own `pcap-config` util. Meson will use it automatically:"
+"CUPS, LLVM, PCAP, WxWidgets, libwmf, and GnuStep either do not provide pkg-"
+"config modules or additionally can be detected via a config tool (cups-"
+"config, llvm-config, etc). Meson has native support for these tools, and "
+"then can be found like other dependencies:"
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:190
-msgid "```meson pcap_dep = dependency('pcap', version : '>=1.0')  ```"
+#: Dependencies.md:193
+#, fuzzy
+msgid ""
+"```meson pcap_dep = dependency('pcap', version : '>=1.0')  cups_dep = "
+"dependency('cups', version : '>=1.4')  llvm_dep = dependency('llvm', "
+"version : '>=4.0')  ```"
 msgstr ""
 "```meson\n"
-"pcap_dep = dependency('pcap', version : '>=1.0') \n"
+"zdep = dependency('zlib', version : '>=1.2.8') \n"
+"exe = executable('zlibprog', 'prog.c', dependencies : zdep) \n"
 "```"
-
-#. type: Plain text
-#: Dependencies.md:192
-msgid "## CUPS"
-msgstr ""
 
 #. type: Plain text
 #: Dependencies.md:196
 msgid ""
-"The cups library does not ship with pkg-config at the time or writing but "
-"instead it has its own `cups-config` util. Meson will use it automatically:"
+"Some of these tools (like wmf and cups) provide both pkg-config and config "
+"tools support. You can force one or another via the method keyword:"
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:200
-msgid "```meson cups_dep = dependency('cups', version : '>=1.4')  ```"
-msgstr ""
-"```meson\n"
-"cups_dep = dependency('cups', version : '>=1.4') \n"
-"```"
-
-#. type: Plain text
-#: Dependencies.md:202
-msgid "## LibWMF"
-msgstr ""
-
-#. type: Plain text
-#: Dependencies.md:206
-msgid ""
-"The libwmf library does not ship with pkg-config at the time or writing but "
-"instead it has its own `libwmf-config` util. Meson will use it automatically:"
-msgstr ""
-
-#. type: Plain text
-#: Dependencies.md:209
+#: Dependencies.md:199
 #, fuzzy
-msgid "```meson libwmf_dep = dependency('libwmf', version : '>=0.2.8')  ```"
+msgid "```meson wmf_dep = dependency('wmf', method : 'config-tool')  ```"
 msgstr ""
 "```meson\n"
 "pcap_dep = dependency('pcap', version : '>=1.0') \n"
 "```"
+

@@ -1013,7 +1013,7 @@ Windows and OS X since it doesn't make sense on Windows and PIC cannot be
 disabled on OS X.</li>
 </ul>
 <h3 id="subdir">subdir()</h3>
-<pre><code class="language-meson">    void subdir(dir_name)
+<pre><code class="language-meson">    void subdir(dir_name, ...)
 </code></pre>
 <p>Enters the specified subdirectory and executes the <code>meson.build</code> file in
 it. Once that is done, it returns and execution continues on the line
@@ -1022,6 +1022,13 @@ file are then available for use in later parts of the current build file and
 in all subsequent build files executed with <code>subdir()</code>.</p>
 <p>Note that this means that each <code>meson.build</code> file in a source tree can and
 must only be executed once.</p>
+<p>This function has one keyword argument.</p>
+<ul>
+<li>
+<code>if_found</code> takes one or several dependency objects and will only recurse
+in the subdir if they all return <code>true</code> when queried with <code>.found()</code>
+</li>
+</ul>
 <h3 id="subproject">subproject()</h3>
 <pre><code class="language-meson">    subproject_object subproject(subproject_name, ...)
 </code></pre>
@@ -1643,6 +1650,11 @@ external dependency with the following methods:</p>
 <p><code>get_pkgconfig_variable(varname)</code> (<em>Added 0.36.0</em>) will get the
 pkg-config variable specified, or, if invoked on a non pkg-config
 dependency, error out</p>
+</li>
+<li>
+<p><code>get_configtool_variable(varname)</code> (<em>Added 0.44.0</em>) will get the command
+line argument from the config tool (with <code>--</code> prepended), or, if invoked
+on a non config-tool dependency, error out.</p>
 </li>
 <li>
 <p><code>type_name()</code> which returns a string describing the type of the
