@@ -32,10 +32,10 @@
 
 <script src="assets/js/lines_around_headings.js"></script>
 
-<script src="assets/js/trie.js"></script>
 <script src="assets/js/prism-core.js"></script>
 <script src="assets/js/prism-autoloader.js"></script>
 <script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
 
 <link rel="icon" type="image/png" href="assets/images/favicon.png">
 <link rel="shortcut icon" href="assets/images/favicon.png">
@@ -170,14 +170,24 @@ option('other_one', type : 'boolean', value : false)
 option('combo_opt', type : 'combo', choices : ['one', 'two', 'three'], value
 : 'three')
 </code></pre>
-<p>This demonstrates the three basic option types and their usage. String
-option is just a free form string and a boolean option is, unsurprisingly,
-true or false. The combo option can have any value from the strings listed
-in argument <code>choices</code>. If <code>value</code> is not set, it defaults to empty string
-for strings, <code>true</code> for booleans or the first element in a combo. You can
-specify <code>description</code>, which is a free form piece of text describing the
-option. It defaults to option name.</p>
-<p>These options are accessed in Meson code with the <code>get_option</code> function.</p>
+<p>All types allow a <code>description</code> value to be set describing the option, if no
+option is set then the name of the option will be used instead.</p>
+<h3 id="strings">Strings</h3>
+<p>The string type is a free form string. If the default value is not set then
+an empty string will be used as the default.</p>
+<h3 id="booleans">Booleans</h3>
+<p>Booleans may have values of either <code>true</code> or <code>false</code>. If not default value
+is supplied then <code>true</code> will be used as the default.</p>
+<h3 id="combos">Combos</h3>
+<p>A combo allows any one of the values in the <code>choices</code> parameter to be
+selected.  If no default value is set then the first value will be the
+default.</p>
+<h3 id="arrays">Arrays</h3>
+<p>Arrays allow one or more of the values in the <code>choices</code> parameter to be
+selected.  If the <code>value</code> parameter is unset then the values of <code>choices</code>
+will be used as the default.</p>
+<p>This type is new in version 0.44.0</p>
+<h2 id="using-build-options">Using build options</h2>
 <pre><code class="language-meson">optval = get_option('opt_name')
 </code></pre>
 <p>This function also allows you to query the value of Meson's built-in project

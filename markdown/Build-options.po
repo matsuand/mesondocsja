@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-09-30 21:43+0900\n"
+"POT-Creation-Date: 2017-12-03 14:26+0900\n"
 "PO-Revision-Date: 2017-09-30 21:43+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -25,7 +25,9 @@ msgstr ""
 #. type: Plain text
 #: Build-options.md:4
 msgid "short-description: Build options to configure project properties ..."
-msgstr "short-description: プロジェクトプロパティを設定するビルドオプション\n..."
+msgstr ""
+"short-description: プロジェクトプロパティを設定するビルドオプション\n"
+"..."
 
 #. type: Plain text
 #: Build-options.md:6
@@ -47,44 +49,100 @@ msgid "Here is a simple option file."
 msgstr ""
 
 #. type: Plain text
-#: Build-options.md:20
+#: Build-options.md:21
 msgid ""
 "```meson option('someoption', type : 'string', value : 'optval', "
 "description : 'An option')  option('other_one', type : 'boolean', value : "
 "false)  option('combo_opt', type : 'combo', choices : ['one', 'two', "
-"'three'], value : 'three')  ```"
+"'three'], value : 'three')  option('array_opt', type : 'array', choices : "
+"['one', 'two', 'three'], value : ['one', 'two'])  ```"
 msgstr ""
 "```meson\n"
-"option('someoption', type : 'string', value : 'optval', description : 'An option') \n"
+"option('someoption', type : 'string', value : 'optval', description : 'An "
+"option') \n"
 "option('other_one', type : 'boolean', value : false) \n"
-"option('combo_opt', type : 'combo', choices : ['one', 'two', 'three'], value : 'three') \n"
+"option('combo_opt', type : 'combo', choices : ['one', 'two', 'three'], "
+"value : 'three') \n"
 "```"
+
+#. type: Plain text
+#: Build-options.md:24
+msgid ""
+"All types allow a `description` value to be set describing the option, if no "
+"option is set then the name of the option will be used instead."
+msgstr ""
+
+#. type: Plain text
+#: Build-options.md:26
+msgid "### Strings"
+msgstr ""
 
 #. type: Plain text
 #: Build-options.md:29
 msgid ""
-"This demonstrates the three basic option types and their usage. String "
-"option is just a free form string and a boolean option is, unsurprisingly, "
-"true or false. The combo option can have any value from the strings listed "
-"in argument `choices`. If `value` is not set, it defaults to empty string "
-"for strings, `true` for booleans or the first element in a combo. You can "
-"specify `description`, which is a free form piece of text describing the "
-"option. It defaults to option name."
+"The string type is a free form string. If the default value is not set then "
+"an empty string will be used as the default."
 msgstr ""
 
 #. type: Plain text
 #: Build-options.md:31
-msgid ""
-"These options are accessed in Meson code with the `get_option` function."
+msgid "### Booleans"
 msgstr ""
 
 #. type: Plain text
-#: Build-options.md:35
-msgid "```meson optval = get_option('opt_name')  ```"
-msgstr "```meson\noptval = get_option('opt_name') \n```"
+#: Build-options.md:34
+msgid ""
+"Booleans may have values of either `true` or `false`. If not default value "
+"is supplied then `true` will be used as the default."
+msgstr ""
+
+#. type: Plain text
+#: Build-options.md:36
+msgid "### Combos"
+msgstr ""
 
 #. type: Plain text
 #: Build-options.md:39
+msgid ""
+"A combo allows any one of the values in the `choices` parameter to be "
+"selected.  If no default value is set then the first value will be the "
+"default."
+msgstr ""
+
+#. type: Plain text
+#: Build-options.md:41
+msgid "### Arrays"
+msgstr ""
+
+#. type: Plain text
+#: Build-options.md:45
+msgid ""
+"Arrays allow one or more of the values in the `choices` parameter to be "
+"selected.  If the `value` parameter is unset then the values of `choices` "
+"will be used as the default."
+msgstr ""
+
+#. type: Plain text
+#: Build-options.md:47
+msgid "This type is new in version 0.44.0"
+msgstr ""
+
+#. type: Plain text
+#: Build-options.md:50
+#, fuzzy
+msgid "## Using build options"
+msgstr "## ビルドオプションの利用"
+
+#. type: Plain text
+#: Build-options.md:54
+msgid "```meson optval = get_option('opt_name')  ```"
+msgstr ""
+"```meson\n"
+"optval = get_option('opt_name') \n"
+"```"
+
+#. type: Plain text
+#: Build-options.md:58
 msgid ""
 "This function also allows you to query the value of Meson's built-in project "
 "options. For example, to get the installation prefix you would issue the "
@@ -92,12 +150,15 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Build-options.md:43
+#: Build-options.md:62
 msgid "```meson prefix = get_option('prefix')  ```"
-msgstr "```meson\nprefix = get_option('prefix') \n```"
+msgstr ""
+"```meson\n"
+"prefix = get_option('prefix') \n"
+"```"
 
 #. type: Plain text
-#: Build-options.md:48
+#: Build-options.md:67
 msgid ""
 "It should be noted that you can not set option values in your Meson scripts. "
 "They have to be set externally with the `meson configure` command line tool. "
@@ -106,17 +167,20 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Build-options.md:51
+#: Build-options.md:70
 msgid "To change their values use the `-D` option:"
 msgstr ""
 
 #. type: Plain text
-#: Build-options.md:55
+#: Build-options.md:74
 msgid "```console $ meson configure -Doption=newvalue ```"
-msgstr "```console\n$ meson configure -Doption=newvalue\n```"
+msgstr ""
+"```console\n"
+"$ meson configure -Doption=newvalue\n"
+"```"
 
 #. type: Plain text
-#: Build-options.md:57
+#: Build-options.md:76
 #, no-wrap
 msgid "**NOTE:** If you cannot call `meson configure` you likely have a old version of Meson. In that case you can call `mesonconf` instead, but that is deprecated in newer versions\n"
 msgstr ""

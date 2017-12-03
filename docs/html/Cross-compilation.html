@@ -32,10 +32,10 @@
 
 <script src="assets/js/lines_around_headings.js"></script>
 
-<script src="assets/js/trie.js"></script>
 <script src="assets/js/prism-core.js"></script>
 <script src="assets/js/prism-autoloader.js"></script>
 <script src="assets/js/prism_autoloader_path_override.js"></script>
+<script src="assets/js/trie.js"></script>
 
 <link rel="icon" type="image/png" href="assets/images/favicon.png">
 <link rel="shortcut icon" href="assets/images/favicon.png">
@@ -355,6 +355,27 @@ somekey = 'somevalue'
 <pre><code class="language-meson">myvar = meson.get_cross_property('somekey')
 # myvar now has the value 'somevalue'
 </code></pre>
+<h2 id="cross-file-locations">Cross file locations</h2>
+<p>As of version 0.44.0 meson supports loading cross files from system
+locations on Linux and the BSDs. This will be $XDG_DATA_DIRS/meson/cross, or
+if XDG_DATA_DIRS is undefined, then /usr/local/share/meson/cross and
+/usr/share/meson/cross will be tried in that order, for system wide cross
+files. User local files can be put in $XDG_DATA_HOME/meson/cross, or
+~/.local/share/meson/cross if that is undefined.</p>
+<p>The order of locations tried is as follows:</p>
+<ul>
+<li>A file relative to the local dir</li>
+<li>The user local location</li>
+<li>The system wide locations in order</li>
+</ul>
+<p>Linux and BSD distributions are encouraged to ship cross files either with
+their cross compiler toolchain packages or as a standalone package, and put
+them in one of the system paths referenced above.</p>
+<p>These files can be loaded automatically without adding a path to the cross
+file. For example, if a ~/.local/share/meson/cross contains a file called
+x86-linux, then the following command would start a cross build using that
+cross files:</p>
+<p><code>sh meson builddir/ --cross-file x86-linux</code></p>
 
 </div>
 

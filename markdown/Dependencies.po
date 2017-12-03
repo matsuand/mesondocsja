@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-11-29 10:49+0900\n"
+"POT-Creation-Date: 2017-12-03 14:26+0900\n"
 "PO-Revision-Date: 2017-09-30 21:43+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -386,15 +386,14 @@ msgstr ""
 
 #. type: Plain text
 #: Dependencies.md:193
-#, fuzzy
 msgid ""
 "```meson pcap_dep = dependency('pcap', version : '>=1.0')  cups_dep = "
 "dependency('cups', version : '>=1.4')  llvm_dep = dependency('llvm', "
 "version : '>=4.0')  ```"
 msgstr ""
-"```meson\n"
-"zdep = dependency('zlib', version : '>=1.2.8') \n"
-"exe = executable('zlibprog', 'prog.c', dependencies : zdep) \n"
+"```meson\npcap_dep = dependency('pcap', version : '>=1.0')\n"
+"cups_dep = dependency('cups', version : '>=1.4')\n"
+"llvm_dep = dependency('llvm', version : '>=4.0')\n"
 "```"
 
 #. type: Plain text
@@ -405,11 +404,68 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:199
-#, fuzzy
+#: Dependencies.md:200
 msgid "```meson wmf_dep = dependency('wmf', method : 'config-tool')  ```"
 msgstr ""
-"```meson\n"
-"pcap_dep = dependency('pcap', version : '>=1.0') \n"
-"```"
+"```meson\nwmf_dep = dependency('wmf', method : 'config-tool')\n```"
 
+#. type: Plain text
+#: Dependencies.md:202
+msgid "## LLVM"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:206
+msgid ""
+"Meson has native support for LLVM going back to version LLVM version 3.5.  "
+"It supports a few additional features compared to other config-tool based "
+"dependencies."
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:210
+msgid ""
+"As of 0.44.0 Meson supports the `static` keyword argument for LLVM. Before "
+"this LLVM >= 3.9 would always dynamically link, while older versions would "
+"statically link, due to a quirk in `llvm-config`."
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:212
+msgid "### Modules, a.k.a. Components"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:216
+msgid ""
+"Meson wraps LLVM's concept of components in it's own modules concept.  When "
+"you need specific components you add them as modules as meson will do the "
+"right thing:"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:220
+msgid ""
+"```meson llvm_dep = dependency('llvm', version : '>= 4.0', modules : "
+"['amdgpu'])  ```"
+msgstr ""
+"```meson\nllvm_dep = dependency('llvm', version : '>= 4.0', modules : "
+"['amdgpu'])\n```"
+
+#. type: Plain text
+#: Dependencies.md:223
+msgid ""
+"As of 0.44.0 it can also take optional modules (these will affect the "
+"arguments generated for a static link):"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:228
+#, no-wrap
+msgid ""
+"```meson\n"
+"llvm_dep = dependency(\n"
+"  'llvm', version : '>= 4.0', modules : ['amdgpu'], optional_modules : ['inteljitevents'],\n"
+")\n"
+"```\n"
+msgstr ""
