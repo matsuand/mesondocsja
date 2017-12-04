@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-12-03 14:26+0900\n"
+"POT-Creation-Date: 2017-12-04 12:55+0900\n"
 "PO-Revision-Date: 2017-09-30 21:43+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -49,60 +49,60 @@ msgid "Here is a simple option file."
 msgstr ""
 
 #. type: Plain text
-#: Build-options.md:21
+#: Build-options.md:22
 msgid ""
 "```meson option('someoption', type : 'string', value : 'optval', "
 "description : 'An option')  option('other_one', type : 'boolean', value : "
 "false)  option('combo_opt', type : 'combo', choices : ['one', 'two', "
-"'three'], value : 'three')  option('array_opt', type : 'array', choices : "
-"['one', 'two', 'three'], value : ['one', 'two'])  ```"
+"'three'], value : 'three')  option('free_array_opt', type : 'array', value : "
+"['one', 'two'])  option('array_opt', type : 'array', choices : ['one', "
+"'two', 'three'], value : ['one', 'two'])  ```"
 msgstr ""
-"```meson\n"
-"option('someoption', type : 'string', value : 'optval', description : 'An "
-"option') \n"
-"option('other_one', type : 'boolean', value : false) \n"
-"option('combo_opt', type : 'combo', choices : ['one', 'two', 'three'], "
-"value : 'three') \n"
-"```"
+"```meson\noption('someoption', type : 'string', value : 'optval', "
+"description : 'An option')\noption('other_one', type : 'boolean', value : "
+"false)\noption('combo_opt', type : 'combo', choices : ['one', 'two', "
+"'three'], value : 'three')\noption('free_array_opt', type : 'array', value : "
+"['one', 'two'])\noption('array_opt', type : 'array', choices : ['one', "
+"'two', 'three'], value : ['one', 'two'])\n```"
 
 #. type: Plain text
-#: Build-options.md:24
+#: Build-options.md:25
 msgid ""
 "All types allow a `description` value to be set describing the option, if no "
 "option is set then the name of the option will be used instead."
 msgstr ""
 
 #. type: Plain text
-#: Build-options.md:26
+#: Build-options.md:27
 msgid "### Strings"
 msgstr ""
 
 #. type: Plain text
-#: Build-options.md:29
+#: Build-options.md:30
 msgid ""
 "The string type is a free form string. If the default value is not set then "
 "an empty string will be used as the default."
 msgstr ""
 
 #. type: Plain text
-#: Build-options.md:31
+#: Build-options.md:32
 msgid "### Booleans"
 msgstr ""
 
 #. type: Plain text
-#: Build-options.md:34
+#: Build-options.md:35
 msgid ""
-"Booleans may have values of either `true` or `false`. If not default value "
-"is supplied then `true` will be used as the default."
+"Booleans may have values of either `true` or `false`. If no default value is "
+"supplied then `true` will be used as the default."
 msgstr ""
 
 #. type: Plain text
-#: Build-options.md:36
+#: Build-options.md:37
 msgid "### Combos"
 msgstr ""
 
 #. type: Plain text
-#: Build-options.md:39
+#: Build-options.md:41
 msgid ""
 "A combo allows any one of the values in the `choices` parameter to be "
 "selected.  If no default value is set then the first value will be the "
@@ -110,31 +110,33 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Build-options.md:41
+#: Build-options.md:43
 msgid "### Arrays"
 msgstr ""
 
 #. type: Plain text
-#: Build-options.md:45
+#: Build-options.md:51
 msgid ""
-"Arrays allow one or more of the values in the `choices` parameter to be "
-"selected.  If the `value` parameter is unset then the values of `choices` "
-"will be used as the default."
+"Arrays represent an array of strings. By default the array can contain "
+"arbitrary strings. To limit the possible values that can used set the "
+"`choices` parameter. Meson will then only allow the value array to contain "
+"strings that are in the given list. The array may be empty. The `value` "
+"parameter specifies the default value of the option and if it is unset then "
+"the values of `choices` will be used as the default."
 msgstr ""
 
 #. type: Plain text
-#: Build-options.md:47
+#: Build-options.md:53
 msgid "This type is new in version 0.44.0"
 msgstr ""
 
 #. type: Plain text
-#: Build-options.md:50
-#, fuzzy
+#: Build-options.md:56
 msgid "## Using build options"
 msgstr "## ビルドオプションの利用"
 
 #. type: Plain text
-#: Build-options.md:54
+#: Build-options.md:60
 msgid "```meson optval = get_option('opt_name')  ```"
 msgstr ""
 "```meson\n"
@@ -142,7 +144,7 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Build-options.md:58
+#: Build-options.md:64
 msgid ""
 "This function also allows you to query the value of Meson's built-in project "
 "options. For example, to get the installation prefix you would issue the "
@@ -150,7 +152,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Build-options.md:62
+#: Build-options.md:68
 msgid "```meson prefix = get_option('prefix')  ```"
 msgstr ""
 "```meson\n"
@@ -158,7 +160,7 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Build-options.md:67
+#: Build-options.md:73
 msgid ""
 "It should be noted that you can not set option values in your Meson scripts. "
 "They have to be set externally with the `meson configure` command line tool. "
@@ -167,12 +169,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Build-options.md:70
+#: Build-options.md:76
 msgid "To change their values use the `-D` option:"
 msgstr ""
 
 #. type: Plain text
-#: Build-options.md:74
+#: Build-options.md:80
 msgid "```console $ meson configure -Doption=newvalue ```"
 msgstr ""
 "```console\n"
@@ -180,7 +182,49 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Build-options.md:76
+#: Build-options.md:84
+msgid ""
+"Setting the value of arrays is a bit special. If you only pass a single "
+"string, then it is considered to have all values separated by commas. Thus "
+"invoking the following command:"
+msgstr ""
+
+#. type: Plain text
+#: Build-options.md:88
+msgid "```console $ meson configure -Darray_opt=foo,bar ```"
+msgstr ""
+"```console\n$ meson configure -Darray_opt=foo,bar\n```"
+
+#. type: Plain text
+#: Build-options.md:90
+msgid "would set the value to an array of two elements, `foo` and `bar`."
+msgstr ""
+
+#. type: Plain text
+#: Build-options.md:93
+msgid ""
+"If you need to have commas in your string values, then you need to pass the "
+"value with proper shell quoting like this:"
+msgstr ""
+
+#. type: Plain text
+#: Build-options.md:97
+msgid "```console $ meson configure \"-Doption=['a,b', 'c,d']\" ```"
+msgstr ""
+"```console\n$ meson configure \"-Doption=['a,b', 'c,d']\"\n```"
+
+#. type: Plain text
+#: Build-options.md:100
+msgid ""
+"The inner values must always be single quotes and the outer ones double "
+"quotes."
+msgstr ""
+
+#. type: Plain text
+#: Build-options.md:103
 #, no-wrap
-msgid "**NOTE:** If you cannot call `meson configure` you likely have a old version of Meson. In that case you can call `mesonconf` instead, but that is deprecated in newer versions\n"
+msgid ""
+"**NOTE:** If you cannot call `meson configure` you likely have a old\n"
+"  version of Meson. In that case you can call `mesonconf` instead, but\n"
+"  that is deprecated in newer versions\n"
 msgstr ""

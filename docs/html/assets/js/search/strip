@@ -1,1 +1,1 @@
-urls_downloaded_cb({"token": "strip", "urls": ["Reference-manual.html#string-object", "External-commands.html#page-description", "Syntax.html#8"]});
+urls_downloaded_cb({"urls": ["Reference-manual.html#string-object", "External-commands.html#page-description", "Syntax.html#8"], "token": "strip"});

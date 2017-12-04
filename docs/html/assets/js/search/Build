@@ -1,1 +1,1 @@
-urls_downloaded_cb({"token": "Build", "urls": ["Reference-manual.html#jar", "Manual.html#subpages", "Installing.html#page-description"]});
+urls_downloaded_cb({"urls": ["Reference-manual.html#jar", "Manual.html#subpages", "Installing.html#page-description"], "token": "Build"});

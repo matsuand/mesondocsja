@@ -32,10 +32,10 @@
 
 <script src="assets/js/lines_around_headings.js"></script>
 
+<script src="assets/js/trie.js"></script>
 <script src="assets/js/prism-core.js"></script>
 <script src="assets/js/prism-autoloader.js"></script>
 <script src="assets/js/prism_autoloader_path_override.js"></script>
-<script src="assets/js/trie.js"></script>
 
 <link rel="icon" type="image/png" href="assets/images/favicon.png">
 <link rel="shortcut icon" href="assets/images/favicon.png">
@@ -296,38 +296,30 @@ tells which subparts of Qt the program uses.</p>
 pkg-config modules or additionally can be detected via a config tool
 (cups-config, llvm-config, etc). Meson has native support for these tools,
 and then can be found like other dependencies:</p>
-<pre><code class="language-meson">dependency('cups', version : '&gt;=1.4')  llvm_dep = dependency('llvm', version
-: '&gt;=4.0')  ```
-
-Some of these tools (like wmf and cups) provide both pkg-config and config
-tools support. You can force one or another via the method keyword:
-
-```meson wmf_dep = dependency('wmf', method : 'config-tool')  ```
-
-## LLVM
-
-Meson has native support for LLVM going back to version LLVM version 3.5.
+<pre><code class="language-meson">pcap_dep = dependency('pcap', version : '&gt;=1.0')
+cups_dep = dependency('cups', version : '&gt;=1.4')
+llvm_dep = dependency('llvm', version : '&gt;=4.0')
+</code></pre>
+<p>Some of these tools (like wmf and cups) provide both pkg-config and config
+tools support. You can force one or another via the method keyword:</p>
+<pre><code class="language-meson">wmf_dep = dependency('wmf', method : 'config-tool')
+</code></pre>
+<h2 id="llvm">LLVM</h2>
+<p>Meson has native support for LLVM going back to version LLVM version 3.5.
 It supports a few additional features compared to other config-tool based
-dependencies.
-
-As of 0.44.0 Meson supports the `static` keyword argument for LLVM. Before
+dependencies.</p>
+<p>As of 0.44.0 Meson supports the <code>static</code> keyword argument for LLVM. Before
 this LLVM &gt;= 3.9 would always dynamically link, while older versions would
-statically link, due to a quirk in `llvm-config`.
-
-### Modules, a.k.a. Components
-
-Meson wraps LLVM's concept of components in it's own modules concept.  When
+statically link, due to a quirk in <code>llvm-config</code>.</p>
+<h3 id="modules-aka-components">Modules, a.k.a. Components</h3>
+<p>Meson wraps LLVM's concept of components in it's own modules concept.  When
 you need specific components you add them as modules as meson will do the
-right thing:
-
-```meson llvm_dep = dependency('llvm', version : '&gt;= 4.0', modules :
-['amdgpu'])  ```
-
-As of 0.44.0 it can also take optional modules (these will affect the
-arguments generated for a static link):
-
-```meson
-llvm_dep = dependency(
+right thing:</p>
+<pre><code class="language-meson">llvm_dep = dependency('llvm', version : '&gt;= 4.0', modules : ['amdgpu'])
+</code></pre>
+<p>As of 0.44.0 it can also take optional modules (these will affect the
+arguments generated for a static link):</p>
+<pre><code class="language-meson">llvm_dep = dependency(
   'llvm', version : '&gt;= 4.0', modules : ['amdgpu'], optional_modules : ['inteljitevents'],
 )
 </code></pre>

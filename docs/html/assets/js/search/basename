@@ -1,1 +1,1 @@
-urls_downloaded_cb({"token": "basename", "urls": ["Generating-sources.html#generator-", "Release-notes-for-0-41-0.html#page-description", "Gnome-module.html#gnomegenmarshal"]});
+urls_downloaded_cb({"urls": ["Generating-sources.html#generator-", "Release-notes-for-0-41-0.html#page-description", "Gnome-module.html#gnomegenmarshal"], "token": "basename"});

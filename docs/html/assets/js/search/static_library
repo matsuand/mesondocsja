@@ -1,1 +1,1 @@
-urls_downloaded_cb({"token": "static_library", "urls": ["Reference-manual.html#static_library", "Reference-manual.html#library", "Build-targets.html#page-description"]});
+urls_downloaded_cb({"urls": ["Reference-manual.html#static_library", "Reference-manual.html#library", "Build-targets.html#page-description"], "token": "static_library"});

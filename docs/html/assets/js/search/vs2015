@@ -1,1 +1,1 @@
-urls_downloaded_cb({"token": "vs2015", "urls": ["Reference-manual.html#meson-object", "Using-with-Visual-Studio.html#visual-studio-"]});
+urls_downloaded_cb({"urls": ["Reference-manual.html#meson-object", "Using-with-Visual-Studio.html#visual-studio-"], "token": "vs2015"});

@@ -1,1 +1,1 @@
-urls_downloaded_cb({"token": "free", "urls": ["Reference-manual.html#project", "Design-rationale.html#page-description", "Creating-OSX-packages.html#creating-a-dmg-installer", "Running-Meson.html#2"]});
+urls_downloaded_cb({"urls": ["Reference-manual.html#project", "Design-rationale.html#page-description", "Creating-OSX-packages.html#creating-a-dmg-installer", "Running-Meson.html#2"], "token": "free"});
