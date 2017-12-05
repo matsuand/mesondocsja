@@ -28,6 +28,7 @@ basenames = \
 	D \
 	Dependencies \
 	Design-rationale \
+	Disabler \
 	External-commands \
 	FAQ \
 	Feature-autodetection \
@@ -157,6 +158,8 @@ pot/D.pot: $(abs_mesondir)/D.md
 pot/Dependencies.pot: $(abs_mesondir)/Dependencies.md
 	$(call GETPOT, $^, $@)
 pot/Design-rationale.pot: $(abs_mesondir)/Design-rationale.md
+	$(call GETPOT, $^, $@)
+pot/Disabler.pot: $(abs_mesondir)/Disabler.md
 	$(call GETPOT, $^, $@)
 pot/External-commands.pot: $(abs_mesondir)/External-commands.md
 	$(call GETPOT, $^, $@)
@@ -347,6 +350,8 @@ $(srcdir)/Dependencies.po: pot/Dependencies.pot
 	$(call MSGPROC, $^, $@)
 $(srcdir)/Design-rationale.po: pot/Design-rationale.pot
 	$(call MSGPROC, $^, $@)
+$(srcdir)/Disabler.po: pot/Disabler.pot
+	$(call MSGPROC, $^, $@)
 $(srcdir)/External-commands.po: pot/External-commands.pot
 	$(call MSGPROC, $^, $@)
 $(srcdir)/FAQ.po: pot/FAQ.pot
@@ -536,6 +541,8 @@ Dependencies.md: $(abs_mesondir)/Dependencies.md $(srcdir)/Dependencies.po
 	$(call PO4ATRANS, $(abs_mesondir)/Dependencies.md, $(srcdir)/Dependencies.po)
 Design-rationale.md: $(abs_mesondir)/Design-rationale.md $(srcdir)/Design-rationale.po
 	$(call PO4ATRANS, $(abs_mesondir)/Design-rationale.md, $(srcdir)/Design-rationale.po)
+Disabler.md: $(abs_mesondir)/Disabler.md $(srcdir)/Disabler.po
+	$(call PO4ATRANS, $(abs_mesondir)/Disabler.md, $(srcdir)/Disabler.po)
 External-commands.md: $(abs_mesondir)/External-commands.md $(srcdir)/External-commands.po
 	$(call PO4ATRANS, $(abs_mesondir)/External-commands.md, $(srcdir)/External-commands.po)
 FAQ.md: $(abs_mesondir)/FAQ.md $(srcdir)/FAQ.po
