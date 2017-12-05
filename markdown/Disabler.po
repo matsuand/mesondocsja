@@ -1,0 +1,147 @@
+# Japanese translations for PACKAGE package
+# Copyright (C) 2017 Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2017-12-05 13:37+0900\n"
+"PO-Revision-Date: 2017-12-05 13:37+0900\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: matsuand個人翻訳\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. type: Plain text
+#: Disabler.md:1
+#, no-wrap
+msgid "---\n"
+msgstr ""
+
+#. type: Plain text
+#: Disabler.md:4
+msgid "short-description: Disabling options ..."
+msgstr ""
+
+#. type: Plain text
+#: Disabler.md:6
+msgid "# Disabling parts of the build (available since 0.44.0)"
+msgstr ""
+
+#. type: Plain text
+#: Disabler.md:8
+msgid "The following is a common fragment found in many projects:"
+msgstr ""
+
+#. type: Plain text
+#: Disabler.md:11
+msgid "```meson dep = dependency('foo')"
+msgstr ""
+
+#. type: Plain text
+#: Disabler.md:13
+msgid "# In some different directory"
+msgstr ""
+
+#. type: Plain text
+#: Disabler.md:16
+#, no-wrap
+msgid ""
+"lib = shared_library('mylib', 'mylib.c',\n"
+"  dependencies : dep)\n"
+msgstr ""
+
+#. type: Plain text
+#: Disabler.md:18
+msgid "# And ín a third directory"
+msgstr ""
+
+#. type: Plain text
+#: Disabler.md:23
+#, no-wrap
+msgid ""
+"exe = executable('mytest', 'mytest.c',\n"
+"  link_with : lib)\n"
+"test('mytest', exe)\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: Disabler.md:28
+msgid ""
+"This works fine but gets a bit inflexible when you want to make this part of "
+"the build optional. Basically it reduces to adding `if/else` statements "
+"around all target invocations. Meson provides a simpler way of achieving the "
+"same with a disabler object."
+msgstr ""
+
+#. type: Plain text
+#: Disabler.md:30
+msgid "A disabler object is created with the `disabler` function:"
+msgstr ""
+
+#. type: Plain text
+#: Disabler.md:34
+msgid "```meson d = disabler()  ```"
+msgstr ""
+
+#. type: Plain text
+#: Disabler.md:37
+msgid ""
+"The only thing you can do to a disabler object is to ask if it has been "
+"found:"
+msgstr ""
+
+#. type: Plain text
+#: Disabler.md:41
+msgid "```meson f = d.found() # returns false ```"
+msgstr ""
+
+#. type: Plain text
+#: Disabler.md:45
+msgid ""
+"Any other statement that uses a disabler object will immediately return a "
+"disabler. For example assuming that `d` contains a disabler object then"
+msgstr ""
+
+#. type: Plain text
+#: Disabler.md:51
+#, no-wrap
+msgid ""
+"```meson\n"
+"d2 = some_func(d) # value of d2 will be disabler\n"
+"d3 = true or d2   # value of d3 will be disabler\n"
+"if d              # neither branch is evaluated\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: Disabler.md:54
+msgid ""
+"Thus to disable every target that depends on the dependency given above, you "
+"can do something like this:"
+msgstr ""
+
+#. type: Plain text
+#: Disabler.md:62
+#, no-wrap
+msgid ""
+"```meson\n"
+"if use_foo_feature\n"
+"  d = dependency('foo')\n"
+"else\n"
+"  d = disabler()\n"
+"endif\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: Disabler.md:65
+msgid ""
+"This concentrates the handling of this option in one place and other build "
+"definition files do not need to be sprinkled with `if` statements."
+msgstr ""
