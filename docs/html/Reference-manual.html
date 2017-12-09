@@ -810,11 +810,7 @@ compressed during installation and installed with a <code>.gz</code> suffix.</p>
 <pre><code class="language-meson">    void install_subdir(subdir_name, install_dir : ..., exclude_files : ..., exclude_directories : ...)
 </code></pre>
 <p>Installs the entire given subdirectory and its contents from the source tree
-to the location specified by the keyword argument <code>install_dir</code>. Note that
-due to implementation issues this command deletes the entire target dir
-before copying the files, so you should never use <code>install_subdir</code> to
-install into two overlapping directories (such as <code>foo</code> and <code>foo/bar</code>)
-because if you do the behavior is undefined.</p>
+to the location specified by the keyword argument <code>install_dir</code>.</p>
 <p>The following keyword arguments are supported:</p>
 <ul>
 <li>

@@ -1,1 +1,1 @@
-urls_downloaded_cb({"urls": ["howtox.html#set-compiler"], "token": "mycc"});
+urls_downloaded_cb({"token": "mycc", "urls": ["howtox.html#set-compiler"]});

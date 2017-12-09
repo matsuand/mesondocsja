@@ -1,1 +1,1 @@
-urls_downloaded_cb({"urls": ["i18n-module.html#i18ngettext", "i18n-module.html#i18nmerge_file", "Gnome-module.html#gnomeyelp"], "token": "translations"});
+urls_downloaded_cb({"token": "translations", "urls": ["i18n-module.html#i18ngettext", "i18n-module.html#i18nmerge_file", "Gnome-module.html#gnomeyelp"]});

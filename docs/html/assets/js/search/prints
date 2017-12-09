@@ -1,1 +1,1 @@
-urls_downloaded_cb({"urls": ["Reference-manual.html#message", "Reference-manual.html#warning"], "token": "prints"});
+urls_downloaded_cb({"token": "prints", "urls": ["Reference-manual.html#message", "Reference-manual.html#warning"]});

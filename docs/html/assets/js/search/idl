@@ -1,1 +1,1 @@
-urls_downloaded_cb({"urls": ["Reference-manual.html#generator-object", "Generating-sources.html#page-description"], "token": "idl"});
+urls_downloaded_cb({"token": "idl", "urls": ["Reference-manual.html#generator-object", "Generating-sources.html#page-description"]});

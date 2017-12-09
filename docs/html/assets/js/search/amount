@@ -1,1 +1,1 @@
-urls_downloaded_cb({"urls": ["Reference-manual.html#test", "fallback-wraptool.html#known-issues", "Running-Meson.html#1", "Release-procedure.html#requesting-a-bug-fix-release"], "token": "amount"});
+urls_downloaded_cb({"token": "amount", "urls": ["Reference-manual.html#test", "fallback-wraptool.html#known-issues", "Running-Meson.html#1", "Release-procedure.html#requesting-a-bug-fix-release"]});

@@ -1,1 +1,1 @@
-urls_downloaded_cb({"urls": ["Pkgconfig-module.html#usage", "i18n-module.html#page-description", "Configuration.html#page-description", "Gnome-module.html#page-description"], "token": "replace"});
+urls_downloaded_cb({"token": "replace", "urls": ["Pkgconfig-module.html#usage", "i18n-module.html#page-description", "Configuration.html#page-description", "Gnome-module.html#page-description"]});
