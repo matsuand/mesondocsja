@@ -1,1 +1,1 @@
-urls_downloaded_cb({"token": "foo.cpp", "urls": ["Reference-manual.html#find_program"]});
+urls_downloaded_cb({"urls": ["Reference-manual.html#find_program"], "token": "foo.cpp"});

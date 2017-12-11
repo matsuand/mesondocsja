@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-12-09 21:43+0900\n"
+"POT-Creation-Date: 2017-12-11 13:03+0900\n"
 "PO-Revision-Date: 2017-09-30 21:44+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -3232,7 +3232,7 @@ msgid ""
 "`get_unquoted(varname, default_value)` returns the value of `varname` but "
 "without surrounding double quotes (`\"`). If the value has not been set "
 "returns `default_value` if it is defined and errors out if not.  Available "
-"since 0.43.0"
+"since 0.44.0"
 msgstr ""
 
 #. type: Plain text

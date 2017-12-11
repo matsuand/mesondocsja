@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-10-09 12:09+0900\n"
+"POT-Creation-Date: 2017-12-11 13:03+0900\n"
 "PO-Revision-Date: 2017-10-09 12:09+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -24,12 +24,11 @@ msgstr ""
 
 #. type: Plain text
 #: Release-notes-for-0.44.0.md:5
-msgid ""
-"title: Release 0.44 short-description: Release notes for 0.44 "
-"(preliminary)  ..."
+msgid "title: Release 0.44 short-description: Release notes for 0.44 ..."
 msgstr ""
-"title: リリース 0.44\nshort-description: リリースノート 0.44 "
-"(preliminary) \n..."
+"title: リリース 0.44\n"
+"short-description: リリースノート 0.44\n"
+"..."
 
 #. type: Plain text
 #: Release-notes-for-0.44.0.md:7
@@ -38,25 +37,270 @@ msgstr "# 新機能"
 
 #. type: Plain text
 #: Release-notes-for-0.44.0.md:9
-msgid "This page is a placeholder for the eventual release notes."
+msgid "## Added warning function"
 msgstr ""
 
 #. type: Plain text
-#: Release-notes-for-0.44.0.md:13
+#: Release-notes-for-0.44.0.md:12
 msgid ""
-"Notable new features should come with release note updates. This is done by "
-"creating a file snippet called `snippets/featurename.md` and whose contents "
-"should look like this:"
+"This function prints its argument to the console prefixed by \"WARNING:\" in "
+"yellow color. A simple example:"
 msgstr ""
 
 #. type: Plain text
-#: Release-notes-for-0.44.0.md:15
-#, no-wrap
-msgid "    # Feature name\n"
+#: Release-notes-for-0.44.0.md:14
+msgid "warning('foo is deprecated, please use bar instead')"
 msgstr ""
 
 #. type: Plain text
-#: Release-notes-for-0.44.0.md:16
+#: Release-notes-for-0.44.0.md:17
+msgid "## Adds support for additional Qt5-Module keyword `moc_extra_arguments`"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.44.0.md:21
+msgid ""
+"When `moc`-ing sources, the `moc` tool does not know about any preprocessor "
+"macros. The generated code might not match the input files when the linking "
+"with the moc input sources happens."
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.44.0.md:24
+msgid ""
+"This amendment allows to specify a a list of additional arguments passed to "
+"the `moc` tool. They are called `moc_extra_arguments`."
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.44.0.md:27
+msgid ""
+"## Prefix-dependent defaults for sysconfdir, localstatedir and sharedstatedir"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.44.0.md:30
+msgid ""
+"These options now default in a way consistent with [FHS](http://refspecs."
+"linuxfoundation.org/fhs.shtml) and common usage."
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.44.0.md:33
+msgid ""
+"If prefix is `/usr`, default sysconfdir to `/etc`, localstatedir to `/var` "
+"and sharedstatedir to `/var/lib`."
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.44.0.md:36
+msgid ""
+"If prefix is `/usr/local` (the default), default localstatedir to `/var/"
+"local` and sharedstatedir to `/var/local/lib`."
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.44.0.md:39
+msgid "## An array type for user options"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.44.0.md:47
+msgid ""
+"Previously to have an option that took more than one value a string value "
+"would have to be created and split, but validating this was difficult. A new "
+"array type has been added to the meson_options.txt for this case. It works "
+"like a 'combo', but allows more than one option to be passed. The values can "
+"optionally be validated against a list of valid values. When used on the "
+"command line (with -D), values are passed as a comma separated list."
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.44.0.md:51
+msgid ""
+"```meson option('array_opt', type : 'array', choices : ['one', 'two', "
+"'three'], value : ['one'])  ```"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.44.0.md:53
+msgid "These can be overwritten on the command line,"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.44.0.md:57
+msgid "```meson meson _build -Darray_opt=two,three ```"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.44.0.md:59
+msgid "## LLVM dependency supports both dynamic and static linking"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.44.0.md:63
+msgid ""
+"The LLVM dependency has been improved to consistently use dynamic linking.  "
+"Previously recent version (>= 3.9) would link dynamically while older "
+"versions would link statically."
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.44.0.md:66
+msgid ""
+"Now LLVM also accepts the `static` keyword to enable statically linking to "
+"LLVM modules instead of dynamically linking."
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.44.0.md:69
+msgid "## Added `if_found` to subdir"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.44.0.md:73
+msgid ""
+"Added a new keyword argument to the `subdir` command. It is given a list of "
+"dependency objects and the function will only recurse in the subdirectory if "
+"they are all found. Typical usage goes like this."
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.44.0.md:76
 #, no-wrap
-msgid "    A short description explaining the new feature and how it should be used.\n"
+msgid ""
+"    d1 = dependency('foo') # This is found\n"
+"    d2 = dependency('bar') # This is not found\n"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.44.0.md:78
+#, no-wrap
+msgid "    subdir('somedir', if_found : [d1, d2])\n"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.44.0.md:81
+msgid ""
+"In this case the subdirectory would not be entered since `d2` could not be "
+"found."
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.44.0.md:83
+msgid "## `get_unquoted()` method for the `configuration` data object"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.44.0.md:86
+msgid ""
+"New convenience method that allows reusing a variable value defined quoted. "
+"Useful in C for config.h strings for example."
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.44.0.md:89
+msgid "## Added disabler object"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.44.0.md:95
+msgid ""
+"A disabler object is a new kind of object that has very specific semantics. "
+"If it is used as part of any other operation such as an argument to a "
+"function call, logical operations etc, it will cause the operation to not be "
+"evaluated. Instead the return value of said operation will also be the "
+"disabler object."
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.44.0.md:97
+msgid "For example if you have an setup like this:"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.44.0.md:106
+#, no-wrap
+msgid ""
+"```meson\n"
+"dep = dependency('foo')\n"
+"lib = shared_library('mylib', 'mylib.c',\n"
+"  dependencies : dep)\n"
+"exe = executable('mytest', 'mytest.c',\n"
+"  link_with : lib)\n"
+"test('mytest', exe)\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.44.0.md:108
+msgid "If you replace the dependency with a disabler object like this:"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.44.0.md:117
+#, no-wrap
+msgid ""
+"```meson\n"
+"dep = disabler()\n"
+"lib = shared_library('mylib', 'mylib.c',\n"
+"  dependencies : dep)\n"
+"exe = executable('mytest', 'mytest.c',\n"
+"  link_with : lib)\n"
+"test('mytest', exe)\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.44.0.md:121
+msgid ""
+"Then the shared library, executable and unit test are not created. This is a "
+"handy mechanism to cut down on the number of `if` statements."
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.44.0.md:124
+msgid ""
+"## Config-Tool based dependencies gained a method to get arbitrary options"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.44.0.md:129
+msgid ""
+"A number of dependencies (CUPS, LLVM, pcap, WxWidgets, GnuStep) use a config "
+"tool instead of pkg-config. As of this version they now have a "
+"`get_configtool_variable` method, which is analogous to the "
+"`get_pkgconfig_variable` for pkg config."
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.44.0.md:134
+msgid ""
+"```meson dep_llvm = dependency('LLVM')  llvm_inc_dir = dep_llvm."
+"get_configtool_variable('includedir')  ```"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.44.0.md:136
+msgid "## Embedded Python in Windows MSI packages"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.44.0.md:140
+msgid ""
+"Meson now ships an internal version of Python in the MSI installer "
+"packages.  This means that it can run Python scripts that are part of your "
+"build transparently. That is, if you do the following:"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.44.0.md:142
+#, no-wrap
+msgid "    myprog = find_program('myscript.py')\n"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.44.0.md:143
+msgid ""
+"Then Meson will run the script with its internal Python version if necessary."
 msgstr ""
