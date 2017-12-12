@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-12-11 13:03+0900\n"
+"POT-Creation-Date: 2017-12-12 14:51+0900\n"
 "PO-Revision-Date: 2017-09-30 21:44+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -748,7 +748,7 @@ msgstr ""
 
 #. type: Plain text
 #: Reference-manual.md:332
-msgid "Returns a [disabler object]((#disabler-object)). Added in 0.44.0."
+msgid "Returns a [disabler object](#disabler-object). Added in 0.44.0."
 msgstr ""
 
 #. type: Plain text

@@ -1,1 +1,1 @@
-urls_downloaded_cb({"urls": ["Use-of-Python.html#cross-platform-tooling", "Release-procedure.html#requesting-a-bug-fix-release"], "token": "something"});
+urls_downloaded_cb({"token": "something", "urls": ["Use-of-Python.html#cross-platform-tooling", "Release-procedure.html#requesting-a-bug-fix-release"]});

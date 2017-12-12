@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-12-05 13:37+0900\n"
+"POT-Creation-Date: 2017-12-12 14:51+0900\n"
 "PO-Revision-Date: 2017-12-05 13:37+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -109,25 +109,26 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Disabler.md:51
+#: Disabler.md:52
 #, no-wrap
 msgid ""
 "```meson\n"
 "d2 = some_func(d) # value of d2 will be disabler\n"
-"d3 = true or d2   # value of d3 will be disabler\n"
+"d3 = true or d2   # value of d3 will be true because of short-circuiting\n"
+"d4 = false or d2  # value of d4 will be disabler\n"
 "if d              # neither branch is evaluated\n"
 "```\n"
 msgstr ""
 
 #. type: Plain text
-#: Disabler.md:54
+#: Disabler.md:55
 msgid ""
 "Thus to disable every target that depends on the dependency given above, you "
 "can do something like this:"
 msgstr ""
 
 #. type: Plain text
-#: Disabler.md:62
+#: Disabler.md:63
 #, no-wrap
 msgid ""
 "```meson\n"
@@ -140,7 +141,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Disabler.md:65
+#: Disabler.md:66
 msgid ""
 "This concentrates the handling of this option in one place and other build "
 "definition files do not need to be sprinkled with `if` statements."

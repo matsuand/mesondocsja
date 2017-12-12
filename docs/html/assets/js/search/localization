@@ -1,1 +1,1 @@
-urls_downloaded_cb({"urls": ["Localisation.html#sidenav"], "token": "localization"});
+urls_downloaded_cb({"token": "localization", "urls": ["Localisation.html#sidenav"]});

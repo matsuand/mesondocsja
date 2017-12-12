@@ -1,1 +1,1 @@
-urls_downloaded_cb({"urls": ["Reference-manual.html#compiler-object", "Continuous-Integration.html#travis-without-docker", "Gnome-module.html#gnomegenerate_vapi"], "token": "included"});
+urls_downloaded_cb({"token": "included", "urls": ["Reference-manual.html#compiler-object", "Continuous-Integration.html#travis-without-docker", "Gnome-module.html#gnomegenerate_vapi"]});

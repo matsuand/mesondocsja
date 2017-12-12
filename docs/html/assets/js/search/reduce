@@ -1,1 +1,1 @@
-urls_downloaded_cb({"urls": ["Reference-manual.html#meson-object", "Unit-tests.html#parallelism", "Manual.html#subpages"], "token": "reduce"});
+urls_downloaded_cb({"token": "reduce", "urls": ["Reference-manual.html#meson-object", "Unit-tests.html#parallelism", "Manual.html#subpages"]});

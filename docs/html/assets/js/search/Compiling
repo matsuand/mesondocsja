@@ -1,1 +1,1 @@
-urls_downloaded_cb({"urls": ["D.html#page-description", "D.html#compiling-different-versions", "Manual.html#subpages"], "token": "Compiling"});
+urls_downloaded_cb({"token": "Compiling", "urls": ["D.html#page-description", "D.html#compiling-different-versions", "Manual.html#subpages"]});
