@@ -186,15 +186,26 @@ endif
 <p>You can pass the <code>opt_dep</code> variable to target construction functions whether
 the actual dependency was found or not. Meson will ignore non-found
 dependencies.</p>
-<p>The dependency detector works with all libraries that provide a <code>pkg-config</code>
+<p>Meson also allows to get variables that are defined in the <code>pkg-config</code>
+file. This can be done by using the <code>get_pkgconfig_variable</code> function.</p>
+<p><code>meson zdep_prefix = zdep.get_pkgconfig_variable('prefix')</code></p>
+<p>These variables can also be redefined by passing the <code>define_variable</code>
+parameter, which might be useful in certain situations:</p>
+<pre><code class="language-meson">define_variable: ['prefix', '/tmp'])  ```
+
+The dependency detector works with all libraries that provide a `pkg-config`
 file. Unfortunately several packages don't provide pkg-config files. Meson
 has autodetection support for some of these, and they are described later on
-this page.</p>
-<h1 id="declaring-your-own">Declaring your own</h1>
-<p>You can declare your own dependency objects that can be used interchangeably
+this page.
+
+# Declaring your own
+
+You can declare your own dependency objects that can be used interchangeably
 with dependency objects obtained from the system. The syntax is
-straightforward:</p>
-<pre><code class="language-meson">my_inc = include_directories(...)
+straightforward:
+
+```meson
+my_inc = include_directories(...)
 my_lib = static_library(...)
 my_dep = declare_dependency(link_with : my_lib,
   include_directories : my_inc)

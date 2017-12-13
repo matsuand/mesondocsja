@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-12-03 14:26+0900\n"
+"POT-Creation-Date: 2017-12-13 14:05+0900\n"
 "PO-Revision-Date: 2017-09-30 21:43+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -110,7 +110,33 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:50
+#: Dependencies.md:49
+msgid ""
+"Meson also allows to get variables that are defined in the `pkg-config` "
+"file. This can be done by using the `get_pkgconfig_variable` function."
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:53
+msgid "```meson zdep_prefix = zdep.get_pkgconfig_variable('prefix')  ```"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:56
+msgid ""
+"These variables can also be redefined by passing the `define_variable` "
+"parameter, which might be useful in certain situations:"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:60
+msgid ""
+"```meson zdep_prefix = zdep.get_pkgconfig_variable('libdir', "
+"define_variable: ['prefix', '/tmp'])  ```"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:65
 msgid ""
 "The dependency detector works with all libraries that provide a `pkg-config` "
 "file. Unfortunately several packages don't provide pkg-config files. Meson "
@@ -119,12 +145,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:52
+#: Dependencies.md:67
 msgid "# Declaring your own"
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:56
+#: Dependencies.md:71
 msgid ""
 "You can declare your own dependency objects that can be used interchangeably "
 "with dependency objects obtained from the system. The syntax is "
@@ -132,7 +158,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:63
+#: Dependencies.md:78
 #, no-wrap
 msgid ""
 "```meson\n"
@@ -144,19 +170,19 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:66
+#: Dependencies.md:81
 msgid ""
 "This declares a dependency that adds the given include directories and "
 "static library to any target you use it in."
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:68
+#: Dependencies.md:83
 msgid "# Building dependencies as subprojects"
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:73
+#: Dependencies.md:88
 msgid ""
 "Many platforms do not provide a system package manager. On these systems "
 "dependencies must be compiled from source. Meson's subprojects make it "
@@ -165,33 +191,33 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:76
+#: Dependencies.md:91
 msgid ""
 "To make this work, the dependency must have Meson build definitions and it "
 "must declare its own dependency like this:"
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:78
+#: Dependencies.md:93
 #, no-wrap
 msgid "    foo_dep = declare_dependency(...)\n"
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:81
+#: Dependencies.md:96
 msgid ""
 "Then any project that wants to use it can write out the following "
 "declaration in their main `meson.build` file."
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:83
+#: Dependencies.md:98
 #, no-wrap
 msgid "    foo_dep = dependency('foo', fallback : ['foo', 'foo_dep'])\n"
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:92
+#: Dependencies.md:107
 msgid ""
 "What this declaration means is that first Meson tries to look up the "
 "dependency from the system (such as by using pkg-config). If it is not "
@@ -204,24 +230,24 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:94
+#: Dependencies.md:109
 msgid "# Dependencies with custom lookup functionality"
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:96
+#: Dependencies.md:111
 msgid "## Boost"
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:100
+#: Dependencies.md:115
 msgid ""
 "Boost is not a single dependency but rather a group of different libraries. "
 "To use Boost headers-only libraries, simply add Boost as a dependency."
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:105
+#: Dependencies.md:120
 msgid ""
 "```meson boost_dep = dependency('boost')  exe = executable('myprog', 'file."
 "cc', dependencies : boost_dep)  ```"
@@ -232,14 +258,14 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Dependencies.md:108
+#: Dependencies.md:123
 msgid ""
 "To link against boost with Meson, simply list which libraries you would like "
 "to use."
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:113
+#: Dependencies.md:128
 msgid ""
 "```meson boost_dep = dependency('boost', modules : ['thread', 'utility'])  "
 "exe = executable('myprog', 'file.cc', dependencies : boost_dep)  ```"
@@ -250,14 +276,14 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Dependencies.md:116
+#: Dependencies.md:131
 msgid ""
 "You can call `dependency` multiple times with different modules and use "
 "those to link against your targets."
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:120
+#: Dependencies.md:135
 msgid ""
 "If your boost headers or libraries are in non-standard locations you can set "
 "the BOOST_ROOT, BOOST_INCLUDEDIR, and/or BOOST_LIBRARYDIR environment "
@@ -265,19 +291,19 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:123
+#: Dependencies.md:138
 msgid ""
 "You can set the argument `threading` to `single` to use boost libraries that "
 "has been compiled for single-threaded use instead."
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:125
+#: Dependencies.md:140
 msgid "## GTest and GMock"
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:131
+#: Dependencies.md:146
 msgid ""
 "GTest and GMock come as sources that must be compiled as part of your "
 "project. With Meson you don't have to care about the details, just pass "
@@ -287,12 +313,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:133
+#: Dependencies.md:148
 msgid "## MPI"
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:140
+#: Dependencies.md:155
 #, no-wrap
 msgid ""
 "MPI is supported for C, C++ and Fortran. Because dependencies are\n"
@@ -304,7 +330,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:147
+#: Dependencies.md:162
 msgid ""
 "Meson prefers pkg-config for MPI, but if your MPI implementation does not "
 "provide them, it will search for the standard wrapper executables, `mpic`, "
@@ -314,18 +340,18 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:149
+#: Dependencies.md:164
 msgid "## Qt5"
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:152
+#: Dependencies.md:167
 msgid ""
 "Meson has native Qt5 support. Its usage is best demonstrated with an example."
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:156
+#: Dependencies.md:171
 msgid ""
 "```meson qt5_mod = import('qt5')  qt5widgets = dependency('qt5', modules : "
 "'Widgets')"
@@ -334,7 +360,7 @@ msgstr ""
 "qt5_mod = import('qt5')  qt5widgets = dependency('qt5', modules : 'Widgets')"
 
 #. type: Plain text
-#: Dependencies.md:163
+#: Dependencies.md:178
 #, no-wrap
 msgid ""
 "processed = qt5_mod.preprocess(\n"
@@ -346,7 +372,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:170
+#: Dependencies.md:185
 #, no-wrap
 msgid ""
 "q5exe = executable('qt5test',\n"
@@ -358,7 +384,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:180
+#: Dependencies.md:195
 msgid ""
 "Here we have an UI file created with Qt Designer and one source and header "
 "file each that require preprocessing with the `moc` tool. We also define a "
@@ -371,12 +397,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:182
+#: Dependencies.md:197
 msgid "## Dependencies using config tools"
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:187
+#: Dependencies.md:202
 msgid ""
 "CUPS, LLVM, PCAP, WxWidgets, libwmf, and GnuStep either do not provide pkg-"
 "config modules or additionally can be detected via a config tool (cups-"
@@ -385,37 +411,40 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:193
+#: Dependencies.md:208
 msgid ""
 "```meson pcap_dep = dependency('pcap', version : '>=1.0')  cups_dep = "
 "dependency('cups', version : '>=1.4')  llvm_dep = dependency('llvm', "
 "version : '>=4.0')  ```"
 msgstr ""
-"```meson\npcap_dep = dependency('pcap', version : '>=1.0')\n"
+"```meson\n"
+"pcap_dep = dependency('pcap', version : '>=1.0')\n"
 "cups_dep = dependency('cups', version : '>=1.4')\n"
 "llvm_dep = dependency('llvm', version : '>=4.0')\n"
 "```"
 
 #. type: Plain text
-#: Dependencies.md:196
+#: Dependencies.md:211
 msgid ""
 "Some of these tools (like wmf and cups) provide both pkg-config and config "
 "tools support. You can force one or another via the method keyword:"
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:200
+#: Dependencies.md:215
 msgid "```meson wmf_dep = dependency('wmf', method : 'config-tool')  ```"
 msgstr ""
-"```meson\nwmf_dep = dependency('wmf', method : 'config-tool')\n```"
+"```meson\n"
+"wmf_dep = dependency('wmf', method : 'config-tool')\n"
+"```"
 
 #. type: Plain text
-#: Dependencies.md:202
+#: Dependencies.md:217
 msgid "## LLVM"
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:206
+#: Dependencies.md:221
 msgid ""
 "Meson has native support for LLVM going back to version LLVM version 3.5.  "
 "It supports a few additional features compared to other config-tool based "
@@ -423,7 +452,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:210
+#: Dependencies.md:225
 msgid ""
 "As of 0.44.0 Meson supports the `static` keyword argument for LLVM. Before "
 "this LLVM >= 3.9 would always dynamically link, while older versions would "
@@ -431,12 +460,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:212
+#: Dependencies.md:227
 msgid "### Modules, a.k.a. Components"
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:216
+#: Dependencies.md:231
 msgid ""
 "Meson wraps LLVM's concept of components in it's own modules concept.  When "
 "you need specific components you add them as modules as meson will do the "
@@ -444,23 +473,24 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:220
+#: Dependencies.md:235
 msgid ""
 "```meson llvm_dep = dependency('llvm', version : '>= 4.0', modules : "
 "['amdgpu'])  ```"
 msgstr ""
-"```meson\nllvm_dep = dependency('llvm', version : '>= 4.0', modules : "
-"['amdgpu'])\n```"
+"```meson\n"
+"llvm_dep = dependency('llvm', version : '>= 4.0', modules : ['amdgpu'])\n"
+"```"
 
 #. type: Plain text
-#: Dependencies.md:223
+#: Dependencies.md:238
 msgid ""
 "As of 0.44.0 it can also take optional modules (these will affect the "
 "arguments generated for a static link):"
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:228
+#: Dependencies.md:243
 #, no-wrap
 msgid ""
 "```meson\n"

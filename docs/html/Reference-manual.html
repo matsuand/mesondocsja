@@ -1651,7 +1651,9 @@ external dependency with the following methods:</p>
 <li>
 <p><code>get_pkgconfig_variable(varname)</code> (<em>Added 0.36.0</em>) will get the
 pkg-config variable specified, or, if invoked on a non pkg-config
-dependency, error out</p>
+dependency, error out. (<em>Added 0.44.0</em>) You can also redefine a variable
+by passing a list to the <code>define_variable</code> parameter that can affect the
+retrieved variable: <code>['prefix', '/'])</code>.</p>
 </li>
 <li>
 <p><code>get_configtool_variable(varname)</code> (<em>Added 0.44.0</em>) will get the command
