@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-10-09 12:05+0900\n"
+"POT-Creation-Date: 2017-12-14 02:35+0900\n"
 "PO-Revision-Date: 2017-09-30 21:43+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -477,12 +477,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:172 Gnome-module.md:215
+#: Gnome-module.md:172 Gnome-module.md:222
 msgid "Example:"
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:175 Gnome-module.md:218
+#: Gnome-module.md:175 Gnome-module.md:225
 msgid "```meson gnome = import('gnome')"
 msgstr ""
 
@@ -531,13 +531,29 @@ msgid ""
 "the application locally for example during tests."
 msgstr ""
 
+#. type: Bullet: '* '
+#: Gnome-module.md:205
+msgid ""
+"`build_by_default`: causes, when set to true, to have this target be built "
+"by default, that is, when invoking plain `ninja`, the default value is true "
+"for all built target types"
+msgstr ""
+
+#. type: Bullet: '* '
+#: Gnome-module.md:205
+msgid ""
+"`depend_files`: files ([`string`](#string-object), [`files()`](#files), or "
+"[`configure_file()`](#configure_file)) of schema source XML files that "
+"should trigger a re-compile if changed."
+msgstr ""
+
 #. type: Plain text
-#: Gnome-module.md:200
+#: Gnome-module.md:207
 msgid "### gnome.gdbus_codegen()"
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:204
+#: Gnome-module.md:211
 msgid ""
 "Compiles the given XML schema into gdbus source code. Takes two positional "
 "arguments, the first one specifies the name of the source files and the "
@@ -545,43 +561,43 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:210
+#: Gnome-module.md:217
 msgid "`interface_prefix`: prefix for the interface"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:210
+#: Gnome-module.md:217
 msgid "`namespace`: namespace of the interface"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:210
+#: Gnome-module.md:217
 msgid ""
 "`object_manager`: *(Added 0.40.0)* if true generates object manager code"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:210
+#: Gnome-module.md:217
 msgid ""
 "`annotations`: *(Added 0.43.0)* list of lists of 3 strings for the "
 "annotation for `'ELEMENT', 'KEY', 'VALUE'`"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:210
+#: Gnome-module.md:217
 msgid ""
 "`docbook`: *(Added 0.43.0)* prefix to generate `'PREFIX'-NAME.xml` docbooks"
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:213
+#: Gnome-module.md:220
 msgid ""
 "Returns an opaque object containing the source files. Add it to a top level "
 "target's source list."
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:229
+#: Gnome-module.md:236
 #, no-wrap
 msgid ""
 "# The returned source would be passed to another target\n"
@@ -597,216 +613,216 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:231
+#: Gnome-module.md:238
 msgid "### gnome.generate_vapi()"
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:234
+#: Gnome-module.md:241
 msgid ""
 "Creates a VAPI file from gir. The first argument is the name of the library."
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:242
+#: Gnome-module.md:249
 msgid "`gir_dirs`: extra directories to include for gir files"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:242
+#: Gnome-module.md:249
 msgid "`install`: if true, install the VAPI file"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:242
+#: Gnome-module.md:249
 msgid ""
 "`install_dir`: location to install the VAPI file (defaults to datadir/vala/"
 "vapi)"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:242
+#: Gnome-module.md:249
 msgid "`metadata_dirs`: extra directories to include for metadata files"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:242
+#: Gnome-module.md:249
 msgid "`packages`: VAPI packages that are depended upon"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:242
+#: Gnome-module.md:249
 msgid "`sources`: the gir source to generate the VAPI from"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:242
+#: Gnome-module.md:249
 msgid "`vapi_dirs`: extra directories to include for VAPI files"
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:245
+#: Gnome-module.md:252
 msgid ""
 "Returns a custom dependency that can be included when building other VAPI or "
 "Vala binaries."
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:247 Gnome-module.md:265
+#: Gnome-module.md:254 Gnome-module.md:272
 #, no-wrap
 msgid "*Added 0.36.0*\n"
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:249
+#: Gnome-module.md:256
 msgid "### gnome.yelp()"
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:252
+#: Gnome-module.md:259
 msgid ""
 "Installs help documentation using Yelp. The first argument is the project id."
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:255
+#: Gnome-module.md:262
 msgid ""
 "This also creates two targets for translations `help-$project-update-po` and "
 "`help-$project-pot`."
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:260
+#: Gnome-module.md:267
 msgid "`languages`: list of languages for translations"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:260
+#: Gnome-module.md:267
 msgid "`media`: list of media such as images"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:260
+#: Gnome-module.md:267
 msgid "`sources`: list of pages"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:260
+#: Gnome-module.md:267
 msgid ""
 "`symlink_media`: if media should be symlinked not copied (defaults to `true` "
 "since 0.42.0)"
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:263
+#: Gnome-module.md:270
 msgid ""
 "Note that very old versions of yelp may not support symlinked media; At "
 "least 3.10 should work."
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:267
+#: Gnome-module.md:274
 msgid "### gnome.gtkdoc()"
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:271
+#: Gnome-module.md:278
 msgid ""
 "Compiles and installs gtkdoc documentation into `prefix/share/gtk-doc/html`. "
 "Takes one positional argument: The name of the module."
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:288
+#: Gnome-module.md:295
 msgid "`content_files`: a list of content files"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:288
+#: Gnome-module.md:295
 msgid "`dependencies`: a list of dependencies"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:288
+#: Gnome-module.md:295
 msgid "`fixxref_args`: a list of arguments to pass to `gtkdoc-fixxref`"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:288
+#: Gnome-module.md:295
 msgid "`gobject_typesfile`: a list of type files"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:288
+#: Gnome-module.md:295
 msgid "`ignore_headers`: a list of header files to ignore"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:288
+#: Gnome-module.md:295
 msgid "`html_assets`: a list of assets for the HTML pages"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:288
+#: Gnome-module.md:295
 msgid "`html_args` a list of arguments to pass to `gtkdoc-mkhtml`"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:288
+#: Gnome-module.md:295
 msgid "`install`: if true, installs the generated docs"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:288
+#: Gnome-module.md:295
 msgid ""
 "`install_dir`: the directory to install the generated docs relative to the "
 "gtk-doc html dir or an absolute path (default: module name)"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:288
+#: Gnome-module.md:295
 msgid "`main_xml`: specifies the main XML file"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:288
+#: Gnome-module.md:295
 msgid "`main_sgml`: equal to `main_xml`"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:288
+#: Gnome-module.md:295
 msgid "`mkdb_args`: a list of arguments to pass to `gtkdoc-mkdb`"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:288
+#: Gnome-module.md:295
 msgid "`scan_args`: a list of arguments to pass to `gtkdoc-scan`"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:288
+#: Gnome-module.md:295
 msgid "`scanobjs_args`: a list of arguments to pass to `gtkdoc-scangobj`"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:288
+#: Gnome-module.md:295
 msgid "`src_dir`: include_directories to include"
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:291
+#: Gnome-module.md:298
 msgid ""
 "This creates a `$module-doc` target that can be ran to build docs and "
 "normally these are only built on install."
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:293
+#: Gnome-module.md:300
 msgid "### gnome.gtkdoc_html_dir()"
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:297
+#: Gnome-module.md:304
 msgid ""
 "Takes as argument a module name and returns the path where that module's "
 "HTML files will be installed. Usually used with `install_data` to install "
