@@ -1,1 +1,1 @@
-urls_downloaded_cb({"token": "meson.project_version", "urls": ["Reference-manual.html#project", "Release-notes-for-0-41-0.html#page-description"]});
+urls_downloaded_cb({"urls": ["Reference-manual.html#project", "Release-notes-for-0-41-0.html#page-description"], "token": "meson.project_version"});

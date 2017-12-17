@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-12-14 02:35+0900\n"
+"POT-Creation-Date: 2017-12-17 14:28+0900\n"
 "PO-Revision-Date: 2017-09-30 21:44+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -255,9 +255,7 @@ msgstr ""
 
 #. type: Bullet: ' - '
 #: Users.md:46
-msgid ""
-"[systemd](https://github.com/systemd/systemd/pull/5704), the init system "
-"(not the default yet)"
+msgid "[systemd](https://github.com/systemd/systemd), the init system"
 msgstr ""
 
 #. type: Bullet: ' - '

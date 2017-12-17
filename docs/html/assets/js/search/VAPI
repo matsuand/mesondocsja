@@ -1,1 +1,1 @@
-urls_downloaded_cb({"token": "VAPI", "urls": ["Vala.html#vapi-without-pkgconfig-file", "Vala.html#using-a-custom-vapi", "Release-notes-for-0-40-0.html#compiler-object-get-define", "Vala.html#custom-output-names", "Gnome-module.html#gnomegenerate_vapi"]});
+urls_downloaded_cb({"urls": ["Vala.html#vapi-without-pkgconfig-file", "Vala.html#using-a-custom-vapi", "Release-notes-for-0-40-0.html#compiler-object-get-define", "Vala.html#custom-output-names", "Gnome-module.html#gnomegenerate_vapi"], "token": "VAPI"});

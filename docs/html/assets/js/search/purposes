@@ -1,1 +1,1 @@
-urls_downloaded_cb({"token": "purposes", "urls": ["Reference-manual.html#generator", "Reference-manual.html#project", "Generating-sources.html#generator-", "Cross-compilation.html#defining-the-environment"]});
+urls_downloaded_cb({"urls": ["Reference-manual.html#generator", "Reference-manual.html#project", "Generating-sources.html#generator-", "Cross-compilation.html#defining-the-environment"], "token": "purposes"});

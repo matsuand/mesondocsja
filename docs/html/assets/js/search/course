@@ -1,1 +1,1 @@
-urls_downloaded_cb({"token": "course", "urls": ["Pkgconfig-module.html#usage", "Unity-builds.html#unity-builds", "IndepthTutorial.html#an-indepth-tutorial", "i18n-module.html#page-description", "Gnome-module.html#page-description"]});
+urls_downloaded_cb({"urls": ["Pkgconfig-module.html#usage", "Unity-builds.html#unity-builds", "IndepthTutorial.html#an-indepth-tutorial", "i18n-module.html#page-description", "Gnome-module.html#page-description"], "token": "course"});

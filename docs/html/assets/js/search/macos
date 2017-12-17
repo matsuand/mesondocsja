@@ -1,1 +1,1 @@
-urls_downloaded_cb({"token": "macos", "urls": ["Reference-manual.html#build_machine-object", "Creating-OSX-packages.html#creating-an-app-bundle", "Cross-compilation.html#defining-the-environment", "Release-notes-for-0-41-0.html#page-description"]});
+urls_downloaded_cb({"urls": ["Reference-manual.html#build_machine-object", "Creating-OSX-packages.html#creating-an-app-bundle", "Cross-compilation.html#defining-the-environment", "Release-notes-for-0-41-0.html#page-description"], "token": "macos"});
