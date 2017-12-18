@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-09-30 21:44+0900\n"
+"POT-Creation-Date: 2017-12-18 19:23+0900\n"
 "PO-Revision-Date: 2017-09-30 21:44+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -37,8 +37,8 @@ msgstr ""
 #: Python-3-module.md:11
 msgid ""
 "This is a cross platform way of finding the Python 3 executable, which may "
-"have a different name on different operating systems. Returns an external "
-"program object."
+"have a different name on different operating systems. Returns an [external "
+"program](Reference-manual.html#external-program-object) object."
 msgstr ""
 
 #. type: Plain text
