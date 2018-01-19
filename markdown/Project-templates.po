@@ -1,0 +1,74 @@
+# Japanese translations for PACKAGE package
+# Copyright (C) 2018 Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2018-01-19 14:09+0900\n"
+"PO-Revision-Date: 2018-01-19 14:09+0900\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: matsuand個人翻訳\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. type: Plain text
+#: Project-templates.md:1
+#, no-wrap
+msgid "---\n"
+msgstr ""
+
+#. type: Plain text
+#: Project-templates.md:4
+msgid "short-description: Project templates ..."
+msgstr ""
+
+#. type: Plain text
+#: Project-templates.md:6
+msgid "# Project templates"
+msgstr ""
+
+#. type: Plain text
+#: Project-templates.md:11
+msgid ""
+"To make it easier for new developers to start working, Meson ships a tool to "
+"generate the basic setup of different kinds of projects. This functionality "
+"can be accessed with the `meson init` command. A typical project setup would "
+"go like this:"
+msgstr ""
+
+#. type: Plain text
+#: Project-templates.md:17
+msgid ""
+"```console $ mkdir project_name $ cd project_name $ meson init --language=c "
+"--name=myproject --version=0.1 ```"
+msgstr ""
+
+#. type: Plain text
+#: Project-templates.md:21
+msgid ""
+"This would create the build definitions for a helloworld type project. The "
+"result can be compiled as usual. For example compiling it with Ninja could "
+"be done like this:"
+msgstr ""
+
+#. type: Plain text
+#: Project-templates.md:26
+msgid "``` $ meson builddir $ ninja -C builddir ```"
+msgstr ""
+
+#. type: Plain text
+#: Project-templates.md:29
+msgid ""
+"The generator has many different projects and settings. They can all be "
+"listed by invoking the command `meson test --help`."
+msgstr ""
+
+#. type: Plain text
+#: Project-templates.md:30
+msgid "This feature is available since Meson version 0.45.0."
+msgstr ""

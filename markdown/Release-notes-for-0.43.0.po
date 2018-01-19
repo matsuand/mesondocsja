@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-10-24 18:52+0900\n"
+"POT-Creation-Date: 2018-01-19 14:05+0900\n"
 "PO-Revision-Date: 2017-09-30 21:44+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -24,13 +24,9 @@ msgstr ""
 
 #. type: Plain text
 #: Release-notes-for-0.43.0.md:5
-msgid ""
-"title: Release 0.43 short-description: Release notes for 0.43 "
-"(preliminary)  ..."
+msgid "title: Release 0.43 short-description: Release notes for 0.43 ..."
 msgstr ""
-"title: Release 0.43\n"
-"short-description: Release notes for 0.43 (preliminary) \n"
-"..."
+"title: Release 0.43\nshort-description: Release notes for 0.43\n..."
 
 #. type: Plain text
 #: Release-notes-for-0.43.0.md:7

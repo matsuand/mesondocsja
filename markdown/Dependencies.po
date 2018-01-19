@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-12-13 14:05+0900\n"
+"POT-Creation-Date: 2018-01-19 14:05+0900\n"
 "PO-Revision-Date: 2017-09-30 21:43+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -313,12 +313,16 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:148
-msgid "## MPI"
+#: Dependencies.md:155
+msgid ""
+"You can set the `main` keyword argument to `true` to use the `main()` "
+"function provided by GTest: ``` gtest_dep = dependency('gtest', main : true, "
+"required : false)  e = executable('testprog', 'test.cc', dependencies : "
+"gtest_dep)  test('gtest test', e)  ``` ## MPI"
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:155
+#: Dependencies.md:162
 #, no-wrap
 msgid ""
 "MPI is supported for C, C++ and Fortran. Because dependencies are\n"
@@ -330,7 +334,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:162
+#: Dependencies.md:169
 msgid ""
 "Meson prefers pkg-config for MPI, but if your MPI implementation does not "
 "provide them, it will search for the standard wrapper executables, `mpic`, "
@@ -340,18 +344,18 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:164
+#: Dependencies.md:171
 msgid "## Qt5"
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:167
+#: Dependencies.md:174
 msgid ""
 "Meson has native Qt5 support. Its usage is best demonstrated with an example."
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:171
+#: Dependencies.md:178
 msgid ""
 "```meson qt5_mod = import('qt5')  qt5widgets = dependency('qt5', modules : "
 "'Widgets')"
@@ -360,7 +364,7 @@ msgstr ""
 "qt5_mod = import('qt5')  qt5widgets = dependency('qt5', modules : 'Widgets')"
 
 #. type: Plain text
-#: Dependencies.md:178
+#: Dependencies.md:185
 #, no-wrap
 msgid ""
 "processed = qt5_mod.preprocess(\n"
@@ -372,7 +376,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:185
+#: Dependencies.md:192
 #, no-wrap
 msgid ""
 "q5exe = executable('qt5test',\n"
@@ -384,7 +388,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:195
+#: Dependencies.md:202
 msgid ""
 "Here we have an UI file created with Qt Designer and one source and header "
 "file each that require preprocessing with the `moc` tool. We also define a "
@@ -397,12 +401,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:197
+#: Dependencies.md:204
 msgid "## Dependencies using config tools"
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:202
+#: Dependencies.md:209
 msgid ""
 "CUPS, LLVM, PCAP, WxWidgets, libwmf, and GnuStep either do not provide pkg-"
 "config modules or additionally can be detected via a config tool (cups-"
@@ -411,7 +415,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:208
+#: Dependencies.md:215
 msgid ""
 "```meson pcap_dep = dependency('pcap', version : '>=1.0')  cups_dep = "
 "dependency('cups', version : '>=1.4')  llvm_dep = dependency('llvm', "
@@ -424,14 +428,14 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Dependencies.md:211
+#: Dependencies.md:218
 msgid ""
 "Some of these tools (like wmf and cups) provide both pkg-config and config "
 "tools support. You can force one or another via the method keyword:"
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:215
+#: Dependencies.md:222
 msgid "```meson wmf_dep = dependency('wmf', method : 'config-tool')  ```"
 msgstr ""
 "```meson\n"
@@ -439,12 +443,12 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Dependencies.md:217
+#: Dependencies.md:224
 msgid "## LLVM"
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:221
+#: Dependencies.md:228
 msgid ""
 "Meson has native support for LLVM going back to version LLVM version 3.5.  "
 "It supports a few additional features compared to other config-tool based "
@@ -452,7 +456,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:225
+#: Dependencies.md:232
 msgid ""
 "As of 0.44.0 Meson supports the `static` keyword argument for LLVM. Before "
 "this LLVM >= 3.9 would always dynamically link, while older versions would "
@@ -460,12 +464,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:227
+#: Dependencies.md:234
 msgid "### Modules, a.k.a. Components"
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:231
+#: Dependencies.md:238
 msgid ""
 "Meson wraps LLVM's concept of components in it's own modules concept.  When "
 "you need specific components you add them as modules as meson will do the "
@@ -473,7 +477,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:235
+#: Dependencies.md:242
 msgid ""
 "```meson llvm_dep = dependency('llvm', version : '>= 4.0', modules : "
 "['amdgpu'])  ```"
@@ -483,14 +487,14 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Dependencies.md:238
+#: Dependencies.md:245
 msgid ""
 "As of 0.44.0 it can also take optional modules (these will affect the "
 "arguments generated for a static link):"
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:243
+#: Dependencies.md:250
 #, no-wrap
 msgid ""
 "```meson\n"

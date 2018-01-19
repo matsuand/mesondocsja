@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-12-11 13:03+0900\n"
+"POT-Creation-Date: 2018-01-19 14:05+0900\n"
 "PO-Revision-Date: 2017-10-09 12:09+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -166,45 +166,43 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Release-notes-for-0.44.0.md:76
-#, no-wrap
+#: Release-notes-for-0.44.0.md:77
 msgid ""
-"    d1 = dependency('foo') # This is found\n"
-"    d2 = dependency('bar') # This is not found\n"
+"```meson d1 = dependency('foo') # This is found d2 = dependency('bar') # "
+"This is not found"
 msgstr ""
 
 #. type: Plain text
-#: Release-notes-for-0.44.0.md:78
-#, no-wrap
-msgid "    subdir('somedir', if_found : [d1, d2])\n"
+#: Release-notes-for-0.44.0.md:80
+msgid "subdir('somedir', if_found : [d1, d2])  ```"
 msgstr ""
 
 #. type: Plain text
-#: Release-notes-for-0.44.0.md:81
+#: Release-notes-for-0.44.0.md:83
 msgid ""
 "In this case the subdirectory would not be entered since `d2` could not be "
 "found."
 msgstr ""
 
 #. type: Plain text
-#: Release-notes-for-0.44.0.md:83
+#: Release-notes-for-0.44.0.md:85
 msgid "## `get_unquoted()` method for the `configuration` data object"
 msgstr ""
 
 #. type: Plain text
-#: Release-notes-for-0.44.0.md:86
+#: Release-notes-for-0.44.0.md:88
 msgid ""
 "New convenience method that allows reusing a variable value defined quoted. "
 "Useful in C for config.h strings for example."
 msgstr ""
 
 #. type: Plain text
-#: Release-notes-for-0.44.0.md:89
+#: Release-notes-for-0.44.0.md:91
 msgid "## Added disabler object"
 msgstr ""
 
 #. type: Plain text
-#: Release-notes-for-0.44.0.md:95
+#: Release-notes-for-0.44.0.md:97
 msgid ""
 "A disabler object is a new kind of object that has very specific semantics. "
 "If it is used as part of any other operation such as an argument to a "
@@ -214,12 +212,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Release-notes-for-0.44.0.md:97
+#: Release-notes-for-0.44.0.md:99
 msgid "For example if you have an setup like this:"
 msgstr ""
 
 #. type: Plain text
-#: Release-notes-for-0.44.0.md:106
+#: Release-notes-for-0.44.0.md:108
 #, no-wrap
 msgid ""
 "```meson\n"
@@ -233,12 +231,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Release-notes-for-0.44.0.md:108
+#: Release-notes-for-0.44.0.md:110
 msgid "If you replace the dependency with a disabler object like this:"
 msgstr ""
 
 #. type: Plain text
-#: Release-notes-for-0.44.0.md:117
+#: Release-notes-for-0.44.0.md:119
 #, no-wrap
 msgid ""
 "```meson\n"
@@ -252,20 +250,20 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Release-notes-for-0.44.0.md:121
+#: Release-notes-for-0.44.0.md:123
 msgid ""
 "Then the shared library, executable and unit test are not created. This is a "
 "handy mechanism to cut down on the number of `if` statements."
 msgstr ""
 
 #. type: Plain text
-#: Release-notes-for-0.44.0.md:124
+#: Release-notes-for-0.44.0.md:126
 msgid ""
 "## Config-Tool based dependencies gained a method to get arbitrary options"
 msgstr ""
 
 #. type: Plain text
-#: Release-notes-for-0.44.0.md:129
+#: Release-notes-for-0.44.0.md:131
 msgid ""
 "A number of dependencies (CUPS, LLVM, pcap, WxWidgets, GnuStep) use a config "
 "tool instead of pkg-config. As of this version they now have a "
@@ -274,19 +272,19 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Release-notes-for-0.44.0.md:134
+#: Release-notes-for-0.44.0.md:136
 msgid ""
 "```meson dep_llvm = dependency('LLVM')  llvm_inc_dir = dep_llvm."
 "get_configtool_variable('includedir')  ```"
 msgstr ""
 
 #. type: Plain text
-#: Release-notes-for-0.44.0.md:136
+#: Release-notes-for-0.44.0.md:138
 msgid "## Embedded Python in Windows MSI packages"
 msgstr ""
 
 #. type: Plain text
-#: Release-notes-for-0.44.0.md:140
+#: Release-notes-for-0.44.0.md:142
 msgid ""
 "Meson now ships an internal version of Python in the MSI installer "
 "packages.  This means that it can run Python scripts that are part of your "
@@ -294,13 +292,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Release-notes-for-0.44.0.md:142
-#, no-wrap
-msgid "    myprog = find_program('myscript.py')\n"
+#: Release-notes-for-0.44.0.md:146
+msgid "```meson myprog = find_program('myscript.py')  ```"
 msgstr ""
 
 #. type: Plain text
-#: Release-notes-for-0.44.0.md:143
+#: Release-notes-for-0.44.0.md:147
 msgid ""
 "Then Meson will run the script with its internal Python version if necessary."
 msgstr ""

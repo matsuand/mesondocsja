@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-12-12 14:51+0900\n"
+"POT-Creation-Date: 2018-01-19 14:05+0900\n"
 "PO-Revision-Date: 2017-12-05 13:37+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -29,26 +29,32 @@ msgstr ""
 
 #. type: Plain text
 #: Disabler.md:6
-msgid "# Disabling parts of the build (available since 0.44.0)"
+msgid "# Disabling parts of the build"
 msgstr ""
 
 #. type: Plain text
 #: Disabler.md:8
+#, no-wrap
+msgid "*This feature is available since version 0.44.0.*\n"
+msgstr ""
+
+#. type: Plain text
+#: Disabler.md:10
 msgid "The following is a common fragment found in many projects:"
 msgstr ""
 
 #. type: Plain text
-#: Disabler.md:11
+#: Disabler.md:13
 msgid "```meson dep = dependency('foo')"
 msgstr ""
 
 #. type: Plain text
-#: Disabler.md:13
+#: Disabler.md:15
 msgid "# In some different directory"
 msgstr ""
 
 #. type: Plain text
-#: Disabler.md:16
+#: Disabler.md:18
 #, no-wrap
 msgid ""
 "lib = shared_library('mylib', 'mylib.c',\n"
@@ -56,12 +62,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Disabler.md:18
+#: Disabler.md:20
 msgid "# And ín a third directory"
 msgstr ""
 
 #. type: Plain text
-#: Disabler.md:23
+#: Disabler.md:25
 #, no-wrap
 msgid ""
 "exe = executable('mytest', 'mytest.c',\n"
@@ -71,7 +77,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Disabler.md:28
+#: Disabler.md:30
 msgid ""
 "This works fine but gets a bit inflexible when you want to make this part of "
 "the build optional. Basically it reduces to adding `if/else` statements "
@@ -80,36 +86,36 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Disabler.md:30
+#: Disabler.md:32
 msgid "A disabler object is created with the `disabler` function:"
 msgstr ""
 
 #. type: Plain text
-#: Disabler.md:34
+#: Disabler.md:36
 msgid "```meson d = disabler()  ```"
 msgstr ""
 
 #. type: Plain text
-#: Disabler.md:37
+#: Disabler.md:39
 msgid ""
 "The only thing you can do to a disabler object is to ask if it has been "
 "found:"
 msgstr ""
 
 #. type: Plain text
-#: Disabler.md:41
+#: Disabler.md:43
 msgid "```meson f = d.found() # returns false ```"
 msgstr ""
 
 #. type: Plain text
-#: Disabler.md:45
+#: Disabler.md:47
 msgid ""
 "Any other statement that uses a disabler object will immediately return a "
 "disabler. For example assuming that `d` contains a disabler object then"
 msgstr ""
 
 #. type: Plain text
-#: Disabler.md:52
+#: Disabler.md:54
 #, no-wrap
 msgid ""
 "```meson\n"
@@ -121,14 +127,14 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Disabler.md:55
+#: Disabler.md:57
 msgid ""
 "Thus to disable every target that depends on the dependency given above, you "
 "can do something like this:"
 msgstr ""
 
 #. type: Plain text
-#: Disabler.md:63
+#: Disabler.md:65
 #, no-wrap
 msgid ""
 "```meson\n"
@@ -141,7 +147,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Disabler.md:66
+#: Disabler.md:68
 msgid ""
 "This concentrates the handling of this option in one place and other build "
 "definition files do not need to be sprinkled with `if` statements."

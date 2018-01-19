@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-09-30 21:44+0900\n"
+"POT-Creation-Date: 2018-01-19 14:05+0900\n"
 "PO-Revision-Date: 2017-09-30 21:44+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -54,51 +54,59 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Pkgconfig-module.md:45
+#: Pkgconfig-module.md:52
 msgid "`description` a string describing the library"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Pkgconfig-module.md:45
+#: Pkgconfig-module.md:52
 msgid ""
 "`extra_cflags` a list of extra compiler flags to be added to the `Cflags` "
 "field after the header search path"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Pkgconfig-module.md:45
+#: Pkgconfig-module.md:52
 msgid ""
 "`filebase`, the base name to use for the pkg-config file, as an example the "
 "value of `libfoo` would produce a pkg-config file called `libfoo.pc`"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Pkgconfig-module.md:45
+#: Pkgconfig-module.md:52
 msgid ""
 "`install_dir` the directory to install to, defaults to the value of option "
 "`libdir` followed by `/pkgconfig`"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Pkgconfig-module.md:45
+#: Pkgconfig-module.md:52
 msgid ""
 "`libraries` a list of built libraries (usually results of shared_library) "
-"that the user needs to link against"
+"that the user needs to link against. Arbitraty strings can also be provided "
+"and they will be added into the `Libs` field. Since 0.45.0 dependencies of "
+"built libraries will be automatically added to `Libs.private` field. If a "
+"dependency is provided by pkg-config then it will be added in `Requires."
+"private` instead. Other type of dependency objects can also be passed and "
+"will result in their `link_args` and `compile_args` to be added to `Libs` "
+"and `Cflags` fields."
 msgstr ""
 
 #. type: Bullet: '- '
-#: Pkgconfig-module.md:45
+#: Pkgconfig-module.md:52
 msgid ""
-"`libraries_private` list of strings to put in the `Libraries.private` field"
+"`libraries_private` list of built libraries or strings to put in the `Libs."
+"private` field. Since 0.45.0 it can also contain dependency objects, their "
+"`link_args` will be added to `Libs.private`."
 msgstr ""
 
 #. type: Bullet: '- '
-#: Pkgconfig-module.md:45
+#: Pkgconfig-module.md:52
 msgid "`name` the name of this library"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Pkgconfig-module.md:45
+#: Pkgconfig-module.md:52
 msgid ""
 "`subdirs` which subdirs of `include` should be added to the header search "
 "path, for example if you install headers into `${PREFIX}/include/foobar-1`, "
@@ -106,23 +114,23 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Pkgconfig-module.md:45
+#: Pkgconfig-module.md:52
 msgid "`requires` list of strings to put in the `Requires` field"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Pkgconfig-module.md:45
+#: Pkgconfig-module.md:52
 msgid ""
 "`requires_private` list of strings to put in the `Requires.private` field"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Pkgconfig-module.md:45
+#: Pkgconfig-module.md:52
 msgid "`url` a string with a url for the library"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Pkgconfig-module.md:45
+#: Pkgconfig-module.md:52
 msgid ""
 "`variables` a list of strings with custom variables to add to the generated "
 "file. The strings must be in the form `name=value` and may reference other "
@@ -131,12 +139,12 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Pkgconfig-module.md:45
+#: Pkgconfig-module.md:52
 msgid "`version` a string describing the version of this library"
 msgstr ""
 
 #. type: Plain text
-#: Pkgconfig-module.md:45
+#: Pkgconfig-module.md:52
 #, no-wrap
 msgid ""
 "- `d_module_versions` a list of module version flags used when compiling\n"

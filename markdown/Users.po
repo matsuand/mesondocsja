@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-12-17 14:28+0900\n"
+"POT-Creation-Date: 2018-01-19 14:05+0900\n"
 "PO-Revision-Date: 2017-09-30 21:44+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -40,102 +40,102 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:46
+#: Users.md:50
 msgid ""
 "[AQEMU](https://github.com/tobimensch/aqemu), a Qt GUI for QEMU virtual "
 "machines, since version 0.9.3"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:46
+#: Users.md:50
 msgid "[Arduino sample project](https://github.com/jpakkane/mesonarduino)"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:46
+#: Users.md:50
 msgid ""
 "[Budgie Desktop](https://github.com/budgie-desktop/budgie-desktop), a "
 "desktop environment built on GNOME technologies"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:46
+#: Users.md:50
 msgid ""
 "[casync](https://github.com/systemd/casync), Content-Addressable Data "
 "Synchronization Tool"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:46
+#: Users.md:50
 msgid ""
 "[Emeus](https://github.com/ebassi/emeus), Constraint based layout manager "
 "for GTK+"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:46
+#: Users.md:50
 msgid ""
 "[Frida](https://www.frida.re/), a dynamic binary instrumentation toolkit"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:46
+#: Users.md:50
 msgid ""
 "[Geary](https://wiki.gnome.org/Apps/Geary), an email application built "
 "around conversations, for the GNOME 3 desktop."
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:46
+#: Users.md:50
 msgid ""
 "[GLib](https://git.gnome.org/browse/glib/), cross-platform C library used by "
 "GTK+ and GStreamer (not the default yet)"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:46
+#: Users.md:50
 msgid ""
 "[Gnome Builder](https://git.gnome.org/browse/gnome-builder/), an IDE for the "
 "Gnome platform"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:46
+#: Users.md:50
 msgid ""
 "[Gnome MPV](https://github.com/gnome-mpv/gnome-mpv), Gnome frontend to the "
 "mpv video player"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:46
+#: Users.md:50
 msgid ""
 "[Gnome Recipes](https://github.com/matthiasclasen/gr), application for "
 "cooking recipes"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:46
+#: Users.md:50
 msgid ""
 "[Gnome Software](https://git.gnome.org//browse/gnome-software), an app store "
 "for Gnome"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:46
+#: Users.md:50
 msgid ""
 "[Gnome Twitch](https://github.com/vinszent/gnome-twitch), an app for viewing "
 "Twitch streams on Gnome desktop"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:46
+#: Users.md:50
 msgid ""
 "[Graphene](https://ebassi.github.io/graphene/), a thin type library for "
 "graphics"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:46
+#: Users.md:50
 msgid ""
 "[Grilo](https://mail.gnome.org/archives/grilo-list/2017-February/msg00000."
 "html) and [Grilo plugins](https://git.gnome.org/browse/grilo-plugins/commit/?"
@@ -143,137 +143,161 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:46
+#: Users.md:50
 msgid ""
 "[GStreamer](https://cgit.freedesktop.org/gstreamer/gstreamer/), multimedia "
 "framework (not the default yet)"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:46
+#: Users.md:50
 msgid ""
 "[GTK+](https://git.gnome.org/browse/gtk+/), the multi-platform toolkit used "
 "by GNOME"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:46
+#: Users.md:50
 msgid ""
 "[GtkDApp](https://gitlab.com/csoriano/GtkDApp), an application template for "
 "developing Flatpak apps with Gtk+ and D"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:46
+#: Users.md:50
 msgid ""
 "[HexChat](https://github.com/hexchat/hexchat), a cross-platform IRC client "
 "in C"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:46
+#: Users.md:50
+msgid ""
+"[IGT](https://cgit.freedesktop.org/xorg/app/intel-gpu-tools/), Linux kernel "
+"graphics driver test suite."
+msgstr ""
+
+#. type: Bullet: ' - '
+#: Users.md:50
 msgid ""
 "[Json-glib](https://git.gnome.org/browse/json-glib), GLib-based JSON "
 "manipulation library"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:46
+#: Users.md:50
+msgid "[Ksh](https://github.com/att/ast), a Korn Shell"
+msgstr ""
+
+#. type: Bullet: ' - '
+#: Users.md:50
+msgid ""
+"[Libdrm](https://cgit.freedesktop.org/drm/libdrm/), a library for "
+"abstracting DRM kernel interfaces"
+msgstr ""
+
+#. type: Bullet: ' - '
+#: Users.md:50
 msgid ""
 "[Libepoxy](https://github.com/anholt/libepoxy/), a library for handling "
 "OpenGL function pointer management"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:46
+#: Users.md:50
 msgid ""
 "[Libgit2-glib](https://git.gnome.org/browse/libgit2-glib/), a GLib wrapper "
 "for libgit2"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:46
+#: Users.md:50
 msgid ""
 "[Libhttpseverywhere](https://github.com/grindhold/libhttpseverywhere), a "
 "library to enable httpseverywhere on any desktop app"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:46
+#: Users.md:50
 msgid ""
 "[Lightdm-Webkit2-Greeter](https://github.com/Antergos/lightdm-webkit2-"
 "greeter)"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:46
+#: Users.md:50
 msgid "[Kiwix libraries](https://github.com/kiwix/kiwix-lib)"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:46
+#: Users.md:50
+msgid "[Mesa](https://www.mesa3d.org/), An open source graphics driver project"
+msgstr ""
+
+#. type: Bullet: ' - '
+#: Users.md:50
 msgid ""
 "[Nautilus](https://git.gnome.org/browse/nautilus/commit/?"
 "id=ed5652c89ac0654df2e82b54b00b27d51c825465) the Gnome file manager"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:46
+#: Users.md:50
 msgid ""
 "[Orc](http://cgit.freedesktop.org/gstreamer/orc/), the Optimized Inner Loop "
 "Runtime Compiler (not the default yet)"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:46
+#: Users.md:50
 msgid ""
 "[Pango](https://git.gnome.org/browse/pango/), an Internationalized text "
 "layout and rendering library (not the default yet)"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:46
+#: Users.md:50
 msgid ""
 "[Parzip](https://github.com/jpakkane/parzip), a multithreaded "
 "reimplementation of Zip"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:46
+#: Users.md:50
 msgid "[Pitivi](http://pitivi.org/), a nonlinear video editor"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:46
+#: Users.md:50
 msgid "[Polari](https://git.gnome.org/browse/polari), an IRC client"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:46
+#: Users.md:50
 msgid "[Sysprof](https://wiki.gnome.org/Apps/Sysprof), a profiling tool"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:46
+#: Users.md:50
 msgid "[systemd](https://github.com/systemd/systemd), the init system"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:46
+#: Users.md:50
 msgid ""
 "[Xorg](https://cgit.freedesktop.org/xorg/xserver/) the X.org display server "
 "(not the default yet)"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:46
+#: Users.md:50
 msgid ""
 "[Valum](https://github.com/valum-framework/valum), a micro web framework "
 "written in Vala"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:46
+#: Users.md:50
 msgid ""
 "[Wayland and Weston](https://lists.freedesktop.org/archives/wayland-"
 "devel/2016-November/031984.html), a next generation display server (not "
@@ -281,7 +305,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:46
+#: Users.md:50
 msgid ""
 "[ZStandard](https://github.com/facebook/zstd/"
 "commit/4dca56ed832c6a88108a2484a8f8ff63d8d76d91) a compression algorithm "
@@ -289,7 +313,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Users.md:47
+#: Users.md:51
 msgid ""
 "Note that a more up-to-date list of GNOME projects that use Meson can be "
 "found [here](https://wiki.gnome.org/Initiatives/GnomeGoals/MesonPorting)."

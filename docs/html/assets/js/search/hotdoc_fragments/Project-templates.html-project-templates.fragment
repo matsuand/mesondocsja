@@ -1,0 +1,1 @@
+fragment_downloaded_cb({"url": "Project-templates.html#project-templates", "fragment": "Project templates \nTo make it easier for new developers to start working Meson ships a tool to generate the basic setup of different kinds of projects. This functionality can be accessed with the meson init command. A typical project setup would go like this \n"});

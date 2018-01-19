@@ -278,6 +278,7 @@ basenames = \
 	Configuring-a-build-directory \
 	Contact-information \
 	Continuous-Integration \
+	Contributing \
 	Creating-Linux-binaries \
 	Creating-OSX-packages \
 	Creating-releases \
@@ -311,6 +312,7 @@ basenames = \
 	Playground \
 	Porting-from-autotools \
 	Precompiled-headers \
+	Project-templates \
 	Python-3-module \
 	Qt4-module \
 	Qt5-module \
@@ -734,6 +736,8 @@ pot/Contact-information.pot: $(abs_mesondir)/Contact-information.md
 	$(call GETPOT, $^, $@)
 pot/Continuous-Integration.pot: $(abs_mesondir)/Continuous-Integration.md
 	$(call GETPOT, $^, $@)
+pot/Contributing.pot: $(abs_mesondir)/Contributing.md
+	$(call GETPOT, $^, $@)
 pot/Creating-Linux-binaries.pot: $(abs_mesondir)/Creating-Linux-binaries.md
 	$(call GETPOT, $^, $@)
 pot/Creating-OSX-packages.pot: $(abs_mesondir)/Creating-OSX-packages.md
@@ -799,6 +803,8 @@ pot/Playground.pot: $(abs_mesondir)/Playground.md
 pot/Porting-from-autotools.pot: $(abs_mesondir)/Porting-from-autotools.md
 	$(call GETPOT, $^, $@)
 pot/Precompiled-headers.pot: $(abs_mesondir)/Precompiled-headers.md
+	$(call GETPOT, $^, $@)
+pot/Project-templates.pot: $(abs_mesondir)/Project-templates.md
 	$(call GETPOT, $^, $@)
 pot/Python-3-module.pot: $(abs_mesondir)/Python-3-module.md
 	$(call GETPOT, $^, $@)
@@ -927,6 +933,8 @@ $(srcdir)/Contact-information.po: pot/Contact-information.pot
 	$(call MSGPROC, $^, $@)
 $(srcdir)/Continuous-Integration.po: pot/Continuous-Integration.pot
 	$(call MSGPROC, $^, $@)
+$(srcdir)/Contributing.po: pot/Contributing.pot
+	$(call MSGPROC, $^, $@)
 $(srcdir)/Creating-Linux-binaries.po: pot/Creating-Linux-binaries.pot
 	$(call MSGPROC, $^, $@)
 $(srcdir)/Creating-OSX-packages.po: pot/Creating-OSX-packages.pot
@@ -992,6 +1000,8 @@ $(srcdir)/Playground.po: pot/Playground.pot
 $(srcdir)/Porting-from-autotools.po: pot/Porting-from-autotools.pot
 	$(call MSGPROC, $^, $@)
 $(srcdir)/Precompiled-headers.po: pot/Precompiled-headers.pot
+	$(call MSGPROC, $^, $@)
+$(srcdir)/Project-templates.po: pot/Project-templates.pot
 	$(call MSGPROC, $^, $@)
 $(srcdir)/Python-3-module.po: pot/Python-3-module.pot
 	$(call MSGPROC, $^, $@)
@@ -1120,6 +1130,8 @@ Contact-information.md: $(abs_mesondir)/Contact-information.md $(srcdir)/Contact
 	$(call PO4ATRANS, $(abs_mesondir)/Contact-information.md, $(srcdir)/Contact-information.po)
 Continuous-Integration.md: $(abs_mesondir)/Continuous-Integration.md $(srcdir)/Continuous-Integration.po
 	$(call PO4ATRANS, $(abs_mesondir)/Continuous-Integration.md, $(srcdir)/Continuous-Integration.po)
+Contributing.md: $(abs_mesondir)/Contributing.md $(srcdir)/Contributing.po
+	$(call PO4ATRANS, $(abs_mesondir)/Contributing.md, $(srcdir)/Contributing.po)
 Creating-Linux-binaries.md: $(abs_mesondir)/Creating-Linux-binaries.md $(srcdir)/Creating-Linux-binaries.po
 	$(call PO4ATRANS, $(abs_mesondir)/Creating-Linux-binaries.md, $(srcdir)/Creating-Linux-binaries.po)
 Creating-OSX-packages.md: $(abs_mesondir)/Creating-OSX-packages.md $(srcdir)/Creating-OSX-packages.po
@@ -1186,6 +1198,8 @@ Porting-from-autotools.md: $(abs_mesondir)/Porting-from-autotools.md $(srcdir)/P
 	$(call PO4ATRANS, $(abs_mesondir)/Porting-from-autotools.md, $(srcdir)/Porting-from-autotools.po)
 Precompiled-headers.md: $(abs_mesondir)/Precompiled-headers.md $(srcdir)/Precompiled-headers.po
 	$(call PO4ATRANS, $(abs_mesondir)/Precompiled-headers.md, $(srcdir)/Precompiled-headers.po)
+Project-templates.md: $(abs_mesondir)/Project-templates.md $(srcdir)/Project-templates.po
+	$(call PO4ATRANS, $(abs_mesondir)/Project-templates.md, $(srcdir)/Project-templates.po)
 Python-3-module.md: $(abs_mesondir)/Python-3-module.md $(srcdir)/Python-3-module.po
 	$(call PO4ATRANS, $(abs_mesondir)/Python-3-module.md, $(srcdir)/Python-3-module.po)
 Qt4-module.md: $(abs_mesondir)/Qt4-module.md $(srcdir)/Qt4-module.po
