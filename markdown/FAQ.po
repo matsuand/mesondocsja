@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-10-24 18:52+0900\n"
+"POT-Creation-Date: 2018-09-01 15:59+0900\n"
 "PO-Revision-Date: 2017-09-30 21:43+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -41,7 +41,7 @@ msgid "## Why is it called Meson?"
 msgstr "## なぜ Meson という名前なんですか？"
 
 #. type: Plain text
-#: FAQ.md:11
+#: FAQ.md:17
 msgid ""
 "When the name was originally chosen, there were two main limitations: there "
 "must not exist either a Debian package or a Sourceforge project of the given "
@@ -52,24 +52,24 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:13
+#: FAQ.md:20
 msgid ""
 "Unfortunately this name was taken, too. Then the rest of subatomic particles "
 "were examined and Meson was found to be available."
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:15
+#: FAQ.md:22
 msgid "## What is the correct way to use threads (such as pthreads)?"
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:19
+#: FAQ.md:26
 msgid "```meson thread_dep = dependency('threads')  ```"
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:21
+#: FAQ.md:31
 msgid ""
 "This will set up everything on your behalf. People coming from Autotools or "
 "CMake want to do this by looking for `libpthread.so` manually. Don't do "
@@ -77,13 +77,13 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:23
+#: FAQ.md:33
 msgid ""
 "## How to use Meson on a host where it is not available in system packages?"
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:25
+#: FAQ.md:37
 msgid ""
 "Starting from version 0.29.0, Meson is available from the [Python Package "
 "Index](https://pypi.python.org/pypi/meson/), so installing it simply a "
@@ -91,12 +91,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:29
+#: FAQ.md:41
 msgid "```console $ pip3 install <your options here> meson ```"
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:31
+#: FAQ.md:46
 msgid ""
 "If you don't have access to PyPI, that is not a problem either. Meson has "
 "been designed to be easily runnable from an extracted source tarball or even "
@@ -105,12 +105,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:35
+#: FAQ.md:50
 msgid "```console $ /path/to/meson.py <options> ```"
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:37
+#: FAQ.md:55
 msgid ""
 "After this you don't have to care about invoking Meson any more. It "
 "remembers where it was originally invoked from and calls itself "
@@ -119,23 +119,23 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:39
+#: FAQ.md:57
 msgid "## Why can't I specify target files with a wildcard?"
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:41
+#: FAQ.md:59
 msgid "Instead of specifying files explicitly, people seem to want to do this:"
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:45
+#: FAQ.md:63
 msgid ""
 "```meson executable('myprog', sources : '*.cpp') # This does NOT work! ```"
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:47
+#: FAQ.md:68
 msgid ""
 "Meson does not support this syntax and the reason for this is simple. This "
 "can not be made both reliable and fast. By reliable we mean that if the user "
@@ -144,7 +144,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:49
+#: FAQ.md:78
 msgid ""
 "One of the main requirements of Meson is that it must be fast. This means "
 "that a no-op build in a tree of 10 000 source files must take no more than a "
@@ -158,24 +158,24 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:51
+#: FAQ.md:81
 msgid ""
 "The main backend of Meson is Ninja, which does not support wildcard matches "
 "either, and for the same reasons."
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:53
+#: FAQ.md:83
 msgid "Because of this, all source files must be specified explicitly."
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:55
+#: FAQ.md:85
 msgid "## But I really want to use wildcards!"
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:57
+#: FAQ.md:92
 msgid ""
 "If the tradeoff between reliability and convenience is acceptable to you, "
 "then Meson gives you all the tools necessary to do wildcard globbing. You "
@@ -185,12 +185,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:61
+#: FAQ.md:96
 msgid "```bash #!/bin/sh"
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:66
+#: FAQ.md:101
 #, no-wrap
 msgid ""
 "for i in *.c; do\n"
@@ -200,28 +200,28 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:68
+#: FAQ.md:103
 msgid ""
 "Then you need to run this script in your Meson file, convert the output into "
 "a string array and use the result in a target."
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:74
+#: FAQ.md:109
 msgid ""
 "```meson c = run_command('grabber.sh')  sources = c.stdout().strip()."
 "split('\\n')  e = executable('prog', sources)  ```"
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:76
+#: FAQ.md:112
 msgid ""
 "The script can be any executable, so it can be written in shell, Python, "
 "Lua, Perl or whatever you wish."
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:78
+#: FAQ.md:122
 msgid ""
 "As mentioned above, the tradeoff is that just adding new files to the source "
 "directory does *not* add them to the build automatically. To add them you "
@@ -233,12 +233,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:80
+#: FAQ.md:124
 msgid "## Should I use `subdir` or `subproject`?"
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:82
+#: FAQ.md:131
 msgid ""
 "The answer is almost always `subdir`. Subproject exists for a very specific "
 "use case: embedding external dependencies into your build process. As an "
@@ -249,7 +249,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:84
+#: FAQ.md:137
 msgid ""
 "In this case you would use `subproject`. The way to do it would be to grab "
 "the source code of SDL and put it inside your own source tree. Then you "
@@ -259,7 +259,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:86
+#: FAQ.md:141
 msgid ""
 "For every other use you would use `subdir`. As an example, if you wanted to "
 "build a shared library in one dir and link tests against it in another dir, "
@@ -267,7 +267,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:92
+#: FAQ.md:147
 #, no-wrap
 msgid ""
 "```meson\n"
@@ -278,22 +278,22 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:94
+#: FAQ.md:149
 msgid "## Why is there not a Make backend?"
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:96
+#: FAQ.md:155
 msgid ""
 "Because Make is slow. This is not an implementation issue, Make simply can "
 "not be made fast. For further info we recommend you read [this post](http://"
-"neugierig.org/software/chromium/notes/2011/02/ninja.html) by Evan Martin, "
+"neugierig.org/software/chromium/notes/2011/02/ninja.html)  by Evan Martin, "
 "the author of Ninja. Makefiles also have a syntax that is very unpleasant to "
 "write which makes them a big maintenance burden."
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:98
+#: FAQ.md:160
 msgid ""
 "The only reason why one would use Make instead of Ninja is working on a "
 "platform that does not have a Ninja port. Even in this case it is an order "
@@ -302,26 +302,26 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:100
+#: FAQ.md:162
 msgid "Just use Ninja, you'll be happier that way. I guarantee it."
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:102
+#: FAQ.md:164
 msgid ""
 "## Why is Meson not just a Python module so I could code my build setup in "
 "Python?"
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:104
+#: FAQ.md:167
 msgid ""
 "A related question to this is *Why is Meson's configuration language not "
 "Turing-complete?*"
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:106
+#: FAQ.md:171
 msgid ""
 "There are many good reasons for this, most of which are summarized on this "
 "web page: [Against The Use Of Programming Languages in Configuration Files]"
@@ -329,7 +329,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:108
+#: FAQ.md:177
 msgid ""
 "In addition to those reasons, not exposing Python or any other \"real\" "
 "programming language makes it possible to port Meson's implementation to a "
@@ -339,13 +339,13 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:110
+#: FAQ.md:179
 msgid ""
 "## How do I do the equivalent of Libtools export-symbol and export-regex?"
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:112
+#: FAQ.md:188
 msgid ""
 "Either by using [GCC symbol visibility](https://gcc.gnu.org/wiki/Visibility) "
 "or by writing a [linker script](https://ftp.gnu.org/old-gnu/Manuals/ld-2.9.1/"
@@ -356,14 +356,14 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:114
+#: FAQ.md:190
 msgid ""
 "## My project works fine on Linux and MinGW but fails with MSVC due to a "
 "missing .lib file"
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:116
+#: FAQ.md:197
 msgid ""
 "With GCC, all symbols on shared libraries are exported automatically unless "
 "you specify otherwise. With MSVC no symbols are exported by default. If your "
@@ -373,19 +373,19 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:118
+#: FAQ.md:199
 msgid ""
 "## I added some compiler flags and now the build fails with weird errors. "
 "What is happening?"
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:120
+#: FAQ.md:201
 msgid "You probably did the equivalent to this:"
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:125
+#: FAQ.md:206
 #, no-wrap
 msgid ""
 "```meson\n"
@@ -395,7 +395,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:127
+#: FAQ.md:214
 msgid ""
 "Meson is *explicit*. In this particular case it will **not** automatically "
 "split your strings at whitespaces, instead it will take it as is and work "
@@ -406,7 +406,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:132
+#: FAQ.md:219
 #, no-wrap
 msgid ""
 "```meson\n"
@@ -416,35 +416,35 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:134
+#: FAQ.md:221
 msgid "## Why are changes to default project options ignored?"
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:136
+#: FAQ.md:223
 msgid "You probably had a project that looked something like this:"
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:140
+#: FAQ.md:227
 msgid "```meson project('foobar', 'cpp')  ```"
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:142
+#: FAQ.md:230
 msgid ""
 "This defaults to `c++11` on GCC compilers. Suppose you want to use `c++14` "
 "instead, so you change the definition to this:"
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:146
+#: FAQ.md:234
 msgid ""
 "```meson project('foobar', 'cpp', default_options : ['cpp_std=c++14'])  ```"
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:148
+#: FAQ.md:242
 msgid ""
 "But when you recompile, it still uses `c++11`. The reason for this is that "
 "default options are only looked at when you are setting up a build directory "
@@ -455,19 +455,69 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:150
+#: FAQ.md:248
+msgid ""
+"The reason we don't automatically change the option value when the default "
+"is changed is that it is impossible to know to do that reliably. The actual "
+"question that we need to solve is \"if the option's value is foo and the "
+"default value is bar, should we change the option value to bar also\". There "
+"are many choices:"
+msgstr ""
+
+#. type: Bullet: ' - '
+#: FAQ.md:251
+msgid ""
+"if the user has changed the value themselves from the default, then we must "
+"not change it back"
+msgstr ""
+
+#. type: Bullet: ' - '
+#: FAQ.md:255
+msgid ""
+"if the user has not changed the value, but changes the default value, then "
+"this section's premise would seem to indicate that the value should be "
+"changed"
+msgstr ""
+
+#. type: Bullet: ' - '
+#: FAQ.md:259
+msgid ""
+"suppose the user changes the value from the default to foo, then back to bar "
+"and then changes the default value to bar, the correct step to take is "
+"ambiguous by itself"
+msgstr ""
+
+#. type: Plain text
+#: FAQ.md:265
+msgid ""
+"In order to solve the latter question we would need to remember not only the "
+"current and old value, but also all the times the user has changed the value "
+"and from which value to which other value. Since people don't remember their "
+"own actions that far back, toggling between states based on long history "
+"would be confusing."
+msgstr ""
+
+#. type: Plain text
+#: FAQ.md:269
+msgid ""
+"Because of this we do the simple and understandable thing: default values "
+"are only defaults and will never affect the value of an option once set."
+msgstr ""
+
+#. type: Plain text
+#: FAQ.md:271
 msgid "## Does wrap download sources behind my back?"
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:152
+#: FAQ.md:274
 msgid ""
 "It does not. In order for Meson to download anything from the net while "
 "building, two conditions must be met."
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:154
+#: FAQ.md:278
 msgid ""
 "First of all there needs to be a `.wrap` file with a download URL in the "
 "`subprojects` directory. If one does not exist, Meson will not download "
@@ -475,7 +525,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:156
+#: FAQ.md:285
 msgid ""
 "The second requirement is that there needs to be an explicit subproject "
 "invocation in your `meson.build` files. Either `subproject('foobar')` or "
@@ -485,11 +535,96 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: FAQ.md:157
+#: FAQ.md:291
 msgid ""
 "If this is not sufficient for you, starting from release 0.40.0 Meson has a "
 "option called `wrap-mode` which can be used to disable wrap downloads "
 "altogether with `--wrap-mode=nodownload`. You can also disable dependency "
 "fallbacks altogether with `--wrap-mode=nofallback`, which also implies the "
 "`nodownload` option."
+msgstr ""
+
+#. type: Plain text
+#: FAQ.md:297
+msgid ""
+"If on the other hand, you want meson to always use the fallback for "
+"dependencies, even when an external dependency exists and could satisfy the "
+"version requirements, for example in order to make sure your project builds "
+"when fallbacks are used, you can use `--wrap-mode=forcefallback` since "
+"0.46.0."
+msgstr ""
+
+#. type: Plain text
+#: FAQ.md:299
+msgid ""
+"## Why is Meson implemented in Python rather than [programming language X]?"
+msgstr ""
+
+#. type: Plain text
+#: FAQ.md:301
+msgid "Because build systems are special in ways normal applications aren't."
+msgstr ""
+
+#. type: Plain text
+#: FAQ.md:307
+msgid ""
+"Perhaps the biggest limitation is that because Meson is used to build "
+"software at the very lowest levels of the OS, it is part of the core "
+"bootstrap for new systems. Whenever support for a new CPU architecture is "
+"added, Meson must run on the system before software using it can be compiled "
+"natively. This requirement adds two hard limitations."
+msgstr ""
+
+#. type: Plain text
+#: FAQ.md:311
+msgid ""
+"The first one is that Meson must have the minimal amount of dependencies, "
+"because they must all be built during the bootstrap to get Meson to work."
+msgstr ""
+
+#. type: Plain text
+#: FAQ.md:318
+msgid ""
+"The second is that Meson must support all CPU architectures, both existing "
+"and future ones. As an example many new programming languages have only an "
+"LLVM based compiler available. LLVM has limited CPU support compared to, "
+"say, GCC, and thus bootstrapping Meson on such platforms would first require "
+"adding new processor support to LLVM. This is in most cases unfeasible."
+msgstr ""
+
+#. type: Plain text
+#: FAQ.md:324
+msgid ""
+"A further limitation is that we want developers on as many platforms as "
+"possible to submit to Meson development using the default tools provided by "
+"their operating system. In practice what this means is that Windows "
+"developers should be able to contribute using nothing but Visual Studio."
+msgstr ""
+
+#. type: Plain text
+#: FAQ.md:327
+msgid ""
+"At the time of writing (April 2018) there are only three languages that "
+"could fullfill these requirements:"
+msgstr ""
+
+#. type: Bullet: ' - '
+#: FAQ.md:331
+msgid "C"
+msgstr ""
+
+#. type: Bullet: ' - '
+#: FAQ.md:331
+msgid "C++"
+msgstr ""
+
+#. type: Bullet: ' - '
+#: FAQ.md:331
+msgid "Python"
+msgstr ""
+
+#. type: Plain text
+#: FAQ.md:333
+msgid ""
+"Out of these we have chosen Python because it is the best fit for our needs."
 msgstr ""

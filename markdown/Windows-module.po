@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-09-30 21:44+0900\n"
+"POT-Creation-Date: 2018-09-01 16:24+0900\n"
 "PO-Revision-Date: 2017-09-30 21:44+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -45,11 +45,30 @@ msgid ""
 "to have the resources in. This method has the following keyword argument."
 msgstr ""
 
-#. type: Plain text
-#: Windows-module.md:17
-#, no-wrap
+#. type: Bullet: '- '
+#: Windows-module.md:23
+msgid "`args` lists extra arguments to pass to the resource compiler"
+msgstr ""
+
+#. type: Bullet: '- '
+#: Windows-module.md:23
 msgid ""
-" - `args` lists extra arguments to pass to the resource compiler\n"
-"- `include_directories` which does the same thing as it does on target\n"
-"  declarations: specifies header search directories\n"
+"`depend_files` lists resource files that the resource script depends on (e."
+"g. bitmap, cursor, font, html, icon, message table, binary data or manifest "
+"files referenced by the resource script) (*since 0.47.0*)"
+msgstr ""
+
+#. type: Bullet: '- '
+#: Windows-module.md:23
+msgid ""
+"`depends` lists target(s) that this target depends on, even though it does "
+"not take them as an argument (e.g. as above, but generated) (*since 0.47.0*)"
+msgstr ""
+
+#. type: Bullet: '- '
+#: Windows-module.md:23
+msgid ""
+"`include_directories` lists directories to be both searched by the resource "
+"compiler for referenced resource files, and added to the preprocessor "
+"include search path."
 msgstr ""

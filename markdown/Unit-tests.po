@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-11-01 10:07+0900\n"
+"POT-Creation-Date: 2018-09-01 16:24+0900\n"
 "PO-Revision-Date: 2017-09-30 21:44+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -115,7 +115,8 @@ msgid ""
 "corresponding targets. These targets are `coverage-xml` and `coverage-text` "
 "which are both provided by [Gcovr](http://gcovr.com) and `coverage-html`, "
 "which requires [Lcov](https://ltp.sourceforge.io/coverage/lcov.php) and "
-"[GenHTML](https://linux.die.net/man/1/genhtml)."
+"[GenHTML](https://linux.die.net/man/1/genhtml) or [Gcovr](http://gcovr.com) "
+"with html support."
 msgstr ""
 
 #. type: Plain text
@@ -231,12 +232,33 @@ msgstr ""
 
 #. type: Plain text
 #: Unit-tests.md:75
+msgid "Tests belonging to a suite `suite` can be run as follows"
+msgstr ""
+
+#. type: Plain text
+#: Unit-tests.md:79
+#, fuzzy
+msgid "```console $ meson test --suite (sub)project_name:suite ```"
+msgstr ""
+"```console\n"
+"$ meson test testname\n"
+"```"
+
+#. type: Plain text
+#: Unit-tests.md:81
+msgid ""
+"Since version *0.46*, `(sub)project_name` can be omitted if it is the top-"
+"level project."
+msgstr ""
+
+#. type: Plain text
+#: Unit-tests.md:83
 msgid ""
 "Sometimes you need to run the tests multiple times, which is done like this:"
 msgstr ""
 
 #. type: Plain text
-#: Unit-tests.md:79
+#: Unit-tests.md:87
 msgid "```console $ meson test --repeat=10 ```"
 msgstr ""
 "```console\n"
@@ -244,14 +266,14 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Unit-tests.md:81
+#: Unit-tests.md:89
 msgid ""
 "Invoking tests via a helper executable such as Valgrind can be done with the "
 "`--wrap` argument"
 msgstr ""
 
 #. type: Plain text
-#: Unit-tests.md:85
+#: Unit-tests.md:93
 msgid "```console $ meson test --wrap=valgrind testname ```"
 msgstr ""
 "```console\n"
@@ -259,12 +281,12 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Unit-tests.md:87
+#: Unit-tests.md:95
 msgid "Arguments to the wrapper binary can be given like this:"
 msgstr ""
 
 #. type: Plain text
-#: Unit-tests.md:91
+#: Unit-tests.md:99
 msgid "```console $ meson test --wrap='valgrind --tool=helgrind' testname ```"
 msgstr ""
 "```console\n"
@@ -272,12 +294,12 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Unit-tests.md:93
+#: Unit-tests.md:101
 msgid "Meson also supports running the tests under GDB. Just doing this:"
 msgstr ""
 
 #. type: Plain text
-#: Unit-tests.md:97
+#: Unit-tests.md:105
 msgid "```console $ meson test --gdb testname ```"
 msgstr ""
 "```console\n"
@@ -285,21 +307,21 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Unit-tests.md:99
+#: Unit-tests.md:107
 msgid ""
 "Meson will launch `gdb` all set up to run the test. Just type `run` in the "
 "GDB command prompt to start the program."
 msgstr ""
 
 #. type: Plain text
-#: Unit-tests.md:101
+#: Unit-tests.md:109
 msgid ""
 "The second use case is a test that segfaults only rarely. In this case you "
 "can invoke the following command:"
 msgstr ""
 
 #. type: Plain text
-#: Unit-tests.md:105
+#: Unit-tests.md:113
 msgid "```console $ meson test --gdb --repeat=10000 testname ```"
 msgstr ""
 "```console\n"
@@ -307,7 +329,7 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Unit-tests.md:107
+#: Unit-tests.md:115
 msgid ""
 "This runs the test up to 10 000 times under GDB automatically. If the "
 "program crashes, GDB will halt and the user can debug the application. Note "
@@ -317,14 +339,31 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Unit-tests.md:109
+#: Unit-tests.md:119
+#, fuzzy
+msgid "```console $ meson test --print-errorlogs ```"
+msgstr ""
+"```console\n"
+"$ meson test testname\n"
+"```"
+
+#. type: Plain text
+#: Unit-tests.md:121
+msgid ""
+"Meson will report the output produced by the failing tests along with other "
+"useful informations as the environmental variables. This is useful, for "
+"example, when you run the tests on Travis-CI, Jenkins and the like."
+msgstr ""
+
+#. type: Plain text
+#: Unit-tests.md:123
 msgid ""
 "For further information see the command line help of Meson by running `meson "
 "test -h`."
 msgstr ""
 
 #. type: Plain text
-#: Unit-tests.md:110
+#: Unit-tests.md:124
 #, no-wrap
 msgid "**NOTE:** If `meson test` does not work for you, you likely have a old version of Meson. In that case you should call `mesontest` instead. If `mesontest` doesn't work either you have a very old version prior to 0.37.0 and should upgrade.\n"
 msgstr ""

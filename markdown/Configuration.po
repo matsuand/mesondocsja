@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-09-30 21:43+0900\n"
+"POT-Creation-Date: 2018-09-01 15:59+0900\n"
 "PO-Revision-Date: 2017-09-30 21:43+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -25,7 +25,9 @@ msgstr ""
 #. type: Plain text
 #: Configuration.md:4
 msgid "short-description: Build-time configuration options ..."
-msgstr "short-description: Build-time configuration options\n..."
+msgstr ""
+"short-description: Build-time configuration options\n"
+"..."
 
 #. type: Plain text
 #: Configuration.md:6
@@ -41,9 +43,9 @@ msgid ""
 "configure files. This feature is similar to one found in other build systems "
 "such as CMake."
 msgstr ""
-"コンパイラーオプションをいくつも組み合わせて設定する必要がある場合というのは、"
-"コンパイラーに対して指示を与える設定が、やっかいなものになります。"
-"If there are multiple configuration options, passing them through compiler "
+"コンパイラーオプションをいくつも組み合わせて設定する必要がある場合というの"
+"は、コンパイラーに対して指示を与える設定が、やっかいなものになります。If "
+"there are multiple configuration options, passing them through compiler "
 "flags becomes very burdensome. It also makes the configuration settings hard "
 "to inspect. To make things easier, Meson supports the generation of "
 "configure files. This feature is similar to one found in other build systems "
@@ -75,7 +77,10 @@ msgstr "そして `config.h.in` には以下の内容があるとします。"
 #. type: Plain text
 #: Configuration.md:28
 msgid "```c #define VERSION_STR \"@version@\" ```"
-msgstr "```c\n#define VERSION_STR \"@version@\"\n```"
+msgstr ""
+"```c\n"
+"#define VERSION_STR \"@version@\"\n"
+"```"
 
 #. type: Plain text
 #: Configuration.md:31
@@ -89,17 +94,22 @@ msgstr ""
 #. type: Plain text
 #: Configuration.md:35
 msgid "```c #define VERSION_STR \"1.2.3\" ```"
-msgstr "```c\n#define VERSION_STR \"1.2.3\"\n```"
+msgstr ""
+"```c\n"
+"#define VERSION_STR \"1.2.3\"\n"
+"```"
 
 #. type: Plain text
-#: Configuration.md:42
+#: Configuration.md:43
+#, fuzzy
 msgid ""
 "More specifically, Meson will find all strings of the type `@varname@` and "
 "replace them with respective values set in `conf_data`. You can use a single "
 "`configuration_data` object as many times as you like, but it becomes "
 "immutable after being passed to the `configure_file` function. That is, "
 "after it has been used once to generate output the `set` function becomes "
-"unusable and trying to call it causes an error."
+"unusable and trying to call it causes an error.  Copy of immutable "
+"`configuration_data` is still immutable."
 msgstr ""
 "More specifically, Meson will find all strings of the type `@varname@` and "
 "replace them with respective values set in `conf_data`. You can use a single "
@@ -109,26 +119,26 @@ msgstr ""
 "unusable and trying to call it causes an error."
 
 #. type: Plain text
-#: Configuration.md:45
+#: Configuration.md:46
 msgid ""
 "For more complex configuration file generation Meson provides a second form. "
 "To use it, put a line like this in your configuration file."
 msgstr ""
 
 #. type: Plain text
-#: Configuration.md:47
+#: Configuration.md:48
 #, no-wrap
 msgid "    #mesondefine TOKEN\n"
 msgstr ""
 
 #. type: Plain text
-#: Configuration.md:49
+#: Configuration.md:50
 msgid ""
 "The replacement that happens depends on what the value and type of TOKEN is:"
 msgstr ""
 
 #. type: Plain text
-#: Configuration.md:56
+#: Configuration.md:57
 #, no-wrap
 msgid ""
 "```c\n"
@@ -140,61 +150,68 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Configuration.md:59
+#: Configuration.md:60
 msgid ""
 "Note that if you want to define a C string, you need to do the quoting "
 "yourself like this:"
 msgstr ""
 
 #. type: Plain text
-#: Configuration.md:63
-msgid "```meson conf.set('TOKEN', '\"value\"')  ```"
-msgstr "```meson\nconf.set('TOKEN', '\"value\"') \n```"
+#: Configuration.md:64
+#, fuzzy
+msgid "```meson conf_data.set('TOKEN', '\"value\"')  ```"
+msgstr ""
+"```meson\n"
+"conf.set('TOKEN', '\"value\"') \n"
+"```"
 
 #. type: Plain text
-#: Configuration.md:66
+#: Configuration.md:67
 msgid ""
 "Since this is such a common operation, Meson provides a convenience method:"
 msgstr ""
 
 #. type: Plain text
-#: Configuration.md:71
+#: Configuration.md:72
+#, fuzzy
 msgid ""
-"```meson plain_var = 'value' conf.set_quoted('TOKEN', plain_var) # becomes "
-"#define TOKEN \"value\" ```"
+"```meson plain_var = 'value' conf_data.set_quoted('TOKEN', plain_var) # "
+"becomes #define TOKEN \"value\" ```"
 msgstr ""
-"```meson\nplain_var = 'value' conf.set_quoted('TOKEN', plain_var)\n# becomes "
-"#define TOKEN \"value\"\n```"
+"```meson\n"
+"plain_var = 'value' conf.set_quoted('TOKEN', plain_var)\n"
+"# becomes #define TOKEN \"value\"\n"
+"```"
 
 #. type: Plain text
-#: Configuration.md:75
+#: Configuration.md:76
 msgid ""
 "Often you have a boolean value in Meson but need to define the C/C++ token "
 "as 0 or 1. Meson provides a convenience function for this use case."
 msgstr ""
 
 #. type: Plain text
-#: Configuration.md:85
+#: Configuration.md:86
 #, no-wrap
 msgid ""
 "```meson\n"
-"conf.set10(token, boolean_value)\n"
+"conf_data.set10(token, boolean_value)\n"
 "# The line above is equivalent to this:\n"
 "if boolean_value\n"
-"  conf.set(token, 1)\n"
+"  conf_data.set(token, 1)\n"
 "else\n"
-"  conf.set(token, 0)\n"
+"  conf_data.set(token, 0)\n"
 "endif\n"
 "```\n"
 msgstr ""
 
 #. type: Plain text
-#: Configuration.md:87
+#: Configuration.md:88
 msgid "## Configuring without an input file"
 msgstr ""
 
 #. type: Plain text
-#: Configuration.md:91
+#: Configuration.md:92
 msgid ""
 "If the input file is not defined then Meson will generate a header file all "
 "the entries in the configuration data object. The replacements are the same "
@@ -202,73 +219,95 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Configuration.md:100
+#: Configuration.md:101
 #, no-wrap
 msgid ""
 "```meson\n"
-"cdata.set('FOO', '\"string\"') => #define FOO \"string\"\n"
-"cdata.set('FOO', 'a_token')  => #define FOO a_token\n"
-"cdata.set('FOO', true)       => #define FOO\n"
-"cdata.set('FOO', false)      => #undef FOO\n"
-"cdata.set('FOO', 1)          => #define FOO 1\n"
-"cdata.set('FOO', 0)          => #define FOO 0\n"
+"conf_data.set('FOO', '\"string\"') => #define FOO \"string\"\n"
+"conf_data.set('FOO', 'a_token')  => #define FOO a_token\n"
+"conf_data.set('FOO', true)       => #define FOO\n"
+"conf_data.set('FOO', false)      => #undef FOO\n"
+"conf_data.set('FOO', 1)          => #define FOO 1\n"
+"conf_data.set('FOO', 0)          => #define FOO 0\n"
 "```\n"
 msgstr ""
 
 #. type: Plain text
-#: Configuration.md:103
+#: Configuration.md:104
 msgid ""
 "In this mode, you can also specify a comment which will be placed before the "
 "value so that your generated files are self-documenting."
 msgstr ""
 
 #. type: Plain text
-#: Configuration.md:107
+#: Configuration.md:108
+#, fuzzy
 msgid ""
-"```meson cdata.set('BAR', true, description : 'Set BAR if it is available')  "
-"```"
+"```meson conf_data.set('BAR', true, description : 'Set BAR if it is "
+"available')  ```"
 msgstr ""
-"```meson\ncdata.set('BAR', true, description : 'Set BAR if it is available') \n"
+"```meson\n"
+"cdata.set('BAR', true, description : 'Set BAR if it is available') \n"
 "```"
 
 #. type: Plain text
-#: Configuration.md:109
+#: Configuration.md:110
 msgid "Will produce:"
 msgstr ""
 
 #. type: Plain text
-#: Configuration.md:114
+#: Configuration.md:115
 msgid "```c /* Set BAR if it is available */ #define BAR ```"
-msgstr "```c\n/* Set BAR if it is available */\n#define BAR\n```"
+msgstr ""
+"```c\n"
+"/* Set BAR if it is available */\n"
+"#define BAR\n"
+"```"
 
 #. type: Plain text
-#: Configuration.md:116
+#: Configuration.md:117
+msgid "## Dealing with file encodings"
+msgstr ""
+
+#. type: Plain text
+#: Configuration.md:123
+msgid ""
+"The default meson file encoding to configure files is utf-8. If you need to "
+"configure a file that is not utf-8 encoded the encoding keyword will allow "
+"you to specify which file encoding to use. It is however strongly advised to "
+"convert your non utf-8 file to utf-8 whenever possible. Supported file "
+"encodings are those of python3, see [standard-encodings](https://docs.python."
+"org/3/library/codecs.html#standard-encodings)."
+msgstr ""
+
+#. type: Plain text
+#: Configuration.md:125
 msgid "# A full example"
 msgstr "# 完全な例"
 
 #. type: Plain text
-#: Configuration.md:118
+#: Configuration.md:127
 msgid "Generating and using a configuration file requires the following steps:"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Configuration.md:122
+#: Configuration.md:131
 msgid "generate the file"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Configuration.md:122
+#: Configuration.md:131
 msgid ""
 "create an include directory object for the directory that holds the file"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Configuration.md:122
+#: Configuration.md:131
 msgid "use it in a target"
 msgstr ""
 
 #. type: Plain text
-#: Configuration.md:128
+#: Configuration.md:137
 msgid ""
 "We are going to use the traditional approach of generating a header file in "
 "the top directory. The common name is `config.h` but we're going to use an "
@@ -277,49 +316,60 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Configuration.md:130
+#: Configuration.md:139
 msgid "At the top level we generate the file:"
 msgstr ""
 
 #. type: Plain text
-#: Configuration.md:136
+#: Configuration.md:147
 #, no-wrap
 msgid ""
 "```meson\n"
+"conf_data = configuration_data()\n"
+"# Set data\n"
 "configure_file(input : 'projconfig.h.in',\n"
 "  output : 'projconfig.h',\n"
-"  configuration : cdata_object)\n"
+"  configuration : conf_data)\n"
 "```\n"
 msgstr ""
 
 #. type: Plain text
-#: Configuration.md:138
+#: Configuration.md:149
 msgid "Immediately afterwards we generate the include object."
 msgstr ""
 
 #. type: Plain text
-#: Configuration.md:142
+#: Configuration.md:153
 msgid "```meson configuration_inc = include_directories('.')  ```"
-msgstr "```meson\nconfiguration_inc = include_directories('.') \n```"
+msgstr ""
+"```meson\n"
+"configuration_inc = include_directories('.') \n"
+"```"
 
 #. type: Plain text
-#: Configuration.md:144
+#: Configuration.md:155
 msgid "Finally we specify this in a target that can be in any subdirectory."
 msgstr ""
 
 #. type: Plain text
-#: Configuration.md:148
+#: Configuration.md:159
 msgid "```meson executable(..., include_directories : configuration_inc)  ```"
-msgstr "```meson\nexecutable(..., include_directories : configuration_inc) \n```"
+msgstr ""
+"```meson\n"
+"executable(..., include_directories : configuration_inc) \n"
+"```"
 
 #. type: Plain text
-#: Configuration.md:151
+#: Configuration.md:162
 msgid ""
 "Now any source file in this target can include the configuration header like "
 "this:"
 msgstr ""
 
 #. type: Plain text
-#: Configuration.md:154
+#: Configuration.md:165
 msgid "```c #include<projconfig.h> ```"
-msgstr "```c\n#include<projconfig.h>\n```"
+msgstr ""
+"```c\n"
+"#include<projconfig.h>\n"
+"```"

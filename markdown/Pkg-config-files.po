@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-09-30 21:44+0900\n"
+"POT-Creation-Date: 2018-09-01 16:24+0900\n"
 "PO-Revision-Date: 2017-09-30 21:44+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -27,7 +27,7 @@ msgid ""
 "[Pkg-config](https://en.wikipedia.org/wiki/Pkg-config) is a way for shared "
 "libraries to declare the compiler flags needed to use them. There are two "
 "different ways of generating Pkg-config files in Meson. The first way is to "
-"build them manually with the `configure_files` command. The second way is to "
+"build them manually with the `configure_file` command. The second way is to "
 "use Meson's built in Pkg-config file generator. The difference between the "
 "two is that the latter is very simple and meant for basic use cases. The "
 "former should be used when you need to provide a more customized solution."
@@ -58,8 +58,15 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Pkg-config-files.md:19
+#: Pkg-config-files.md:20
 msgid ""
 "This causes a file called `simple.pc` to be created and placed into the "
 "install directory during the install phase."
+msgstr ""
+
+#. type: Plain text
+#: Pkg-config-files.md:21
+msgid ""
+"More infromation on the pkg-config module and the parameters can be found on "
+"the [pkgconfig-module](http://mesonbuild.com/Pkgconfig-module.html) page."
 msgstr ""

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-12-14 02:35+0900\n"
+"POT-Creation-Date: 2018-09-01 15:59+0900\n"
 "PO-Revision-Date: 2017-09-30 21:43+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -125,8 +125,8 @@ msgstr ""
 #. type: Bullet: '* '
 #: Gnome-module.md:45
 msgid ""
-"`source_dir`: a list of subdirectories where the resource compiler should "
-"look up the files, relative to the location of the XML file"
+"`source_dir`: a list of directories where the resource compiler should look "
+"up the files"
 msgstr ""
 
 #. type: Plain text
@@ -137,214 +137,265 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:50
+#: Gnome-module.md:50 Gnome-module.md:198 Gnome-module.md:264
+msgid "Example:"
+msgstr ""
+
+#. type: Plain text
+#: Gnome-module.md:53 Gnome-module.md:201 Gnome-module.md:267
+msgid "```meson gnome = import('gnome')"
+msgstr ""
+
+#. type: Plain text
+#: Gnome-module.md:59
+#, no-wrap
+msgid ""
+"asresources = gnome.compile_resources(\n"
+"    'as-resources', 'data/asresources.gresource.xml',\n"
+"    source_dir: 'data',\n"
+"    c_name: 'as'\n"
+")\n"
+msgstr ""
+
+#. type: Plain text
+#: Gnome-module.md:67
+#, no-wrap
+msgid ""
+"executable(\n"
+"    meson.project_name(),\n"
+"    asresources,\n"
+"    dependencies: my_deps,\n"
+"    install: true\n"
+")\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: Gnome-module.md:69
 msgid "### gnome.generate_gir()"
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:55
+#: Gnome-module.md:71
+msgid "Generates GObject introspection data."
+msgstr ""
+
+#. type: Plain text
+#: Gnome-module.md:73
+msgid "Takes one or more positional arguments:"
+msgstr ""
+
+#. type: Plain text
+#: Gnome-module.md:76
 msgid ""
-"Generates GObject introspection data. Takes one positional argument, the "
-"build target you want to build gir data for. There are several keyword "
-"arguments. Many of these map directly to the `g-ir-scanner` tool so see its "
-"documentation for more information."
+"Either one or more library objects you want to build gir data for, or a "
+"single executable object."
+msgstr ""
+
+#. type: Plain text
+#: Gnome-module.md:79
+msgid ""
+"There are several keyword arguments. Many of these map directly to the `g-ir-"
+"scanner` tool so see its documentation for more information."
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:77
+#: Gnome-module.md:101
 msgid "`dependencies`: deps to use during introspection scanning"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:77
+#: Gnome-module.md:101
 msgid "`extra_args`: command line arguments to pass to gir compiler"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:77
+#: Gnome-module.md:101
 msgid "`export_packages`: extra packages the gir file exports"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:77
+#: Gnome-module.md:101
 msgid "`sources`: the list of sources to be scanned for gir data"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:77
+#: Gnome-module.md:101
 msgid "`nsversion`: namespace version"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:77
+#: Gnome-module.md:101
 msgid ""
 "`namespace`: the namespace for this gir object which determines output files"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:77
+#: Gnome-module.md:101
 msgid ""
 "`identifier_prefix`: the identifier prefix for the gir object, e.g. `Gtk`"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:77
+#: Gnome-module.md:101
 msgid "`includes`: list of gir names to be included, can also be a GirTarget"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:77
+#: Gnome-module.md:101
 msgid ""
 "`header`: *(Added 0.43.0)* name of main c header to include for the library, "
 "e.g. `glib.h`"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:77
+#: Gnome-module.md:101
 msgid "`include_directories`: extra include paths to look for gir files"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:77
+#: Gnome-module.md:101
 msgid "`install`: if true, install the generated files"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:77
+#: Gnome-module.md:101
 msgid ""
 "`install_dir_gir`: (*Added 0.35.0*) which directory to install the gir file "
 "into"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:77
+#: Gnome-module.md:101
 msgid ""
 "`install_dir_typelib`: (*Added 0.35.0*) which directory to install the "
 "typelib file into"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:77
+#: Gnome-module.md:101
 msgid "`link_with`: list of libraries to link with"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:77
+#: Gnome-module.md:101
 msgid ""
 "`symbol_prefix`: the symbol prefix for the gir object, e.g. `gtk`, (*Since "
 "0.43.0*) an ordered list of multiple prefixes is allowed"
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:80
+#: Gnome-module.md:104
 msgid ""
 "Returns an array of two elements which are: `[gir_target, typelib_target]`"
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:82
+#: Gnome-module.md:106
 msgid "### gnome.genmarshal()"
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:85
+#: Gnome-module.md:109
 msgid ""
 "Generates a marshal file using the `glib-genmarshal` tool. The first "
 "argument is the basename of the output files."
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:99
+#: Gnome-module.md:123
 msgid ""
 "`extra_args`: (*Added 0.42.0*) additional command line arguments to pass"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:99 Gnome-module.md:138 Gnome-module.md:170
+#: Gnome-module.md:123 Gnome-module.md:164 Gnome-module.md:196
 msgid "`install_header`: if true, install the generated header"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:99
+#: Gnome-module.md:123
 msgid "`install_dir`: directory to install header to"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:99
+#: Gnome-module.md:123
 msgid "`nostdinc`: if true, don't include the standard marshallers from glib"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:99
+#: Gnome-module.md:123
 msgid ""
 "`internal`: if true, mark generated sources as internal to `glib-genmarshal` "
 "(*Requires GLib 2.54*)"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:99
+#: Gnome-module.md:123
 msgid "`prefix`: the prefix to use for symbols"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:99
+#: Gnome-module.md:123
 msgid "`skip_source`: if true, skip source location comments"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:99
+#: Gnome-module.md:123
 msgid "`stdinc`: if true, include the standard marshallers from glib"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:99
+#: Gnome-module.md:123
 msgid "`sources`: the list of sources to use as inputs"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:99
+#: Gnome-module.md:123
 msgid "`valist_marshallers`: if true, generate va_list marshallers"
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:101 Gnome-module.md:140
+#: Gnome-module.md:125 Gnome-module.md:166
 #, no-wrap
 msgid "*Added 0.35.0*\n"
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:103 Gnome-module.md:142 Gnome-module.md:192
+#: Gnome-module.md:127 Gnome-module.md:168 Gnome-module.md:218
 msgid "Returns an array of two elements which are: `[c_source, header_file]`"
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:105
+#: Gnome-module.md:129
 msgid "### gnome.mkenums()"
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:108
+#: Gnome-module.md:134
 msgid ""
 "Generates enum files for GObject using the `glib-mkenums` tool. The first "
-"argument is the base name of the output files."
+"argument is the base name of the output files, unless `c_template` and "
+"`h_template` are specified. In this case, the output files will be the base "
+"name of the values passed as templates."
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:111
+#: Gnome-module.md:137
 msgid ""
 "This method is essentially a wrapper around the `glib-mkenums` tool's "
 "command line API. It is the most featureful method for enum creation."
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:114
+#: Gnome-module.md:140
 msgid ""
 "Typically you either provide template files or you specify the various "
 "template sections manually as strings."
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:118
+#: Gnome-module.md:144
 msgid ""
 "Most libraries and applications will be using the same standard template "
 "with only minor tweaks, in which case the `gnome.mkenums_simple()` "
@@ -352,7 +403,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:123
+#: Gnome-module.md:149
 msgid ""
 "Note that if you `#include` the generated header in any of the sources for a "
 "build target, you must add the generated header to the build target's list "
@@ -361,77 +412,77 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:138
+#: Gnome-module.md:164
 msgid "`c_template`: template to use for generating the source"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:138
+#: Gnome-module.md:164
 msgid "`comments`: comment passed to the command"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:138
+#: Gnome-module.md:164
 msgid "`h_template`: template to use for generating the header"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:138 Gnome-module.md:170
+#: Gnome-module.md:164 Gnome-module.md:196
 msgid "`identifier_prefix`: prefix to use for the identifiers"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:138 Gnome-module.md:170
+#: Gnome-module.md:164 Gnome-module.md:196
 msgid "`install_dir`: directory to install the header"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:138 Gnome-module.md:170
+#: Gnome-module.md:164 Gnome-module.md:196
 msgid "`sources`: the list of sources to make enums with"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:138 Gnome-module.md:170
+#: Gnome-module.md:164 Gnome-module.md:196
 msgid "`symbol_prefix`: prefix to use for the symbols"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:138
+#: Gnome-module.md:164
 msgid "`eprod`: enum text"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:138
+#: Gnome-module.md:164
 msgid "`fhead`: file header"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:138
+#: Gnome-module.md:164
 msgid "`fprod`: file text"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:138
+#: Gnome-module.md:164
 msgid "`ftail`: file tail"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:138
+#: Gnome-module.md:164
 msgid "`vhead`: value text"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:138
+#: Gnome-module.md:164
 msgid "`vtail`: value tail"
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:144
+#: Gnome-module.md:170
 msgid "### gnome.mkenums_simple()"
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:149
+#: Gnome-module.md:175
 msgid ""
 "Generates enum `.c` and `.h` files for GObject using the `glib-mkenums` tool "
 "with the standard template used by most GObject-based C libraries. The first "
@@ -439,7 +490,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:154
+#: Gnome-module.md:180
 msgid ""
 "Note that if you `#include` the generated header in any of the sources for a "
 "build target, you must add the generated header to the build target's list "
@@ -448,28 +499,28 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:170
+#: Gnome-module.md:196
 msgid ""
 "`body_prefix`: additional prefix at the top of the body file, e.g. for extra "
 "includes"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:170
+#: Gnome-module.md:196
 msgid ""
 "`decorator`: optional decorator for the function declarations, e.g. "
 "`GTK_AVAILABLE` or `GST_EXPORT`"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:170
+#: Gnome-module.md:196
 msgid ""
 "`function_prefix`: additional prefix for function names, e.g. in case you "
 "want to add a leading underscore to functions used only internally"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:170
+#: Gnome-module.md:196
 msgid ""
 "`header_prefix`: additional prefix at the top of the header file, e.g. for "
 "extra includes (which may be needed if you specify a decorator for the "
@@ -477,31 +528,21 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:172 Gnome-module.md:222
-msgid "Example:"
-msgstr ""
-
-#. type: Plain text
-#: Gnome-module.md:175 Gnome-module.md:225
-msgid "```meson gnome = import('gnome')"
-msgstr ""
-
-#. type: Plain text
-#: Gnome-module.md:178
+#: Gnome-module.md:204
 msgid ""
 "my_headers = ['myheader1.h', 'myheader2.h'] my_sources = ['mysource1.c', "
 "'mysource2.c']"
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:181
+#: Gnome-module.md:207
 msgid ""
 "# will generate myenums.c and myenums.h based on enums in myheader1.h and "
 "myheader2.h enums = gnome.mkenums_simple('myenums', sources : my_headers)"
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:188
+#: Gnome-module.md:214
 #, no-wrap
 msgid ""
 "mylib = library('my', my_sources, enums,\n"
@@ -513,18 +554,18 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:190
+#: Gnome-module.md:216
 #, no-wrap
 msgid "*Added 0.42.0*\n"
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:194
+#: Gnome-module.md:220
 msgid "### gnome.compile_schemas()"
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:198
+#: Gnome-module.md:224
 msgid ""
 "When called, this method will compile the gschemas in the current directory. "
 "Note that this is not for installing schemas and is only useful when running "
@@ -532,7 +573,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:205
+#: Gnome-module.md:231 Gnome-module.md:253
 msgid ""
 "`build_by_default`: causes, when set to true, to have this target be built "
 "by default, that is, when invoking plain `ninja`, the default value is true "
@@ -540,7 +581,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:205
+#: Gnome-module.md:231
 msgid ""
 "`depend_files`: files ([`string`](#string-object), [`files()`](#files), or "
 "[`configure_file()`](#configure_file)) of schema source XML files that "
@@ -548,60 +589,101 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:207
+#: Gnome-module.md:233
 msgid "### gnome.gdbus_codegen()"
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:211
+#: Gnome-module.md:238
 msgid ""
 "Compiles the given XML schema into gdbus source code. Takes two positional "
-"arguments, the first one specifies the name of the source files and the "
-"second specifies the XML file name."
+"arguments, the first one specifies the base name to use while creating the "
+"output source and header and the second specifies one XML file."
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:217
+#: Gnome-module.md:253
+msgid "`sources`: list of XML files"
+msgstr ""
+
+#. type: Bullet: '* '
+#: Gnome-module.md:253
 msgid "`interface_prefix`: prefix for the interface"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:217
+#: Gnome-module.md:253
 msgid "`namespace`: namespace of the interface"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:217
+#: Gnome-module.md:253
+msgid ""
+"`extra_args`: (*Added 0.47.0*) additional command line arguments to pass"
+msgstr ""
+
+#. type: Bullet: '* '
+#: Gnome-module.md:253
+msgid ""
+"`autocleanup`: *(Added 0.47.0)* if set generates autocleanup code. Can be "
+"one of `none`, `objects` or `all`"
+msgstr ""
+
+#. type: Bullet: '* '
+#: Gnome-module.md:253
 msgid ""
 "`object_manager`: *(Added 0.40.0)* if true generates object manager code"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:217
+#: Gnome-module.md:253
 msgid ""
 "`annotations`: *(Added 0.43.0)* list of lists of 3 strings for the "
 "annotation for `'ELEMENT', 'KEY', 'VALUE'`"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:217
+#: Gnome-module.md:253
 msgid ""
 "`docbook`: *(Added 0.43.0)* prefix to generate `'PREFIX'-NAME.xml` docbooks"
 msgstr ""
 
-#. type: Plain text
-#: Gnome-module.md:220
+#. type: Bullet: '* '
+#: Gnome-module.md:253
 msgid ""
-"Returns an opaque object containing the source files. Add it to a top level "
+"`install_dir`: (*Added 0.46.0*) location to install the header or bundle "
+"depending on previous options"
+msgstr ""
+
+#. type: Bullet: '* '
+#: Gnome-module.md:253
+msgid "`install_header`: (*Added 0.46.0*) if true, install the header file"
+msgstr ""
+
+#. type: Plain text
+#: Gnome-module.md:258
+msgid ""
+"Starting *0.46.0*, this function returns a list of at least two custom "
+"targets (in order): one for the source code and one for the header. The list "
+"will contain a third custom target for the generated docbook files if that "
+"keyword argument is passed."
+msgstr ""
+
+#. type: Plain text
+#: Gnome-module.md:262
+msgid ""
+"Earlier versions return a single custom target representing all the "
+"outputs.  Generally, you should just add this list of targets to a top level "
 "target's source list."
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:236
+#: Gnome-module.md:279
 #, no-wrap
 msgid ""
 "# The returned source would be passed to another target\n"
-"gdbus_src = gnome.gdbus_codegen('example-interface', 'com.example.Sample.xml',\n"
+"gdbus_src = gnome.gdbus_codegen('example-interface',\n"
+"  sources: 'com.example.Sample.xml',\n"
 "  interface_prefix : 'com.example.',\n"
 "  namespace : 'Sample',\n"
 "  annotations : [\n"
@@ -613,216 +695,216 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:238
+#: Gnome-module.md:281
 msgid "### gnome.generate_vapi()"
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:241
+#: Gnome-module.md:284
 msgid ""
 "Creates a VAPI file from gir. The first argument is the name of the library."
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:249
+#: Gnome-module.md:292
 msgid "`gir_dirs`: extra directories to include for gir files"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:249
+#: Gnome-module.md:292
 msgid "`install`: if true, install the VAPI file"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:249
+#: Gnome-module.md:292
 msgid ""
 "`install_dir`: location to install the VAPI file (defaults to datadir/vala/"
 "vapi)"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:249
+#: Gnome-module.md:292
 msgid "`metadata_dirs`: extra directories to include for metadata files"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:249
+#: Gnome-module.md:292
 msgid "`packages`: VAPI packages that are depended upon"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:249
+#: Gnome-module.md:292
 msgid "`sources`: the gir source to generate the VAPI from"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:249
+#: Gnome-module.md:292
 msgid "`vapi_dirs`: extra directories to include for VAPI files"
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:252
+#: Gnome-module.md:295
 msgid ""
 "Returns a custom dependency that can be included when building other VAPI or "
 "Vala binaries."
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:254 Gnome-module.md:272
+#: Gnome-module.md:297 Gnome-module.md:315
 #, no-wrap
 msgid "*Added 0.36.0*\n"
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:256
+#: Gnome-module.md:299
 msgid "### gnome.yelp()"
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:259
+#: Gnome-module.md:302
 msgid ""
 "Installs help documentation using Yelp. The first argument is the project id."
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:262
+#: Gnome-module.md:305
 msgid ""
 "This also creates two targets for translations `help-$project-update-po` and "
 "`help-$project-pot`."
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:267
+#: Gnome-module.md:310
 msgid "`languages`: list of languages for translations"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:267
+#: Gnome-module.md:310
 msgid "`media`: list of media such as images"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:267
+#: Gnome-module.md:310
 msgid "`sources`: list of pages"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:267
+#: Gnome-module.md:310
 msgid ""
 "`symlink_media`: if media should be symlinked not copied (defaults to `true` "
 "since 0.42.0)"
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:270
+#: Gnome-module.md:313
 msgid ""
 "Note that very old versions of yelp may not support symlinked media; At "
 "least 3.10 should work."
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:274
+#: Gnome-module.md:317
 msgid "### gnome.gtkdoc()"
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:278
+#: Gnome-module.md:321
 msgid ""
 "Compiles and installs gtkdoc documentation into `prefix/share/gtk-doc/html`. "
 "Takes one positional argument: The name of the module."
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:295
+#: Gnome-module.md:338
 msgid "`content_files`: a list of content files"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:295
+#: Gnome-module.md:338
 msgid "`dependencies`: a list of dependencies"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:295
+#: Gnome-module.md:338
 msgid "`fixxref_args`: a list of arguments to pass to `gtkdoc-fixxref`"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:295
+#: Gnome-module.md:338
 msgid "`gobject_typesfile`: a list of type files"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:295
+#: Gnome-module.md:338
 msgid "`ignore_headers`: a list of header files to ignore"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:295
+#: Gnome-module.md:338
 msgid "`html_assets`: a list of assets for the HTML pages"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:295
+#: Gnome-module.md:338
 msgid "`html_args` a list of arguments to pass to `gtkdoc-mkhtml`"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:295
+#: Gnome-module.md:338
 msgid "`install`: if true, installs the generated docs"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:295
+#: Gnome-module.md:338
 msgid ""
 "`install_dir`: the directory to install the generated docs relative to the "
 "gtk-doc html dir or an absolute path (default: module name)"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:295
+#: Gnome-module.md:338
 msgid "`main_xml`: specifies the main XML file"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:295
+#: Gnome-module.md:338
 msgid "`main_sgml`: equal to `main_xml`"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:295
+#: Gnome-module.md:338
 msgid "`mkdb_args`: a list of arguments to pass to `gtkdoc-mkdb`"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:295
+#: Gnome-module.md:338
 msgid "`scan_args`: a list of arguments to pass to `gtkdoc-scan`"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:295
+#: Gnome-module.md:338
 msgid "`scanobjs_args`: a list of arguments to pass to `gtkdoc-scangobj`"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:295
+#: Gnome-module.md:338
 msgid "`src_dir`: include_directories to include"
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:298
+#: Gnome-module.md:341
 msgid ""
 "This creates a `$module-doc` target that can be ran to build docs and "
 "normally these are only built on install."
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:300
+#: Gnome-module.md:343
 msgid "### gnome.gtkdoc_html_dir()"
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:304
+#: Gnome-module.md:347
 msgid ""
 "Takes as argument a module name and returns the path where that module's "
 "HTML files will be installed. Usually used with `install_data` to install "

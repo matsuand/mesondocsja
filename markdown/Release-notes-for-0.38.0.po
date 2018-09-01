@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-09-30 21:44+0900\n"
+"POT-Creation-Date: 2018-09-01 16:24+0900\n"
 "PO-Revision-Date: 2017-09-30 21:44+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -25,7 +25,10 @@ msgstr ""
 #. type: Plain text
 #: Release-notes-for-0.38.0.md:5
 msgid "title: Release 0.38 short-description: Release notes for 0.38 ..."
-msgstr "title: リリース 0.38\nshort-description: リリースノート 0.38\n..."
+msgstr ""
+"title: リリース 0.38\n"
+"short-description: リリースノート 0.38\n"
+"..."
 
 #. type: Plain text
 #: Release-notes-for-0.38.0.md:7
@@ -225,11 +228,11 @@ msgstr ""
 #. type: Plain text
 #: Release-notes-for-0.38.0.md:88
 msgid ""
-"The second argument to the array [`.get()`](https://github.com/mesonbuild/"
-"meson/wiki/Reference-manual#array-object) function is now returned if the "
-"specified index could not be found ```meson array = [10, 11, 12, 13] array."
-"get(0) # this will return `10` array.get(4) # this will give an error about "
-"invalid index array.get(4, 0) # this will return `0` ```"
+"The second argument to the array [`.get()`](Reference-manual.md#array-"
+"object) function is now returned if the specified index could not be found "
+"```meson array = [10, 11, 12, 13] array.get(0) # this will return `10` array."
+"get(4) # this will give an error about invalid index array.get(4, 0) # this "
+"will return `0` ```"
 msgstr ""
 
 #. type: Plain text

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-09-30 21:43+0900\n"
+"POT-Creation-Date: 2018-09-01 15:59+0900\n"
 "PO-Revision-Date: 2017-09-30 21:43+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -25,7 +25,9 @@ msgstr ""
 #. type: Plain text
 #: Creating-Linux-binaries.md:4
 msgid "short-description: Creating universal Linux binaries ..."
-msgstr "short-description: Creating universal Linux binaries\n..."
+msgstr ""
+"short-description: Creating universal Linux binaries\n"
+"..."
 
 #. type: Plain text
 #: Creating-Linux-binaries.md:6
@@ -73,8 +75,10 @@ msgid ""
 "```console $ apt-get build-dep g++ $ apt-get install pkg-config libgmp-dev "
 "libmpfr-dev libmpc-dev ```"
 msgstr ""
-"```console\n$ apt-get build-dep g++\n$ apt-get install pkg-config libgmp-dev "
-"libmpfr-dev libmpc-dev\n```"
+"```console\n"
+"$ apt-get build-dep g++\n"
+"$ apt-get install pkg-config libgmp-dev libmpfr-dev libmpc-dev\n"
+"```"
 
 #. type: Plain text
 #: Creating-Linux-binaries.md:35
@@ -86,7 +90,9 @@ msgstr ""
 #. type: Plain text
 #: Creating-Linux-binaries.md:38
 msgid "```bash #!/bin/sh"
-msgstr "```bash\n#!/bin/sh"
+msgstr ""
+"```bash\n"
+"#!/bin/sh"
 
 #. type: Plain text
 #: Creating-Linux-binaries.md:41
@@ -121,9 +127,11 @@ msgid ""
 "${HOME}/devroot/bin:$PATH $ export PKG_CONFIG_PATH=${HOME}/devroot/lib/"
 "pkgconfig ```"
 msgstr ""
-"```console\n$ export LD_LIBRARY_PATH=${HOME}/devroot/lib\n$ export PATH="
-"${HOME}/devroot/bin:$PATH\n$ export PKG_CONFIG_PATH=${HOME}/devroot/lib/"
-"pkgconfig\n```"
+"```console\n"
+"$ export LD_LIBRARY_PATH=${HOME}/devroot/lib\n"
+"$ export PATH=${HOME}/devroot/bin:$PATH\n"
+"$ export PKG_CONFIG_PATH=${HOME}/devroot/lib/pkgconfig\n"
+"```"
 
 #. type: Plain text
 #: Creating-Linux-binaries.md:60
@@ -139,7 +147,7 @@ msgstr ""
 #: Creating-Linux-binaries.md:67
 msgid ""
 "Old distros might have too old versions of some tools. For Meson this could "
-"nclude Python 3 and Ninja. If this is the case you need to download, build "
+"include Python 3 and Ninja. If this is the case you need to download, build "
 "and install new versions into `~/devroot` in the usual way."
 msgstr ""
 
@@ -183,8 +191,9 @@ msgid ""
 "```console $ LDFLAGS=-static-libstdc++ meson --prefix=/tmp/myapp <other "
 "args> ```"
 msgstr ""
-"```console\n$ LDFLAGS=-static-libstdc++ meson --prefix=/tmp/myapp <other "
-"args>\n```"
+"```console\n"
+"$ LDFLAGS=-static-libstdc++ meson --prefix=/tmp/myapp <other args>\n"
+"```"
 
 #. type: Plain text
 #: Creating-Linux-binaries.md:103
@@ -207,7 +216,10 @@ msgstr ""
 #. type: Plain text
 #: Creating-Linux-binaries.md:109
 msgid "```meson meson.add_install_script('linux_bundler.sh')  ```"
-msgstr "```meson\nmeson.add_install_script('linux_bundler.sh') \n```"
+msgstr ""
+"```meson\n"
+"meson.add_install_script('linux_bundler.sh') \n"
+"```"
 
 #. type: Plain text
 #: Creating-Linux-binaries.md:111
@@ -227,12 +239,18 @@ msgstr ""
 #. type: Plain text
 #: Creating-Linux-binaries.md:120
 msgid "```bash #!/bin/bash"
-msgstr "```bash\n#!/bin/bash"
+msgstr ""
+"```bash\n"
+"#!/bin/bash"
 
 #. type: Plain text
 #: Creating-Linux-binaries.md:125
 msgid "cd \"${0%/*}\" export LD_LIBRARY_PATH=\"`pwd`/lib\" bin/myapp ```"
-msgstr "cd \"${0%/*}\"\nexport LD_LIBRARY_PATH=\"`pwd`/lib\"\nbin/myapp\n```"
+msgstr ""
+"cd \"${0%/*}\"\n"
+"export LD_LIBRARY_PATH=\"`pwd`/lib\"\n"
+"bin/myapp\n"
+"```"
 
 #. type: Plain text
 #: Creating-Linux-binaries.md:127
@@ -242,7 +260,10 @@ msgstr ""
 #. type: Plain text
 #: Creating-Linux-binaries.md:131
 msgid "```meson install_data('myapp.sh', install_dir : '.')  ```"
-msgstr "```meson\ninstall_data('myapp.sh', install_dir : '.') \n```"
+msgstr ""
+"```meson\n"
+"install_data('myapp.sh', install_dir : '.') \n"
+"```"
 
 #. type: Plain text
 #: Creating-Linux-binaries.md:134

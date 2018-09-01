@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-09-30 21:43+0900\n"
+"POT-Creation-Date: 2018-09-01 15:59+0900\n"
 "PO-Revision-Date: 2017-09-30 21:43+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -25,7 +25,9 @@ msgstr ""
 #. type: Plain text
 #: Generating-sources.md:4
 msgid "short-description: Generation of source files before compilation ..."
-msgstr "short-description: コンパイル前のソースファイル生成\n..."
+msgstr ""
+"short-description: コンパイル前のソースファイル生成\n"
+"..."
 
 #. type: Plain text
 #: Generating-sources.md:6
@@ -33,18 +35,22 @@ msgid "# Generating sources"
 msgstr "# ソースファイル生成"
 
 #. type: Plain text
-#: Generating-sources.md:8
-#, no-wrap
-msgid "  Sometimes source files need to be preprocessed before they are passed to the actual compiler. As an example you might want build an IDL compiler and then run some files through that to generate actual source files. In Meson this is done with [`generator()`](https://github.com/mesonbuild/meson/wiki/Reference-manual#generator) or [`custom_target()`](https://github.com/mesonbuild/meson/wiki/Reference-manual#custom_target).\n"
+#: Generating-sources.md:13
+msgid ""
+"Sometimes source files need to be preprocessed before they are passed to the "
+"actual compiler. As an example you might want build an IDL compiler and then "
+"run some files through that to generate actual source files. In Meson this "
+"is done with [`generator()`](Reference-manual.md#generator) or "
+"[`custom_target()`](Reference-manual.md#custom_target)."
 msgstr ""
 
 #. type: Plain text
-#: Generating-sources.md:10
+#: Generating-sources.md:15
 msgid "## Using custom_target()"
 msgstr "## custom_target() の利用"
 
 #. type: Plain text
-#: Generating-sources.md:12
+#: Generating-sources.md:18
 msgid ""
 "Let's say you have a build target that must be built using sources generated "
 "by a compiler. The compiler can either be a built target:"
@@ -53,24 +59,30 @@ msgstr ""
 "by a compiler. The compiler can either be a built target:"
 
 #. type: Plain text
-#: Generating-sources.md:16
+#: Generating-sources.md:22
 msgid "```meson mycomp = executable('mycompiler', 'compiler.c')  ```"
-msgstr "```meson\nmycomp = executable('mycompiler', 'compiler.c') \n```"
+msgstr ""
+"```meson\n"
+"mycomp = executable('mycompiler', 'compiler.c') \n"
+"```"
 
 #. type: Plain text
-#: Generating-sources.md:18
+#: Generating-sources.md:25
 msgid ""
 "Or an external program provided by the system, or script inside the source "
 "tree:"
 msgstr ""
 
 #. type: Plain text
-#: Generating-sources.md:22
+#: Generating-sources.md:29
 msgid "```meson mycomp = find_program('mycompiler')  ```"
-msgstr "```meson\nmycomp = find_program('mycompiler') \n```"
+msgstr ""
+"```meson\n"
+"mycomp = find_program('mycompiler') \n"
+"```"
 
 #. type: Plain text
-#: Generating-sources.md:24
+#: Generating-sources.md:33
 msgid ""
 "Custom targets can take zero or more input files and use them to generate "
 "one or more output files. Using a custom target, you can run this compiler "
@@ -78,7 +90,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Generating-sources.md:33
+#: Generating-sources.md:42
 #, no-wrap
 msgid ""
 "```meson\n"
@@ -92,29 +104,32 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Generating-sources.md:35
+#: Generating-sources.md:46
 msgid ""
 "The `@INPUT@` there will be transformed to `'somefile1.c' 'file2.c'`. Just "
 "like the output, you can also refer to each input file individually by index."
 msgstr ""
 
 #. type: Plain text
-#: Generating-sources.md:37
+#: Generating-sources.md:48
 msgid "Then you just put that in your program and you're done."
 msgstr ""
 
 #. type: Plain text
-#: Generating-sources.md:41
+#: Generating-sources.md:52
 msgid "```meson executable('program', 'main.c', gen_src)  ```"
-msgstr "```meson\nexecutable('program', 'main.c', gen_src) \n```"
+msgstr ""
+"```meson\n"
+"executable('program', 'main.c', gen_src) \n"
+"```"
 
 #. type: Plain text
-#: Generating-sources.md:43
+#: Generating-sources.md:54
 msgid "## Using generator()"
 msgstr "## generator() の利用"
 
 #. type: Plain text
-#: Generating-sources.md:45
+#: Generating-sources.md:59
 msgid ""
 "Generators are similar to custom targets, except that we define a "
 "*generator*, which defines how to transform an input file into one or more "
@@ -122,7 +137,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Generating-sources.md:47
+#: Generating-sources.md:65
 msgid ""
 "Note that generators should only be used for outputs that will only be used "
 "as inputs for a build target or a custom target. When you use the processed "
@@ -132,16 +147,15 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Generating-sources.md:49
+#: Generating-sources.md:70
 msgid ""
 "If you want to generate files for general purposes such as for generating "
 "headers to be used by several sources, or data that will be installed, and "
-"so on, use a [`custom_target()`](https://github.com/mesonbuild/meson/wiki/"
-"Reference-manual#custom_target) instead."
+"so on, use a [`custom_target()`](Reference-manual.md#custom_target) instead."
 msgstr ""
 
 #. type: Plain text
-#: Generating-sources.md:56
+#: Generating-sources.md:77
 #, no-wrap
 msgid ""
 "```meson\n"
@@ -152,7 +166,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Generating-sources.md:58
+#: Generating-sources.md:92
 msgid ""
 "The first argument is the executable file to run. The next file specifies a "
 "name generation rule. It specifies how to build the output file name for a "
@@ -169,41 +183,73 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Generating-sources.md:60
+#: Generating-sources.md:95
 msgid ""
 "With this rule specified we can generate source files and add them to a "
 "target."
 msgstr ""
 
 #. type: Plain text
-#: Generating-sources.md:65
+#: Generating-sources.md:100
 msgid ""
 "```meson gen_src = gen.process('input1.idl', 'input2.idl')  "
 "executable('program', 'main.c', gen_src)  ```"
 msgstr ""
-"```meson\ngen_src = gen.process('input1.idl', 'input2.idl') \n"
-"executable('program', 'main.c', gen_src) \n```"
+"```meson\n"
+"gen_src = gen.process('input1.idl', 'input2.idl') \n"
+"executable('program', 'main.c', gen_src) \n"
+"```"
 
 #. type: Plain text
-#: Generating-sources.md:67
+#: Generating-sources.md:102
 msgid "Generators can also generate multiple output files with unknown names:"
 msgstr ""
 
 #. type: Plain text
-#: Generating-sources.md:73
+#: Generating-sources.md:108
 #, no-wrap
 msgid ""
 "```meson\n"
 "gen2 = generator(someprog,\n"
-"                 outputs : ['@BASENAME@.c', '@BASENAME@.h'],\n"
+"                 output : ['@BASENAME@.c', '@BASENAME@.h'],\n"
 "                 arguments : ['--out_dir=@BUILD_DIR@', '@INPUT@'])\n"
 "```\n"
 msgstr ""
 
 #. type: Plain text
-#: Generating-sources.md:74
+#: Generating-sources.md:112
 msgid ""
 "In this case you can not use the plain `@OUTPUT@` variable, as it would be "
 "ambiguous. This program only needs to know the output directory, it will "
 "generate the file names by itself."
+msgstr ""
+
+#. type: Plain text
+#: Generating-sources.md:125
+msgid ""
+"To make passing different additional arguments to the generator program at "
+"each use possible, you can use the `@EXTRA_ARGS@` string in the `arguments` "
+"list. Note that this placeholder can only be present as a whole string, and "
+"not as a substring. The main reason is that it represents a list of strings, "
+"which may be empty, or contain multiple elements; and in either case, "
+"interpolating it into the middle of a single string would be troublesome. If "
+"there are no extra arguments passed in from a `process()` invocation, the "
+"placeholder is entirely omitted from the actual list of arguments, so an "
+"empty string won't be passed to the generator program because of this. If "
+"there are multiple elements in `extra_args`, they are inserted into to the "
+"actual argument list as separate elements."
+msgstr ""
+
+#. type: Plain text
+#: Generating-sources.md:133
+#, no-wrap
+msgid ""
+"```meson\n"
+"gen3 = generator(genprog,\n"
+"                 output : '@BASENAME@.cc',\n"
+"                 arguments : ['@INPUT@', '@EXTRA_ARGS@', '@OUTPUT@'])\n"
+"gen3_src1 = gen3.process('input1.y')\n"
+"gen3_src2 = gen3.process('input2.y', extra_args: '--foo')\n"
+"gen3_src3 = gen3.process('input3.y', extra_args: ['--foo', '--bar'])\n"
+"```\n"
 msgstr ""

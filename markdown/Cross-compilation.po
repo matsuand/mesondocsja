@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-12-03 14:26+0900\n"
+"POT-Creation-Date: 2018-09-01 15:59+0900\n"
 "PO-Revision-Date: 2017-09-30 21:43+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -43,40 +43,41 @@ msgid ""
 "and *target*. This is confusing because those terms are used for quite many "
 "different things. To simplify the issue, we are going to call these the "
 "*build machine*, *host machine* and *target machine*. Their definitions are "
-"the following"
+"the following:"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Cross-compilation.md:18
-msgid "*build machine* is the computer that is doing the actual compiling"
+#: Cross-compilation.md:20
+msgid "*build machine* is the computer that is doing the actual compiling."
 msgstr ""
 
 #. type: Bullet: '* '
-#: Cross-compilation.md:18
-msgid "*host machine* is the machine on which the compiled binary will run"
+#: Cross-compilation.md:20
+msgid "*host machine* is the machine on which the compiled binary will run."
 msgstr ""
 
 #. type: Bullet: '* '
-#: Cross-compilation.md:18
+#: Cross-compilation.md:20
 msgid ""
 "*target machine* is the machine on which the compiled binary's output will "
-"run (this is only meaningful for programs such as compilers that, when run, "
-"produce object code for a different CPU than what the program is being run "
-"on)"
+"run, *only meaningful* if the program produces machine-specific output."
 msgstr ""
 
 #. type: Plain text
-#: Cross-compilation.md:24
+#: Cross-compilation.md:30
 msgid ""
 "The `tl/dr` summary is the following: if you are doing regular cross "
-"compilation, you only care about *build_machine* and *host_machine*. Just "
-"ignore *target_machine* altogether and you will be correct 99% of the time. "
-"If your needs are more complex or you are interested in the actual details, "
-"do read on."
+"compilation, you only care about `build_machine` and `host_machine`. Just "
+"ignore `target_machine` altogether and you will be correct 99% of the time. "
+"Only compilers and similar tools care about the target machine. In fact, for "
+"so-called \"multi-target\" tools the target machine need not be fixed at "
+"build-time like the others but chosen at runtime, so `target_machine` "
+"*still* doesn't matter. If your needs are more complex or you are interested "
+"in the actual details, do read on."
 msgstr ""
 
 #. type: Plain text
-#: Cross-compilation.md:28
+#: Cross-compilation.md:34
 msgid ""
 "This might be easier to understand through examples. Let's start with the "
 "regular, not cross-compiling case. In these cases all of these three "
@@ -84,7 +85,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Cross-compilation.md:35
+#: Cross-compilation.md:41
 msgid ""
 "Let's next look at the most common cross-compilation setup. Let's suppose "
 "you are on a 64 bit OSX machine and you are cross compiling a binary that "
@@ -94,7 +95,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Cross-compilation.md:40
+#: Cross-compilation.md:46
 msgid ""
 "It gets a bit trickier when we think about how the cross compiler was "
 "generated. It was built and it runs on a specific platform but the output it "
@@ -103,7 +104,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Cross-compilation.md:52
+#: Cross-compilation.md:58
 msgid ""
 "The most complicated case is when you cross-compile a cross compiler. As an "
 "example you can, on a Linux machine, generate a cross compiler that runs on "
@@ -117,7 +118,24 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Cross-compilation.md:57
+#: Cross-compilation.md:72
+msgid ""
+"A lot of confusion stems from the fact that when you cross-compile "
+"something, the 3 systems (*build*, *host*, and *target*) used when building "
+"the cross compiler don't align with the ones used when building something "
+"with that newly-built cross compiler. To take our Canadian Cross scenario "
+"from above (for full generality), since its *host machine* is x86 Windows, "
+"the *build machine* of anything we build with it is *x86 Windows*. And since "
+"its *target machine* is MIPS Linux, the *host machine* of anything we build "
+"with it is *MIPS Linux*. Only the *target machine* of whatever we build with "
+"it can be freely chosen by us, say if we want to build another cross "
+"compiler that runs on MIPS Linux and targets Aarch64 iOS. As this example "
+"hopefully makes clear to you, the platforms are shifted over to the left by "
+"one position."
+msgstr ""
+
+#. type: Plain text
+#: Cross-compilation.md:77
 msgid ""
 "If you did not understand all of the details, don't worry. For most people "
 "it takes a while to wrap their head around these concepts. Don't panic, it "
@@ -125,12 +143,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Cross-compilation.md:59
+#: Cross-compilation.md:79
 msgid "## Defining the environment"
 msgstr ""
 
 #. type: Plain text
-#: Cross-compilation.md:65
+#: Cross-compilation.md:85
 msgid ""
 "Meson requires you to write a cross build definition file. It defines "
 "various properties of the cross build environment. The cross file consists "
@@ -139,7 +157,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Cross-compilation.md:75
+#: Cross-compilation.md:95
 msgid ""
 "```ini [binaries] c = '/usr/bin/i586-mingw32msvc-gcc' cpp = '/usr/bin/i586-"
 "mingw32msvc-g++' ar = '/usr/i586-mingw32msvc/bin/ar' strip = '/usr/i586-"
@@ -157,7 +175,7 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Cross-compilation.md:84
+#: Cross-compilation.md:104
 msgid ""
 "The entries are pretty self explanatory but the last line is special. It "
 "defines a *wrapper command* that can be used to run executables for this "
@@ -169,14 +187,15 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Cross-compilation.md:87
+#: Cross-compilation.md:108
 msgid ""
-"The next section lists properties of the cross compiler and thus of the "
-"target system. It looks like this:"
+"The next section lists properties of the cross compiler and its target "
+"system, and thus properties of host system of what we're building. It looks "
+"like this:"
 msgstr ""
 
 #. type: Plain text
-#: Cross-compilation.md:93
+#: Cross-compilation.md:114
 msgid "```ini [properties] sizeof_int = 4 sizeof_wchar_t = 4 sizeof_void* = 4"
 msgstr ""
 "```ini\n"
@@ -186,7 +205,7 @@ msgstr ""
 "sizeof_void* = 4"
 
 #. type: Plain text
-#: Cross-compilation.md:97
+#: Cross-compilation.md:118
 msgid "alignment_char = 1 alignment_void* = 4 alignment_double = 4"
 msgstr ""
 "alignment_char = 1\n"
@@ -194,12 +213,12 @@ msgstr ""
 "alignment_double = 4"
 
 #. type: Plain text
-#: Cross-compilation.md:99
+#: Cross-compilation.md:120
 msgid "has_function_printf = true"
 msgstr ""
 
 #. type: Plain text
-#: Cross-compilation.md:103
+#: Cross-compilation.md:124
 msgid ""
 "c_args = ['-DCROSS=1', '-DSOMETHING=3'] c_link_args = ['-some_link_arg'] ```"
 msgstr ""
@@ -208,7 +227,7 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Cross-compilation.md:112
+#: Cross-compilation.md:133
 msgid ""
 "In most cases you don't need the size and alignment settings, Meson will "
 "detect all these by compiling and running some sample programs. If your "
@@ -221,7 +240,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Cross-compilation.md:126
+#: Cross-compilation.md:147
 msgid ""
 "One important thing to note, if you did not define an `exe_wrapper` in the "
 "previous section, is that Meson will make a best-effort guess at whether it "
@@ -239,7 +258,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Cross-compilation.md:131
+#: Cross-compilation.md:152
 msgid "```ini [properties] needs_exe_wrapper = true ```"
 msgstr ""
 "```ini\n"
@@ -248,7 +267,7 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Cross-compilation.md:138
+#: Cross-compilation.md:159
 msgid ""
 "The last bit is the definition of host and target machines. Every cross "
 "build definition must have one or both of them. If it had neither, the build "
@@ -259,7 +278,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Cross-compilation.md:146
+#: Cross-compilation.md:167
 msgid ""
 "```ini [host_machine] system = 'windows' cpu_family = 'x86' cpu = 'i686' "
 "endian = 'little' ```"
@@ -273,7 +292,7 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Cross-compilation.md:154
+#: Cross-compilation.md:175
 msgid ""
 "These values define the machines sufficiently for cross compilation "
 "purposes. The corresponding target definition would look the same but have "
@@ -285,7 +304,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Cross-compilation.md:163
+#: Cross-compilation.md:184
 msgid ""
 "There are two different values for the CPU. The first one is `cpu_family`. "
 "It is a general type of the CPU. Common values might include `x86`, `arm` or "
@@ -297,7 +316,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Cross-compilation.md:167
+#: Cross-compilation.md:188
 msgid ""
 "If you do not define your host machine, it is assumed to be the build "
 "machine. Similarly if you do not specify target machine, it is assumed to be "
@@ -305,17 +324,17 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Cross-compilation.md:169
+#: Cross-compilation.md:190
 msgid "## Starting a cross build"
 msgstr "## クロスビルドの開始"
 
 #. type: Plain text
-#: Cross-compilation.md:172
+#: Cross-compilation.md:193
 msgid "Once you have the cross file, starting a build is simple"
 msgstr ""
 
 #. type: Plain text
-#: Cross-compilation.md:176
+#: Cross-compilation.md:197
 msgid "```console $ meson srcdir builddir --cross-file cross_file.txt ```"
 msgstr ""
 "```console\n"
@@ -323,26 +342,26 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Cross-compilation.md:179
+#: Cross-compilation.md:200
 msgid ""
 "Once configuration is done, compilation is started by invoking Ninja in the "
 "usual way."
 msgstr ""
 
 #. type: Plain text
-#: Cross-compilation.md:181
+#: Cross-compilation.md:202
 msgid "## Introspection and system checks"
 msgstr ""
 
 #. type: Plain text
-#: Cross-compilation.md:184
+#: Cross-compilation.md:205
 msgid ""
 "The main *meson* object provides two functions to determine cross "
 "compilation status."
 msgstr ""
 
 #. type: Plain text
-#: Cross-compilation.md:189
+#: Cross-compilation.md:210
 msgid ""
 "```meson meson.is_cross_build()  # returns true when cross compiling meson."
 "has_exe_wrapper() # returns true if an exe wrapper has been defined ```"
@@ -353,20 +372,20 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Cross-compilation.md:192
+#: Cross-compilation.md:213
 msgid ""
 "Note that the latter gives undefined return value when doing a native build."
 msgstr ""
 
 #. type: Plain text
-#: Cross-compilation.md:195
+#: Cross-compilation.md:216
 msgid ""
 "You can run system checks on both the system compiler or the cross compiler. "
 "You just have to specify which one to use."
 msgstr ""
 
 #. type: Plain text
-#: Cross-compilation.md:199
+#: Cross-compilation.md:220
 msgid ""
 "```meson build_compiler = meson.get_compiler('c', native : true)  "
 "host_compiler = meson.get_compiler('c', native : false)"
@@ -376,7 +395,7 @@ msgstr ""
 "host_compiler = meson.get_compiler('c', native : false)"
 
 #. type: Plain text
-#: Cross-compilation.md:203
+#: Cross-compilation.md:224
 msgid ""
 "build_int_size = build_compiler.sizeof('int')  host_int_size = host_compiler."
 "sizeof('int')  ```"
@@ -386,12 +405,12 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Cross-compilation.md:205
+#: Cross-compilation.md:226
 msgid "## Mixing host and build targets"
 msgstr ""
 
 #. type: Plain text
-#: Cross-compilation.md:210
+#: Cross-compilation.md:231
 msgid ""
 "Sometimes you need to build a tool which is used to generate source files. "
 "These are then compiled for the actual target. For this you would want to "
@@ -400,7 +419,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Cross-compilation.md:214
+#: Cross-compilation.md:235
 msgid ""
 "```meson native_exe = executable('mygen', 'mygen.c', native : true)  ```"
 msgstr ""
@@ -409,19 +428,19 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Cross-compilation.md:216
+#: Cross-compilation.md:237
 msgid ""
 "You can then take `native_exe` and use it as part of a generator rule or "
 "anything else you might want."
 msgstr ""
 
 #. type: Plain text
-#: Cross-compilation.md:218
+#: Cross-compilation.md:239
 msgid "## Using a custom standard library"
 msgstr ""
 
 #. type: Plain text
-#: Cross-compilation.md:223
+#: Cross-compilation.md:244
 msgid ""
 "Sometimes in cross compilation you need to build your own standard library "
 "instead of using the one provided by the compiler. Meson has built-in "
@@ -430,7 +449,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Cross-compilation.md:228
+#: Cross-compilation.md:249
 msgid ""
 "```ini [properties] c_stdlib = ['mylibc', 'mylibc_dep'] # Subproject name, "
 "dependency name ```"
@@ -441,7 +460,7 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Cross-compilation.md:234
+#: Cross-compilation.md:255
 msgid ""
 "This specifies that C standard library is provided in the Meson subproject "
 "`mylibc` in internal dependency variable `mylibc_dep`. It is used on every "
@@ -451,12 +470,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Cross-compilation.md:236
+#: Cross-compilation.md:257
 msgid "## Changing cross file settings"
 msgstr ""
 
 #. type: Plain text
-#: Cross-compilation.md:243
+#: Cross-compilation.md:264
 msgid ""
 "Cross file settings are only read when the build directory is set up the "
 "first time. Any changes to them after the fact will be ignored. This is the "
@@ -466,19 +485,19 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Cross-compilation.md:245
+#: Cross-compilation.md:266
 msgid "## Custom data"
 msgstr "## カスタムデータ"
 
 #. type: Plain text
-#: Cross-compilation.md:248
+#: Cross-compilation.md:269
 msgid ""
 "You can store arbitrary data in `properties` and access them from your Meson "
 "files. As an example if you cross file has this:"
 msgstr ""
 
 #. type: Plain text
-#: Cross-compilation.md:253
+#: Cross-compilation.md:274
 msgid "```ini [properties] somekey = 'somevalue' ```"
 msgstr ""
 "```ini\n"
@@ -487,12 +506,12 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Cross-compilation.md:255
+#: Cross-compilation.md:276
 msgid "then you can access that using the `meson` object like this:"
 msgstr ""
 
 #. type: Plain text
-#: Cross-compilation.md:260
+#: Cross-compilation.md:281
 msgid ""
 "```meson myvar = meson.get_cross_property('somekey')  # myvar now has the "
 "value 'somevalue' ```"
@@ -503,15 +522,15 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Cross-compilation.md:262
+#: Cross-compilation.md:283
 msgid "## Cross file locations"
 msgstr ""
 
 #. type: Plain text
-#: Cross-compilation.md:269
+#: Cross-compilation.md:290
 msgid ""
 "As of version 0.44.0 meson supports loading cross files from system "
-"locations on Linux and the BSDs. This will be $XDG_DATA_DIRS/meson/cross, or "
+"locations (except on Windows).  This will be $XDG_DATA_DIRS/meson/cross, or "
 "if XDG_DATA_DIRS is undefined, then /usr/local/share/meson/cross and /usr/"
 "share/meson/cross will be tried in that order, for system wide cross files. "
 "User local files can be put in $XDG_DATA_HOME/meson/cross, or ~/.local/share/"
@@ -519,7 +538,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Cross-compilation.md:274
+#: Cross-compilation.md:295
 #, no-wrap
 msgid ""
 "The order of locations tried is as follows:\n"
@@ -529,15 +548,15 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Cross-compilation.md:278
+#: Cross-compilation.md:299
 msgid ""
-"Linux and BSD distributions are encouraged to ship cross files either with "
-"their cross compiler toolchain packages or as a standalone package, and put "
-"them in one of the system paths referenced above."
+"Distributions are encouraged to ship cross files either with their cross "
+"compiler toolchain packages or as a standalone package, and put them in one "
+"of the system paths referenced above."
 msgstr ""
 
 #. type: Plain text
-#: Cross-compilation.md:282
+#: Cross-compilation.md:303
 msgid ""
 "These files can be loaded automatically without adding a path to the cross "
 "file. For example, if a ~/.local/share/meson/cross contains a file called "
@@ -546,6 +565,6 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Cross-compilation.md:285
+#: Cross-compilation.md:306
 msgid "```sh meson builddir/ --cross-file x86-linux ```"
 msgstr "```sh meson builddir/ --cross-file x86-linux ```"

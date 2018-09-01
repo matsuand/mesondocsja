@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-01-19 14:05+0900\n"
+"POT-Creation-Date: 2018-09-01 16:24+0900\n"
 "PO-Revision-Date: 2017-09-30 21:44+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -54,33 +54,33 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Pkgconfig-module.md:52
+#: Pkgconfig-module.md:54
 msgid "`description` a string describing the library"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Pkgconfig-module.md:52
+#: Pkgconfig-module.md:54
 msgid ""
 "`extra_cflags` a list of extra compiler flags to be added to the `Cflags` "
 "field after the header search path"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Pkgconfig-module.md:52
+#: Pkgconfig-module.md:54
 msgid ""
 "`filebase`, the base name to use for the pkg-config file, as an example the "
 "value of `libfoo` would produce a pkg-config file called `libfoo.pc`"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Pkgconfig-module.md:52
+#: Pkgconfig-module.md:54
 msgid ""
 "`install_dir` the directory to install to, defaults to the value of option "
 "`libdir` followed by `/pkgconfig`"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Pkgconfig-module.md:52
+#: Pkgconfig-module.md:54
 msgid ""
 "`libraries` a list of built libraries (usually results of shared_library) "
 "that the user needs to link against. Arbitraty strings can also be provided "
@@ -93,7 +93,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Pkgconfig-module.md:52
+#: Pkgconfig-module.md:54
 msgid ""
 "`libraries_private` list of built libraries or strings to put in the `Libs."
 "private` field. Since 0.45.0 it can also contain dependency objects, their "
@@ -101,52 +101,44 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Pkgconfig-module.md:52
+#: Pkgconfig-module.md:54
 msgid "`name` the name of this library"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Pkgconfig-module.md:52
+#: Pkgconfig-module.md:54
 msgid ""
 "`subdirs` which subdirs of `include` should be added to the header search "
 "path, for example if you install headers into `${PREFIX}/include/foobar-1`, "
 "the correct value for this argument would be `foobar-1`"
 msgstr ""
 
-#. type: Bullet: '- '
-#: Pkgconfig-module.md:52
-msgid "`requires` list of strings to put in the `Requires` field"
-msgstr ""
-
-#. type: Bullet: '- '
-#: Pkgconfig-module.md:52
+#. type: Plain text
+#: Pkgconfig-module.md:54
+#, no-wrap
 msgid ""
-"`requires_private` list of strings to put in the `Requires.private` field"
-msgstr ""
-
-#. type: Bullet: '- '
-#: Pkgconfig-module.md:52
-msgid "`url` a string with a url for the library"
-msgstr ""
-
-#. type: Bullet: '- '
-#: Pkgconfig-module.md:52
-msgid ""
-"`variables` a list of strings with custom variables to add to the generated "
-"file. The strings must be in the form `name=value` and may reference other "
-"pkgconfig variables, e.g. `datadir=${prefix}/share`. The names `prefix`, "
-"`libdir` and `installdir` are reserved and may not be used."
-msgstr ""
-
-#. type: Bullet: '- '
-#: Pkgconfig-module.md:52
-msgid "`version` a string describing the version of this library"
+"- `requires` list of strings, pkgconfig-dependencies or libraries that\n"
+"   `pkgconfig.generate()` was used on to put in the `Requires` field\n"
+"- `requires_private` same as `requires` but for `Requires.private` field\n"
+"  field\n"
+"- `url` a string with a url for the library\n"
+"- `variables` a list of strings with custom variables to add to the\n"
+"  generated file. The strings must be in the form `name=value` and may\n"
+"  reference other pkgconfig variables,\n"
+"  e.g. `datadir=${prefix}/share`. The names `prefix`, `libdir` and\n"
+"  `installdir` are reserved and may not be used.\n"
+"- `version` a string describing the version of this library\n"
+"- `d_module_versions` a list of module version flags used when compiling\n"
+"   D sources referred to by this pkg-config file\n"
 msgstr ""
 
 #. type: Plain text
-#: Pkgconfig-module.md:52
-#, no-wrap
+#: Pkgconfig-module.md:60
 msgid ""
-"- `d_module_versions` a list of module version flags used when compiling\n"
-"   D sources referred to by this pkg-config file\n"
+"Since 0.46 a `StaticLibrary` or `SharedLibrary` object can optionally be "
+"passed as first positional argument. If one is provided a default value will "
+"be provided for all required fields of the pc file: - `install_dir` is set "
+"to `pkgconfig` folder in the same location than the provided library.  - "
+"`description` is set to the project's name followed by the library's name.  "
+"- `name` is set to the library's name."
 msgstr ""

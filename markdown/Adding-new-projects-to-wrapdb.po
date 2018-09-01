@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-09-30 21:43+0900\n"
+"POT-Creation-Date: 2018-09-01 15:59+0900\n"
 "PO-Revision-Date: 2017-09-30 21:43+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -55,8 +55,9 @@ msgstr ""
 #: Adding-new-projects-to-wrapdb.md:22
 msgid ""
 "The WrapDB repository has a [helper script](https://github.com/mesonbuild/"
-"wrapweb/blob/master/tools/repoinit.py)  to generate new repositories. The "
-"documentation below roughly explains what it does using plain shell commands."
+"wrapweb/blob/master/mesonwrap.py)  to generate new repositories, verify them "
+"and update them. The documentation below roughly explains what it does to "
+"create a new wrap repository using plain shell commands."
 msgstr ""
 
 #. type: Plain text
@@ -87,42 +88,41 @@ msgid "Each project gets its own repo. It is initialized like this:"
 msgstr ""
 
 #. type: Plain text
-#: Adding-new-projects-to-wrapdb.md:45
+#: Adding-new-projects-to-wrapdb.md:44
 #, no-wrap
 msgid ""
 "    git init\n"
 "    git add readme.txt\n"
-"    git commit -a -m 'Start of project foobar.'\n"
-"    git tag commit_zero -a -m 'A tag that helps get revision ids for releases.'\n"
+"    git add LICENSE.build\n"
+"    git commit -a -m 'Create project foobar'\n"
 "    git remote add origin <repo url>\n"
 "    git push -u origin master\n"
-"    git push --tags\n"
 msgstr ""
 
 #. type: Plain text
-#: Adding-new-projects-to-wrapdb.md:47
+#: Adding-new-projects-to-wrapdb.md:46
 msgid ""
 "Note that this is the *only* commit that will ever be made to master branch. "
 "All other commits are done to branches."
 msgstr ""
 
 #. type: Plain text
-#: Adding-new-projects-to-wrapdb.md:49
+#: Adding-new-projects-to-wrapdb.md:48
 msgid "Repo names must fully match this regexp: `[a-z0-9._]+`."
 msgstr ""
 
 #. type: Plain text
-#: Adding-new-projects-to-wrapdb.md:51
+#: Adding-new-projects-to-wrapdb.md:50
 msgid "## Adding a new branch to an existing project"
 msgstr ""
 
 #. type: Plain text
-#: Adding-new-projects-to-wrapdb.md:53
+#: Adding-new-projects-to-wrapdb.md:52
 msgid "Create a new branch whose name matches the upstream release number."
 msgstr ""
 
 #. type: Plain text
-#: Adding-new-projects-to-wrapdb.md:58
+#: Adding-new-projects-to-wrapdb.md:57
 #, no-wrap
 msgid ""
 "    git checkout master\n"
@@ -132,17 +132,17 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Adding-new-projects-to-wrapdb.md:60
+#: Adding-new-projects-to-wrapdb.md:59
 msgid "Branch names must fully match this regexp: `[a-z0-9._]+`."
 msgstr ""
 
 #. type: Plain text
-#: Adding-new-projects-to-wrapdb.md:62
+#: Adding-new-projects-to-wrapdb.md:61
 msgid "## Adding a new release to an existing branch"
 msgstr ""
 
 #. type: Plain text
-#: Adding-new-projects-to-wrapdb.md:64
+#: Adding-new-projects-to-wrapdb.md:63
 msgid ""
 "Here is where the magic happens. Whenever a new commit is pushed into "
 "GitHub's project branch, a new wrap is generated with an incremented version "
@@ -152,7 +152,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Adding-new-projects-to-wrapdb.md:66
+#: Adding-new-projects-to-wrapdb.md:65
 msgid ""
 "Note that your Git repo must *not* contain the subdirectory of the source "
 "release. That gets added automatically by the service. You also must *not* "
@@ -160,14 +160,14 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Adding-new-projects-to-wrapdb.md:68
+#: Adding-new-projects-to-wrapdb.md:67
 msgid ""
 "First you need to fork the repository to your own page. Then you can create "
 "the first Wrap commit that usually looks something like this."
 msgstr ""
 
 #. type: Plain text
-#: Adding-new-projects-to-wrapdb.md:80
+#: Adding-new-projects-to-wrapdb.md:79
 #, no-wrap
 msgid ""
 "    tar xzf libfoo_1.0.0.tar.gz\n"
@@ -184,19 +184,19 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Adding-new-projects-to-wrapdb.md:83
+#: Adding-new-projects-to-wrapdb.md:82
 msgid ""
 "Now you can file a merge request. Remember to file it against branch 1.0.0 "
 "rather than master. GitHub should do this automatically."
 msgstr ""
 
 #. type: Plain text
-#: Adding-new-projects-to-wrapdb.md:85
+#: Adding-new-projects-to-wrapdb.md:84
 msgid "## Changes to original source"
 msgstr ""
 
 #. type: Plain text
-#: Adding-new-projects-to-wrapdb.md:91
+#: Adding-new-projects-to-wrapdb.md:90
 msgid ""
 "The point of a wrap is to provide the upstream project with as few changes "
 "as possible. Most projects should not contain anything more than a few Meson "
@@ -205,7 +205,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Adding-new-projects-to-wrapdb.md:96
+#: Adding-new-projects-to-wrapdb.md:95
 msgid ""
 "It should especially be noted that there must **not** be any patches to "
 "functionality. All such changes must be submitted to upstream. You may also "
@@ -214,11 +214,11 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Adding-new-projects-to-wrapdb.md:98
+#: Adding-new-projects-to-wrapdb.md:97
 msgid "## Reviewing wraps"
 msgstr ""
 
 #. type: Plain text
-#: Adding-new-projects-to-wrapdb.md:99
+#: Adding-new-projects-to-wrapdb.md:98
 msgid "See [Wrap review guidelines](Wrap-review-guidelines.md)."
 msgstr ""

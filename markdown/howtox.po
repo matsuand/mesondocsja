@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-11-20 13:47+0900\n"
+"POT-Creation-Date: 2018-09-01 16:24+0900\n"
 "PO-Revision-Date: 2017-09-30 21:44+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -22,7 +22,7 @@ msgid "# How do I do X in Meson?"
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:4
+#: howtox.md:6
 msgid ""
 "This page lists code snippets for common tasks. These are written mostly "
 "using the C compiler, but the same approach should work on almost all other "
@@ -30,27 +30,48 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:6
+#: howtox.md:8
 msgid "## Set compiler"
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:8
+#: howtox.md:10
 msgid "When first running Meson, set it in an environment variable."
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:12
+#: howtox.md:14
 msgid "```console $ CC=mycc meson <options> ```"
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:14
+#: howtox.md:19
+msgid ""
+"Note that environment variables like `CC` _always_ refer to the native "
+"compiler. That is, the compiler used to compile programs that run on the "
+"current machine. The compiler used in cross compilation is set with the "
+"cross file."
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:28
+msgid ""
+"This behaviour is different from e.g. Autotools, where cross compilation is "
+"done by setting `CC` to point to the cross compiler (such as `/usr/bin/arm-"
+"linux-gnueabihf-gcc`). The reason for this is that Meson supports natively "
+"the case where you compile helper tools (such as code generators) and use "
+"the results during the build. Because of this Meson needs to know both the "
+"native and the cross compiler. The former is set via the environment "
+"variables and the latter via the cross file only."
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:30
 msgid "## Set default C/C++ language version"
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:19
+#: howtox.md:35
 #, no-wrap
 msgid ""
 "```meson\n"
@@ -60,66 +81,66 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:21
+#: howtox.md:37
 msgid "The language version can also be set on a per-target basis."
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:25
+#: howtox.md:41
 msgid "```meson executable(..., override_options : ['c_std=c11'])  ```"
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:27
+#: howtox.md:43
 msgid "## Enable threads"
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:29
+#: howtox.md:47
 msgid ""
 "Lots of people seem to do this manually with `find_library('pthread')` or "
 "something similar. Do not do that. It is not portable. Instead do this."
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:34
+#: howtox.md:52
 msgid ""
 "```meson thread_dep = dependency('threads')  executable(..., dependencies : "
 "thread_dep)  ```"
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:36
+#: howtox.md:54
 msgid ""
 "## Set extra compiler and linker flags from the outside (when e.g. building "
 "distro packages)"
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:38
+#: howtox.md:56
 msgid ""
 "The behavior is the same as with other build systems, with environment "
 "variables during first invocation."
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:42
+#: howtox.md:60
 msgid ""
 "```console $ CFLAGS=-fsomething LDFLAGS=-Wl,--linker-flag meson <options> ```"
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:44
+#: howtox.md:62
 msgid "## Use an argument only with a specific compiler"
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:46
+#: howtox.md:64
 msgid "First check which arguments to use."
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:54
+#: howtox.md:72
 #, no-wrap
 msgid ""
 "```meson\n"
@@ -132,22 +153,22 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:56
+#: howtox.md:74
 msgid "Then use it in a target."
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:60
+#: howtox.md:78
 msgid "```meson executable(..., c_args : extra_args)  ```"
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:62
+#: howtox.md:80
 msgid "If you want to use the arguments on all targets, then do this."
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:68
+#: howtox.md:86
 #, no-wrap
 msgid ""
 "```meson\n"
@@ -158,67 +179,67 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:70
+#: howtox.md:88
 msgid "## Set a command's output to configuration"
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:77
+#: howtox.md:95
 msgid ""
 "```meson txt = run_command('script', 'argument').stdout().strip()  cdata = "
 "configuration_data()  cdata.set('SOMETHING', txt)  configure_file(...)  ```"
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:79
+#: howtox.md:97
 msgid "## Generate a runnable script with `configure_file`"
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:81
+#: howtox.md:100
 msgid ""
 "`configure_file` preserves metadata so if your template file has execute "
 "permissions, the generated file will have them too."
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:83
+#: howtox.md:102
 msgid "## Producing a coverage report"
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:85
+#: howtox.md:104
 msgid "First initialize the build directory with this command."
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:89
+#: howtox.md:108
 msgid "```console $ meson <other flags> -Db_coverage=true ```"
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:91
+#: howtox.md:110
 msgid "Then issue the following commands."
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:97
+#: howtox.md:116
 msgid ""
 "```console $ ninja $ ninja test $ ninja coverage-html (or coverage-xml)  ```"
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:99
+#: howtox.md:118
 msgid "The coverage report can be found in the meson-logs subdirectory."
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:101
+#: howtox.md:120
 msgid "## Add some optimization to debug builds"
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:103
+#: howtox.md:126
 msgid ""
 "By default the debug build does not use any optimizations. This is the "
 "desired approach most of the time. However some projects benefit from having "
@@ -227,22 +248,22 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:107
+#: howtox.md:130
 msgid "```console $ meson configure -Dc_args=-Og ```"
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:109
+#: howtox.md:132
 msgid "This causes all subsequent builds to use this command line argument."
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:111
+#: howtox.md:134
 msgid "## Use address sanitizer"
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:113
+#: howtox.md:138
 msgid ""
 "Clang comes with a selection of analysis tools such as the [address "
 "sanitizer](https://clang.llvm.org/docs/AddressSanitizer.html). Meson has "
@@ -250,12 +271,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:117
+#: howtox.md:142
 msgid "```console $ meson <other options> -Db_sanitize=address ```"
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:119
+#: howtox.md:146
 msgid ""
 "After this you just compile your code and run the test suite. Address "
 "sanitizer will abort executables which have bugs so they show up as test "
@@ -263,77 +284,82 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:121
+#: howtox.md:148
 msgid "## Use Clang static analyzer"
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:123
+#: howtox.md:150
 msgid "Install scan-build and configure your project. Then do this:"
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:127
+#: howtox.md:154
 msgid "```console $ ninja scan-build ```"
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:132
+#: howtox.md:157
 msgid ""
-"You can use the `SCAN_BUILD` environment variable to choose the scan-build "
-"executable.  ```console $ SCAN_BUILD=<your exe> ninja scan-build ```"
+"You can use the `SCANBUILD` environment variable to choose the scan-build "
+"executable."
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:135
+#: howtox.md:161
+msgid "```console $ SCANBUILD=<your exe> ninja scan-build ```"
+msgstr ""
+
+#. type: Plain text
+#: howtox.md:164
 msgid "## Use profile guided optimization"
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:137
+#: howtox.md:168
 msgid ""
 "Using profile guided optimization with GCC is a two phase operation. First "
 "we set up the project with profile measurements enabled and compile it."
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:142
+#: howtox.md:173
 msgid ""
 "```console $ meson <Meson options, such as --buildtype=debugoptimized> -"
 "Db_pgo=generate $ ninja -C builddir ```"
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:144
+#: howtox.md:176
 msgid ""
 "Then we need to run the program with some representative input. This step "
 "depends on your project."
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:146
+#: howtox.md:179
 msgid ""
 "Once that is done we change the compiler flags to use the generated "
 "information and rebuild."
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:151
+#: howtox.md:184
 msgid "```console $ meson configure -Db_pgo=use $ ninja ```"
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:153
+#: howtox.md:186
 msgid "After these steps the resulting binary is fully optimized."
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:155
+#: howtox.md:188
 msgid "## Add math library (`-lm`) portably"
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:157
+#: howtox.md:192
 msgid ""
 "Some platforms (e.g. Linux) have a standalone math library. Other platforms "
 "(pretty much everyone else) do not. How to specify that `m` is used only "
@@ -341,19 +367,19 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:163
+#: howtox.md:198
 msgid ""
 "```meson cc = meson.get_compiler('c')  m_dep = cc.find_library('m', "
 "required : false)  executable(..., dependencies : m_dep)  ```"
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:165
+#: howtox.md:200
 msgid "## Install an executable to `libexecdir`"
 msgstr ""
 
 #. type: Plain text
-#: howtox.md:168
+#: howtox.md:203
 msgid ""
 "```meson executable(..., install : true, install_dir : "
 "get_option('libexecdir'))  ```"

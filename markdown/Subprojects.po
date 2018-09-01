@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-11-27 13:08+0900\n"
+"POT-Creation-Date: 2018-09-01 16:24+0900\n"
 "PO-Revision-Date: 2017-09-30 21:44+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -60,8 +60,8 @@ msgstr ""
 #: Subprojects.md:23
 #, fuzzy
 msgid ""
-"```meson dep = dependency('foo', fallback : [subproject_name, variable_name] "
-"```"
+"```meson dep = dependency('foo', fallback : [subproject_name, "
+"variable_name])  ```"
 msgstr ""
 "```meson\n"
 "sp_dep = dependency('subproj_pkgconfig_name', fallback : ['subproj_name', "
@@ -108,7 +108,7 @@ msgstr ""
 msgid ""
 "```meson\n"
 "project('master', 'c')\n"
-"dep = dependency('simple', fallback : ['simple', 'simple_dep']\n"
+"dep = dependency('simple', fallback : ['simple', 'simple_dep'])\n"
 "exe = executable('prog', 'prog.c',\n"
 "                 dependencies : dep, install : true)\n"
 "```\n"
@@ -161,13 +161,119 @@ msgstr ""
 
 #. type: Plain text
 #: Subprojects.md:76
-msgid "# Obtaining subprojects"
+msgid "# Command-line options"
 msgstr ""
 
 #. type: Plain text
 #: Subprojects.md:79
 msgid ""
+"The usage of subprojects can be controlled by users and distros with the "
+"following command-line options:"
+msgstr ""
+
+#. type: Bullet: '* '
+#: Subprojects.md:81
+msgid "**--wrap-mode=nodownload**"
+msgstr ""
+
+#. type: Plain text
+#: Subprojects.md:87
+#, no-wrap
+msgid ""
+"    Meson will not use the network to download any subprojects or\n"
+"    fetch any wrap information. Only pre-existing sources will be used.\n"
+"    This is useful (mostly for distros) when you want to only use the\n"
+"    sources provided by a software release, and want to manually handle\n"
+"    or provide missing dependencies.\n"
+msgstr ""
+
+#. type: Bullet: '* '
+#: Subprojects.md:89
+msgid "**--wrap-mode=nofallback**"
+msgstr ""
+
+#. type: Plain text
+#: Subprojects.md:95
+#, no-wrap
+msgid ""
+"    Meson will not use subproject fallbacks for any dependency\n"
+"    declarations in the build files, and will only look for them in the\n"
+"    system. Note that this does not apply to unconditional subproject()\n"
+"    calls, and those are meant to be used for sources that cannot be\n"
+"    provided by the system, such as copylibs.\n"
+msgstr ""
+
+#. type: Bullet: '* '
+#: Subprojects.md:97
+msgid "**--wrap-mode=forcefallback**"
+msgstr ""
+
+#. type: Plain text
+#: Subprojects.md:103
+#, no-wrap
+msgid ""
+"    Meson will not look at the system for any dependencies which have\n"
+"    subproject fallbacks available, and will *only* use subprojects for\n"
+"    them. This is useful when you want to test your fallback setup, or\n"
+"    want to specifically build against the library sources provided by\n"
+"    your subprojects.\n"
+msgstr ""
+
+#. type: Plain text
+#: Subprojects.md:105
+msgid "# Obtaining subprojects"
+msgstr ""
+
+#. type: Plain text
+#: Subprojects.md:109
+msgid ""
 "Meson ships with a dependency system to automatically obtain dependency "
 "subprojects. It is documented in the [Wrap dependency system manual](Wrap-"
 "dependency-system-manual.md)."
+msgstr ""
+
+#. type: Plain text
+#: Subprojects.md:111
+msgid "# Why must all subprojects be inside a single directory?"
+msgstr ""
+
+#. type: Plain text
+#: Subprojects.md:113
+msgid "There are several reasons."
+msgstr ""
+
+#. type: Plain text
+#: Subprojects.md:118
+msgid ""
+"First of all, to maintain any sort of sanity, the system must prevent going "
+"inside other subprojects with `subdir()` or variations thereof. Having the "
+"subprojects in well defined places makes this easy. If subprojects could be "
+"anywhere at all, it would be a lot harder."
+msgstr ""
+
+#. type: Plain text
+#: Subprojects.md:122
+msgid ""
+"Second of all it is extremely important that end users can easily see what "
+"subprojects any project has. Because they are in one, and only one, place, "
+"reviewing them becomes easy."
+msgstr ""
+
+#. type: Plain text
+#: Subprojects.md:127
+msgid ""
+"This is also a question of convention. Since all Meson projects have the "
+"same layout w.r.t subprojects, switching between projects becomes easier. "
+"You don't have to spend time on a new project traipsing through the source "
+"tree looking for subprojects. They are always in the same place."
+msgstr ""
+
+#. type: Plain text
+#: Subprojects.md:132
+msgid ""
+"Finally if you can have subprojects anywhere, this increases the possibility "
+"of having many different (possibly incompatible) versions of a dependency in "
+"your source tree. Then changing some code (such as changing the order you "
+"traverse directories) may cause a completely different version of the "
+"subproject to be used by accident."
 msgstr ""

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-12-18 19:23+0900\n"
+"POT-Creation-Date: 2018-09-01 16:24+0900\n"
 "PO-Revision-Date: 2017-09-30 21:44+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -42,7 +42,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Python-3-module.md:13 Python-3-module.md:22
+#: Python-3-module.md:13 Python-3-module.md:26
 #, no-wrap
 msgid "*Added 0.38.0*\n"
 msgstr ""
@@ -62,27 +62,35 @@ msgstr ""
 
 #. type: Plain text
 #: Python-3-module.md:24
+msgid ""
+"`extension_module` does not add any dependencies to the library so user may "
+"need to add `dependencies : dependency('python3')`, see [Python3 dependency]"
+"(Dependencies.md#Python3)."
+msgstr ""
+
+#. type: Plain text
+#: Python-3-module.md:28
 msgid "## language_version"
 msgstr ""
 
 #. type: Plain text
-#: Python-3-module.md:26
+#: Python-3-module.md:30
 msgid "Returns a string with the Python language version such as `3.5`."
 msgstr ""
 
 #. type: Plain text
-#: Python-3-module.md:28 Python-3-module.md:34
+#: Python-3-module.md:32 Python-3-module.md:38
 #, no-wrap
 msgid "*Added 0.40.0*\n"
 msgstr ""
 
 #. type: Plain text
-#: Python-3-module.md:30
+#: Python-3-module.md:34
 msgid "## sysconfig_path"
 msgstr ""
 
 #. type: Plain text
-#: Python-3-module.md:33
+#: Python-3-module.md:37
 msgid ""
 "Returns the Python sysconfig path without prefix, such as `lib/python3.6/"
 "site-packages`."

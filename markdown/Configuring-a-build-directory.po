@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-10-24 18:52+0900\n"
+"POT-Creation-Date: 2018-09-01 15:59+0900\n"
 "PO-Revision-Date: 2017-09-30 21:43+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -44,15 +44,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Configuring-a-build-directory.md:15
-msgid ""
-"The main tool for this is the `meson configure` command. You may also use "
-"the `mesongui` graphical application if you want. However this document "
-"describes the use of the command line client."
+#: Configuring-a-build-directory.md:13
+msgid "The main tool for this is the `meson configure` command."
 msgstr ""
 
 #. type: Plain text
-#: Configuring-a-build-directory.md:19
+#: Configuring-a-build-directory.md:17
 msgid ""
 "You invoke `meson configure` by giving it the location of your build dir. If "
 "omitted, the current working directory is used instead. Here's a sample "
@@ -60,13 +57,13 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Configuring-a-build-directory.md:21
+#: Configuring-a-build-directory.md:19
 #, no-wrap
 msgid "    Core properties\n"
 msgstr ""
 
 #. type: Plain text
-#: Configuring-a-build-directory.md:24
+#: Configuring-a-build-directory.md:22
 #, no-wrap
 msgid ""
 "    Source dir /home/jpakkane/clangdemo/2_address\n"
@@ -74,13 +71,13 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Configuring-a-build-directory.md:26
+#: Configuring-a-build-directory.md:24
 #, no-wrap
 msgid "    Core options\n"
 msgstr ""
 
 #. type: Plain text
-#: Configuring-a-build-directory.md:32
+#: Configuring-a-build-directory.md:30
 #, no-wrap
 msgid ""
 "    type     Build type          debug\n"
@@ -91,37 +88,37 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Configuring-a-build-directory.md:34
+#: Configuring-a-build-directory.md:32
 #, no-wrap
 msgid "    Compiler flags\n"
 msgstr ""
 
 #. type: Plain text
-#: Configuring-a-build-directory.md:36
+#: Configuring-a-build-directory.md:34
 #, no-wrap
 msgid "    cflags []\n"
 msgstr ""
 
 #. type: Plain text
-#: Configuring-a-build-directory.md:38
+#: Configuring-a-build-directory.md:36
 #, no-wrap
 msgid "    Linker flags\n"
 msgstr ""
 
 #. type: Plain text
-#: Configuring-a-build-directory.md:40
+#: Configuring-a-build-directory.md:38
 #, no-wrap
 msgid "    clinkflags []\n"
 msgstr ""
 
 #. type: Plain text
-#: Configuring-a-build-directory.md:42
+#: Configuring-a-build-directory.md:40
 #, no-wrap
 msgid "    Directories\n"
 msgstr ""
 
 #. type: Plain text
-#: Configuring-a-build-directory.md:50
+#: Configuring-a-build-directory.md:48
 #, no-wrap
 msgid ""
 "    installprefix Install prefix        /usr/local\n"
@@ -134,13 +131,13 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Configuring-a-build-directory.md:52
+#: Configuring-a-build-directory.md:50
 #, no-wrap
 msgid "    This project does not have any options\n"
 msgstr ""
 
 #. type: Plain text
-#: Configuring-a-build-directory.md:58
+#: Configuring-a-build-directory.md:56
 msgid ""
 "These are all the options available for the current project arranged into "
 "related groups. The first column in every field is the name of the option. "
@@ -150,13 +147,13 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Configuring-a-build-directory.md:60
+#: Configuring-a-build-directory.md:58
 #, no-wrap
 msgid "    meson configure -Dprefix=/tmp/testroot\n"
 msgstr ""
 
 #. type: Plain text
-#: Configuring-a-build-directory.md:63
+#: Configuring-a-build-directory.md:61
 msgid ""
 "Then you would run your build command (usually `ninja`), which would cause "
 "Meson to detect that the build setup has changed and do all the work "

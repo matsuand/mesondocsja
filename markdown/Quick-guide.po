@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-09-30 21:44+0900\n"
+"POT-Creation-Date: 2018-09-01 16:24+0900\n"
 "PO-Revision-Date: 2017-09-30 21:44+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -28,7 +28,8 @@ msgid ""
 "title: Quick guide short-description: Guide to get started using meson ..."
 msgstr ""
 "title: クィックガイド\n"
-"short-description: Guide to get started using meson\n..."
+"short-description: Guide to get started using meson\n"
+"..."
 
 #. type: Plain text
 #: Quick-guide.md:7
@@ -42,10 +43,9 @@ msgid ""
 "the basic use cases. For more advanced cases refer to Meson's command line "
 "help which is accessible with the command `meson --help`."
 msgstr ""
-"Meson はできるかぎり扱いやすいように設計されています。このページでは、"
-"基本的な利用方法について示します。さらに詳しい利用方法については、"
-"コマンドラインから `meson --help` を実行して、表示されるヘルプを参照"
-"してください。"
+"Meson はできるかぎり扱いやすいように設計されています。このページでは、基本的"
+"な利用方法について示します。さらに詳しい利用方法については、コマンドラインか"
+"ら `meson --help` を実行して、表示されるヘルプを参照してください。"
 
 #. type: Plain text
 #: Quick-guide.md:13
@@ -78,8 +78,8 @@ msgid ""
 "Ninja is only needed if you use the Ninja backend. Meson can also generate "
 "native VS and XCode project files."
 msgstr ""
-"Ninja はバックエンドとして利用する場合にのみ必要となります。Meson では、"
-"ネイティブの VS や XCode プロジェクトファイルを生成することもできます。"
+"Ninja はバックエンドとして利用する場合にのみ必要となります。Meson では、ネイ"
+"ティブの VS や XCode プロジェクトファイルを生成することもできます。"
 
 #. type: Plain text
 #: Quick-guide.md:24
@@ -90,19 +90,25 @@ msgstr ""
 #. type: Plain text
 #: Quick-guide.md:28
 msgid "```console $ sudo apt-get install python3 ninja-build ```"
-msgstr "```console\n$ sudo apt-get install python3 ninja-build\n```"
+msgstr ""
+"```console\n"
+"$ sudo apt-get install python3 ninja-build\n"
+"```"
 
 #. type: Plain text
 #: Quick-guide.md:30
 msgid "The best way to get Meson is to `pip install` it for your user"
 msgstr ""
-"Meson を入手する最良の方法は、利用中のログインユーザーにおいて `pip "
-"install` を実行することです。"
+"Meson を入手する最良の方法は、利用中のログインユーザーにおいて `pip install` "
+"を実行することです。"
 
 #. type: Plain text
 #: Quick-guide.md:34
 msgid "```console $ pip3 install --user meson ```"
-msgstr "```console\n$ pip3 install --user meson\n```"
+msgstr ""
+"```console\n"
+"$ pip3 install --user meson\n"
+"```"
 
 #. type: Plain text
 #: Quick-guide.md:38
@@ -111,17 +117,17 @@ msgid ""
 "our frequent release cycle and development speed this version might be out "
 "of date."
 msgstr ""
-"ディストリビューションが提供する Meson を用いることもできます。ただし "
-"Meson のリリースサイクルや開発スピードを考えると、そのパッケージバージ"
-"ョンは古い場合があるため注意してください。"
+"ディストリビューションが提供する Meson を用いることもできます。ただし Meson "
+"のリリースサイクルや開発スピードを考えると、そのパッケージバージョンは古い場"
+"合があるため注意してください。"
 
 #. type: Plain text
 #: Quick-guide.md:41
 msgid ""
 "Another option is to clone the git repository and run it directly from there."
 msgstr ""
-"別の方法として git リポジトリをクローンして、直接そこから実行する方法"
-"もあります。"
+"別の方法として git リポジトリをクローンして、直接そこから実行する方法もありま"
+"す。"
 
 #. type: Plain text
 #: Quick-guide.md:43
@@ -139,7 +145,6 @@ msgid ""
 "The most common use case of Meson is compiling code on a code base you are "
 "working on. The steps to take are very simple."
 msgstr ""
-""
 
 #. type: Plain text
 #: Quick-guide.md:54
@@ -147,8 +152,12 @@ msgid ""
 "```console $ cd /path/to/source/root $ meson builddir && cd builddir $ ninja "
 "$ ninja test ```"
 msgstr ""
-"```console\n$ cd /path/to/source/root\n$ meson builddir && cd builddir\n$ ninja "
-"\n$ ninja test\n```"
+"```console\n"
+"$ cd /path/to/source/root\n"
+"$ meson builddir && cd builddir\n"
+"$ ninja \n"
+"$ ninja test\n"
+"```"
 
 #. type: Plain text
 #: Quick-guide.md:61
@@ -207,10 +216,14 @@ msgid ""
 "ninja -C builddir test $ DESTDIR=/path/to/staging/root ninja -C builddir "
 "install ```"
 msgstr ""
-"```console\n$ cd /path/to/source/root\n$ CFLAGS=... CXXFLAGS=... LDFLAGS=.. "
-"meson --prefix /usr --buildtype=plain builddir\n$ ninja -v -C builddir\n$ "
-"ninja -C builddir test\n$ DESTDIR=/path/to/staging/root ninja -C builddir "
-"install\n```"
+"```console\n"
+"$ cd /path/to/source/root\n"
+"$ CFLAGS=... CXXFLAGS=... LDFLAGS=.. meson --prefix /usr --buildtype=plain "
+"builddir\n"
+"$ ninja -v -C builddir\n"
+"$ ninja -C builddir test\n"
+"$ DESTDIR=/path/to/staging/root ninja -C builddir install\n"
+"```"
 
 #. type: Plain text
 #: Quick-guide.md:94
@@ -229,9 +242,11 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Quick-guide.md:101
+#: Quick-guide.md:103
 msgid ""
-"As distro builds happen always from scratch, we recommend you to enable "
-"[unity builds](Unity-builds.md) whenever possible on your packages because "
-"they are faster and produce better code."
+"As distro builds happen always from scratch, you might consider enabling "
+"[unity builds](Unity-builds.md) on your packages because they are faster and "
+"produce better code. However there are many projects that do not build with "
+"unity builds enabled so the decision to use unity builds must be done by the "
+"packager on a case by case basis."
 msgstr ""

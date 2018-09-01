@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-01-19 14:05+0900\n"
+"POT-Creation-Date: 2018-09-01 16:24+0900\n"
 "PO-Revision-Date: 2017-09-30 21:44+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -24,12 +24,12 @@ msgstr ""
 #. type: Plain text
 #: Using-wraptool.md:9
 msgid ""
-"Wraptool is a helper tool that allows you to manage your source dependencies "
-"using the WrapDB database. It gives you all things you would expect, such as "
-"installing and updating dependencies. The wrap tool works on all platforms, "
-"the only limitation is that the wrap definition works on your target "
-"platform. If you find some Wraps that don't work, please file bugs or, even "
-"better, patches."
+"Wraptool is a subcommand of Meson that allows you to manage your source "
+"dependencies using the WrapDB database. It gives you all things you would "
+"expect, such as installing and updating dependencies. The wrap tool works on "
+"all platforms, the only limitation is that the wrap definition works on your "
+"target platform. If you find some Wraps that don't work, please file bugs "
+"or, even better, patches."
 msgstr ""
 
 #. type: Plain text
@@ -56,7 +56,7 @@ msgstr ""
 #: Using-wraptool.md:32
 #, no-wrap
 msgid ""
-"    $ wraptool list\n"
+"    $ meson wrap list\n"
 "    box2d\n"
 "    enet\n"
 "    gtest\n"
@@ -82,7 +82,7 @@ msgstr ""
 #: Using-wraptool.md:38
 #, no-wrap
 msgid ""
-"    $ wraptool search jpeg\n"
+"    $ meson wrap search jpeg\n"
 "    libjpeg\n"
 msgstr ""
 
@@ -97,7 +97,7 @@ msgstr ""
 #: Using-wraptool.md:45
 #, no-wrap
 msgid ""
-"    $ wraptool info libjpeg\n"
+"    $ meson wrap info libjpeg\n"
 "    Available versions of libjpeg:\n"
 "      9a 2\n"
 msgstr ""
@@ -128,7 +128,7 @@ msgstr ""
 #: Using-wraptool.md:59
 #, no-wrap
 msgid ""
-"    $ wraptool install libjpeg\n"
+"    $ meson wrap install libjpeg\n"
 "    Installed libjpeg branch 9a revision 2\n"
 msgstr ""
 
@@ -149,7 +149,7 @@ msgstr ""
 #: Using-wraptool.md:69
 #, no-wrap
 msgid ""
-"    $ wraptool status\n"
+"    $ meson wrap status\n"
 "    Subproject status\n"
 "     libjpeg up to date. Branch 9a, revision 2.\n"
 "     zlib not up to date. Have 1.2.8 2, but 1.2.8 4 is available.\n"
@@ -166,7 +166,7 @@ msgstr ""
 #: Using-wraptool.md:75
 #, no-wrap
 msgid ""
-"    $ wraptool update zlib\n"
+"    $ meson wrap update zlib\n"
 "    Updated zlib to branch 1.2.8 revision 4\n"
 msgstr ""
 
@@ -174,7 +174,7 @@ msgstr ""
 #: Using-wraptool.md:79
 msgid ""
 "Wraptool can do other things besides these. Documentation for these can be "
-"found in the command line help, which can be accessed by `wraptool --help`."
+"found in the command line help, which can be accessed by `meson wrap --help`."
 msgstr ""
 
 #. type: Plain text

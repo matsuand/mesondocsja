@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-11-20 13:47+0900\n"
+"POT-Creation-Date: 2018-09-01 15:59+0900\n"
 "PO-Revision-Date: 2017-09-30 21:43+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -57,7 +57,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Continuous-Integration.md:22
+#: Continuous-Integration.md:22 Continuous-Integration.md:92
 msgid "```yaml sudo: false"
 msgstr ""
 
@@ -190,16 +190,74 @@ msgstr ""
 
 #. type: Plain text
 #: Continuous-Integration.md:89
-msgid "This setup is not recommended but included here for completeness"
+msgid ""
+"You can cheat your way around docker by using **python** as language and "
+"setting your compiler in the build **matrix**. This example just uses "
+"**linux** and **c** but can be easily adapted to **c++** and **osx**."
 msgstr ""
 
 #. type: Plain text
-#: Continuous-Integration.md:94
+#: Continuous-Integration.md:95
+msgid "os: linux dist: trusty"
+msgstr ""
+
+#. type: Plain text
+#: Continuous-Integration.md:97
+msgid "language: python"
+msgstr ""
+
+#. type: Plain text
+#: Continuous-Integration.md:99
+msgid "python: 3.6"
+msgstr ""
+
+#. type: Plain text
+#: Continuous-Integration.md:104
+#, no-wrap
+msgid ""
+"matrix:\n"
+"  include:\n"
+"    - env: CC=gcc\n"
+"    - env: CC=clang\n"
+msgstr ""
+
+#. type: Plain text
+#: Continuous-Integration.md:111
+#, no-wrap
+msgid ""
+"install:\n"
+"  - export NINJA_LATEST=$(curl -s https://api.github.com/repos/ninja-build/ninja/releases/latest | grep browser_download_url | cut -d '\"' -f 4 | grep ninja-linux.zip)\n"
+"  - wget \"$NINJA_LATEST\"\n"
+"  - unzip -q ninja-linux.zip -d build\n"
+"  - export PATH=\"$PWD/build:$PATH\"\n"
+"  - pip install meson\n"
+msgstr ""
+
+#. type: Plain text
+#: Continuous-Integration.md:117 Continuous-Integration.md:141
+#, no-wrap
+msgid ""
+"script:\n"
+"  - meson builddir\n"
+"  - ninja -C builddir\n"
+"  - ninja -C builddir test\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: Continuous-Integration.md:119
+msgid ""
+"This setup uses the **beta** group. It is not recommended but included here "
+"for completeness:"
+msgstr ""
+
+#. type: Plain text
+#: Continuous-Integration.md:124
 msgid "```yaml sudo: false language: cpp group: beta"
 msgstr ""
 
 #. type: Plain text
-#: Continuous-Integration.md:100
+#: Continuous-Integration.md:130
 #, no-wrap
 msgid ""
 "matrix:\n"
@@ -210,7 +268,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Continuous-Integration.md:106
+#: Continuous-Integration.md:136
 #, no-wrap
 msgid ""
 "install:\n"
@@ -218,15 +276,4 @@ msgid ""
 "  - if [[ \"$TRAVIS_OS_NAME\" == \"osx\" ]]; then brew update && brew install python3 ninja; fi\n"
 "  - if [[ \"$TRAVIS_OS_NAME\" == \"linux\" ]]; then wget https://github.com/ninja-build/ninja/releases/download/v1.7.2/ninja-linux.zip && unzip -q ninja-linux.zip -d build; fi\n"
 "  - pip3 install meson\n"
-msgstr ""
-
-#. type: Plain text
-#: Continuous-Integration.md:111
-#, no-wrap
-msgid ""
-"script:\n"
-"  - meson builddir\n"
-"  - ninja -C builddir\n"
-"  - ninja -C builddir test\n"
-"```\n"
 msgstr ""

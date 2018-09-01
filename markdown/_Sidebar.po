@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-09-30 21:44+0900\n"
+"POT-Creation-Date: 2018-09-01 16:24+0900\n"
 "PO-Revision-Date: 2017-09-30 21:44+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -53,8 +53,7 @@ msgstr ""
 
 #. type: Plain text
 #: _Sidebar.md:11
-msgid ""
-"### [Modules](https://github.com/mesonbuild/meson/wiki/Module-reference.md)"
+msgid "### [Modules](Module-reference.md)"
 msgstr ""
 
 #. type: Bullet: '* '

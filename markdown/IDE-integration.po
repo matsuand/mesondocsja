@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-10-24 18:52+0900\n"
+"POT-Creation-Date: 2018-09-01 15:59+0900\n"
 "PO-Revision-Date: 2017-09-30 21:43+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -45,10 +45,7 @@ msgstr ""
 
 #. type: Plain text
 #: IDE-integration.md:10
-msgid ""
-"The basic tool for this is a script called `mesonintrospect.py`. Some distro "
-"packages might not expose this script in the regular path, and in this case "
-"you need to execute it from the install directory."
+msgid "The basic tool for this is `meson introspect`."
 msgstr ""
 
 #. type: Plain text
@@ -85,7 +82,7 @@ msgstr ""
 #. type: Plain text
 #: IDE-integration.md:20
 #, no-wrap
-msgid "    mesonintrospect.py --targets\n"
+msgid "    meson introspect --targets\n"
 msgstr ""
 
 #. type: Plain text
@@ -106,7 +103,7 @@ msgstr ""
 #. type: Plain text
 #: IDE-integration.md:26
 #, no-wrap
-msgid "    mesonintrospect.py --target-files exampletarget\n"
+msgid "    meson introspect --target-files exampletarget\n"
 msgstr ""
 
 #. type: Plain text
@@ -145,7 +142,7 @@ msgstr ""
 #. type: Plain text
 #: IDE-integration.md:36
 #, no-wrap
-msgid "    mesonintrospect.py --buildoptions\n"
+msgid "    meson introspect --buildoptions\n"
 msgstr ""
 
 #. type: Plain text
@@ -172,12 +169,25 @@ msgstr ""
 #. type: Plain text
 #: IDE-integration.md:44
 #, no-wrap
-msgid "    mesonintrospect.py --tests\n"
+msgid "    meson introspect --tests\n"
 msgstr ""
 
 #. type: Plain text
-#: IDE-integration.md:45
+#: IDE-integration.md:46
 msgid ""
 "This provides you with all the information needed to run the test: what "
 "command to execute, command line arguments and environment variable settings."
+msgstr ""
+
+#. type: Plain text
+#: IDE-integration.md:48
+msgid "# Existing integrations"
+msgstr ""
+
+#. type: Plain text
+#: IDE-integration.md:51
+msgid ""
+"- [Gnome Builder](https://wiki.gnome.org/Apps/Builder)  - [Eclipse CDT]"
+"(https://www.eclipse.org/cdt/) (experimental)  - [Meson Cmake Wrapper]"
+"(https://github.com/prozum/meson-cmake-wrapper) (for cmake IDEs)"
 msgstr ""

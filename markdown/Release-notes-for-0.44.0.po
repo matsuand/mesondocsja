@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-01-19 14:05+0900\n"
+"POT-Creation-Date: 2018-09-01 16:24+0900\n"
 "PO-Revision-Date: 2017-10-09 12:09+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -297,7 +297,20 @@ msgid "```meson myprog = find_program('myscript.py')  ```"
 msgstr ""
 
 #. type: Plain text
-#: Release-notes-for-0.44.0.md:147
+#: Release-notes-for-0.44.0.md:148
 msgid ""
 "Then Meson will run the script with its internal Python version if necessary."
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.44.0.md:150
+msgid "## Libwmf dependency now supports libwmf-config"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.44.0.md:153
+msgid ""
+"Earlier, `dependency('libwmf')` could only detect the library with pkg-"
+"config files. Now, if pkg-config files are not found, Meson will look for "
+"`libwmf-config` and if it's found, will use that to find the library."
 msgstr ""

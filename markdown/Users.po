@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-01-19 14:05+0900\n"
+"POT-Creation-Date: 2018-09-01 16:24+0900\n"
 "PO-Revision-Date: 2017-09-30 21:44+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -33,287 +33,338 @@ msgid "# List of projects using Meson"
 msgstr ""
 
 #. type: Plain text
-#: Users.md:8
+#: Users.md:9
 msgid ""
-"If you have a project that uses Meson that you want to add to this list, let "
-"us know and we'll add it."
+"If you have a project that uses Meson that you want to add to this list, "
+"please [file a pull-request](https://github.com/mesonbuild/meson/edit/master/"
+"docs/markdown/Users.md) for it. All the software on this list is tested for "
+"regressions before release, so it's highly recommended that projects add "
+"themselves here. Some additional projects are listed in the [`meson` GitHub "
+"topic](https://github.com/topics/meson)."
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:50
+#: Users.md:82
 msgid ""
 "[AQEMU](https://github.com/tobimensch/aqemu), a Qt GUI for QEMU virtual "
 "machines, since version 0.9.3"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:50
+#: Users.md:82
 msgid "[Arduino sample project](https://github.com/jpakkane/mesonarduino)"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:50
+#: Users.md:82
+msgid ""
+"[bolt](https://gitlab.freedesktop.org/bolt/bolt) Userpsace daemon to enable "
+"security levels for Thunderbolt™ 3 on Linux"
+msgstr ""
+
+#. type: Bullet: ' - '
+#: Users.md:82
 msgid ""
 "[Budgie Desktop](https://github.com/budgie-desktop/budgie-desktop), a "
 "desktop environment built on GNOME technologies"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:50
+#: Users.md:82
 msgid ""
 "[casync](https://github.com/systemd/casync), Content-Addressable Data "
 "Synchronization Tool"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:50
+#: Users.md:82
+msgid ""
+"[cinnamon-desktop](https://github.com/linuxmint/cinnamon-desktop), the "
+"cinnamon desktop library"
+msgstr ""
+
+#. type: Bullet: ' - '
+#: Users.md:82
+msgid ""
+"[dbus-broker](https://github.com/bus1/dbus-broker), Linux D-Bus Message "
+"Broker"
+msgstr ""
+
+#. type: Bullet: ' - '
+#: Users.md:82
+msgid ""
+"[Dpdk](http://dpdk.org/browse/dpdk), Data plane development kit, a set of "
+"libraries and drivers for fast packet processing"
+msgstr ""
+
+#. type: Bullet: ' - '
+#: Users.md:82
+msgid ""
+"[DXVK](https://github.com/doitsujin/dxvk), a Vulkan-based Direct3D 11 "
+"implementation for Linux using Wine"
+msgstr ""
+
+#. type: Bullet: ' - '
+#: Users.md:82
 msgid ""
 "[Emeus](https://github.com/ebassi/emeus), Constraint based layout manager "
 "for GTK+"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:50
+#: Users.md:82
 msgid ""
-"[Frida](https://www.frida.re/), a dynamic binary instrumentation toolkit"
+"[ESP8266 Arduino sample project](https://github.com/trilader/arduino-esp8266-"
+"meson) Sample project for using the ESP8266 Arduino port with Meson"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:50
+#: Users.md:82
+msgid ""
+"[Fractal](https://wiki.gnome.org/Apps/Fractal/), a Matrix messaging client "
+"for GNOME"
+msgstr ""
+
+#. type: Bullet: ' - '
+#: Users.md:82
+msgid ""
+"[Frida](https://github.com/frida/frida-core), a dynamic binary "
+"instrumentation toolkit"
+msgstr ""
+
+#. type: Bullet: ' - '
+#: Users.md:82
+msgid ""
+"[fwupd](https://github.com/hughsie/fwupd), a simple daemon to allow session "
+"software to update firmware"
+msgstr ""
+
+#. type: Bullet: ' - '
+#: Users.md:82
 msgid ""
 "[Geary](https://wiki.gnome.org/Apps/Geary), an email application built "
 "around conversations, for the GNOME 3 desktop."
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:50
+#: Users.md:82
 msgid ""
-"[GLib](https://git.gnome.org/browse/glib/), cross-platform C library used by "
-"GTK+ and GStreamer (not the default yet)"
+"[GLib](https://gitlab.gnome.org/GNOME/glib), cross-platform C library used "
+"by GTK+ and GStreamer (not the default yet)"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:50
+#: Users.md:82
 msgid ""
-"[Gnome Builder](https://git.gnome.org/browse/gnome-builder/), an IDE for the "
-"Gnome platform"
+"[GNOME Boxes](https://gitlab.gnome.org/GNOME/gnome-boxes), a GNOME hypervisor"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:50
+#: Users.md:82
 msgid ""
-"[Gnome MPV](https://github.com/gnome-mpv/gnome-mpv), Gnome frontend to the "
+"[GNOME Builder](https://gitlab.gnome.org/GNOME/gnome-builder), an IDE for "
+"the GNOME platform"
+msgstr ""
+
+#. type: Bullet: ' - '
+#: Users.md:82
+msgid ""
+"[GNOME MPV](https://github.com/gnome-mpv/gnome-mpv), GNOME frontend to the "
 "mpv video player"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:50
+#: Users.md:82
 msgid ""
-"[Gnome Recipes](https://github.com/matthiasclasen/gr), application for "
+"[GNOME Recipes](https://gitlab.gnome.org/GNOME/recipes), application for "
 "cooking recipes"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:50
+#: Users.md:82
 msgid ""
-"[Gnome Software](https://git.gnome.org//browse/gnome-software), an app store "
-"for Gnome"
+"[GNOME Software](https://gitlab.gnome.org/GNOME/gnome-software), an app "
+"store for GNOME"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:50
+#: Users.md:82
 msgid ""
-"[Gnome Twitch](https://github.com/vinszent/gnome-twitch), an app for viewing "
-"Twitch streams on Gnome desktop"
+"[GNOME Twitch](https://github.com/vinszent/gnome-twitch), an app for viewing "
+"Twitch streams on GNOME desktop"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:50
+#: Users.md:82
+msgid ""
+"[GNOME Usage](https://gitlab.gnome.org/GNOME/gnome-usage), a GNOME "
+"application for visualizing system resources"
+msgstr ""
+
+#. type: Bullet: ' - '
+#: Users.md:82
 msgid ""
 "[Graphene](https://ebassi.github.io/graphene/), a thin type library for "
 "graphics"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:50
+#: Users.md:82
 msgid ""
-"[Grilo](https://mail.gnome.org/archives/grilo-list/2017-February/msg00000."
-"html) and [Grilo plugins](https://git.gnome.org/browse/grilo-plugins/commit/?"
-"id=ea047c4fb63e90268eb795ed91a09a2be5068a4c), the Grilo multimedia framework"
+"[Grilo](https://git.gnome.org/browse/grilo) and [Grilo plugins](https://git."
+"gnome.org/browse/grilo-plugins), the Grilo multimedia framework"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:50
+#: Users.md:82
 msgid ""
 "[GStreamer](https://cgit.freedesktop.org/gstreamer/gstreamer/), multimedia "
 "framework (not the default yet)"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:50
+#: Users.md:82
 msgid ""
-"[GTK+](https://git.gnome.org/browse/gtk+/), the multi-platform toolkit used "
+"[GTK+](https://gitlab.gnome.org/GNOME/gtk), the multi-platform toolkit used "
 "by GNOME"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:50
+#: Users.md:82
 msgid ""
 "[GtkDApp](https://gitlab.com/csoriano/GtkDApp), an application template for "
 "developing Flatpak apps with Gtk+ and D"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:50
+#: Users.md:82
+msgid ""
+"[GVfs](https://git.gnome.org/browse/gvfs/), a userspace virtual filesystem "
+"designed to work with the I/O abstraction of GIO"
+msgstr ""
+
+#. type: Bullet: ' - '
+#: Users.md:82
+msgid ""
+"[Hardcode-Tray](https://github.com/bil-elmoussaoui/Hardcode-Tray), fixes "
+"hardcoded tray icons in Linux"
+msgstr ""
+
+#. type: Bullet: ' - '
+#: Users.md:82
 msgid ""
 "[HexChat](https://github.com/hexchat/hexchat), a cross-platform IRC client "
 "in C"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:50
+#: Users.md:82
 msgid ""
 "[IGT](https://cgit.freedesktop.org/xorg/app/intel-gpu-tools/), Linux kernel "
 "graphics driver test suite."
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:50
+#: Users.md:82
 msgid ""
-"[Json-glib](https://git.gnome.org/browse/json-glib), GLib-based JSON "
+"[JsonCpp](https://github.com/open-source-parsers/jsoncpp), a C++ library for "
+"interacting with JSON"
+msgstr ""
+
+#. type: Bullet: ' - '
+#: Users.md:82
+msgid ""
+"[Json-glib](https://gitlab.gnome.org/GNOME/json-glib), GLib-based JSON "
 "manipulation library"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:50
+#: Users.md:82
 msgid "[Ksh](https://github.com/att/ast), a Korn Shell"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:50
+#: Users.md:82
 msgid ""
 "[Libdrm](https://cgit.freedesktop.org/drm/libdrm/), a library for "
 "abstracting DRM kernel interfaces"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:50
+#: Users.md:82
 msgid ""
 "[Libepoxy](https://github.com/anholt/libepoxy/), a library for handling "
 "OpenGL function pointer management"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:50
+#: Users.md:82
 msgid ""
-"[Libgit2-glib](https://git.gnome.org/browse/libgit2-glib/), a GLib wrapper "
+"[libfuse](https://github.com/libfuse/libfuse), the reference implementation "
+"of the Linux FUSE (Filesystem in Userspace) interface"
+msgstr ""
+
+#. type: Bullet: ' - '
+#: Users.md:82
+msgid ""
+"[Libgit2-glib](https://git.gnome.org/browse/libgit2-glib), a GLib wrapper "
 "for libgit2"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:50
+#: Users.md:82
 msgid ""
-"[Libhttpseverywhere](https://github.com/grindhold/libhttpseverywhere), a "
+"[Libhttpseverywhere](https://git.gnome.org/browse/libhttpseverywhere), a "
 "library to enable httpseverywhere on any desktop app"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Users.md:50
+#: Users.md:82
 msgid ""
-"[Lightdm-Webkit2-Greeter](https://github.com/Antergos/lightdm-webkit2-"
-"greeter)"
-msgstr ""
-
-#. type: Bullet: ' - '
-#: Users.md:50
-msgid "[Kiwix libraries](https://github.com/kiwix/kiwix-lib)"
-msgstr ""
-
-#. type: Bullet: ' - '
-#: Users.md:50
-msgid "[Mesa](https://www.mesa3d.org/), An open source graphics driver project"
-msgstr ""
-
-#. type: Bullet: ' - '
-#: Users.md:50
-msgid ""
-"[Nautilus](https://git.gnome.org/browse/nautilus/commit/?"
-"id=ed5652c89ac0654df2e82b54b00b27d51c825465) the Gnome file manager"
-msgstr ""
-
-#. type: Bullet: ' - '
-#: Users.md:50
-msgid ""
-"[Orc](http://cgit.freedesktop.org/gstreamer/orc/), the Optimized Inner Loop "
-"Runtime Compiler (not the default yet)"
-msgstr ""
-
-#. type: Bullet: ' - '
-#: Users.md:50
-msgid ""
-"[Pango](https://git.gnome.org/browse/pango/), an Internationalized text "
-"layout and rendering library (not the default yet)"
-msgstr ""
-
-#. type: Bullet: ' - '
-#: Users.md:50
-msgid ""
-"[Parzip](https://github.com/jpakkane/parzip), a multithreaded "
-"reimplementation of Zip"
-msgstr ""
-
-#. type: Bullet: ' - '
-#: Users.md:50
-msgid "[Pitivi](http://pitivi.org/), a nonlinear video editor"
-msgstr ""
-
-#. type: Bullet: ' - '
-#: Users.md:50
-msgid "[Polari](https://git.gnome.org/browse/polari), an IRC client"
-msgstr ""
-
-#. type: Bullet: ' - '
-#: Users.md:50
-msgid "[Sysprof](https://wiki.gnome.org/Apps/Sysprof), a profiling tool"
-msgstr ""
-
-#. type: Bullet: ' - '
-#: Users.md:50
-msgid "[systemd](https://github.com/systemd/systemd), the init system"
-msgstr ""
-
-#. type: Bullet: ' - '
-#: Users.md:50
-msgid ""
-"[Xorg](https://cgit.freedesktop.org/xorg/xserver/) the X.org display server "
-"(not the default yet)"
-msgstr ""
-
-#. type: Bullet: ' - '
-#: Users.md:50
-msgid ""
-"[Valum](https://github.com/valum-framework/valum), a micro web framework "
-"written in Vala"
-msgstr ""
-
-#. type: Bullet: ' - '
-#: Users.md:50
-msgid ""
-"[Wayland and Weston](https://lists.freedesktop.org/archives/wayland-"
-"devel/2016-November/031984.html), a next generation display server (not "
-"merged yet)"
-msgstr ""
-
-#. type: Bullet: ' - '
-#: Users.md:50
-msgid ""
-"[ZStandard](https://github.com/facebook/zstd/"
-"commit/4dca56ed832c6a88108a2484a8f8ff63d8d76d91) a compression algorithm "
-"developed at Facebook (not used by default)"
+"[libmodulemd](https://github.com/fedora-modularity/libmodulemd), a GObject "
+"Introspected library for managing [Fedora Project](https://getfedora.org/) "
+"module metadata."
 msgstr ""
 
 #. type: Plain text
-#: Users.md:51
+#: Users.md:82
+#, no-wrap
+msgid ""
+" - [Libosmscout](https://github.com/Framstag/libosmscout), a C++ library for offline map rendering, routing and location  \n"
+"lookup based on OpenStreetMap data\n"
+" - [libspng](https://gitlab.com/randy408/libspng), a C library for reading and writing Portable Network Graphics (PNG) \n"
+"format files\n"
+" - [Libva](https://github.com/intel/libva), an implementation for the VA (VIdeo Acceleration) API\n"
+" - [Libzim](https://github.com/openzim/libzim), the reference implementation for the ZIM file format\n"
+" - [Kiwix libraries](https://github.com/kiwix/kiwix-lib)\n"
+" - [Mesa](https://cgit.freedesktop.org/mesa/mesa/), An open source graphics driver project\n"
+" - [MiracleCast](https://github.com/albfan/miraclecast), connect external monitors to your system via Wifi-Display specification aka Miracast\n"
+" - [Nautilus](https://gitlab.gnome.org/GNOME/nautilus), the GNOME file manager\n"
+" - [Nemo](https://github.com/linuxmint/nemo), the file manager for the Cinnamon desktop environment\n"
+" - [Orc](http://cgit.freedesktop.org/gstreamer/orc/), the Optimized Inner Loop Runtime Compiler (not the default yet)\n"
+" - [Outlier](https://github.com/kerolasa/outlier), a small Hello World style meson example project\n"
+" - [Pango](https://git.gnome.org/browse/pango/), an Internationalized text layout and rendering library (not the default yet)\n"
+" - [Parzip](https://github.com/jpakkane/parzip), a multithreaded reimplementation of Zip\n"
+" - [PipeWire](https://github.com/PipeWire/pipewire), a framework for video and audio for containerized applications\n"
+" - [Pithos](https://github.com/pithos/pithos), a Pandora Radio client\n"
+" - [Pitivi](https://github.com/pitivi/pitivi/), a nonlinear video editor\n"
+" - [Polari](https://gitlab.gnome.org/GNOME/polari), an IRC client\n"
+" - [radare2](https://github.com/radare/radare2), unix-like reverse engineering framework and commandline tools (not the default)\n"
+" - [SSHFS](https://github.com/libfuse/sshfs), allows you to mount a remote filesystem using SFTP\n"
+" - [Sysprof](https://git.gnome.org/browse/sysprof), a profiling tool\n"
+" - [systemd](https://github.com/systemd/systemd), the init system\n"
+" - [szl](https://github.com/dimkr/szl), a lightweight, embeddable scripting language\n"
+" - [Taisei Project](https://taisei-project.org/), an open-source Touhou Project clone and fangame\n"
+" - [xi-gtk](https://github.com/eyelash/xi-gtk), a GTK+ front-end for the Xi editor\n"
+" - [Xorg](https://cgit.freedesktop.org/xorg/xserver/), the X.org display server (not the default yet)\n"
+" - [Valum](https://github.com/valum-framework/valum), a micro web framework written in Vala\n"
+" - [Wayland and Weston](https://lists.freedesktop.org/archives/wayland-devel/2016-November/031984.html), a next generation display server (not merged yet)\n"
+" - [wlroots](https://github.com/swaywm/wlroots), a modular Wayland compositor library\n"
+" - [ZStandard](https://github.com/facebook/zstd/commit/4dca56ed832c6a88108a2484a8f8ff63d8d76d91), a compression algorithm developed at Facebook (not used by default)\n"
+msgstr ""
+
+#. type: Plain text
+#: Users.md:83
 msgid ""
 "Note that a more up-to-date list of GNOME projects that use Meson can be "
 "found [here](https://wiki.gnome.org/Initiatives/GnomeGoals/MesonPorting)."

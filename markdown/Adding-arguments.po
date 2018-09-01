@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-09-30 21:43+0900\n"
+"POT-Creation-Date: 2018-09-01 15:59+0900\n"
 "PO-Revision-Date: 2017-09-30 21:43+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -25,7 +25,9 @@ msgstr ""
 #. type: Plain text
 #: Adding-arguments.md:4
 msgid "short-description: Adding compiler arguments ..."
-msgstr "short-description: Adding compiler arguments\n..."
+msgstr ""
+"short-description: Adding compiler arguments\n"
+"..."
 
 #. type: Plain text
 #: Adding-arguments.md:6
@@ -59,7 +61,10 @@ msgstr ""
 #. type: Plain text
 #: Adding-arguments.md:20
 msgid "```meson add_global_arguments('-DFOO=bar', language : 'c')  ```"
-msgstr "```meson\nadd_global_arguments('-DFOO=bar', language : 'c') \n```"
+msgstr ""
+"```meson\n"
+"add_global_arguments('-DFOO=bar', language : 'c') \n"
+"```"
 
 #. type: Plain text
 #: Adding-arguments.md:26
@@ -109,7 +114,10 @@ msgstr ""
 #. type: Plain text
 #: Adding-arguments.md:48
 msgid "```meson executable('prog', 'prog.cc', cpp_args : '-DCPPTHING')  ```"
-msgstr "```meson\nexecutable('prog', 'prog.cc', cpp_args : '-DCPPTHING') \n```"
+msgstr ""
+"```meson\n"
+"executable('prog', 'prog.cc', cpp_args : '-DCPPTHING') \n"
+"```"
 
 #. type: Plain text
 #: Adding-arguments.md:51
@@ -120,14 +128,22 @@ msgstr ""
 
 #. type: Plain text
 #: Adding-arguments.md:53
+msgid ""
+"You can find the parameter name for other languages in the [reference tables]"
+"(Reference-tables.md)."
+msgstr ""
+
+#. type: Plain text
+#: Adding-arguments.md:55
 msgid "Specifying extra linker arguments is done in the same way:"
 msgstr ""
 
 #. type: Plain text
-#: Adding-arguments.md:56
+#: Adding-arguments.md:58
 msgid ""
 "```meson executable('prog', 'prog.cc', link_args : '-Wl,--linker-option')  "
 "```"
 msgstr ""
-"```meson\nexecutable('prog', 'prog.cc', link_args : '-Wl,--linker-option') \n"
+"```meson\n"
+"executable('prog', 'prog.cc', link_args : '-Wl,--linker-option') \n"
 "```"

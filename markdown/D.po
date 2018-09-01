@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-09-30 21:43+0900\n"
+"POT-Creation-Date: 2018-09-01 15:59+0900\n"
 "PO-Revision-Date: 2017-09-30 21:43+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -25,7 +25,10 @@ msgstr ""
 #. type: Plain text
 #: D.md:5
 msgid "title: D short-description: Compiling D sources ..."
-msgstr "title: D\nshort-description: Compiling D sources\n..."
+msgstr ""
+"title: D\n"
+"short-description: Compiling D sources\n"
+"..."
 
 #. type: Plain text
 #: D.md:7
@@ -33,29 +36,33 @@ msgid "# Compiling D applications"
 msgstr "# D アプリケーションのコンパイル"
 
 #. type: Plain text
-#: D.md:9
+#: D.md:10
 msgid ""
 "Meson has support for compiling D programs. A minimal `meson.build` file for "
 "D looks like this:"
 msgstr ""
 
 #. type: Plain text
-#: D.md:12
+#: D.md:13
 msgid "```meson project('myapp', 'd')"
-msgstr "```meson\nproject('myapp', 'd')"
+msgstr ""
+"```meson\n"
+"project('myapp', 'd')"
 
 #. type: Plain text
-#: D.md:15
+#: D.md:16
 msgid "executable('myapp', 'app.d')  ```"
-msgstr "executable('myapp', 'app.d') \n```"
+msgstr ""
+"executable('myapp', 'app.d') \n"
+"```"
 
 #. type: Plain text
-#: D.md:17
+#: D.md:18
 msgid "## Compiling different versions"
 msgstr ""
 
 #. type: Plain text
-#: D.md:24
+#: D.md:25
 msgid ""
 "If you are using the [version()](https://dlang.org/spec/version.html) "
 "feature for conditional compilation, you can use it using the "
@@ -64,12 +71,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: D.md:26
+#: D.md:27
 msgid "## Using embedded unittests"
 msgstr ""
 
 #. type: Plain text
-#: D.md:32
+#: D.md:37
 msgid ""
 "If you are using embedded [unittest functions](https://dlang.org/spec/"
 "unittest.html), your source code needs to be compiled twice, once in regular "
@@ -82,36 +89,38 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: D.md:36
+#: D.md:41
 msgid ""
 "This is an example for using D unittests with Meson: ```meson "
 "project('myapp_tested', 'd')"
 msgstr ""
-"This is an example for using D unittests with Meson:\n```meson\n"
+"This is an example for using D unittests with Meson:\n"
+"```meson\n"
 "project('myapp_tested', 'd')"
 
 #. type: Plain text
-#: D.md:39
+#: D.md:44
 msgid ""
 "myapp_src = ['app.d', 'alpha.d', 'beta.d'] executable('myapp', myapp_src)"
 msgstr ""
 
 #. type: Plain text
-#: D.md:43
+#: D.md:48
 msgid ""
 "test_exe = executable('myapp_test', myapp_src, d_unittest: true)  "
 "test('myapptest', test_exe)  ```"
 msgstr ""
 "test_exe = executable('myapp_test', myapp_src, d_unittest: true) \n"
-"test('myapptest', test_exe) \n```"
+"test('myapptest', test_exe) \n"
+"```"
 
 #. type: Plain text
-#: D.md:45
+#: D.md:50
 msgid "# Compiling D libraries and installing them"
 msgstr ""
 
 #. type: Plain text
-#: D.md:48
+#: D.md:55
 msgid ""
 "Building D libraries is a straightforward process, not different from how C "
 "libraries are built in Meson. You should generate a pkg-config file and "
@@ -120,21 +129,24 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: D.md:52
+#: D.md:59
 msgid ""
 "This is an example on how to build a D shared library: ```meson "
 "project('mylib', 'd', version: '1.2.0')"
 msgstr ""
-"This is an example on how to build a D shared library:\n```meson\n"
+"This is an example on how to build a D shared library:\n"
+"```meson\n"
 "project('mylib', 'd', version: '1.2.0')"
 
 #. type: Plain text
-#: D.md:55
+#: D.md:62
 msgid "project_soversion = 0 glib_dep = dependency('glib-2.0')"
-msgstr "project_soversion = 0\nglib_dep = dependency('glib-2.0')"
+msgstr ""
+"project_soversion = 0\n"
+"glib_dep = dependency('glib-2.0')"
 
 #. type: Plain text
-#: D.md:73
+#: D.md:80
 #, no-wrap
 msgid ""
 "my_lib = library('mylib',\n"
@@ -157,42 +169,63 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: D.md:78
+#: D.md:89
+#, no-wrap
 msgid ""
-"It is important to make the D sources install in a subdirectory in the "
-"include path, in this case `/usr/include/d/mylib/mylib`.  All D compilers "
-"include the `/usr/include/d` directory by default, and if your library would "
-"be installed into `/usr/include/d/mylib`, there is a high chance that, when "
-"you compile your project again on a machine where you installed it, the "
-"compiler will prefer the old installed include over the new version in the "
-"source tree, leading to very confusing errors."
+"It is important to make the D sources install in a subdirectory in the\n"
+" include path, in this case `/usr/include/d/mylib/mylib`.\n"
+"All D compilers include the `/usr/include/d` directory by default, and\n"
+" if your library would be installed into `/usr/include/d/mylib`, there\n"
+"is a high chance that, when you compile your project again on a\n"
+"machine where you installed it, the compiler will prefer the old\n"
+"installed include over the new version in the source tree, leading to\n"
+"very confusing errors.\n"
 msgstr ""
 
 #. type: Plain text
-#: D.md:82
+#: D.md:94
 msgid ""
 "This is an example of how to use the D library we just built and installed "
 "in an application: ```meson project('myapp', 'd')"
 msgstr ""
 "This is an example of how to use the D library we just built and installed "
-"in an application: \n```meson\nproject('myapp', 'd')"
+"in an application: \n"
+"```meson\n"
+"project('myapp', 'd')"
 
 #. type: Plain text
-#: D.md:87
+#: D.md:99
 msgid ""
 "mylib_dep = dependency('mylib', version: '>= 1.2.0')  myapp_src = ['app.d', "
 "'alpha.d', 'beta.d'] executable('myapp', myapp_src, dependencies: "
 "[mylib_dep])  ```"
 msgstr ""
-"mylib_dep = dependency('mylib', version: '>= 1.2.0') \nmyapp_src = ['app.d', "
-"'alpha.d', 'beta.d']\nexecutable('myapp', myapp_src, dependencies: "
-"[mylib_dep]) \n```"
+"mylib_dep = dependency('mylib', version: '>= 1.2.0') \n"
+"myapp_src = ['app.d', 'alpha.d', 'beta.d']\n"
+"executable('myapp', myapp_src, dependencies: [mylib_dep]) \n"
+"```"
 
 #. type: Plain text
-#: D.md:89
+#: D.md:104
 msgid ""
 "Please keep in mind that the library and executable would both need to be "
 "built with the exact same D compiler and D compiler version. The D ABI is "
 "not stable across compilers and their versions, and mixing compilers will "
 "lead to problems."
+msgstr ""
+
+#. type: Plain text
+#: D.md:106
+msgid "# Integrating with DUB"
+msgstr ""
+
+#. type: Plain text
+#: D.md:111
+msgid ""
+"DUB is a fully integrated build system for D, but it is also a way to "
+"provide dependencies. Adding dependencies from the [D package registry]"
+"(https://code.dlang.org/)  is pretty straight forward. You can find how to "
+"do this in [Dependencies](Dependencies.md#Dub). You can also automatically "
+"generate a `dub.json` file as explained in [Dlang](Dlang-module."
+"md#generatedubfile)."
 msgstr ""

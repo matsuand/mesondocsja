@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-11-27 13:08+0900\n"
+"POT-Creation-Date: 2018-09-01 16:24+0900\n"
 "PO-Revision-Date: 2017-09-30 21:44+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -67,11 +67,36 @@ msgstr ""
 
 #. type: Plain text
 #: Qt5-module.md:24
-msgid "A simple example would look like this:"
+msgid "## Dependencies"
 msgstr ""
 
 #. type: Plain text
-#: Qt5-module.md:37
+#: Qt5-module.md:26
+msgid "See [Qt dependencies](Dependencies.md#qt4-qt5)"
+msgstr ""
+
+#. type: Plain text
+#: Qt5-module.md:29
+msgid ""
+"The 'modules' argument is used to include Qt modules in the project.  See "
+"the Qt documentation for the [list of modules](http://doc.qt.io/qt-5/"
+"qtmodules.html)."
+msgstr ""
+
+#. type: Plain text
+#: Qt5-module.md:32
+msgid ""
+"The 'private_headers' argument allows usage of Qt's modules private "
+"headers.  (since v0.47.0)"
+msgstr ""
+
+#. type: Plain text
+#: Qt5-module.md:35
+msgid "## Example A simple example would look like this:"
+msgstr ""
+
+#. type: Plain text
+#: Qt5-module.md:47
 #, no-wrap
 msgid ""
 "```meson\n"
@@ -86,12 +111,4 @@ msgid ""
 "           include_directories: inc,\n"
 "           dependencies : qt5_dep)\n"
 "```\n"
-msgstr ""
-
-#. type: Plain text
-#: Qt5-module.md:40
-msgid ""
-"The 'modules' argument is used to include Qt modules in the project.  See "
-"the Qt documentation for the [list of modules](http://doc.qt.io/qt-5/"
-"qtmodules.html)."
 msgstr ""

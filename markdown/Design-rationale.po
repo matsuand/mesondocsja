@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-10-26 19:01+0900\n"
+"POT-Creation-Date: 2018-09-01 15:59+0900\n"
 "PO-Revision-Date: 2017-09-30 21:43+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -358,7 +358,7 @@ msgstr ""
 #. type: Plain text
 #: Design-rationale.md:199
 msgid ""
-"```meson project('compile several', 'c')  sources = ['main.c', 'file1.c', "
+"```meson project('compile several', 'c')  sourcelist = ['main.c', 'file1.c', "
 "'file2.c', 'file3.c'] executable('program', sources : sourcelist)  ```"
 msgstr ""
 
@@ -371,7 +371,7 @@ msgstr ""
 #: Design-rationale.md:208
 msgid ""
 "```meson project('external lib', 'c')  libdep = find_dep('extlibrary', "
-"required : true)  sources = ['main.c', 'file1.c', 'file2.c', 'file3.c'] "
+"required : true)  sourcelist = ['main.c', 'file1.c', 'file2.c', 'file3.c'] "
 "executable('program', sources : sourcelist, dep : libdep)  ```"
 msgstr ""
 

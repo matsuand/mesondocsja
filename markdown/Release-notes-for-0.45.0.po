@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-12-11 13:06+0900\n"
+"POT-Creation-Date: 2018-09-01 16:24+0900\n"
 "PO-Revision-Date: 2017-12-11 13:06+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -24,12 +24,12 @@ msgstr ""
 
 #. type: Plain text
 #: Release-notes-for-0.45.0.md:5
-msgid ""
-"title: Release 0.45 short-description: Release notes for 0.45 "
-"(preliminary)  ..."
+#, fuzzy
+msgid "title: Release 0.45 short-description: Release notes for 0.45 ..."
 msgstr ""
 "title: リリース 0.45\n"
-"short-description: リリースノート 0.45 (preliminary)\n..."
+"short-description: リリースノート 0.45 (preliminary)\n"
+"..."
 
 #. type: Plain text
 #: Release-notes-for-0.45.0.md:7
@@ -38,25 +38,404 @@ msgstr ""
 
 #. type: Plain text
 #: Release-notes-for-0.45.0.md:9
-msgid "This page is a placeholder for the eventual release notes."
+msgid "## Python minimum version is now 3.5"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:11
+msgid "Meson will from this version on require Python version 3.5 or newer."
 msgstr ""
 
 #. type: Plain text
 #: Release-notes-for-0.45.0.md:13
+msgid "## Config-Tool based dependencies can be specified in a cross file"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:17
 msgid ""
-"Notable new features should come with release note updates. This is done by "
-"creating a file snippet called `snippets/featurename.md` and whose contents "
-"should look like this:"
+"Tools like LLVM and pcap use a config tool for dependencies, this is a "
+"script or binary that is run to get configuration information (cflags, "
+"ldflags, etc) from."
 msgstr ""
 
 #. type: Plain text
-#: Release-notes-for-0.45.0.md:15
-#, no-wrap
-msgid "    ## Feature name\n"
+#: Release-notes-for-0.45.0.md:20
+msgid ""
+"These binaries may now be specified in the `binaries` section of a cross "
+"file."
 msgstr ""
 
 #. type: Plain text
-#: Release-notes-for-0.45.0.md:16
+#: Release-notes-for-0.45.0.md:26
+msgid "```ini [binaries] cc = ...  llvm-config = '/usr/bin/llvm-config32' ```"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:28
+msgid "## Visual Studio C# compiler support"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:31
+msgid ""
+"In addition to the Mono C# compiler we also support Visual Studio's C# "
+"compiler. Currently this is only supported on the Ninja backend."
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:33
+msgid "## Removed two deprecated features"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:36
+msgid ""
+"The standalone `find_library` function has been a no-op for a long time. "
+"Starting with this version it becomes a hard error."
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:39
+msgid ""
+"There used to be a keywordless version of `run_target` which looked like "
+"this:"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:43
+msgid "```meson run_target('targetname', 'command', 'arg1', 'arg2')  ```"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:45
+msgid "This is now an error. The correct format for this is now:"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:50
 #, no-wrap
-msgid "    A short description explaining the new feature and how it should be used.\n"
+msgid ""
+"```meson\n"
+"run_target('targetname',\n"
+"  command : ['command', 'arg1', 'arg2'])\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:52
+msgid "## Experimental FPGA support"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:58
+msgid ""
+"This version adds support for generating, analysing and uploading FPGA "
+"programs using the [IceStorm toolchain](http://www.clifford.at/icestorm/). "
+"This support is experimental and is currently limited to the `iCE 40` series "
+"of FPGA chips."
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:63
+msgid ""
+"FPGA generation integrates with other parts of Meson seamlessly. As an "
+"example, [here](https://github.com/jpakkane/lm32) is an example project that "
+"compiles a simple firmware into Verilog and combines that with an lm32 "
+"softcore processor."
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:65
+msgid "## Generator outputs can preserve directory structure"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:71
+msgid ""
+"Normally when generating files with a generator, Meson flattens the input "
+"files so they all go in the same directory. Some code generators, such as "
+"Protocol Buffers, require that the generated files have the same directory "
+"layout as the input files used to generate them. This can now be achieved "
+"like this:"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:78
+#, no-wrap
+msgid ""
+"```meson\n"
+"g = generator(...) # Compiles protobuf sources\n"
+"generated = gen.process('com/mesonbuild/one.proto',\n"
+"  'com/mesonbuild/two.proto',\n"
+"  preserve_path_from : meson.current_source_dir())\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:81
+msgid ""
+"This would cause the following files to be generated inside the target "
+"private directory:"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:86
+#, no-wrap
+msgid ""
+"    com/mesonbuild/one.pb.h\n"
+"    com/mesonbuild/one.pb.cc\n"
+"    com/mesonbuild/two.pb.h\n"
+"    com/mesonbuild/two.pb.cc\n"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:88
+msgid "## Hexadecimal string literals"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:90
+msgid "Hexadecimal integer literals can now be used in build and option files."
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:94
+msgid "```meson int_255 = 0xFF ```"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:96
+msgid "## b_ndebug : if-release"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:98
+msgid "The value `if-release` can be given for the `b_ndebug` project option."
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:102
+msgid ""
+"This will make the `NDEBUG` pre-compiler macro to be defined for release "
+"type builds as if the `b_ndebug` project option had had the value `true` "
+"defined for it."
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:104
+msgid "## `install_data()` defaults to `{datadir}/{projectname}`"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:108
+msgid ""
+"If `install_data()` is not given an `install_dir` keyword argument, the "
+"target directory defaults to `{datadir}/{projectname}` (e.g.  `/usr/share/"
+"myproj`)."
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:110
+msgid "## install_subdir() supports strip_directory"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:113
+msgid ""
+"If strip_directory=true install_subdir() installs directory contents instead "
+"of directory itself, stripping basename of the source directory."
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:115
+msgid "## Integer options"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:118
+msgid ""
+"There is a new integer option type with optional minimum and maximum values. "
+"It can be specified like this in the `meson_options.txt` file:"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:122
+msgid ""
+"```meson option('integer_option', type : 'integer', min : 0, max : 5, "
+"value : 3)  ```"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:124
+msgid "## New method meson.project_license()"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:127
+msgid ""
+"The `meson` builtin object now has a `project_license()` method that returns "
+"a list of all licenses for the project."
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:129
+msgid "## Rust cross-compilation"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:134
+msgid ""
+"Cross-compilation is now supported for Rust targets. Like other cross-"
+"compilers, the Rust binary must be specified in your cross file. It should "
+"specify a `--target` (as installed by `rustup target`)  and a custom linker "
+"pointing to your C cross-compiler. For example:"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:144
+#, no-wrap
+msgid ""
+"```ini\n"
+"[binaries]\n"
+"c = '/usr/bin/arm-linux-gnueabihf-gcc-7'\n"
+"rust = [\n"
+"    'rustc',\n"
+"    '--target', 'arm-unknown-linux-gnueabihf',\n"
+"    '-C', 'linker=/usr/bin/arm-linux-gnueabihf-gcc-7',\n"
+"]\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:146
+msgid "## Rust compiler-private library disambiguation"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:151
+msgid ""
+"When building a Rust target with Rust library dependencies, an `--extern` "
+"argument is now specified to avoid ambiguity between the dependency library, "
+"and any crates of the same name in `rustc`'s private sysroot."
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:153
+msgid "## Project templates"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:156
+msgid ""
+"Meson ships with predefined project templates. To start a new project from "
+"scratch, simply go to an empty directory and type:"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:158
+#, no-wrap
+msgid "    meson init --name=myproject --type=executable --language=c\n"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:160
+msgid "## Improve test setup selection"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:165
+msgid ""
+"Test setups are now identified (also) by the project they belong to and it "
+"is possible to select the used test setup from a specific project. E.g.  to "
+"use a test setup `some_setup` from project `some_project` for all executed "
+"tests one can use"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:167
+#, no-wrap
+msgid "    meson test --setup some_project:some_setup\n"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:170
+msgid ""
+"Should one rather want test setups to be used from the same project as where "
+"the current test itself has been defined, one can use just"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:172
+#, no-wrap
+msgid "    meson test --setup some_setup\n"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:175
+msgid ""
+"In the latter case every (sub)project must have a test setup `some_setup` "
+"defined in it."
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:177
+msgid "## Can use custom targets as Windows resource files"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:180
+msgid ""
+"The `compile_resources()` function of the `windows` module can now be used "
+"on custom targets as well as regular files.  # Can promote dependencies with "
+"wrap command"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:182
+msgid ""
+"The `promote` command makes it easy to copy nested dependencies to the top "
+"level."
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:184
+#, no-wrap
+msgid "    meson wrap promote scommon\n"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:187
+msgid ""
+"This will search the project tree for a subproject called `scommon` and copy "
+"it to the top level."
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:190
+msgid ""
+"If there are many embedded subprojects with the same name, you have to "
+"specify which one to promote manually like this:"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:192
+#, no-wrap
+msgid "    meson wrap promote subprojects/s1/subprojects/scommon\n"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:194
+msgid "## Yielding subproject option to superproject"
+msgstr ""
+
+#. type: Plain text
+#: Release-notes-for-0.45.0.md:200
+msgid ""
+"Normally project options are specific to the current project. However "
+"sometimes you want to have an option whose value is the same over all "
+"projects. This can be achieved with the new `yield` keyword for options. "
+"When set to `true`, getting the value of this option in `meson.build` files "
+"gets the value from the option with the same name in the master project (if "
+"such an option exists)."
 msgstr ""

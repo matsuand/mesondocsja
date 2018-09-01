@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-01-19 14:05+0900\n"
+"POT-Creation-Date: 2018-09-01 15:59+0900\n"
 "PO-Revision-Date: 2017-09-30 21:43+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -136,21 +136,21 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:65
+#: Dependencies.md:66
 msgid ""
 "The dependency detector works with all libraries that provide a `pkg-config` "
 "file. Unfortunately several packages don't provide pkg-config files. Meson "
-"has autodetection support for some of these, and they are described later on "
-"this page."
+"has autodetection support for some of these, and they are described [later "
+"in this page](#dependencies-with-custom-lookup-functionality)."
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:67
+#: Dependencies.md:68
 msgid "# Declaring your own"
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:71
+#: Dependencies.md:72
 msgid ""
 "You can declare your own dependency objects that can be used interchangeably "
 "with dependency objects obtained from the system. The syntax is "
@@ -158,7 +158,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:78
+#: Dependencies.md:79
 #, no-wrap
 msgid ""
 "```meson\n"
@@ -170,19 +170,19 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:81
+#: Dependencies.md:82
 msgid ""
 "This declares a dependency that adds the given include directories and "
 "static library to any target you use it in."
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:83
+#: Dependencies.md:84
 msgid "# Building dependencies as subprojects"
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:88
+#: Dependencies.md:89
 msgid ""
 "Many platforms do not provide a system package manager. On these systems "
 "dependencies must be compiled from source. Meson's subprojects make it "
@@ -191,33 +191,42 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:91
+#: Dependencies.md:92
 msgid ""
 "To make this work, the dependency must have Meson build definitions and it "
 "must declare its own dependency like this:"
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:93
+#: Dependencies.md:96
 #, no-wrap
-msgid "    foo_dep = declare_dependency(...)\n"
+msgid ""
+"```meson\n"
+"    foo_dep = declare_dependency(...)\n"
+"```\n"
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:96
+#: Dependencies.md:99
 msgid ""
 "Then any project that wants to use it can write out the following "
 "declaration in their main `meson.build` file."
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:98
-#, no-wrap
-msgid "    foo_dep = dependency('foo', fallback : ['foo', 'foo_dep'])\n"
+#: Dependencies.md:103
+#, fuzzy, no-wrap
+msgid ""
+"```meson\n"
+"    foo_dep = dependency('foo', fallback : ['foo', 'foo_dep'])\n"
+"```\n"
 msgstr ""
+"```meson\n"
+"wmf_dep = dependency('wmf', method : 'config-tool')\n"
+"```"
 
 #. type: Plain text
-#: Dependencies.md:107
+#: Dependencies.md:112
 msgid ""
 "What this declaration means is that first Meson tries to look up the "
 "dependency from the system (such as by using pkg-config). If it is not "
@@ -230,192 +239,117 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:109
-msgid "# Dependencies with custom lookup functionality"
-msgstr ""
+#: Dependencies.md:114
+#, fuzzy
+msgid "# Dependency method"
+msgstr "# 依存関係"
 
 #. type: Plain text
-#: Dependencies.md:111
-msgid "## Boost"
-msgstr ""
-
-#. type: Plain text
-#: Dependencies.md:115
+#: Dependencies.md:119
 msgid ""
-"Boost is not a single dependency but rather a group of different libraries. "
-"To use Boost headers-only libraries, simply add Boost as a dependency."
+"You can use the keyword `method` to let meson know what method to use when "
+"searching for the dependency. The default value is `auto`.  Aditional "
+"dependencies methods are `pkg-config`, `config-tool`, `system`, `sysconfig`, "
+"`qmake`, `extraframework` and `dub`."
 msgstr ""
-
-#. type: Plain text
-#: Dependencies.md:120
-msgid ""
-"```meson boost_dep = dependency('boost')  exe = executable('myprog', 'file."
-"cc', dependencies : boost_dep)  ```"
-msgstr ""
-"```meson\n"
-"boost_dep = dependency('boost') \n"
-"exe = executable('myprog', 'file.cc', dependencies : boost_dep) \n"
-"```"
 
 #. type: Plain text
 #: Dependencies.md:123
-msgid ""
-"To link against boost with Meson, simply list which libraries you would like "
-"to use."
-msgstr ""
-
-#. type: Plain text
-#: Dependencies.md:128
-msgid ""
-"```meson boost_dep = dependency('boost', modules : ['thread', 'utility'])  "
-"exe = executable('myprog', 'file.cc', dependencies : boost_dep)  ```"
+#, fuzzy
+msgid "```meson cups_dep = dependency('cups', method : 'pkg-config')  ```"
 msgstr ""
 "```meson\n"
-"boost_dep = dependency('boost', modules : ['thread', 'utility']) \n"
-"exe = executable('myprog', 'file.cc', dependencies : boost_dep) \n"
+"wmf_dep = dependency('wmf', method : 'config-tool')\n"
 "```"
 
 #. type: Plain text
-#: Dependencies.md:131
+#: Dependencies.md:125
+msgid "### Some notes on Dub"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:129
 msgid ""
-"You can call `dependency` multiple times with different modules and use "
-"those to link against your targets."
+"Please understand that meson is only able to find dependencies that exist in "
+"the local Dub repository. You need to manually fetch and build the target "
+"dependencies."
 msgstr ""
 
 #. type: Plain text
 #: Dependencies.md:135
-msgid ""
-"If your boost headers or libraries are in non-standard locations you can set "
-"the BOOST_ROOT, BOOST_INCLUDEDIR, and/or BOOST_LIBRARYDIR environment "
-"variables."
+msgid "For `urld`.  ``` dub fetch urld dub build urld ```"
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:138
+#: Dependencies.md:144
 msgid ""
-"You can set the argument `threading` to `single` to use boost libraries that "
-"has been compiled for single-threaded use instead."
-msgstr ""
-
-#. type: Plain text
-#: Dependencies.md:140
-msgid "## GTest and GMock"
+"Other thing you need to keep in mind is that both meson and Dub need to be "
+"using the same compiler. This can be achieved using Dub's `-compiler` "
+"argument and/or manually setting the `DC` environment variable when running "
+"meson.  ``` dub build urld --compiler=dmd DC=\"dmd\" meson builddir ```"
 msgstr ""
 
 #. type: Plain text
 #: Dependencies.md:146
-msgid ""
-"GTest and GMock come as sources that must be compiled as part of your "
-"project. With Meson you don't have to care about the details, just pass "
-"`gtest` or `gmock` to `dependency` and it will do everything for you. If you "
-"want to use GMock, it is recommended to use GTest as well, as getting it to "
-"work standalone is tricky."
+msgid "# Dependencies with custom lookup functionality"
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:155
-msgid ""
-"You can set the `main` keyword argument to `true` to use the `main()` "
-"function provided by GTest: ``` gtest_dep = dependency('gtest', main : true, "
-"required : false)  e = executable('testprog', 'test.cc', dependencies : "
-"gtest_dep)  test('gtest test', e)  ``` ## MPI"
+#: Dependencies.md:148
+msgid "Some dependencies have specific detection logic."
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:162
-#, no-wrap
+#: Dependencies.md:152
 msgid ""
-"MPI is supported for C, C++ and Fortran. Because dependencies are\n"
-"language-specific, you must specify the requested language using the\n"
-"`language` keyword argument, i.e.,\n"
-" * `dependency('mpi', language='c')` for the C MPI headers and libraries\n"
-" * `dependency('mpi', language='cpp')` for the C++ MPI headers and libraries\n"
-" * `dependency('mpi', language='fortran')` for the Fortran MPI headers and libraries\n"
+"Generic dependency names are case-sensitive<sup>[1](#footnote1)</sup>, but "
+"these dependency names are matched case-insensitively.  The recommended "
+"style is to write them in all lower-case."
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:169
+#: Dependencies.md:156
 msgid ""
-"Meson prefers pkg-config for MPI, but if your MPI implementation does not "
-"provide them, it will search for the standard wrapper executables, `mpic`, "
-"`mpicxx`, `mpic++`, `mpifort`, `mpif90`, `mpif77`. If these are not in your "
-"path, they can be specified by setting the standard environment variables "
-"`MPICC`, `MPICXX`, `MPIFC`, `MPIF90`, or `MPIF77`, during configuration."
+"In some cases, more than one detection method exists, and the `method` "
+"keyword may be used to select a detection method to use.  The `auto` method "
+"uses any checking mechanisms in whatever order meson thinks is best."
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:171
-msgid "## Qt5"
+#: Dependencies.md:159
+msgid ""
+"e.g. libwmf and CUPS provide both pkg-config and config-tool support. You "
+"can force one or another via the `method` keyword:"
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:174
+#: Dependencies.md:164
+#, fuzzy
 msgid ""
-"Meson has native Qt5 support. Its usage is best demonstrated with an example."
-msgstr ""
-
-#. type: Plain text
-#: Dependencies.md:178
-msgid ""
-"```meson qt5_mod = import('qt5')  qt5widgets = dependency('qt5', modules : "
-"'Widgets')"
+"```meson cups_dep = dependency('cups', method : 'pkg-config')  wmf_dep = "
+"dependency('libwmf', method : 'config-tool')  ```"
 msgstr ""
 "```meson\n"
-"qt5_mod = import('qt5')  qt5widgets = dependency('qt5', modules : 'Widgets')"
+"wmf_dep = dependency('wmf', method : 'config-tool')\n"
+"```"
 
 #. type: Plain text
-#: Dependencies.md:185
-#, no-wrap
-msgid ""
-"processed = qt5_mod.preprocess(\n"
-"  moc_headers : 'mainWindow.h',   # Only headers that need moc should be put here\n"
-"  moc_sources : 'helperFile.cpp', # must have #include\"moc_helperFile.cpp\"\n"
-"  ui_files    : 'mainWindow.ui',\n"
-"  qresources  : 'resources.qrc',\n"
-")\n"
-msgstr ""
-
-#. type: Plain text
-#: Dependencies.md:192
-#, no-wrap
-msgid ""
-"q5exe = executable('qt5test',\n"
-"  sources     : ['main.cpp',\n"
-"                 'mainWindow.cpp',\n"
-"                 processed],\n"
-"  dependencies: qt5widgets)\n"
-"```\n"
-msgstr ""
-
-#. type: Plain text
-#: Dependencies.md:202
-msgid ""
-"Here we have an UI file created with Qt Designer and one source and header "
-"file each that require preprocessing with the `moc` tool. We also define a "
-"resource file to be compiled with `rcc`. We just have to tell Meson which "
-"files are which and it will take care of invoking all the necessary tools in "
-"the correct order, which is done with the `preprocess` method of the `qt5` "
-"module. Its output is simply put in the list of sources for the target. The "
-"`modules` keyword of `dependency` works just like it does with Boost. It "
-"tells which subparts of Qt the program uses."
-msgstr ""
-
-#. type: Plain text
-#: Dependencies.md:204
+#: Dependencies.md:166
 msgid "## Dependencies using config tools"
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:209
+#: Dependencies.md:172
 msgid ""
-"CUPS, LLVM, PCAP, WxWidgets, libwmf, and GnuStep either do not provide pkg-"
-"config modules or additionally can be detected via a config tool (cups-"
-"config, llvm-config, etc). Meson has native support for these tools, and "
-"then can be found like other dependencies:"
+"[CUPS](#cups), [LLVM](#llvm), [pcap](#pcap), [WxWidgets](#wxwidgets), "
+"[libwmf](#libwmf), and GnuStep either do not provide pkg-config modules or "
+"additionally can be detected via a config tool (cups-config, llvm-config, "
+"etc). Meson has native support for these tools, and they can be found like "
+"other dependencies:"
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:215
+#: Dependencies.md:178
 msgid ""
 "```meson pcap_dep = dependency('pcap', version : '>=1.0')  cups_dep = "
 "dependency('cups', version : '>=1.4')  llvm_dep = dependency('llvm', "
@@ -428,27 +362,166 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Dependencies.md:218
-msgid ""
-"Some of these tools (like wmf and cups) provide both pkg-config and config "
-"tools support. You can force one or another via the method keyword:"
+#: Dependencies.md:180
+msgid "## AppleFrameworks"
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:222
-msgid "```meson wmf_dep = dependency('wmf', method : 'config-tool')  ```"
+#: Dependencies.md:182
+msgid "Use the `modules` keyword to list frameworks required, e.g."
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:186
+#, fuzzy
+msgid ""
+"```meson dep = dependency('appleframeworks', modules : 'foundation')  ```"
 msgstr ""
 "```meson\n"
 "wmf_dep = dependency('wmf', method : 'config-tool')\n"
 "```"
 
 #. type: Plain text
-#: Dependencies.md:224
+#: Dependencies.md:188
+msgid "These dependencies can never be found for non-OSX hosts."
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:190
+msgid "## Boost"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:194
+msgid ""
+"Boost is not a single dependency but rather a group of different libraries. "
+"To use Boost headers-only libraries, simply add Boost as a dependency."
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:199
+msgid ""
+"```meson boost_dep = dependency('boost')  exe = executable('myprog', 'file."
+"cc', dependencies : boost_dep)  ```"
+msgstr ""
+"```meson\n"
+"boost_dep = dependency('boost') \n"
+"exe = executable('myprog', 'file.cc', dependencies : boost_dep) \n"
+"```"
+
+#. type: Plain text
+#: Dependencies.md:202
+msgid ""
+"To link against boost with Meson, simply list which libraries you would like "
+"to use."
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:207
+msgid ""
+"```meson boost_dep = dependency('boost', modules : ['thread', 'utility'])  "
+"exe = executable('myprog', 'file.cc', dependencies : boost_dep)  ```"
+msgstr ""
+"```meson\n"
+"boost_dep = dependency('boost', modules : ['thread', 'utility']) \n"
+"exe = executable('myprog', 'file.cc', dependencies : boost_dep) \n"
+"```"
+
+#. type: Plain text
+#: Dependencies.md:210
+msgid ""
+"You can call `dependency` multiple times with different modules and use "
+"those to link against your targets."
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:214
+msgid ""
+"If your boost headers or libraries are in non-standard locations you can set "
+"the BOOST_ROOT, BOOST_INCLUDEDIR, and/or BOOST_LIBRARYDIR environment "
+"variables."
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:217
+msgid ""
+"You can set the argument `threading` to `single` to use boost libraries that "
+"have been compiled for single-threaded use instead."
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:219
+msgid "## CUPS"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:221
+msgid ""
+"`method` may be `auto`, `config-tool`, `pkg-config` or `extraframework`."
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:223
+msgid "## GL"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:225
+msgid "This finds the OpenGL library in a way appropriate to the platform."
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:227 Dependencies.md:393
+msgid "`method` may be `auto`, `pkg-config` or `system`."
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:229
+msgid "## GTest and GMock"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:235
+msgid ""
+"GTest and GMock come as sources that must be compiled as part of your "
+"project. With Meson you don't have to care about the details, just pass "
+"`gtest` or `gmock` to `dependency` and it will do everything for you. If you "
+"want to use GMock, it is recommended to use GTest as well, as getting it to "
+"work standalone is tricky."
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:243
+msgid ""
+"You can set the `main` keyword argument to `true` to use the `main()` "
+"function provided by GTest: ``` gtest_dep = dependency('gtest', main : true, "
+"required : false)  e = executable('testprog', 'test.cc', dependencies : "
+"gtest_dep)  test('gtest test', e)  ```"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:245
+msgid "## libwmf"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:247
+#, no-wrap
+msgid "*(added 0.44.0)*\n"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:249 Dependencies.md:311
+msgid "`method` may be `auto`, `config-tool` or `pkg-config`."
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:251
 msgid "## LLVM"
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:228
+#: Dependencies.md:255
 msgid ""
 "Meson has native support for LLVM going back to version LLVM version 3.5.  "
 "It supports a few additional features compared to other config-tool based "
@@ -456,7 +529,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:232
+#: Dependencies.md:259
 msgid ""
 "As of 0.44.0 Meson supports the `static` keyword argument for LLVM. Before "
 "this LLVM >= 3.9 would always dynamically link, while older versions would "
@@ -464,12 +537,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:234
+#: Dependencies.md:261
 msgid "### Modules, a.k.a. Components"
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:238
+#: Dependencies.md:265
 msgid ""
 "Meson wraps LLVM's concept of components in it's own modules concept.  When "
 "you need specific components you add them as modules as meson will do the "
@@ -477,7 +550,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:242
+#: Dependencies.md:269
 msgid ""
 "```meson llvm_dep = dependency('llvm', version : '>= 4.0', modules : "
 "['amdgpu'])  ```"
@@ -487,14 +560,14 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Dependencies.md:245
+#: Dependencies.md:272
 msgid ""
 "As of 0.44.0 it can also take optional modules (these will affect the "
 "arguments generated for a static link):"
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:250
+#: Dependencies.md:278
 #, no-wrap
 msgid ""
 "```meson\n"
@@ -502,4 +575,284 @@ msgid ""
 "  'llvm', version : '>= 4.0', modules : ['amdgpu'], optional_modules : ['inteljitevents'],\n"
 ")\n"
 "```\n"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:280
+msgid "## MPI"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:282 Dependencies.md:309 Dependencies.md:389
+#, no-wrap
+msgid "*(added 0.42.0)*\n"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:289
+#, no-wrap
+msgid ""
+"MPI is supported for C, C++ and Fortran. Because dependencies are\n"
+"language-specific, you must specify the requested language using the\n"
+"`language` keyword argument, i.e.,\n"
+" * `dependency('mpi', language: 'c')` for the C MPI headers and libraries\n"
+" * `dependency('mpi', language: 'cpp')` for the C++ MPI headers and libraries\n"
+" * `dependency('mpi', language: 'fortran')` for the Fortran MPI headers and libraries\n"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:296
+msgid ""
+"Meson prefers pkg-config for MPI, but if your MPI implementation does not "
+"provide them, it will search for the standard wrapper executables, `mpic`, "
+"`mpicxx`, `mpic++`, `mpifort`, `mpif90`, `mpif77`. If these are not in your "
+"path, they can be specified by setting the standard environment variables "
+"`MPICC`, `MPICXX`, `MPIFC`, `MPIF90`, or `MPIF77`, during configuration."
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:298
+msgid "## OpenMP"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:300
+#, no-wrap
+msgid "*(added 0.46.0)*\n"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:303
+msgid ""
+"This dependency selects the appropriate compiler flags and/or libraries to "
+"use for OpenMP support."
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:305
+msgid "The `language` keyword may used."
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:307
+msgid "## pcap"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:313
+msgid "## Python3"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:319
+#, no-wrap
+msgid ""
+"Python3 is handled specially by meson:\n"
+"1. Meson tries to use `pkg-config`.\n"
+"2. If `pkg-config` fails meson uses a fallback:\n"
+"    - On Windows the fallback is the current `python3` interpreter.\n"
+"    - On OSX the fallback is a framework dependency from `/Library/Frameworks`.\n"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:323
+msgid ""
+"Note that `python3` found by this dependency might differ from the one used "
+"in `python3` module because modules uses the current interpreter, but "
+"dependency tries `pkg-config` first."
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:325
+msgid "`method` may be `auto`, `extraframework`, `pkg-config` or `sysconfig`"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:327
+msgid "## Qt4 & Qt5"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:330
+msgid ""
+"Meson has native Qt support. Its usage is best demonstrated with an example."
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:334
+msgid ""
+"```meson qt5_mod = import('qt5')  qt5widgets = dependency('qt5', modules : "
+"'Widgets')"
+msgstr ""
+"```meson\n"
+"qt5_mod = import('qt5')  qt5widgets = dependency('qt5', modules : 'Widgets')"
+
+#. type: Plain text
+#: Dependencies.md:341
+#, no-wrap
+msgid ""
+"processed = qt5_mod.preprocess(\n"
+"  moc_headers : 'mainWindow.h',   # Only headers that need moc should be put here\n"
+"  moc_sources : 'helperFile.cpp', # must have #include\"moc_helperFile.cpp\"\n"
+"  ui_files    : 'mainWindow.ui',\n"
+"  qresources  : 'resources.qrc',\n"
+")\n"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:348
+#, no-wrap
+msgid ""
+"q5exe = executable('qt5test',\n"
+"  sources     : ['main.cpp',\n"
+"                 'mainWindow.cpp',\n"
+"                 processed],\n"
+"  dependencies: qt5widgets)\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:358
+msgid ""
+"Here we have an UI file created with Qt Designer and one source and header "
+"file each that require preprocessing with the `moc` tool. We also define a "
+"resource file to be compiled with `rcc`. We just have to tell Meson which "
+"files are which and it will take care of invoking all the necessary tools in "
+"the correct order, which is done with the `preprocess` method of the `qt5` "
+"module. Its output is simply put in the list of sources for the target. The "
+"`modules` keyword of `dependency` works just like it does with Boost. It "
+"tells which subparts of Qt the program uses."
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:361
+msgid ""
+"Setting the optional `private_headers` keyword to true adds the private "
+"header include path of the given module(s) to the compiler flags.  (since "
+"v0.47.0)"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:364
+#, no-wrap
+msgid ""
+"**Note** using private headers in your project is a bad idea, do so at your own\n"
+"risk.\n"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:366
+msgid "`method` may be `auto`, `pkgconfig` or `qmake`."
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:368
+msgid "## SDL2"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:371
+msgid ""
+"SDL2 can be located using `pkg-confg`, the `sdl2-config` config tool, or as "
+"an OSX framework."
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:373
+msgid ""
+"`method` may be `auto`, `config-tool`, `extraframework` or `pkg-config`."
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:375
+msgid "## Threads"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:378
+msgid ""
+"This dependency selects the appropriate compiler flags and/or libraries to "
+"use for thread support."
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:380
+msgid "See [threads](Threads.md)."
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:382
+msgid "## Valgrind"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:385
+msgid ""
+"Meson will find valgrind using `pkg-config`, but only uses the compilation "
+"flags and avoids trying to link with it's non-PIC static libs."
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:387
+msgid "## Vulkan"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:391
+msgid ""
+"Vulkan can be located using `pkg-config`, or the `VULKAN_SDK` environment "
+"variable."
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:395
+msgid "## WxWidgets"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:401
+msgid ""
+"Similar to [Boost](#boost), WxWidgets is not a single library but rather a "
+"collection of modules. WxWidgets is supported via `wx-config`.  Meson "
+"substitutes `modules` to `wx-config` invocation, it generates - "
+"`compile_args` using `wx-config --cxxflags $modules...` - `link_args` using "
+"`wx-config --libs $modules...`"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:403
+msgid "### Example"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:409
+#, fuzzy, no-wrap
+msgid ""
+"```meson\n"
+"wx_dep = dependency(\n"
+"  'wxwidgets', version : '>=3.0.0', modules : ['std', 'stc'],\n"
+")\n"
+"```\n"
+msgstr ""
+"```meson\n"
+"llvm_dep = dependency('llvm', version : '>= 4.0', modules : ['amdgpu'])\n"
+"```"
+
+#. type: Plain text
+#: Dependencies.md:413
+msgid "```shell # compile_args: $ wx-config --cxxflags std stc"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:417
+msgid "# link_args: $ wx-config --libs std stc ```"
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:420
+#, no-wrap
+msgid ""
+"<hr>\n"
+"<a name=\"footnote1\">1</a>: They may appear to be case-insensitive, if the\n"
+"    underlying file system happens to be case-insensitive.\n"
 msgstr ""

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-01-19 14:05+0900\n"
+"POT-Creation-Date: 2018-09-01 16:24+0900\n"
 "PO-Revision-Date: 2017-09-30 21:44+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -127,11 +127,32 @@ msgstr ""
 
 #. type: Plain text
 #: index.md:37
+msgid "### [Projects using Meson](http://mesonbuild.com/Users.html)"
+msgstr ""
+
+#. type: Plain text
+#: index.md:41
+msgid ""
+"Many projects out there are using Meson and their communities are also a "
+"great resource for learning about what (and what not too!) do when trying to "
+"convert to using Meson."
+msgstr ""
+
+#. type: Plain text
+#: index.md:45
+msgid ""
+"[A short list of Meson users can be found here](http://mesonbuild.com/Users."
+"html)  but there are many more. We would love to hear about your success "
+"stories too and how things could be improved too!"
+msgstr ""
+
+#. type: Plain text
+#: index.md:47
 msgid "## Development"
 msgstr "## 開発"
 
 #. type: Plain text
-#: index.md:41
+#: index.md:51
 msgid ""
 "All development on Meson is done on the [GitHub project](https://github.com/"
 "mesonbuild/meson). Instructions for contributing can be found on the "
@@ -139,6 +160,6 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: index.md:43
+#: index.md:53
 msgid "You do not need to sign a CLA to contribute to Meson."
 msgstr ""

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-10-24 18:52+0900\n"
+"POT-Creation-Date: 2018-09-01 15:59+0900\n"
 "PO-Revision-Date: 2017-09-30 21:43+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -35,14 +35,14 @@ msgid "# Installing"
 msgstr "# インストール"
 
 #. type: Plain text
-#: Installing.md:8
+#: Installing.md:9
 msgid ""
 "By default Meson will not install anything. Build targets can be installed "
 "by tagging them as installable in the definition."
 msgstr ""
 
 #. type: Plain text
-#: Installing.md:13
+#: Installing.md:14
 msgid ""
 "```meson project('install', 'c')  shared_library('mylib', 'libfile.c', "
 "install : true)  ```"
@@ -53,7 +53,7 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Installing.md:19
+#: Installing.md:20
 msgid ""
 "There is usually no need to specify install paths or the like. Meson will "
 "automatically install it to the standards-conforming location. In this "
@@ -63,7 +63,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Installing.md:23
+#: Installing.md:24
 msgid ""
 "```meson executable('prog', 'prog.c', install : true, install_dir : 'my/"
 "special/dir')  ```"
@@ -73,16 +73,17 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Installing.md:25
+#: Installing.md:26
 msgid "Other install commands are the following."
 msgstr ""
 
 #. type: Plain text
-#: Installing.md:31
+#: Installing.md:32
+#, fuzzy
 msgid ""
 "```meson install_headers('header.h', subdir : 'projname') # -> include/"
 "projname/header.h install_man('foo.1') # -> share/man/man1/foo.1.gz "
-"install_data('datafile.cat', install_dir : join_paths(get_option('datadir'), "
+"install_data('datafile.dat', install_dir : join_paths(get_option('datadir'), "
 "'progname')) # -> share/progname/datafile.dat ```"
 msgstr ""
 "```meson\n"
@@ -94,14 +95,38 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Installing.md:33
+#: Installing.md:34
+msgid "`install_data()` supports rename of the file *since 0.46.0*."
+msgstr ""
+
+#. type: Plain text
+#: Installing.md:38
+msgid ""
+"```meson # file.txt -> {datadir}/{projectname}/new-name.txt "
+"install_data('file.txt', rename : 'new-name.txt')"
+msgstr ""
+
+#. type: Plain text
+#: Installing.md:45
+#, no-wrap
+msgid ""
+"# file1.txt -> share/myapp/dir1/data.txt\n"
+"# file2.txt -> share/myapp/dir2/data.txt\n"
+"install_data(['file1.txt', 'file2.txt'],\n"
+"             rename : ['dir1/data.txt', 'dir2/data.txt'],\n"
+"             install_dir : 'share/myapp')\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: Installing.md:49
 msgid ""
 "Sometimes you want to copy an entire subtree directly. For this use case "
 "there is the `install_subdir` command, which can be used like this."
 msgstr ""
 
 #. type: Plain text
-#: Installing.md:37
+#: Installing.md:53
 msgid ""
 "```meson install_subdir('mydir', install_dir : 'include') # mydir subtree -> "
 "include/mydir ```"
@@ -112,7 +137,7 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Installing.md:42
+#: Installing.md:58
 msgid ""
 "Most of the time you want to install files relative to the install prefix. "
 "Sometimes you need to go outside of the prefix (such as writing files to `/"
@@ -121,7 +146,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Installing.md:46
+#: Installing.md:62
 msgid ""
 "```meson install_data(sources : 'foo.dat', install_dir : '/etc') # -> /etc/"
 "foo.dat ```"
@@ -131,12 +156,12 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Installing.md:48
+#: Installing.md:64
 msgid "## Custom install behavior"
 msgstr "## インストール方法のカスタマイズ"
 
 #. type: Plain text
-#: Installing.md:50
+#: Installing.md:69
 msgid ""
 "Sometimes you need to do more than just install basic targets. Meson makes "
 "this easy by allowing you to specify a custom script to execute at install "
@@ -145,14 +170,14 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Installing.md:53
+#: Installing.md:72
 msgid "```bash #!/bin/sh"
 msgstr ""
 "```bash\n"
 "#!/bin/sh"
 
 #. type: Plain text
-#: Installing.md:57
+#: Installing.md:76
 msgid ""
 "mkdir \"${DESTDIR}/${MESON_INSTALL_PREFIX}/mydir\" touch \"${DESTDIR}/"
 "${MESON_INSTALL_PREFIX}/mydir/file.dat\" ```"
@@ -162,7 +187,7 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Installing.md:59
+#: Installing.md:81
 msgid ""
 "As you can see, Meson sets up some environment variables to help you write "
 "your script (`DESTDIR` is not set by Meson, it is inherited from the outside "
@@ -171,12 +196,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Installing.md:61
+#: Installing.md:83
 msgid "Telling Meson to run this script at install time is a one-liner."
 msgstr ""
 
 #. type: Plain text
-#: Installing.md:65
+#: Installing.md:87
 msgid "```meson meson.add_install_script('myscript.sh')  ```"
 msgstr ""
 "```meson\n"
@@ -184,19 +209,19 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Installing.md:67
+#: Installing.md:90
 msgid ""
 "The argument is the name of the script file relative to the current "
 "subdirectory."
 msgstr ""
 
 #. type: Plain text
-#: Installing.md:69
+#: Installing.md:92
 msgid "## DESTDIR support"
 msgstr "## DESTDIR サポート"
 
 #. type: Plain text
-#: Installing.md:71
+#: Installing.md:97
 msgid ""
 "Sometimes you need to install to a different directory than the install "
 "prefix. This is most common when building rpm or deb packages. This is done "
@@ -205,9 +230,37 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Installing.md:74
+#: Installing.md:101
 msgid "```console $ DESTDIR=/path/to/staging/area ninja install ```"
 msgstr ""
 "```console\n"
 "$ DESTDIR=/path/to/staging/area ninja install\n"
 "```"
+
+#. type: Plain text
+#: Installing.md:103
+#, fuzzy
+msgid "## Custom install behaviour"
+msgstr "## インストール方法のカスタマイズ"
+
+#. type: Plain text
+#: Installing.md:108
+msgid ""
+"The default install target (executed via, e.g., `ninja install`) does "
+"installing with reasonable default options. More control over the install "
+"behaviour can be achieved with the `meson install` command, that has been "
+"available since 0.47.0."
+msgstr ""
+
+#. type: Plain text
+#: Installing.md:113
+msgid ""
+"For example, if you wish to install the current setup without rebuilding the "
+"code (which the default install target always does) and only installing "
+"those files that have changed, you would run this command in the build tree:"
+msgstr ""
+
+#. type: Plain text
+#: Installing.md:116
+msgid "```console $ meson install --no-rebuild --only-changed ```"
+msgstr ""

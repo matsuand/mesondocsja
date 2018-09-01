@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-09-30 21:43+0900\n"
+"POT-Creation-Date: 2018-09-01 15:59+0900\n"
 "PO-Revision-Date: 2017-09-30 21:43+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -22,61 +22,177 @@ msgid "# Getting meson"
 msgstr "# Meson の入手"
 
 #. type: Plain text
-#: Getting-meson.md:4
+#: Getting-meson.md:8
+#, fuzzy
+msgid ""
+"Meson is implemented in Python 3, and requires 3.5 or newer. If your "
+"operating system provides a package manager, you should install it with "
+"that. For platforms that don't have a package manager, you need to download "
+"it from [Python's home page]. See below for [platform-specific Python3 "
+"quirks](#Platform-specific_install_quirks)."
+msgstr ""
+"Meson は Python 3 により実装されています。お使いのオペレーティングシステムに"
+"パッケージマネージャーがあれば、それを使って Python 3 をインストールすること"
+"ができます。パッケージマネージャーがない場合は、[Python のホームページ] から"
+"ダウンロードしてください。"
+
+#. type: Plain text
+#: Getting-meson.md:10
 msgid "## Downloading Meson"
 msgstr "## Meson のダウンロード"
 
 #. type: Plain text
-#: Getting-meson.md:6
-msgid "Meson releases can be downloaded from the [GitHub release page]."
-msgstr ""
-"Meson は [GitHub リリースページ] からダウンロードすることができます。"
-
-#. type: Plain text
-#: Getting-meson.md:9
+#: Getting-meson.md:14
 msgid ""
-"Meson is also available in the [Python Package Index] and can be installed "
-"with `pip3 install meson`."
+"Meson releases can be downloaded from the [GitHub release page], and you can "
+"run `./meson.py` from inside a release or the git repository itself without "
+"doing anything special."
 msgstr ""
-"また Meson は [Python パッケージインデックス] に含まれるため、`pip3 "
-"install meson` によりインストールすることもできます。"
-
-#. type: Plain text
-#: Getting-meson.md:11
-msgid "The newest development code can be obtained directly from [Git]"
-msgstr "開発版の最新は [Git] から直接入手してください。"
-
-#. type: Plain text
-#: Getting-meson.md:13
-msgid "## Dependencies"
-msgstr "## 依存パッケージ"
 
 #. type: Plain text
 #: Getting-meson.md:18
 msgid ""
-"Meson is implemented in Python 3. If your operating system provides a "
-"package manager, you should install it with that. For platforms that don't "
-"have a package manager, you need to download it from [Python's home page]."
+"On Windows, if you did not install Python with the installer options that "
+"make Python scripts executable, you will have to run `python /path/to/meson."
+"py`, where `python` is Python 3.5 or newer."
 msgstr ""
-"Meson は Python 3 により実装されています。お使いのオペレーティングシス"
-"テムにパッケージマネージャーがあれば、それを使って Python 3 をインスト"
-"ールすることができます。パッケージマネージャーがない場合は、[Python の"
-"ホームページ] からダウンロードしてください。"
 
 #. type: Plain text
 #: Getting-meson.md:22
 msgid ""
-"Depending on your platform and backend you wish to use, you might need the "
-"[Ninja executable]. Again, use your distro-provided version if possible. "
-"Otherwise download it from Ninja project's web site."
+"The newest development code can be obtained directly from [Git], and we "
+"strive to ensure that it will always be working and usable. All commits go "
+"through a pull-request process that runs CI and tests several platforms."
 msgstr ""
-"利用しているプラットフォームや、バックエンドを利用するかどうかによって、"
-"[Ninja モジュール] を必要とすることもあります。ここでもできるだけ、ディ"
-"ストリビューションが提供しているモジュールを利用するようにしてください。"
-"それができない場合は、Ninja プロジェクトの Web サイトから入手してください。"
 
 #. type: Plain text
-#: Getting-meson.md:28
+#: Getting-meson.md:24
+msgid "## Installing Meson with pip"
+msgstr ""
+
+#. type: Plain text
+#: Getting-meson.md:27
+#, fuzzy
+msgid ""
+"Meson is available in the [Python Package Index] and can be installed with "
+"`pip3 install meson` which requires root and will install it system-wide."
+msgstr ""
+"また Meson は [Python パッケージインデックス] に含まれるため、`pip3 install "
+"meson` によりインストールすることもできます。"
+
+#. type: Plain text
+#: Getting-meson.md:32
+msgid ""
+"Alternatively, you can use `pip3 install --user meson` which will install it "
+"for your user and does not require any special privileges. This will install "
+"the package in `~/.local/`, so you will have to add `~/.local/bin` to your "
+"`PATH`."
+msgstr ""
+
+#. type: Plain text
+#: Getting-meson.md:34
+msgid "## Installing Meson and Ninja with the MSI installer"
+msgstr ""
+
+#. type: Plain text
+#: Getting-meson.md:39
+msgid ""
+"We provide an MSI installer on the [GitHub release page] that can be used to "
+"install both Meson and Ninja at once for Windows. It also contains an "
+"embedded copy of Python, so scripts that use the [Python module](Python-"
+"module.md) and do not have any external dependencies will continue to work "
+"as expected."
+msgstr ""
+
+#. type: Plain text
+#: Getting-meson.md:41
+msgid ""
+"Please note that this is a new feature, so bug reports are expected and "
+"welcome!"
+msgstr ""
+
+#. type: Plain text
+#: Getting-meson.md:43
+msgid "## Dependencies"
+msgstr "## 依存パッケージ"
+
+#. type: Plain text
+#: Getting-meson.md:48
+msgid ""
+"In the most common case, you will need the [Ninja executable] for using the "
+"`ninja` backend, which is the default in Meson. This backend can be used on "
+"all platforms and with all toolchains, including GCC, Clang, Visual Studio, "
+"MinGW, ICC, ARMCC, etc."
+msgstr ""
+
+#. type: Plain text
+#: Getting-meson.md:52
+msgid ""
+"You can use the version provided by your package manager if possible, "
+"otherwise download the binary executable from the [Ninja project's release "
+"page](https://github.com/ninja-build/ninja/releases)."
+msgstr ""
+
+#. type: Plain text
+#: Getting-meson.md:56
+msgid ""
+"If you will only use the Visual Studio backend (`--backend=vs`) to generate "
+"Visual Studio solutions on Windows or the XCode backend (`--backend=xcode`) "
+"to generate XCode projects on macOS, you do not need Ninja."
+msgstr ""
+
+#. type: Plain text
+#: Getting-meson.md:58
+msgid "# Platform-specific install quirks"
+msgstr ""
+
+#. type: Plain text
+#: Getting-meson.md:60
+msgid "## Windows Python3 quirks"
+msgstr ""
+
+#. type: Plain text
+#: Getting-meson.md:63
+msgid ""
+"When installing Python 3, it is highly recommended (but not required) that "
+"you select the installer options as follows:"
+msgstr ""
+
+#. type: Plain text
+#: Getting-meson.md:67
+msgid ""
+"![installer step 1](images/py3-install-1.png \"Enable 'Add Python 3.6 to "
+"PATH' and click 'Customize installation'\")  ![installer step 2](images/py3-"
+"install-2.png \"Optional Features: ensure 'pip' is enabled\")  ![installer "
+"step 3](images/py3-install-3.png \"Advanced Options: enable 'Install for all "
+"users'\")"
+msgstr ""
+
+#. type: Plain text
+#: Getting-meson.md:72
+msgid ""
+"With this, you will have `python` and `pip` in `PATH`, and you can install "
+"Meson with pip. You will also be able to directly run `meson` in any shell "
+"on Windows instead of having to run `py -3` with the full path to the `meson."
+"py` script."
+msgstr ""
+
+#. type: Plain text
+#: Getting-meson.md:74
+msgid "## MSYS2 Python3 quirks"
+msgstr ""
+
+#. type: Plain text
+#: Getting-meson.md:79
+msgid ""
+"If you are using MSYS2 on Windows as your development environment, please "
+"make sure that you **do not use** the `msys/python` package to provide "
+"Python 3. Use either `mingw32/mingw-w64-i686-python3` or `mingw64/mingw-w64-"
+"x86_64-python3` depending on which MinGW target you are building for."
+msgstr ""
+
+#. type: Plain text
+#: Getting-meson.md:84
 #, no-wrap
 msgid ""
 "  [GitHub release page]: https://github.com/mesonbuild/meson/releases\n"
@@ -90,3 +206,20 @@ msgstr ""
 "  [Git]: https://github.com/mesonbuild/meson\n"
 "  [Python のホームページ]: https://www.python.org/downloads/\n"
 "  [Ninja モジュール]: https://ninja-build.org/\n"
+
+#~ msgid "Meson releases can be downloaded from the [GitHub release page]."
+#~ msgstr ""
+#~ "Meson は [GitHub リリースページ] からダウンロードすることができます。"
+
+#~ msgid "The newest development code can be obtained directly from [Git]"
+#~ msgstr "開発版の最新は [Git] から直接入手してください。"
+
+#~ msgid ""
+#~ "Depending on your platform and backend you wish to use, you might need "
+#~ "the [Ninja executable]. Again, use your distro-provided version if "
+#~ "possible. Otherwise download it from Ninja project's web site."
+#~ msgstr ""
+#~ "利用しているプラットフォームや、バックエンドを利用するかどうかによって、"
+#~ "[Ninja モジュール] を必要とすることもあります。ここでもできるだけ、ディス"
+#~ "トリビューションが提供しているモジュールを利用するようにしてください。それ"
+#~ "ができない場合は、Ninja プロジェクトの Web サイトから入手してください。"

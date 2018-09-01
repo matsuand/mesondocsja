@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-12-04 12:55+0900\n"
+"POT-Creation-Date: 2018-09-01 16:24+0900\n"
 "PO-Revision-Date: 2017-09-30 21:44+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -48,7 +48,14 @@ msgstr ""
 "簡単にするため、後者の方法のみを示していきます。"
 
 #. type: Plain text
-#: Running-Meson.md:17
+#: Running-Meson.md:15
+msgid ""
+"Additionally, the invocation can pass options to meson.  The list of options "
+"is documented [here](Builtin-options.md)."
+msgstr ""
+
+#. type: Plain text
+#: Running-Meson.md:20
 msgid ""
 "At the time of writing only a command line version of Meson is available. "
 "This means that Meson must be invoked using the terminal. If you wish to use "
@@ -61,7 +68,7 @@ msgstr ""
 "します。"
 
 #. type: Plain text
-#: Running-Meson.md:19
+#: Running-Meson.md:22
 #, no-wrap
 msgid ""
 "Configuring the source\n"
@@ -71,7 +78,7 @@ msgstr ""
 "==\n"
 
 #. type: Plain text
-#: Running-Meson.md:24
+#: Running-Meson.md:27
 msgid ""
 "Let us assume that we have a source tree that has a Meson build system. This "
 "means that at the topmost directory has a file called `meson.build`. We run "
@@ -82,7 +89,7 @@ msgstr ""
 "ビルド実行は以下のコマンドにより行います。"
 
 #. type: Plain text
-#: Running-Meson.md:30
+#: Running-Meson.md:33
 #, no-wrap
 msgid ""
 "    cd /path/to/source/root\n"
@@ -92,7 +99,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Running-Meson.md:34
+#: Running-Meson.md:37
 msgid ""
 "First we create a directory to hold all files generated during the build. "
 "Then we go into it and invoke Meson, giving it the location of the source "
@@ -103,7 +110,7 @@ msgstr ""
 "トリを指定します。"
 
 #. type: Plain text
-#: Running-Meson.md:39
+#: Running-Meson.md:42
 msgid ""
 "Hint: The syntax of meson is `meson [options] [srcdir] [builddir]`, but you "
 "may omit either `srcdir` or `builddir`. Meson will deduce the `srcdir` by "
@@ -115,7 +122,7 @@ msgstr ""
 "になります。"
 
 #. type: Plain text
-#: Running-Meson.md:44
+#: Running-Meson.md:47
 msgid ""
 "Meson then loads the build configuration file and writes the corresponding "
 "build backend in the build directory. By default Meson generates a *debug "
@@ -124,14 +131,14 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Running-Meson.md:47
+#: Running-Meson.md:50
 msgid ""
 "You can specify a different type of build with the `--buildtype` command "
 "line argument. It can have one of the following values."
 msgstr ""
 
 #. type: Plain text
-#: Running-Meson.md:54
+#: Running-Meson.md:57
 #, no-wrap
 msgid ""
 "| value            | meaning                                                                                                                                                    |\n"
@@ -149,7 +156,7 @@ msgstr ""
 "| `release`        | full optimization, no debug info                                                                                                                           |\n"
 
 #. type: Plain text
-#: Running-Meson.md:64
+#: Running-Meson.md:67
 msgid ""
 "The build directory is mandatory. The reason for this is that it simplifies "
 "the build process immensely. Meson will not under any circumstances write "
@@ -162,7 +169,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Running-Meson.md:69
+#: Running-Meson.md:72
 #, no-wrap
 msgid ""
 "    cd /path/to/source/root\n"
@@ -172,7 +179,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Running-Meson.md:77
+#: Running-Meson.md:80
 msgid ""
 "This separation is even more powerful if your code has multiple "
 "configuration options (such as multiple data backends). You can create a "
@@ -183,14 +190,14 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Running-Meson.md:80
+#: Running-Meson.md:83
 msgid ""
 "Unless otherwise mentioned, all following command line invocations are meant "
 "to be run in the build directory."
 msgstr ""
 
 #. type: Plain text
-#: Running-Meson.md:85
+#: Running-Meson.md:88
 msgid ""
 "By default Meson will use the Ninja backend to build your project. If you "
 "wish to use any of the other backends, you need to pass the corresponding "
@@ -199,20 +206,20 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Running-Meson.md:87
+#: Running-Meson.md:90
 #, no-wrap
 msgid "    meson <source dir> <build dir> --backend=vs2010\n"
 msgstr ""
 
 #. type: Plain text
-#: Running-Meson.md:91
+#: Running-Meson.md:94
 msgid ""
 "You can then open the generated solution with Visual Studio and compile it "
 "in the usual way. A list of backends can be obtained with `meson --help`."
 msgstr ""
 
 #. type: Plain text
-#: Running-Meson.md:93
+#: Running-Meson.md:96
 #, no-wrap
 msgid ""
 "Building the source\n"
@@ -222,7 +229,7 @@ msgstr ""
 "==\n"
 
 #. type: Plain text
-#: Running-Meson.md:98
+#: Running-Meson.md:101
 msgid ""
 "If you are not using an IDE, Meson uses the [Ninja build system](https://"
 "ninja-build.org/) to actually build the code. To start the build, simply "
@@ -230,13 +237,13 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Running-Meson.md:100
+#: Running-Meson.md:103
 #, no-wrap
 msgid "    ninja\n"
 msgstr ""
 
 #. type: Plain text
-#: Running-Meson.md:106
+#: Running-Meson.md:109
 msgid ""
 "The main usability difference between Ninja and Make is that Ninja will "
 "automatically detect the number of CPUs in your computer and parallelize "
@@ -245,7 +252,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Running-Meson.md:116
+#: Running-Meson.md:119
 msgid ""
 "It should be noted that after the initial configure step `ninja` is the only "
 "command you ever need to type to compile. No matter how you alter your "
@@ -258,7 +265,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Running-Meson.md:118
+#: Running-Meson.md:121
 #, no-wrap
 msgid ""
 "Running tests\n"
@@ -268,27 +275,27 @@ msgstr ""
 "==\n"
 
 #. type: Plain text
-#: Running-Meson.md:122
+#: Running-Meson.md:125
 msgid ""
 "Meson provides native support for running tests. The command to do that is "
 "simple."
 msgstr ""
 
 #. type: Plain text
-#: Running-Meson.md:124
+#: Running-Meson.md:127
 #, no-wrap
 msgid "    ninja test\n"
 msgstr ""
 
 #. type: Plain text
-#: Running-Meson.md:127
+#: Running-Meson.md:130
 msgid ""
 "Meson does not force the use of any particular testing framework. You are "
 "free to use GTest, Boost Test, Check or even custom executables."
 msgstr ""
 
 #. type: Plain text
-#: Running-Meson.md:129
+#: Running-Meson.md:132
 #, no-wrap
 msgid ""
 "Installing\n"
@@ -298,20 +305,28 @@ msgstr ""
 "==\n"
 
 #. type: Plain text
-#: Running-Meson.md:132
+#: Running-Meson.md:135
 msgid "Installing the built software is just as simple."
 msgstr ""
 "ビルドしたソフトウェアのインストールは、以下のような単純なコマンド実行により"
 "行います。"
 
 #. type: Plain text
-#: Running-Meson.md:134
+#: Running-Meson.md:137
 #, no-wrap
 msgid "    ninja install\n"
 msgstr ""
 
 #. type: Plain text
-#: Running-Meson.md:139
+#: Running-Meson.md:140
+msgid ""
+"Note that Meson will only install build targets explicitly tagged as "
+"installable, as detailed in the [installing targets documentation]"
+"(Installing.md)."
+msgstr ""
+
+#. type: Plain text
+#: Running-Meson.md:145
 msgid ""
 "By default Meson installs to `/usr/local`. This can be changed by passing "
 "the command line argument `--prefix /your/prefix` to Meson during configure "
@@ -320,13 +335,13 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Running-Meson.md:141
+#: Running-Meson.md:147
 #, no-wrap
 msgid "    DESTDIR=/path/to/staging ninja install\n"
 msgstr ""
 
 #. type: Plain text
-#: Running-Meson.md:143
+#: Running-Meson.md:149
 #, no-wrap
 msgid ""
 "Command line help\n"
@@ -336,7 +351,7 @@ msgstr ""
 "==\n"
 
 #. type: Plain text
-#: Running-Meson.md:147
+#: Running-Meson.md:153
 msgid ""
 "Meson has a standard command line help feature. It can be accessed with the "
 "following command."
@@ -345,7 +360,22 @@ msgstr ""
 "てヘルプを表示します。"
 
 #. type: Plain text
-#: Running-Meson.md:148
+#: Running-Meson.md:155
 #, no-wrap
 msgid "    meson --help\n"
+msgstr ""
+
+#. type: Plain text
+#: Running-Meson.md:157
+#, no-wrap
+msgid ""
+"Exit status\n"
+"==\n"
+msgstr ""
+
+#. type: Plain text
+#: Running-Meson.md:160
+msgid ""
+"Meson exits with status 0 if successful, 1 for problems with the command "
+"line or meson.build file, and 2 for internal errors."
 msgstr ""

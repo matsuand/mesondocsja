@@ -45,7 +45,6 @@ basenames = \
 	Localisation \
 	Manual \
 	Meson-sample \
-	Module-reference \
 	Modules \
 	Overview \
 	Performance-comparison \
@@ -195,8 +194,6 @@ pot/Localisation.pot: $(abs_mesondir)/Localisation.md
 pot/Manual.pot: $(abs_mesondir)/Manual.md
 	$(call GETPOT, $^, $@)
 pot/Meson-sample.pot: $(abs_mesondir)/Meson-sample.md
-	$(call GETPOT, $^, $@)
-pot/Module-reference.pot: $(abs_mesondir)/Module-reference.md
 	$(call GETPOT, $^, $@)
 pot/Modules.pot: $(abs_mesondir)/Modules.md
 	$(call GETPOT, $^, $@)
@@ -393,8 +390,6 @@ $(srcdir)/Manual.po: pot/Manual.pot
 	$(call MSGPROC, $^, $@)
 $(srcdir)/Meson-sample.po: pot/Meson-sample.pot
 	$(call MSGPROC, $^, $@)
-$(srcdir)/Module-reference.po: pot/Module-reference.pot
-	$(call MSGPROC, $^, $@)
 $(srcdir)/Modules.po: pot/Modules.pot
 	$(call MSGPROC, $^, $@)
 $(srcdir)/Overview.po: pot/Overview.pot
@@ -590,8 +585,6 @@ Manual.md: $(abs_mesondir)/Manual.md $(srcdir)/Manual.po
 	$(call PO4ATRANS, $(abs_mesondir)/Manual.md, $(srcdir)/Manual.po)
 Meson-sample.md: $(abs_mesondir)/Meson-sample.md $(srcdir)/Meson-sample.po
 	$(call PO4ATRANS, $(abs_mesondir)/Meson-sample.md, $(srcdir)/Meson-sample.po)
-Module-reference.md: $(abs_mesondir)/Module-reference.md $(srcdir)/Module-reference.po
-	$(call PO4ATRANS, $(abs_mesondir)/Module-reference.md, $(srcdir)/Module-reference.po)
 Modules.md: $(abs_mesondir)/Modules.md $(srcdir)/Modules.po
 	$(call PO4ATRANS, $(abs_mesondir)/Modules.md, $(srcdir)/Modules.po)
 Overview.md: $(abs_mesondir)/Overview.md $(srcdir)/Overview.po

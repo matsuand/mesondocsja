@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-09-30 21:43+0900\n"
+"POT-Creation-Date: 2018-09-01 15:59+0900\n"
 "PO-Revision-Date: 2017-09-30 21:43+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -300,7 +300,7 @@ msgstr ""
 msgid ""
 "Just having a header doesn't say anything about its contents. Sometimes you "
 "need to explicitly check if some function exists. This is how we would check "
-"whether the function `somefunc` exists in header `someheader.h`"
+"whether the function `open_memstream` exists in header `stdio.h`"
 msgstr ""
 
 #. type: Plain text
@@ -308,14 +308,41 @@ msgstr ""
 #, no-wrap
 msgid ""
 "```meson\n"
-"if compiler.has_function('somefunc', prefix : '#include<someheader.h>')\n"
+"if compiler.has_function('open_memstream', prefix : '#include <stdio.h>')\n"
 "  # function exists, do whatever is required.\n"
 "endif\n"
 "```\n"
 msgstr ""
 
 #. type: Plain text
-#: Compiler-properties.md:173
+#: Compiler-properties.md:176
+msgid ""
+"Note that, on macOS programs can be compiled targeting older macOS versions "
+"than the one that the program is compiled on. It can't be assumed that the "
+"OS version that is compiled on matches the OS version that the binary will "
+"run on."
+msgstr ""
+
+#. type: Plain text
+#: Compiler-properties.md:179
+msgid ""
+"Therefore when detecting function availability with `has_function`, it is "
+"important to specify the correct header in the prefix argument."
+msgstr ""
+
+#. type: Plain text
+#: Compiler-properties.md:186
+msgid ""
+"In the example above, the function `open_memstream` is detected, which was "
+"introduced in macOS 10.13. When the user builds on macOS 10.13, but "
+"targeting macOS 10.11 (`-mmacosx-version-min=10.11`), this will correctly "
+"report the function as missing. Without the header however, it would lack "
+"the necessary availability information and incorrectly report the function "
+"as available."
+msgstr ""
+
+#. type: Plain text
+#: Compiler-properties.md:188
 #, no-wrap
 msgid ""
 "Does a structure contain a member?\n"
@@ -323,15 +350,15 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Compiler-properties.md:178
+#: Compiler-properties.md:193
 msgid ""
 "Some platforms have different standard structures. Here's how one would "
-"check if a struct called `mystruct` from header `myheader.h</hh> contains a "
+"check if a struct called `mystruct` from header `myheader.h` contains a "
 "member called `some_member`."
 msgstr ""
 
 #. type: Plain text
-#: Compiler-properties.md:184
+#: Compiler-properties.md:199
 #, no-wrap
 msgid ""
 "```meson\n"
@@ -342,7 +369,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Compiler-properties.md:186
+#: Compiler-properties.md:201
 #, no-wrap
 msgid ""
 "Type alignment\n"
@@ -350,7 +377,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Compiler-properties.md:192
+#: Compiler-properties.md:207
 msgid ""
 "Most platforms can't access some data types at any address. For example it "
 "is common that a `char` can be at any address but a 32 bit integer only at "
@@ -359,32 +386,32 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Compiler-properties.md:196
+#: Compiler-properties.md:211
 msgid ""
 "```meson int_alignment = compiler.alignment('int') # Will most likely "
 "contain the value 4.  ```"
 msgstr ""
 
 #. type: Plain text
-#: Compiler-properties.md:198
+#: Compiler-properties.md:213
 msgid "## Has argument"
 msgstr ""
 
 #. type: Plain text
-#: Compiler-properties.md:202
+#: Compiler-properties.md:217
 msgid ""
 "This method tests if the compiler supports a given command line argument. "
 "This is implemented by compiling a small file with the given argument."
 msgstr ""
 
 #. type: Plain text
-#: Compiler-properties.md:206
+#: Compiler-properties.md:221
 msgid ""
 "```meson has_special_flags = compiler.has_argument('-Wspecialthing')  ```"
 msgstr ""
 
 #. type: Plain text
-#: Compiler-properties.md:208
+#: Compiler-properties.md:223
 #, no-wrap
 msgid ""
 "*Note*: some compilers silently swallow command line arguments they do\n"

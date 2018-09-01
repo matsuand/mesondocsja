@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-01-19 14:05+0900\n"
+"POT-Creation-Date: 2018-09-01 16:24+0900\n"
 "PO-Revision-Date: 2017-09-30 21:44+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -32,7 +32,7 @@ msgid "These are return values of the `get_id` method in a compiler object."
 msgstr ""
 
 #. type: Plain text
-#: Reference-tables.md:24
+#: Reference-tables.md:27
 #, no-wrap
 msgid ""
 "| Value     | Compiler family                |\n"
@@ -52,15 +52,18 @@ msgid ""
 "| g95       | The G95 Fortran compiler       |\n"
 "| open64    | The Open64 Fortran Compiler    |\n"
 "| nagfor    | The NAG Fortran compiler       |\n"
+"| lcc       | Elbrus C/C++/Fortran Compiler  |\n"
+"| arm       | ARM compiler                   |\n"
+"| armclang  | ARMCLANG compiler              |\n"
 msgstr ""
 
 #. type: Plain text
-#: Reference-tables.md:26
+#: Reference-tables.md:29
 msgid "## Script environment variables"
 msgstr ""
 
 #. type: Plain text
-#: Reference-tables.md:33
+#: Reference-tables.md:37
 #, no-wrap
 msgid ""
 "| Value               | Comment                         |\n"
@@ -69,15 +72,16 @@ msgid ""
 "| MESON_BUILD_ROOT    | Absolute path to the build dir  |\n"
 "| MESONINTROSPECT     | Command to run to run the introspection command, may be of the form `python /path/to/meson introspect`, user is responsible for splitting the path if necessary. |\n"
 "| MESON_SUBDIR        | Current subdirectory, only set for `run_command` |\n"
+"| MESON_DIST_ROOT     | Points to the root of the staging directory, only set when running `dist` scripts |\n"
 msgstr ""
 
 #. type: Plain text
-#: Reference-tables.md:35
+#: Reference-tables.md:40
 msgid "## CPU families"
 msgstr ""
 
 #. type: Plain text
-#: Reference-tables.md:39
+#: Reference-tables.md:44
 msgid ""
 "These are returned by the `cpu_family` method of `build_machine`, "
 "`host_machine` and `target_machine`. For cross compilation they are set in "
@@ -85,36 +89,49 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-tables.md:45
+#: Reference-tables.md:63
 #, no-wrap
 msgid ""
 "| Value               | Comment                         |\n"
 "| -----               | -------                         |\n"
 "| x86                 | 32 bit x86 processor  |\n"
 "| x86_64              | 64 bit x86 processor  |\n"
-"| arm                 | 32 bit ARM processor |\n"
+"| ia64                | Itanium processor     |\n"
+"| arm                 | 32 bit ARM processor  |\n"
+"| aarch64             | 64 bit ARM processor  |\n"
+"| mips                | 32 bit MIPS processor |\n"
+"| mips64              | 64 bit MIPS processor |\n"
+"| ppc                 | 32 bit PPC processors |\n"
+"| ppc64               | 64 bit PPC processors |\n"
+"| e2k                 | MCST Elbrus processor |\n"
+"| parisc              | HP PA-RISC processor  |\n"
+"| riscv32             | 32 bit RISC-V Open ISA|\n"
+"| riscv64             | 64 bit RISC-V Open ISA|\n"
+"| sparc               | 32 bit SPARC          |\n"
+"| sparc64             | SPARC v9 processor    |\n"
+"| s390x               | IBM zSystem s390x     |\n"
 msgstr ""
 
 #. type: Plain text
-#: Reference-tables.md:48
+#: Reference-tables.md:66
 msgid ""
 "Any cpu family not listed in the above list is not guaranteed to remain "
 "stable in future releases."
 msgstr ""
 
 #. type: Plain text
-#: Reference-tables.md:50
+#: Reference-tables.md:68
 msgid "## Operating system names"
 msgstr "## オペレーティングシステム名"
 
 #. type: Plain text
-#: Reference-tables.md:52
+#: Reference-tables.md:70
 msgid "These are provided by the `.system()` method call."
 msgstr "以下は `.system()` メソッドの呼び出しによって得られるものです。"
 
 #. type: Plain text
-#: Reference-tables.md:63
-#, no-wrap
+#: Reference-tables.md:81
+#, fuzzy, no-wrap
 msgid ""
 "| Value               | Comment                         |\n"
 "| -----               | -------                         |\n"
@@ -123,7 +140,7 @@ msgid ""
 "| windows             | Any version of Windows |\n"
 "| cygwin              | The Cygwin environment for Windows |\n"
 "| haiku               | |\n"
-"| freebsd             | FreeBSD and it's derivatives |\n"
+"| freebsd             | FreeBSD and its derivatives |\n"
 "| dragonfly           | DragonFly BSD |\n"
 "| netbsd              | |\n"
 msgstr ""
@@ -139,8 +156,38 @@ msgstr ""
 "| netbsd              | |\n"
 
 #. type: Plain text
-#: Reference-tables.md:65
+#: Reference-tables.md:84
 msgid ""
 "Any string not listed above is not guaranteed to remain stable in future "
 "releases."
+msgstr ""
+
+#. type: Plain text
+#: Reference-tables.md:87
+msgid "## Language arguments parameter names"
+msgstr ""
+
+#. type: Plain text
+#: Reference-tables.md:89
+msgid ""
+"These are the parameter names for passing language specific arguments to "
+"your build target."
+msgstr ""
+
+#. type: Plain text
+#: Reference-tables.md:101
+#, no-wrap
+msgid ""
+"| Language      | Parameter name |\n"
+"| -----         | ----- |\n"
+"| C             | c_args |\n"
+"| C++           | cpp_args |\n"
+"| C#            | cs_args |\n"
+"| D             | d_args |\n"
+"| Fortran       | fortran_args |\n"
+"| Java          | java_args |\n"
+"| Objective C   | objc_args |\n"
+"| Objective C++ | objcpp_args |\n"
+"| Rust          | rust_args |\n"
+"| Vala          | vala_args |\n"
 msgstr ""
