@@ -35,8 +35,8 @@ AC_DEFUN([AC_CHECK_BUILD_DIR],[
       [BUILDDOCDIR="$withval"])
 
   if test "x${BUILDDOCDIR}" = "x"; then
-    AC_MSG_RESULT([not specified, using default value: built_docs])
-    BUILDDOCDIR=built_docs
+    AC_MSG_RESULT([not specified, using default value: build])
+    BUILDDOCDIR=build
   else
     AC_MSG_RESULT([specified: $withval])
   fi
