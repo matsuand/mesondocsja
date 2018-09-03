@@ -1,0 +1,41 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2018-09-03 16:36+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ASCII\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Plain text
+#: custom_target_console_pool.md:2
+msgid "## New kwarg `console` for `custom_target()`"
+msgstr ""
+
+#. type: Plain text
+#: custom_target_console_pool.md:10
+msgid ""
+"This keyword argument conflicts with `capture`, and is meant for commands "
+"that are resource-intensive and take a long time to finish. With the Ninja "
+"backend, setting this will add this target to [Ninja's `console` "
+"pool](https://ninja-build.org/manual.html#_the_literal_console_literal_pool), "
+"which has special properties such as not buffering stdout and serializing "
+"all targets in this pool."
+msgstr ""
+
+#. type: Plain text
+#: custom_target_console_pool.md:13
+msgid ""
+"The primary use-case for this is to be able to run external commands that "
+"take a long time to exeute. Without setting this, the user does not receive "
+"any feedback about what the program is doing."
+msgstr ""

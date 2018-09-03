@@ -1,0 +1,58 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2018-09-03 16:36+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ASCII\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Plain text
+#: hotdoc_module.md:2
+msgid "## Hotdoc module"
+msgstr ""
+
+#. type: Plain text
+#: hotdoc_module.md:6
+msgid ""
+"A new module has been written to ease generation of "
+"[hotdoc](https://hotdoc.github.io/) based documentation. It supports complex "
+"use cases such as hotdoc subprojects (to create documentation portals) and "
+"makes it straight forward to leverage full capabilities of hotdoc."
+msgstr ""
+
+#. type: Plain text
+#: hotdoc_module.md:8
+msgid "Simple usage:"
+msgstr ""
+
+#. type: Plain text
+#: hotdoc_module.md:11
+msgid "``` meson hotdoc = import('hotdoc')"
+msgstr ""
+
+#. type: Plain text
+#: hotdoc_module.md:22
+#, no-wrap
+msgid ""
+"hotdoc.generate_doc(\n"
+"  'foobar',\n"
+"  c_smart_index: true,\n"
+"  project_version: '0.1',\n"
+"  sitemap: 'sitemap.txt',\n"
+"  index: 'index.md',\n"
+"  c_sources: ['path/to/file.c'],\n"
+"  languages: ['c'],\n"
+"  install: true,\n"
+")\n"
+"```\n"
+msgstr ""

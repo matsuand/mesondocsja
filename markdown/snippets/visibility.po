@@ -1,0 +1,47 @@
+# Japanese translations for FULL-PACKAGE-NAME package
+# Copyright (C) 2018 Free Software Foundation, Inc.
+# This file is distributed under the same license as the FULL-PACKAGE-NAME package.
+# Automatically generated, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: FULL-PACKAGE-NAME VERSION\n"
+"POT-Creation-Date: 2018-09-03 16:36+0900\n"
+"PO-Revision-Date: 2018-09-03 16:36+0900\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: matsuand個人翻訳\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. type: Plain text
+#: visibility.md:2
+msgid "## Keyword argument for GNU symbol visibility"
+msgstr ""
+
+#. type: Plain text
+#: visibility.md:6
+msgid ""
+"Build targets got a new keyword, `gnu_symbol_visibility` that controls how "
+"symbols are exported from shared libraries. This is most commonly used to "
+"hide implementation symbols like this:"
+msgstr ""
+
+#. type: Plain text
+#: visibility.md:11
+#, no-wrap
+msgid ""
+"```meson\n"
+"shared_library('mylib', ...\n"
+"  gnu_symbol_visibility: 'hidden')\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: visibility.md:13
+msgid ""
+"In this case only symbols explicitly marked as visible in the source files "
+"get exported."
+msgstr ""

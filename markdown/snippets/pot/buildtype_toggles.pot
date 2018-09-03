@@ -1,0 +1,55 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2018-09-03 16:36+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ASCII\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. type: Plain text
+#: buildtype_toggles.md:2
+msgid "## Toggles for build type, optimization and vcrt type"
+msgstr ""
+
+#. type: Plain text
+#: buildtype_toggles.md:7
+msgid ""
+"Since the very beginning Meson has provided different project types to use, "
+"such as *debug* and *minsize*. There is also a *plain* type that adds "
+"nothing by default but instead makes it the user's responsibility to add "
+"everything by hand. This works but is a bit tedious."
+msgstr ""
+
+#. type: Plain text
+#: buildtype_toggles.md:13
+msgid ""
+"In this release we have added new new options to manually toggle "
+"e.g. optimization levels and debug info so those can be changed "
+"independently of other options. For example by default the debug buildtype "
+"has no optmization enabled at all. If you wish to use GCC's `-Og` instead, "
+"you could set it with the following command:"
+msgstr ""
+
+#. type: Plain text
+#: buildtype_toggles.md:17
+msgid "``` meson configure -Doptimization=g ```"
+msgstr ""
+
+#. type: Plain text
+#: buildtype_toggles.md:21
+msgid ""
+"Similarly we have added a toggle option to select the version of Visual "
+"Studio C runtime to use. By default it uses the debug runtime DLL debug "
+"builds and release DLL for release builds but this can be manually changed "
+"with the new base option `b_vscrt`."
+msgstr ""
