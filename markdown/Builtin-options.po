@@ -1,0 +1,245 @@
+# Japanese translations for FULL-PACKAGE-NAME package
+# Copyright (C) 2018 Free Software Foundation, Inc.
+# This file is distributed under the same license as the FULL-PACKAGE-NAME package.
+# Automatically generated, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: FULL-PACKAGE-NAME VERSION\n"
+"POT-Creation-Date: 2018-09-03 17:02+0900\n"
+"PO-Revision-Date: 2018-09-03 17:02+0900\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: matsuand個人翻訳\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. type: Plain text
+#: Builtin-options.md:1
+#, no-wrap
+msgid "---\n"
+msgstr ""
+
+#. type: Plain text
+#: Builtin-options.md:4
+msgid "short-description: Built-in options to configure project properties ..."
+msgstr ""
+
+#. type: Plain text
+#: Builtin-options.md:6
+msgid "# Built-in options"
+msgstr ""
+
+#. type: Plain text
+#: Builtin-options.md:10
+msgid ""
+"Meson provides two kinds of options: [build options provided by the build "
+"files](Build-options.md) and built-in options that are either universal "
+"options, base options, compiler options."
+msgstr ""
+
+#. type: Plain text
+#: Builtin-options.md:12
+msgid "## Universal options"
+msgstr ""
+
+#. type: Plain text
+#: Builtin-options.md:16
+msgid ""
+"A list of these options can be found by running `meson --help`. All these "
+"can be set by passing to `meson` (aka `meson setup`) in any of these ways: "
+"`--option=value`, `--option value`, `-Doption=value`."
+msgstr ""
+
+#. type: Plain text
+#: Builtin-options.md:18
+msgid "They can also be edited after setup using `meson configure`."
+msgstr ""
+
+#. type: Plain text
+#: Builtin-options.md:20
+msgid "Installation options are all relative to the prefix, except:"
+msgstr ""
+
+#. type: Bullet: '* '
+#: Builtin-options.md:23
+msgid ""
+"When the prefix is `/usr`: `sysconfdir` defaults to `/etc`, `localstatedir` "
+"defaults to `/var`, and `sharedstatedir` defaults to `/var/lib`"
+msgstr ""
+
+#. type: Bullet: '* '
+#: Builtin-options.md:23
+msgid ""
+"When the prefix is `/usr/local`: `localstatedir` defaults to `/var/local`, "
+"and `sharedstatedir` defaults to `/var/local/lib`"
+msgstr ""
+
+#. type: Plain text
+#: Builtin-options.md:48
+#, no-wrap
+msgid ""
+"| Option                               | Default value | Description |\n"
+"| ------                               | ------------- | ----------- |\n"
+"| prefix                               | see below     | Installation prefix |\n"
+"| libdir                               | see below     | Library directory |\n"
+"| libexecdir                           | libexec       | Library executable directory |\n"
+"| bindir                               | bin           | Executable directory |\n"
+"| sbindir                              | sbin          | System executable directory |\n"
+"| includedir                           | include       | Header file directory |\n"
+"| datadir                              | share         | Data file directory |\n"
+"| mandir                               | share/man     | Manual page directory |\n"
+"| infodir                              | share/info    | Info page directory |\n"
+"| localedir                            | share/locale  | Locale data directory |\n"
+"| sysconfdir                           | etc           | Sysconf data directory |\n"
+"| localstatedir                        | var           | Localstate data directory |\n"
+"| sharedstatedir                       | com           | Architecture-independent data directory |\n"
+"| werror                               | false         | Treat warnings as erros |\n"
+"| warnlevel {1, 2, 3}                  | 1             | Set the warning level. From 1 = lowest to 3 = highest |\n"
+"| layout {mirror,flat}                 | mirror        | Build directory layout. |\n"
+"| default-library {shared, static, both} | shared       | Default library type. |\n"
+"| backend {ninja, vs,<br>vs2010, vs2015, vs2017, xcode} |               | Backend to use (default: ninja). |\n"
+"| stdsplit                             |               | Split stdout and stderr in test logs. |\n"
+"| errorlogs                            |               | Whether to print the logs from failing tests. |\n"
+"| cross-file CROSS_FILE                |               | File describing cross compilation environment. |\n"
+"| wrap-mode {default, nofallback, nodownload, forcefallback} | | Special wrap mode to use |\n"
+msgstr ""
+
+#. type: Plain text
+#: Builtin-options.md:52
+msgid ""
+"`prefix` defaults to `C:/` on Windows, and `/usr/local/` otherwise. You "
+"should always override this value."
+msgstr ""
+
+#. type: Plain text
+#: Builtin-options.md:56
+msgid ""
+"`libdir` is automatically detected based on your platform, but the "
+"implementation is [currently buggy](https://github.com/mesonbuild/meson/"
+"issues/2038)  on Linux platforms."
+msgstr ""
+
+#. type: Plain text
+#: Builtin-options.md:60
+msgid ""
+"There are various other options to set, for instance the backend to use and "
+"the path to the cross-file while cross compiling, which won't be repeated "
+"here.  Please see the output of `meson --help`."
+msgstr ""
+
+#. type: Plain text
+#: Builtin-options.md:62
+msgid "## Base options"
+msgstr ""
+
+#. type: Plain text
+#: Builtin-options.md:67
+msgid ""
+"These are set in the same way as universal options, but cannot be shown in "
+"the output of `meson --help` because they depend on both the current "
+"platform and the compiler that will be selected. The only way to see them is "
+"to setup a builddir and then run `meson configure` on it with no options."
+msgstr ""
+
+#. type: Plain text
+#: Builtin-options.md:70
+msgid ""
+"The following options are available. Note that they may not be available on "
+"all platforms or with all compilers:"
+msgstr ""
+
+#. type: Plain text
+#: Builtin-options.md:85
+#, no-wrap
+msgid ""
+"| Option      | Default value | Possible values         | Description |\n"
+"| ----------- | ------------- | ---------------         | ----------- |\n"
+"| b_asneeded  | true          | true, false             | Use -Wl,--as-needed when linking |\n"
+"| b_bitcode   | false         | true, false             | Embed Apple bitcode, see below |\n"
+"| b_colorout  | always        | auto, always, never     | Use colored output |\n"
+"| b_coverage  | false         | true, false             | Enable coverage tracking |\n"
+"| b_vscrt     | from_buildtype| none, md, mdd, mt, mtd, from_buildtype | VS runtime library to use (since 0.48.0) |\n"
+"| b_lundef    | true          | true, false             | Don't allow undefined symbols when linking |\n"
+"| b_lto       | false         | true, false             | Use link time optimization |\n"
+"| b_ndebug    | false         | true, false, if-release | Disable asserts |\n"
+"| b_pch       | true          | true, false             | Use precompiled headers |\n"
+"| b_pgo       | off           | off, generate, use      | Use profile guided optimization |\n"
+"| b_sanitize  | none          | see below               | Code sanitizer to use |\n"
+"| b_staticpic | true          | true, false             | Build static libraries as position independent |\n"
+msgstr ""
+
+#. type: Plain text
+#: Builtin-options.md:88
+msgid ""
+"The value of `b_sanitize` can be one of: `none`, `address`, `thread`, "
+"`undefined`, `memory`, `address,undefined`."
+msgstr ""
+
+#. type: Plain text
+#: Builtin-options.md:90
+msgid "### Notes about Apple Bitcode support"
+msgstr ""
+
+#. type: Plain text
+#: Builtin-options.md:94
+msgid ""
+"`b_bitcode` will pass `-fembed-bitcode` while compiling and will pass `-Wl,-"
+"bitcode_bundle` while linking. These options are incompatible with "
+"`b_asneeded`, so that option will be silently disabled."
+msgstr ""
+
+#. type: Plain text
+#: Builtin-options.md:98
+msgid ""
+"[Shared modules](#Reference-manual.md#shared_module) will not have bitcode "
+"embedded because `-Wl,-bitcode_bundle` is incompatible with both `-bundle` "
+"and `-Wl,-undefined,dynamic_lookup` which are necessary for shared modules "
+"to work."
+msgstr ""
+
+#. type: Plain text
+#: Builtin-options.md:100
+msgid "## Compiler options"
+msgstr ""
+
+#. type: Plain text
+#: Builtin-options.md:102
+msgid "Same caveats as base options above."
+msgstr ""
+
+#. type: Plain text
+#: Builtin-options.md:106
+msgid ""
+"The following options are available. Note that both the options themselves "
+"and the possible values they can take will depend on the target platform or "
+"compiler being used:"
+msgstr ""
+
+#. type: Plain text
+#: Builtin-options.md:119
+#, no-wrap
+msgid ""
+"| Option       | Default value | Possible values                          | Description |\n"
+"| ------       | ------------- | ---------------                          | ----------- |\n"
+"| c_args       |               | free-form comma-separated list           | C compile arguments to use |\n"
+"| c_link_args  |               | free-form comma-separated list           | C link arguments to use |\n"
+"| c_std        | none          | none, c89, c99, c11, gnu89, gnu99, gnu11 | C language standard to use |\n"
+"| c_winlibs    | see below     | free-form comma-separated list           | Standard Windows libs to link against |\n"
+"| cpp_args     |               | free-form comma-separated list           | C++ compile arguments to use |\n"
+"| cpp_link_args|               | free-form comma-separated list           | C++ link arguments to use |\n"
+"| cpp_std      | none          | none, c++98, c++03, c++11, c++14, c++17, <br/>c++1z, gnu++03, gnu++11, gnu++14, gnu++17, gnu++1z | C++ language standard to use |\n"
+"| cpp_debugstl | false         | true, false                              | C++ STL debug mode |\n"
+"| cpp_eh       | sc            | none, a, s, sc                           | C++ exception handling type |\n"
+"| cpp_winlibs  | see below     | free-form comma-separated list           | Standard Windows libs to link against |\n"
+msgstr ""
+
+#. type: Plain text
+#: Builtin-options.md:122
+msgid ""
+"The default values of `c_winlibs` and `cpp_winlibs` are in compiler-specific "
+"argument forms, but the libraries are: kernel32, user32, gdi32, winspool, "
+"shell32, ole32, oleaut32, uuid, comdlg32, advapi32"
+msgstr ""

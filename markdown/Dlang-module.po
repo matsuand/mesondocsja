@@ -1,0 +1,100 @@
+# Japanese translations for FULL-PACKAGE-NAME package
+# Copyright (C) 2018 Free Software Foundation, Inc.
+# This file is distributed under the same license as the FULL-PACKAGE-NAME package.
+# Automatically generated, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: FULL-PACKAGE-NAME VERSION\n"
+"POT-Creation-Date: 2018-09-03 17:04+0900\n"
+"PO-Revision-Date: 2018-09-03 17:04+0900\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: matsuand個人翻訳\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. type: Plain text
+#: Dlang-module.md:2
+msgid "# Dlang module"
+msgstr ""
+
+#. type: Plain text
+#: Dlang-module.md:4
+msgid "This module provides tools related to the D programming language."
+msgstr ""
+
+#. type: Plain text
+#: Dlang-module.md:6
+msgid "## Usage"
+msgstr ""
+
+#. type: Plain text
+#: Dlang-module.md:9
+msgid ""
+"To use this module, just do: **`dlang = import('dlang')`**.  You can, of "
+"course, replace the name `dlang` with anything else."
+msgstr ""
+
+#. type: Plain text
+#: Dlang-module.md:12
+msgid ""
+"The module only exposes one fucntion, `generate_dub_file`, used to "
+"automatically generate Dub configuration files."
+msgstr ""
+
+#. type: Plain text
+#: Dlang-module.md:18
+msgid ""
+"### generate_dub_file()  This method only has two required arguments, the "
+"project name and the source folder. You can pass other arguments with "
+"additional keywords, they will be automatically translated to json and added "
+"to the `dub.json` file."
+msgstr ""
+
+#. type: Plain text
+#: Dlang-module.md:23
+#, no-wrap
+msgid ""
+"**Structure**\n"
+"```meson\n"
+"generate_dub_file(\"project name\", \"source/folder\", key: \"value\" ...)\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: Dlang-module.md:37
+#, no-wrap
+msgid ""
+"**Example**\n"
+"```meson\n"
+"dlang = import('dlang')\n"
+"dlang.generate_dub_file(meson.project_name().to_lower(), meson.source_root(),\n"
+"                        authors: 'Meson Team',\n"
+"                        description: 'Test executable',\n"
+"                        copyright: 'Copyright © 2018, Meson Team',\n"
+"                        license: 'MIT',\n"
+"                        sourceFiles: 'test.d',\n"
+"                        targetType: 'executable',\n"
+"                        dependencies: my_dep\n"
+")\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: Dlang-module.md:41
+msgid ""
+"You can manually edit a meson generated `dub.json` file or provide a initial "
+"one. The module will only update the values specified in "
+"`generate_dub_file()`."
+msgstr ""
+
+#. type: Plain text
+#: Dlang-module.md:43
+msgid ""
+"Although not required, you will need to have a `description` and `license` "
+"if you want to publish the package in the [D package registry](https://code."
+"dlang.org/)."
+msgstr ""
