@@ -280,7 +280,7 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 SUBDIRS = theme markdown
-mdfiles = $(wildcard markdown/*.md markdown/Release-notes-for-0.43.0/*.md markdown/snippets/*.md)
+mdfiles = $(wildcard markdown/*.md markdown/snippets/*.md)
 all: all-recursive
 
 .SUFFIXES:

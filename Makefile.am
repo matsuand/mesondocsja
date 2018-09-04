@@ -11,6 +11,6 @@ dirs:
 	  cp -pR $(MESONDIR)/images .; \
 	fi
 
-mdfiles = $(wildcard markdown/*.md markdown/Release-notes-for-0.43.0/*.md markdown/snippets/*.md)
+mdfiles = $(wildcard markdown/*.md markdown/snippets/*.md)
 build_docs/html/index.html: $(mdfiles)
 	hotdoc run
