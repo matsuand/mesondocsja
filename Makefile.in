@@ -741,21 +741,13 @@ uninstall-am:
 .PRECIOUS: Makefile
 
 
-all: dirs files build_docs/html/index.html
+all: dirs build_docs/html/index.html
 
 .PHONY: dirs
 dirs:
 	@if ! test -d "images"; then \
 	  cp -pR $(MESONDIR)/images .; \
 	fi
-
-hotdoc.json: $(MESONDIR)/hotdoc.json
-	cp -p $^ $@
-sitemap.txt: $(MESONDIR)/sitemap.txt
-	cp -p $^ $@
-
-.PHONY: files
-files: hotdoc.json sitemap.txt
 build_docs/html/index.html: $(mdfiles)
 	hotdoc run
 

@@ -10,7 +10,7 @@
     "project_name": "Meson documentation",
     "project_version": "1.0",
     "default-license": "CC-BY-SAv4.0",
-    "sitemap": "@srcdir@/sitemap.txt",
+    "sitemap": "@MESONDIR@/docs/sitemap.txt",
     "git_upload_repository": "git@github.com:jpakkane/jpakkane.github.io.git",
     "edit_on_github_repository": "https://github.com/mesonbuild/meson/"
 }
