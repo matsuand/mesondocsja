@@ -1,0 +1,98 @@
+# Japanese translations for PACKAGE package
+# Copyright (C) 2018 Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2018-09-04 11:57+0900\n"
+"PO-Revision-Date: 2018-09-04 11:57+0900\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: matsuand個人翻訳\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. type: Plain text
+#: Style-guide.md:1
+#, no-wrap
+msgid "---\n"
+msgstr ""
+
+#. type: Plain text
+#: Style-guide.md:4
+msgid "short-description: Style recommendations for Meson files ..."
+msgstr ""
+
+#. type: Plain text
+#: Style-guide.md:6
+msgid "# Style recommendations"
+msgstr ""
+
+#. type: Plain text
+#: Style-guide.md:9
+msgid ""
+"This page lists some recommendations on organizing and formatting your Meson "
+"build files."
+msgstr ""
+
+#. type: Plain text
+#: Style-guide.md:11
+msgid "## Tabs or spaces?"
+msgstr ""
+
+#. type: Plain text
+#: Style-guide.md:13
+msgid "Always spaces."
+msgstr ""
+
+#. type: Plain text
+#: Style-guide.md:15
+msgid "## Naming options"
+msgstr ""
+
+#. type: Plain text
+#: Style-guide.md:20
+msgid ""
+"There are two ways of naming project options. As an example for booleans the "
+"first one is `foo` and the second one is `enable-foo`. The former style is "
+"recommended, because in Meson options have strong type, rather than being "
+"just strings."
+msgstr ""
+
+#. type: Plain text
+#: Style-guide.md:25
+msgid ""
+"You should try to name options the same as is common in other projects. This "
+"is especially important for yielding options, because they require that both "
+"the parent and subproject options have the same name."
+msgstr ""
+
+#. type: Plain text
+#: Style-guide.md:27
+msgid "# Global arguments"
+msgstr ""
+
+#. type: Plain text
+#: Style-guide.md:30
+msgid ""
+"Prefer `add_project_arguments` to `add_global_arguments` because using the "
+"latter prevents using the project as a subproject."
+msgstr ""
+
+#. type: Plain text
+#: Style-guide.md:32
+msgid "# Cross compilation arguments"
+msgstr ""
+
+#. type: Plain text
+#: Style-guide.md:36
+msgid ""
+"Try to keep cross compilation arguments away from your build files as much "
+"as possible. Keep them in the cross file instead. This adds portability, "
+"since all changes needed to compile to a different platform are isolated in "
+"one place."
+msgstr ""

@@ -1,0 +1,75 @@
+# Japanese translations for PACKAGE package
+# Copyright (C) 2018 Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2018-09-04 11:52+0900\n"
+"PO-Revision-Date: 2018-09-04 11:52+0900\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: matsuand個人翻訳\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. type: Plain text
+#: Icestorm-module.md:2
+msgid "# Unstable IceStorm module"
+msgstr ""
+
+#. type: Plain text
+#: Icestorm-module.md:4
+msgid "This module is available since version 0.45.0."
+msgstr ""
+
+#. type: Plain text
+#: Icestorm-module.md:8
+#, no-wrap
+msgid ""
+"**Note**: this module is unstable. It is only provided as a technology\n"
+"preview.  Its API may change in arbitrary ways between releases or it\n"
+"might be removed from Meson altogether.\n"
+msgstr ""
+
+#. type: Plain text
+#: Icestorm-module.md:10
+msgid "## Usage"
+msgstr ""
+
+#. type: Plain text
+#: Icestorm-module.md:13
+msgid ""
+"This module provides an experimental method to create FPGA bitstreams using "
+"the [IceStorm](http://www.clifford.at/icestorm/) suite of tools."
+msgstr ""
+
+#. type: Plain text
+#: Icestorm-module.md:16
+msgid ""
+"The module exposes only one method called `project` and it is used like this:"
+msgstr ""
+
+#. type: Plain text
+#: Icestorm-module.md:21
+#, no-wrap
+msgid ""
+"    is.project('projname',\n"
+"      <verilog files>,\n"
+"      constraint_file : <pcf file>,\n"
+"    )\n"
+msgstr ""
+
+#. type: Plain text
+#: Icestorm-module.md:27
+msgid ""
+"The input to this function is the set of Verilog files and a constraint "
+"file. This produces output files called `projname.asc`, `projname.blif` and "
+"`projname.bin`. In addition it creates two run targets called `projname-"
+"time` for running timing analysis and `projname-upload` that uploads the "
+"generated bitstream to an FPGA device using the `iceprog` programming "
+"executable."
+msgstr ""
