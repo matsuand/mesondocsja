@@ -4,16 +4,17 @@ abs_mesondir = @abs_mesondir@/docs/markdown/snippets
 include ../../Makefile.def
 
 basenames = \
-	builtin-python            \
-	cross_find                \
-	custom-target-index       \
-	get-supported-arguments   \
-	get_unquoted              \
-	llvm-static-linking       \
-	prebuilt                  \
-	prefix-dependent-defaults \
-	qt5-moc_extra_arguments   \
-	wrap-svn
+	buildtype_toggles                \
+	configure_file_overwrite_warning \
+	custom_target_console_pool       \
+	dependency_version               \
+	dict_add                         \
+	distscript                       \
+	generate_gir_multiple_libraries  \
+	hotdoc_module                    \
+	native_args                      \
+	shared_library_darwin_versions   \
+	visibility
 
 all: gettext
 
@@ -28,65 +29,70 @@ pofiles      = $(addprefix $(srcdir)/, $(pobasenames))
 gettext: potdir $(potfiles) $(pofiles) $(mdfiles)
 potdir:
 	$(MKDIR_P) pot
-pot/builtin-python.pot: $(abs_mesondir)/builtin-python.md
+pot/buildtype_toggles.pot: $(abs_mesondir)/buildtype_toggles.md
 	$(call GETPOT, $^, $@)
-pot/cross_find.pot: $(abs_mesondir)/cross_find.md
+pot/configure_file_overwrite_warning.pot: $(abs_mesondir)/configure_file_overwrite_warning.md
 	$(call GETPOT, $^, $@)
-pot/custom-target-index.pot: $(abs_mesondir)/custom-target-index.md
+pot/custom_target_console_pool.pot: $(abs_mesondir)/custom_target_console_pool.md
 	$(call GETPOT, $^, $@)
-pot/get-supported-arguments.pot: $(abs_mesondir)/get-supported-arguments.md
+pot/dependency_version.pot: $(abs_mesondir)/dependency_version.md
 	$(call GETPOT, $^, $@)
-pot/get_unquoted.pot: $(abs_mesondir)/get_unquoted.md
+pot/dict_add.pot: $(abs_mesondir)/dict_add.md
 	$(call GETPOT, $^, $@)
-pot/llvm-static-linking.pot: $(abs_mesondir)/llvm-static-linking.md
+pot/distscript.pot: $(abs_mesondir)/distscript.md
 	$(call GETPOT, $^, $@)
-pot/prebuilt.pot: $(abs_mesondir)/prebuilt.md
+pot/generate_gir_multiple_libraries.pot: $(abs_mesondir)/generate_gir_multiple_libraries.md
 	$(call GETPOT, $^, $@)
-pot/prefix-dependent-defaults.pot: $(abs_mesondir)/prefix-dependent-defaults.md
+pot/hotdoc_module.pot: $(abs_mesondir)/hotdoc_module.md
 	$(call GETPOT, $^, $@)
-pot/qt5-moc_extra_arguments.pot: $(abs_mesondir)/qt5-moc_extra_arguments.md
+pot/native_args.pot: $(abs_mesondir)/native_args.md
 	$(call GETPOT, $^, $@)
-pot/wrap-svn.pot: $(abs_mesondir)/wrap-svn.md
+pot/shared_library_darwin_versions.pot: $(abs_mesondir)/shared_library_darwin_versions.md
 	$(call GETPOT, $^, $@)
+pot/visibility.pot: $(abs_mesondir)/visibility.md
+	$(call GETPOT, $^, $@)
+$(srcdir)/buildtype_toggles.po: pot/buildtype_toggles.pot
+	$(call MSGPROC, $^, $@)
+$(srcdir)/configure_file_overwrite_warning.po: pot/configure_file_overwrite_warning.pot
+	$(call MSGPROC, $^, $@)
+$(srcdir)/custom_target_console_pool.po: pot/custom_target_console_pool.pot
+	$(call MSGPROC, $^, $@)
+$(srcdir)/dependency_version.po: pot/dependency_version.pot
+	$(call MSGPROC, $^, $@)
+$(srcdir)/dict_add.po: pot/dict_add.pot
+	$(call MSGPROC, $^, $@)
+$(srcdir)/distscript.po: pot/distscript.pot
+	$(call MSGPROC, $^, $@)
+$(srcdir)/generate_gir_multiple_libraries.po: pot/generate_gir_multiple_libraries.pot
+	$(call MSGPROC, $^, $@)
+$(srcdir)/hotdoc_module.po: pot/hotdoc_module.pot
+	$(call MSGPROC, $^, $@)
+$(srcdir)/native_args.po: pot/native_args.pot
+	$(call MSGPROC, $^, $@)
+$(srcdir)/shared_library_darwin_versions.po: pot/shared_library_darwin_versions.pot
+	$(call MSGPROC, $^, $@)
+$(srcdir)/visibility.po: pot/visibility.pot
+	$(call MSGPROC, $^, $@)
 
-$(srcdir)/builtin-python.po: pot/builtin-python.pot
-	$(call MSGPROC, $^, $@)
-$(srcdir)/cross_find.po: pot/cross_find.pot
-	$(call MSGPROC, $^, $@)
-$(srcdir)/custom-target-index.po: pot/custom-target-index.pot
-	$(call MSGPROC, $^, $@)
-$(srcdir)/get-supported-arguments.po: pot/get-supported-arguments.pot
-	$(call MSGPROC, $^, $@)
-$(srcdir)/get_unquoted.po: pot/get_unquoted.pot
-	$(call MSGPROC, $^, $@)
-$(srcdir)/llvm-static-linking.po: pot/llvm-static-linking.pot
-	$(call MSGPROC, $^, $@)
-$(srcdir)/prebuilt.po: pot/prebuilt.pot
-	$(call MSGPROC, $^, $@)
-$(srcdir)/prefix-dependent-defaults.po: pot/prefix-dependent-defaults.pot
-	$(call MSGPROC, $^, $@)
-$(srcdir)/qt5-moc_extra_arguments.po: pot/qt5-moc_extra_arguments.pot
-	$(call MSGPROC, $^, $@)
-$(srcdir)/wrap-svn.po: pot/wrap-svn.pot
-	$(call MSGPROC, $^, $@)
-
-builtin-python.md: $(abs_mesondir)/builtin-python.md $(srcdir)/builtin-python.po
-	$(call PO4ATRANS, $(abs_mesondir)/builtin-python.md, $(srcdir)/builtin-python.po)
-cross_find.md: $(abs_mesondir)/cross_find.md $(srcdir)/cross_find.po
-	$(call PO4ATRANS, $(abs_mesondir)/cross_find.md, $(srcdir)/cross_find.po)
-custom-target-index.md: $(abs_mesondir)/custom-target-index.md $(srcdir)/custom-target-index.po
-	$(call PO4ATRANS, $(abs_mesondir)/custom-target-index.md, $(srcdir)/custom-target-index.po)
-get-supported-arguments.md: $(abs_mesondir)/get-supported-arguments.md $(srcdir)/get-supported-arguments.po
-	$(call PO4ATRANS, $(abs_mesondir)/get-supported-arguments.md, $(srcdir)/get-supported-arguments.po)
-get_unquoted.md: $(abs_mesondir)/get_unquoted.md $(srcdir)/get_unquoted.po
-	$(call PO4ATRANS, $(abs_mesondir)/get_unquoted.md, $(srcdir)/get_unquoted.po)
-llvm-static-linking.md: $(abs_mesondir)/llvm-static-linking.md $(srcdir)/llvm-static-linking.po
-	$(call PO4ATRANS, $(abs_mesondir)/llvm-static-linking.md, $(srcdir)/llvm-static-linking.po)
-prebuilt.md: $(abs_mesondir)/prebuilt.md $(srcdir)/prebuilt.po
-	$(call PO4ATRANS, $(abs_mesondir)/prebuilt.md, $(srcdir)/prebuilt.po)
-prefix-dependent-defaults.md: $(abs_mesondir)/prefix-dependent-defaults.md $(srcdir)/prefix-dependent-defaults.po
-	$(call PO4ATRANS, $(abs_mesondir)/prefix-dependent-defaults.md, $(srcdir)/prefix-dependent-defaults.po)
-qt5-moc_extra_arguments.md: $(abs_mesondir)/qt5-moc_extra_arguments.md $(srcdir)/qt5-moc_extra_arguments.po
-	$(call PO4ATRANS, $(abs_mesondir)/qt5-moc_extra_arguments.md, $(srcdir)/qt5-moc_extra_arguments.po)
-wrap-svn.md: $(abs_mesondir)/wrap-svn.md $(srcdir)/wrap-svn.po
-	$(call PO4ATRANS, $(abs_mesondir)/wrap-svn.md, $(srcdir)/wrap-svn.po)
+buildtype_toggles.md: $(abs_mesondir)/buildtype_toggles.md $(srcdir)/buildtype_toggles.po
+	$(call PO4ATRANS, $(abs_mesondir)/buildtype_toggles.md, $(srcdir)/buildtype_toggles.po)
+configure_file_overwrite_warning.md: $(abs_mesondir)/configure_file_overwrite_warning.md $(srcdir)/configure_file_overwrite_warning.po
+	$(call PO4ATRANS, $(abs_mesondir)/configure_file_overwrite_warning.md, $(srcdir)/configure_file_overwrite_warning.po)
+custom_target_console_pool.md: $(abs_mesondir)/custom_target_console_pool.md $(srcdir)/custom_target_console_pool.po
+	$(call PO4ATRANS, $(abs_mesondir)/custom_target_console_pool.md, $(srcdir)/custom_target_console_pool.po)
+dependency_version.md: $(abs_mesondir)/dependency_version.md $(srcdir)/dependency_version.po
+	$(call PO4ATRANS, $(abs_mesondir)/dependency_version.md, $(srcdir)/dependency_version.po)
+dict_add.md: $(abs_mesondir)/dict_add.md $(srcdir)/dict_add.po
+	$(call PO4ATRANS, $(abs_mesondir)/dict_add.md, $(srcdir)/dict_add.po)
+distscript.md: $(abs_mesondir)/distscript.md $(srcdir)/distscript.po
+	$(call PO4ATRANS, $(abs_mesondir)/distscript.md, $(srcdir)/distscript.po)
+generate_gir_multiple_libraries.md: $(abs_mesondir)/generate_gir_multiple_libraries.md $(srcdir)/generate_gir_multiple_libraries.po
+	$(call PO4ATRANS, $(abs_mesondir)/generate_gir_multiple_libraries.md, $(srcdir)/generate_gir_multiple_libraries.po)
+hotdoc_module.md: $(abs_mesondir)/hotdoc_module.md $(srcdir)/hotdoc_module.po
+	$(call PO4ATRANS, $(abs_mesondir)/hotdoc_module.md, $(srcdir)/hotdoc_module.po)
+native_args.md: $(abs_mesondir)/native_args.md $(srcdir)/native_args.po
+	$(call PO4ATRANS, $(abs_mesondir)/native_args.md, $(srcdir)/native_args.po)
+shared_library_darwin_versions.md: $(abs_mesondir)/shared_library_darwin_versions.md $(srcdir)/shared_library_darwin_versions.po
+	$(call PO4ATRANS, $(abs_mesondir)/shared_library_darwin_versions.md, $(srcdir)/shared_library_darwin_versions.po)
+visibility.md: $(abs_mesondir)/visibility.md $(srcdir)/visibility.po
+	$(call PO4ATRANS, $(abs_mesondir)/visibility.md, $(srcdir)/visibility.po)

@@ -41,6 +41,7 @@ AC_DEFUN([AC_CHECK_BUILD_DIR],[
     AC_MSG_RESULT([specified: $withval])
   fi
   AC_SUBST(BUILDDOCDIR)
+  ${MKDIR_P} ${BUILDDOCDIR}
   abs_builddocdir=`(cd ${BUILDDOCDIR} && pwd)`
   AC_SUBST(abs_builddocdir)
 ])

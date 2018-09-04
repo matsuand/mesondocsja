@@ -1,4 +1,4 @@
-SUBDIRS = Release-notes-for-0.43.0 snippets
+SUBDIRS = snippets
 
 srcdir = @srcdir@
 abs_mesondir = @abs_mesondir@/docs/markdown
@@ -13,6 +13,7 @@ basenames = \
 	Build-options \
 	Build-system-converters \
 	Build-targets \
+	Builtin-options \
 	Comparisons \
 	Compiler-properties \
 	Conference-presentations \
@@ -30,12 +31,15 @@ basenames = \
 	Dependencies \
 	Design-rationale \
 	Disabler \
+	Dlang-module \
 	External-commands \
 	FAQ \
 	Feature-autodetection \
 	Generating-sources \
 	Getting-meson \
 	Gnome-module \
+	Hotdoc-module \
+	Icestorm-module \
 	IDE-integration \
 	In-the-press \
 	Include-directories \
@@ -54,6 +58,7 @@ basenames = \
 	Porting-from-autotools \
 	Precompiled-headers \
 	Project-templates \
+	Python-module \
 	Python-3-module \
 	Qt4-module \
 	Qt5-module \
@@ -70,6 +75,9 @@ basenames = \
 	Release-notes-for-0.43.0 \
 	Release-notes-for-0.44.0 \
 	Release-notes-for-0.45.0 \
+	Release-notes-for-0.46.0 \
+	Release-notes-for-0.47.0 \
+	Release-notes-for-0.48.0 \
 	Release-notes \
 	Release-procedure \
 	Reproducible-builds \
@@ -78,6 +86,7 @@ basenames = \
 	Shipping-prebuilt-binaries-as-wraps \
 	Simd-module \
 	Simple-comparison \
+	Style-guide \
 	Subprojects \
 	Syntax \
 	Threads \
@@ -131,6 +140,8 @@ pot/Build-system-converters.pot: $(abs_mesondir)/Build-system-converters.md
 	$(call GETPOT, $^, $@)
 pot/Build-targets.pot: $(abs_mesondir)/Build-targets.md
 	$(call GETPOT, $^, $@)
+pot/Builtin-options.pot: $(abs_mesondir)/Builtin-options.md
+	$(call GETPOT, $^, $@)
 pot/Comparisons.pot: $(abs_mesondir)/Comparisons.md
 	$(call GETPOT, $^, $@)
 pot/Compiler-properties.pot: $(abs_mesondir)/Compiler-properties.md
@@ -165,6 +176,8 @@ pot/Design-rationale.pot: $(abs_mesondir)/Design-rationale.md
 	$(call GETPOT, $^, $@)
 pot/Disabler.pot: $(abs_mesondir)/Disabler.md
 	$(call GETPOT, $^, $@)
+pot/Dlang-module.pot: $(abs_mesondir)/Dlang-module.md
+	$(call GETPOT, $^, $@)
 pot/External-commands.pot: $(abs_mesondir)/External-commands.md
 	$(call GETPOT, $^, $@)
 pot/FAQ.pot: $(abs_mesondir)/FAQ.md
@@ -176,6 +189,10 @@ pot/Generating-sources.pot: $(abs_mesondir)/Generating-sources.md
 pot/Getting-meson.pot: $(abs_mesondir)/Getting-meson.md
 	$(call GETPOT, $^, $@)
 pot/Gnome-module.pot: $(abs_mesondir)/Gnome-module.md
+	$(call GETPOT, $^, $@)
+pot/Hotdoc-module.pot: $(abs_mesondir)/Hotdoc-module.md
+	$(call GETPOT, $^, $@)
+pot/Icestorm-module.pot: $(abs_mesondir)/Icestorm-module.md
 	$(call GETPOT, $^, $@)
 pot/IDE-integration.pot: $(abs_mesondir)/IDE-integration.md
 	$(call GETPOT, $^, $@)
@@ -213,6 +230,8 @@ pot/Precompiled-headers.pot: $(abs_mesondir)/Precompiled-headers.md
 	$(call GETPOT, $^, $@)
 pot/Project-templates.pot: $(abs_mesondir)/Project-templates.md
 	$(call GETPOT, $^, $@)
+pot/Python-module.pot: $(abs_mesondir)/Python-module.md
+	$(call GETPOT, $^, $@)
 pot/Python-3-module.pot: $(abs_mesondir)/Python-3-module.md
 	$(call GETPOT, $^, $@)
 pot/Qt4-module.pot: $(abs_mesondir)/Qt4-module.md
@@ -245,6 +264,12 @@ pot/Release-notes-for-0.44.0.pot: $(abs_mesondir)/Release-notes-for-0.44.0.md
 	$(call GETPOT, $^, $@)
 pot/Release-notes-for-0.45.0.pot: $(abs_mesondir)/Release-notes-for-0.45.0.md
 	$(call GETPOT, $^, $@)
+pot/Release-notes-for-0.46.0.pot: $(abs_mesondir)/Release-notes-for-0.46.0.md
+	$(call GETPOT, $^, $@)
+pot/Release-notes-for-0.47.0.pot: $(abs_mesondir)/Release-notes-for-0.47.0.md
+	$(call GETPOT, $^, $@)
+pot/Release-notes-for-0.48.0.pot: $(abs_mesondir)/Release-notes-for-0.48.0.md
+	$(call GETPOT, $^, $@)
 pot/Release-notes.pot: $(abs_mesondir)/Release-notes.md
 	$(call GETPOT, $^, $@)
 pot/Release-procedure.pot: $(abs_mesondir)/Release-procedure.md
@@ -260,6 +285,8 @@ pot/Shipping-prebuilt-binaries-as-wraps.pot: $(abs_mesondir)/Shipping-prebuilt-b
 pot/Simd-module.pot: $(abs_mesondir)/Simd-module.md
 	$(call GETPOT, $^, $@)
 pot/Simple-comparison.pot: $(abs_mesondir)/Simple-comparison.md
+	$(call GETPOT, $^, $@)
+pot/Style-guide.pot: $(abs_mesondir)/Style-guide.md
 	$(call GETPOT, $^, $@)
 pot/Subprojects.pot: $(abs_mesondir)/Subprojects.md
 	$(call GETPOT, $^, $@)
@@ -326,6 +353,8 @@ $(srcdir)/Build-system-converters.po: pot/Build-system-converters.pot
 	$(call MSGPROC, $^, $@)
 $(srcdir)/Build-targets.po: pot/Build-targets.pot
 	$(call MSGPROC, $^, $@)
+$(srcdir)/Builtin-options.po: pot/Builtin-options.pot
+	$(call MSGPROC, $^, $@)
 $(srcdir)/Comparisons.po: pot/Comparisons.pot
 	$(call MSGPROC, $^, $@)
 $(srcdir)/Compiler-properties.po: pot/Compiler-properties.pot
@@ -360,6 +389,8 @@ $(srcdir)/Design-rationale.po: pot/Design-rationale.pot
 	$(call MSGPROC, $^, $@)
 $(srcdir)/Disabler.po: pot/Disabler.pot
 	$(call MSGPROC, $^, $@)
+$(srcdir)/Dlang-module.po: pot/Dlang-module.pot
+	$(call MSGPROC, $^, $@)
 $(srcdir)/External-commands.po: pot/External-commands.pot
 	$(call MSGPROC, $^, $@)
 $(srcdir)/FAQ.po: pot/FAQ.pot
@@ -371,6 +402,10 @@ $(srcdir)/Generating-sources.po: pot/Generating-sources.pot
 $(srcdir)/Getting-meson.po: pot/Getting-meson.pot
 	$(call MSGPROC, $^, $@)
 $(srcdir)/Gnome-module.po: pot/Gnome-module.pot
+	$(call MSGPROC, $^, $@)
+$(srcdir)/Hotdoc-module.po: pot/Hotdoc-module.pot
+	$(call MSGPROC, $^, $@)
+$(srcdir)/Icestorm-module.po: pot/Icestorm-module.pot
 	$(call MSGPROC, $^, $@)
 $(srcdir)/IDE-integration.po: pot/IDE-integration.pot
 	$(call MSGPROC, $^, $@)
@@ -408,6 +443,8 @@ $(srcdir)/Precompiled-headers.po: pot/Precompiled-headers.pot
 	$(call MSGPROC, $^, $@)
 $(srcdir)/Project-templates.po: pot/Project-templates.pot
 	$(call MSGPROC, $^, $@)
+$(srcdir)/Python-module.po: pot/Python-module.pot
+	$(call MSGPROC, $^, $@)
 $(srcdir)/Python-3-module.po: pot/Python-3-module.pot
 	$(call MSGPROC, $^, $@)
 $(srcdir)/Qt4-module.po: pot/Qt4-module.pot
@@ -440,6 +477,12 @@ $(srcdir)/Release-notes-for-0.44.0.po: pot/Release-notes-for-0.44.0.pot
 	$(call MSGPROC, $^, $@)
 $(srcdir)/Release-notes-for-0.45.0.po: pot/Release-notes-for-0.45.0.pot
 	$(call MSGPROC, $^, $@)
+$(srcdir)/Release-notes-for-0.46.0.po: pot/Release-notes-for-0.46.0.pot
+	$(call MSGPROC, $^, $@)
+$(srcdir)/Release-notes-for-0.47.0.po: pot/Release-notes-for-0.47.0.pot
+	$(call MSGPROC, $^, $@)
+$(srcdir)/Release-notes-for-0.48.0.po: pot/Release-notes-for-0.48.0.pot
+	$(call MSGPROC, $^, $@)
 $(srcdir)/Release-notes.po: pot/Release-notes.pot
 	$(call MSGPROC, $^, $@)
 $(srcdir)/Release-procedure.po: pot/Release-procedure.pot
@@ -455,6 +498,8 @@ $(srcdir)/Shipping-prebuilt-binaries-as-wraps.po: pot/Shipping-prebuilt-binaries
 $(srcdir)/Simd-module.po: pot/Simd-module.pot
 	$(call MSGPROC, $^, $@)
 $(srcdir)/Simple-comparison.po: pot/Simple-comparison.pot
+	$(call MSGPROC, $^, $@)
+$(srcdir)/Style-guide.po: pot/Style-guide.pot
 	$(call MSGPROC, $^, $@)
 $(srcdir)/Subprojects.po: pot/Subprojects.pot
 	$(call MSGPROC, $^, $@)
@@ -521,6 +566,8 @@ Build-system-converters.md: $(abs_mesondir)/Build-system-converters.md $(srcdir)
 	$(call PO4ATRANS, $(abs_mesondir)/Build-system-converters.md, $(srcdir)/Build-system-converters.po)
 Build-targets.md: $(abs_mesondir)/Build-targets.md $(srcdir)/Build-targets.po
 	$(call PO4ATRANS, $(abs_mesondir)/Build-targets.md, $(srcdir)/Build-targets.po)
+Builtin-options.md: $(abs_mesondir)/Builtin-options.md $(srcdir)/Builtin-options.po
+	$(call PO4ATRANS, $(abs_mesondir)/Builtin-options.md, $(srcdir)/Builtin-options.po)
 Comparisons.md: $(abs_mesondir)/Comparisons.md $(srcdir)/Comparisons.po
 	$(call PO4ATRANS, $(abs_mesondir)/Comparisons.md, $(srcdir)/Comparisons.po)
 Compiler-properties.md: $(abs_mesondir)/Compiler-properties.md $(srcdir)/Compiler-properties.po
@@ -555,6 +602,8 @@ Design-rationale.md: $(abs_mesondir)/Design-rationale.md $(srcdir)/Design-ration
 	$(call PO4ATRANS, $(abs_mesondir)/Design-rationale.md, $(srcdir)/Design-rationale.po)
 Disabler.md: $(abs_mesondir)/Disabler.md $(srcdir)/Disabler.po
 	$(call PO4ATRANS, $(abs_mesondir)/Disabler.md, $(srcdir)/Disabler.po)
+Dlang-module.md: $(abs_mesondir)/Dlang-module.md $(srcdir)/Dlang-module.po
+	$(call PO4ATRANS, $(abs_mesondir)/Dlang-module.md, $(srcdir)/Dlang-module.po)
 External-commands.md: $(abs_mesondir)/External-commands.md $(srcdir)/External-commands.po
 	$(call PO4ATRANS, $(abs_mesondir)/External-commands.md, $(srcdir)/External-commands.po)
 FAQ.md: $(abs_mesondir)/FAQ.md $(srcdir)/FAQ.po
@@ -567,6 +616,10 @@ Getting-meson.md: $(abs_mesondir)/Getting-meson.md $(srcdir)/Getting-meson.po
 	$(call PO4ATRANS, $(abs_mesondir)/Getting-meson.md, $(srcdir)/Getting-meson.po)
 Gnome-module.md: $(abs_mesondir)/Gnome-module.md $(srcdir)/Gnome-module.po
 	$(call PO4ATRANS, $(abs_mesondir)/Gnome-module.md, $(srcdir)/Gnome-module.po)
+Hotdoc-module.md: $(abs_mesondir)/Hotdoc-module.md $(srcdir)/Hotdoc-module.po
+	$(call PO4ATRANS, $(abs_mesondir)/Hotdoc-module.md, $(srcdir)/Hotdoc-module.po)
+Icestorm-module.md: $(abs_mesondir)/Icestorm-module.md $(srcdir)/Icestorm-module.po
+	$(call PO4ATRANS, $(abs_mesondir)/Icestorm-module.md, $(srcdir)/Icestorm-module.po)
 IDE-integration.md: $(abs_mesondir)/IDE-integration.md $(srcdir)/IDE-integration.po
 	$(call PO4ATRANS, $(abs_mesondir)/IDE-integration.md, $(srcdir)/IDE-integration.po)
 In-the-press.md: $(abs_mesondir)/In-the-press.md $(srcdir)/In-the-press.po
@@ -603,6 +656,8 @@ Precompiled-headers.md: $(abs_mesondir)/Precompiled-headers.md $(srcdir)/Precomp
 	$(call PO4ATRANS, $(abs_mesondir)/Precompiled-headers.md, $(srcdir)/Precompiled-headers.po)
 Project-templates.md: $(abs_mesondir)/Project-templates.md $(srcdir)/Project-templates.po
 	$(call PO4ATRANS, $(abs_mesondir)/Project-templates.md, $(srcdir)/Project-templates.po)
+Python-module.md: $(abs_mesondir)/Python-module.md $(srcdir)/Python-module.po
+	$(call PO4ATRANS, $(abs_mesondir)/Python-module.md, $(srcdir)/Python-module.po)
 Python-3-module.md: $(abs_mesondir)/Python-3-module.md $(srcdir)/Python-3-module.po
 	$(call PO4ATRANS, $(abs_mesondir)/Python-3-module.md, $(srcdir)/Python-3-module.po)
 Qt4-module.md: $(abs_mesondir)/Qt4-module.md $(srcdir)/Qt4-module.po
@@ -635,6 +690,12 @@ Release-notes-for-0.44.0.md: $(abs_mesondir)/Release-notes-for-0.44.0.md $(srcdi
 	$(call PO4ATRANS, $(abs_mesondir)/Release-notes-for-0.44.0.md, $(srcdir)/Release-notes-for-0.44.0.po)
 Release-notes-for-0.45.0.md: $(abs_mesondir)/Release-notes-for-0.45.0.md $(srcdir)/Release-notes-for-0.45.0.po
 	$(call PO4ATRANS, $(abs_mesondir)/Release-notes-for-0.45.0.md, $(srcdir)/Release-notes-for-0.45.0.po)
+Release-notes-for-0.46.0.md: $(abs_mesondir)/Release-notes-for-0.46.0.md $(srcdir)/Release-notes-for-0.46.0.po
+	$(call PO4ATRANS, $(abs_mesondir)/Release-notes-for-0.46.0.md, $(srcdir)/Release-notes-for-0.46.0.po)
+Release-notes-for-0.47.0.md: $(abs_mesondir)/Release-notes-for-0.47.0.md $(srcdir)/Release-notes-for-0.47.0.po
+	$(call PO4ATRANS, $(abs_mesondir)/Release-notes-for-0.47.0.md, $(srcdir)/Release-notes-for-0.47.0.po)
+Release-notes-for-0.48.0.md: $(abs_mesondir)/Release-notes-for-0.48.0.md $(srcdir)/Release-notes-for-0.48.0.po
+	$(call PO4ATRANS, $(abs_mesondir)/Release-notes-for-0.48.0.md, $(srcdir)/Release-notes-for-0.48.0.po)
 Release-notes.md: $(abs_mesondir)/Release-notes.md $(srcdir)/Release-notes.po
 	$(call PO4ATRANS, $(abs_mesondir)/Release-notes.md, $(srcdir)/Release-notes.po)
 Release-procedure.md: $(abs_mesondir)/Release-procedure.md $(srcdir)/Release-procedure.po
@@ -651,6 +712,8 @@ Simd-module.md: $(abs_mesondir)/Simd-module.md $(srcdir)/Simd-module.po
 	$(call PO4ATRANS, $(abs_mesondir)/Simd-module.md, $(srcdir)/Simd-module.po)
 Simple-comparison.md: $(abs_mesondir)/Simple-comparison.md $(srcdir)/Simple-comparison.po
 	$(call PO4ATRANS, $(abs_mesondir)/Simple-comparison.md, $(srcdir)/Simple-comparison.po)
+Style-guide.md: $(abs_mesondir)/Style-guide.md $(srcdir)/Style-guide.po
+	$(call PO4ATRANS, $(abs_mesondir)/Style-guide.md, $(srcdir)/Style-guide.po)
 Subprojects.md: $(abs_mesondir)/Subprojects.md $(srcdir)/Subprojects.po
 	$(call PO4ATRANS, $(abs_mesondir)/Subprojects.md, $(srcdir)/Subprojects.po)
 Syntax.md: $(abs_mesondir)/Syntax.md $(srcdir)/Syntax.po
@@ -697,8 +760,8 @@ howtox.md: $(abs_mesondir)/howtox.md $(srcdir)/howtox.po
 	$(call PO4ATRANS, $(abs_mesondir)/howtox.md, $(srcdir)/howtox.po)
 i18n-module.md: $(abs_mesondir)/i18n-module.md $(srcdir)/i18n-module.po
 	$(call PO4ATRANS, $(abs_mesondir)/i18n-module.md, $(srcdir)/i18n-module.po)
-index.md: $(abs_mesondir)/index.md $(srcdir)/index.po index.add
-	$(call PO4ATRANS, $(abs_mesondir)/index.md, $(srcdir)/index.po, index.add)
+index.md: $(abs_mesondir)/index.md $(srcdir)/index.po ./index.add
+	$(call PO4ATRANS, $(abs_mesondir)/index.md, $(srcdir)/index.po,index.add)
 legal.md: $(abs_mesondir)/legal.md $(srcdir)/legal.po
 	$(call PO4ATRANS, $(abs_mesondir)/legal.md, $(srcdir)/legal.po)
 
@@ -709,6 +772,6 @@ index.add: $(srcdir)/index.add.in gitlog_current.txt
 	echo    " 対応）" >> $@
 .PHONY: gitlog_current
 gitlog_current: gitlog_current.txt
-gitlog_current.txt: @abs_mesondir@/.git/ORIG_HEAD
+gitlog_current.txt: @abs_mesondir@/.git/HEAD
 	rm -f $(abs_builddir)/$@
 	(cd $(abs_mesondir) && git log -1 --pretty=format:"%ad" --date=iso > $(abs_builddir)/$@)

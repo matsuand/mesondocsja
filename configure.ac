@@ -26,7 +26,6 @@ AC_CHECK_BUILD_DIR
 AC_CONFIG_FILES([Makefile
                  hotdoc.json
                  markdown/Makefile
-                 markdown/Release-notes-for-0.43.0/Makefile
                  markdown/snippets/Makefile
                  theme/Makefile
                  theme/extra/Makefile
