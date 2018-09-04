@@ -58,14 +58,13 @@ msgstr ""
 
 #. type: Plain text
 #: Subprojects.md:23
-#, fuzzy
 msgid ""
 "```meson dep = dependency('foo', fallback : [subproject_name, "
 "variable_name])  ```"
 msgstr ""
 "```meson\n"
-"sp_dep = dependency('subproj_pkgconfig_name', fallback : ['subproj_name', "
-"'proj_dep']) \n"
+"dep = dependency('foo', fallback : [subproject_name, "
+"variable_name])\n"
 "```"
 
 #. type: Plain text
@@ -128,6 +127,10 @@ msgid ""
 "```meson simple_sp = subproject('simple')  dep = simple_sp."
 "get_variable('simple_dep')  ```"
 msgstr ""
+"```meson\n"
+"simple_sp = subproject('simple')\n"
+"dep = simple_sp.get_variable('simple_dep')\n"
+"```"
 
 #. type: Plain text
 #: Subprojects.md:64

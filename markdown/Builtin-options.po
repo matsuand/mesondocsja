@@ -30,7 +30,7 @@ msgstr ""
 #. type: Plain text
 #: Builtin-options.md:6
 msgid "# Built-in options"
-msgstr ""
+msgstr "# ビルトインオプション"
 
 #. type: Plain text
 #: Builtin-options.md:10

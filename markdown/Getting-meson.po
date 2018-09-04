@@ -23,7 +23,6 @@ msgstr "# Meson の入手"
 
 #. type: Plain text
 #: Getting-meson.md:8
-#, fuzzy
 msgid ""
 "Meson is implemented in Python 3, and requires 3.5 or newer. If your "
 "operating system provides a package manager, you should install it with "
@@ -48,6 +47,9 @@ msgid ""
 "run `./meson.py` from inside a release or the git repository itself without "
 "doing anything special."
 msgstr ""
+"Meson のリリースは [GitHub リリースページ] からダウンロードすることができます。"
+"リリースソースであっても git リポジトリからの取得であっても、特別に何かを実行"
+"する必要はなく ./meson.py を実行するだけです。"
 
 #. type: Plain text
 #: Getting-meson.md:18
@@ -56,6 +58,9 @@ msgid ""
 "make Python scripts executable, you will have to run `python /path/to/meson."
 "py`, where `python` is Python 3.5 or newer."
 msgstr ""
+"Windows において、Python スクリプトを実行可能とするインストールオプションを"
+"選ばなかった場合は、`python /path/to/meson.py` を実行します。"
+"この `python` は Python 3.5 以上である必要があります。"
 
 #. type: Plain text
 #: Getting-meson.md:22

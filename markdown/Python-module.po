@@ -155,6 +155,10 @@ msgid ""
 "``` meson shared_module py_installation.extension_module(module_name, "
 "list_of_sources, ...)  ```"
 msgstr ""
+"``` meson\n"
+"shared_module py_installation.extension_module(module_name, "
+"list_of_sources, ...)\n"
+"```"
 
 #. type: Plain text
 #: Python-module.md:67

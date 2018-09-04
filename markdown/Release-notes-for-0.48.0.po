@@ -28,9 +28,9 @@ msgid ""
 "title: Release 0.48 short-description: Release notes for 0.48 "
 "(preliminary)  ..."
 msgstr ""
-"title: Release 0.48\n"
-"short-description: Release notes for 0.48 "
-"(preliminary)  ..."
+"title: リリース 0.48\n"
+"short-description: リリースノート 0.48 "
+"(preliminary)\n..."
 
 #. type: Plain text
 #: Release-notes-for-0.48.0.md:7

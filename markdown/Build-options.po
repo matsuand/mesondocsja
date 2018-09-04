@@ -50,7 +50,6 @@ msgstr ""
 
 #. type: Plain text
 #: Build-options.md:24
-#, fuzzy
 msgid ""
 "```meson option('someoption', type : 'string', value : 'optval', "
 "description : 'An option')  option('other_one', type : 'boolean', value : "
@@ -62,21 +61,25 @@ msgid ""
 "type : 'feature', value : 'enabled')  ```"
 msgstr ""
 "```meson\n"
-"option('someoption', type : 'string', value : 'optval', description : 'An "
-"option')\n"
-"option('other_one', type : 'boolean', value : false)\n"
-"option('combo_opt', type : 'combo', choices : ['one', 'two', 'three'], "
-"value : 'three')\n"
-"option('free_array_opt', type : 'array', value : ['one', 'two'])\n"
-"option('array_opt', type : 'array', choices : ['one', 'two', 'three'], "
+"option('someoption', type : 'string', value : 'optval', description : 'An option')\n"
+"option('other_one', type : 'boolean', value : "
+"false)\n"
+"option('combo_opt', type : 'combo', choices : ['one', 'two', "
+"'three'], value : 'three')\n"
+"option('integer_opt', type : 'integer', min : 0, "
+"max : 5, value : 3) # Since 0.45.0\n"
+"option('free_array_opt', type : 'array', "
 "value : ['one', 'two'])\n"
+"option('array_opt', type : 'array', choices : "
+"['one', 'two', 'three'], value : ['one', 'two'])\n"
+"option('some_feature', "
+"type : 'feature', value : 'enabled')\n"
 "```"
 
 #. type: Plain text
 #: Build-options.md:26
-#, fuzzy
 msgid "## Build option types"
-msgstr "# ビルドオプション"
+msgstr "## ビルドオプション型"
 
 #. type: Plain text
 #: Build-options.md:29
@@ -88,7 +91,7 @@ msgstr ""
 #. type: Plain text
 #: Build-options.md:31
 msgid "### Strings"
-msgstr ""
+msgstr "### 文字型"
 
 #. type: Plain text
 #: Build-options.md:34
@@ -100,7 +103,7 @@ msgstr ""
 #. type: Plain text
 #: Build-options.md:36
 msgid "### Booleans"
-msgstr ""
+msgstr "### 論理型"
 
 #. type: Plain text
 #: Build-options.md:39
@@ -112,7 +115,7 @@ msgstr ""
 #. type: Plain text
 #: Build-options.md:41
 msgid "### Combos"
-msgstr ""
+msgstr "### コンボ型"
 
 #. type: Plain text
 #: Build-options.md:45
@@ -125,7 +128,7 @@ msgstr ""
 #. type: Plain text
 #: Build-options.md:47
 msgid "### Integers"
-msgstr ""
+msgstr "### 整数型"
 
 #. type: Plain text
 #: Build-options.md:51
@@ -142,7 +145,7 @@ msgstr ""
 #. type: Plain text
 #: Build-options.md:55
 msgid "### Arrays"
-msgstr ""
+msgstr "### 配列型"
 
 #. type: Plain text
 #: Build-options.md:63
@@ -368,6 +371,10 @@ msgid ""
 "```meson option('some_option', type : 'string', value : 'value', yield : "
 "true)  ```"
 msgstr ""
+"```meson\n"
+"option('some_option', type : 'string', value : 'value', yield : "
+"true)\n"
+"```"
 
 #. type: Plain text
 #: Build-options.md:179
@@ -416,6 +423,10 @@ msgid ""
 "```meson project('my_project', 'c', default_options: "
 "['backend_startup_project=my_exe'])  executable('my_exe', ...)  ```"
 msgstr ""
+"```meson\n"
+"project('my_project', 'c', default_options: "
+"['backend_startup_project=my_exe'])  executable('my_exe', ...)\n"
+"```"
 
 #. type: Plain text
 #: Build-options.md:200

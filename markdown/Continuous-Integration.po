@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-09-01 15:59+0900\n"
+"POT-Creation-Date: 2018-09-04 15:08+0900\n"
 "PO-Revision-Date: 2017-09-30 21:43+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -57,7 +57,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Continuous-Integration.md:22 Continuous-Integration.md:92
+#: Continuous-Integration.md:22 Continuous-Integration.md:117
 msgid "```yaml sudo: false"
 msgstr ""
 
@@ -124,25 +124,27 @@ msgstr ""
 
 #. type: Plain text
 #: Continuous-Integration.md:54
-msgid "```yaml os: Visual Studio 2015"
+msgid "```yaml os: Visual Studio 2017"
 msgstr ""
 
 #. type: Plain text
-#: Continuous-Integration.md:63
+#: Continuous-Integration.md:65
 #, no-wrap
 msgid ""
 "environment:\n"
 "  matrix:\n"
 "    - arch: x86\n"
-"      compiler: msvc2010\n"
-"    - arch: x86\n"
 "      compiler: msvc2015\n"
 "    - arch: x64\n"
 "      compiler: msvc2015\n"
+"    - arch: x86\n"
+"      compiler: msvc2017\n"
+"    - arch: x64\n"
+"      compiler: msvc2017\n"
 msgstr ""
 
 #. type: Plain text
-#: Continuous-Integration.md:66
+#: Continuous-Integration.md:68
 #, no-wrap
 msgid ""
 "platform:\n"
@@ -150,46 +152,91 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Continuous-Integration.md:76
+#: Continuous-Integration.md:84
 #, no-wrap
 msgid ""
 "install:\n"
-"  # Use the x86 python only when building for x86 for the cpython tests.\n"
-"  # For all other archs (including, say, arm), use the x64 python.\n"
-"  - ps: (new-object net.webclient).DownloadFile('https://www.dropbox.com/s/cyghxjrvgplu7sy/ninja.exe?dl=1', 'C:\\projects\\meson\\ninja.exe')\n"
-"  - cmd: if %arch%==x86 (set MESON_PYTHON_PATH=C:\\python34) else (set MESON_PYTHON_PATH=C:\\python34-x64)\n"
-"  - cmd: echo Using Python at %MESON_PYTHON_PATH%\n"
-"  - cmd: \"%MESON_PYTHON_PATH%\\\\pip install meson\"\n"
-"  - cmd: if %compiler%==msvc2010 ( call \"C:\\Program Files (x86)\\Microsoft Visual Studio 10.0\\VC\\vcvarsall.bat\" %arch% )\n"
+"  # Download ninja\n"
+"  - cmd: mkdir C:\\ninja-build\n"
+"  - ps: (new-object net.webclient).DownloadFile('https://github.com/mesonbuild/cidata/raw/master/ninja.exe', 'C:\\ninja-build\\ninja.exe')\n"
+"  # Set paths to dependencies (based on architecture)\n"
+"  - cmd: if %arch%==x86 (set PYTHON_ROOT=C:\\python37) else (set PYTHON_ROOT=C:\\python37-x64)\n"
+"  # Print out dependency paths\n"
+"  - cmd: echo Using Python at %PYTHON_ROOT%\n"
+"  # Add neccessary paths to PATH variable\n"
+"  - cmd: set PATH=%cd%;C:\\ninja-build;%PYTHON_ROOT%;%PYTHON_ROOT%\\Scripts;%PATH%\n"
+"  # Install meson\n"
+"  - cmd: pip install meson\n"
+"  # Set up the build environment\n"
 "  - cmd: if %compiler%==msvc2015 ( call \"C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\vcvarsall.bat\" %arch% )\n"
-msgstr ""
-
-#. type: Plain text
-#: Continuous-Integration.md:81
-#, no-wrap
-msgid ""
-"build_script:\n"
-"  - cmd: echo Building on %arch% with %compiler%\n"
-"  - cmd: PATH=%cd%;%MESON_PYTHON_PATH%;%PATH%; && python meson.py --backend=ninja builddir\n"
-"  - cmd: PATH=%cd%;%MESON_PYTHON_PATH%;%PATH%; && ninja -C builddir\n"
-msgstr ""
-
-#. type: Plain text
-#: Continuous-Integration.md:85
-#, no-wrap
-msgid ""
-"test_script:\n"
-"  - cmd: PATH=%cd%;%MESON_PYTHON_PATH%;%PATH%; && ninja -C builddir test\n"
-"```\n"
-msgstr ""
-
-#. type: Plain text
-#: Continuous-Integration.md:87
-msgid "## Travis without Docker"
+"  - cmd: if %compiler%==msvc2017 ( call \"C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Community\\VC\\Auxiliary\\Build\\vcvarsall.bat\" %arch% )\n"
 msgstr ""
 
 #. type: Plain text
 #: Continuous-Integration.md:89
+#, no-wrap
+msgid ""
+"build_script:\n"
+"  - cmd: echo Building on %arch% with %compiler%\n"
+"  - cmd: meson --backend=ninja builddir\n"
+"  - cmd: ninja -C builddir\n"
+msgstr ""
+
+#. type: Plain text
+#: Continuous-Integration.md:93
+#, no-wrap
+msgid ""
+"test_script:\n"
+"  - cmd: ninja -C builddir test\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: Continuous-Integration.md:95
+msgid "### Qt"
+msgstr ""
+
+#. type: Plain text
+#: Continuous-Integration.md:101
+#, no-wrap
+msgid ""
+"For Qt 5, add the following line near the `PYTHON_ROOT` assignment:\n"
+"```yaml\n"
+" - cmd: if %arch%==x86 (set QT_ROOT=C:\\Qt\\5.11\\%compiler%) else (set QT_ROOT=C:\\Qt\\5.11\\%compiler%_64)\n"
+"```\n"
+"And afterwards add `%QT_ROOT%\\bin` to the `PATH` variable.\n"
+msgstr ""
+
+#. type: Plain text
+#: Continuous-Integration.md:103
+msgid ""
+"You might have to adjust your build matrix as there are, for example, no "
+"msvc2017 32-bit builds. Visit the [Build Environment](https://www.appveyor."
+"com/docs/build-environment/) page in the AppVeyor docs for more details."
+msgstr ""
+
+#. type: Plain text
+#: Continuous-Integration.md:105
+msgid "### Boost"
+msgstr ""
+
+#. type: Plain text
+#: Continuous-Integration.md:110
+#, no-wrap
+msgid ""
+"The following statement is sufficient for meson to find Boost:\n"
+"```yaml\n"
+" - cmd: set BOOST_ROOT=C:\\Libraries\\boost_1_67_0\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: Continuous-Integration.md:112
+msgid "## Travis without Docker"
+msgstr ""
+
+#. type: Plain text
+#: Continuous-Integration.md:114
 msgid ""
 "You can cheat your way around docker by using **python** as language and "
 "setting your compiler in the build **matrix**. This example just uses "
@@ -197,22 +244,22 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Continuous-Integration.md:95
+#: Continuous-Integration.md:120
 msgid "os: linux dist: trusty"
 msgstr ""
 
 #. type: Plain text
-#: Continuous-Integration.md:97
+#: Continuous-Integration.md:122
 msgid "language: python"
 msgstr ""
 
 #. type: Plain text
-#: Continuous-Integration.md:99
+#: Continuous-Integration.md:124
 msgid "python: 3.6"
 msgstr ""
 
 #. type: Plain text
-#: Continuous-Integration.md:104
+#: Continuous-Integration.md:129
 #, no-wrap
 msgid ""
 "matrix:\n"
@@ -222,7 +269,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Continuous-Integration.md:111
+#: Continuous-Integration.md:136
 #, no-wrap
 msgid ""
 "install:\n"
@@ -234,7 +281,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Continuous-Integration.md:117 Continuous-Integration.md:141
+#: Continuous-Integration.md:142 Continuous-Integration.md:166
 #, no-wrap
 msgid ""
 "script:\n"
@@ -245,19 +292,19 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Continuous-Integration.md:119
+#: Continuous-Integration.md:144
 msgid ""
 "This setup uses the **beta** group. It is not recommended but included here "
 "for completeness:"
 msgstr ""
 
 #. type: Plain text
-#: Continuous-Integration.md:124
+#: Continuous-Integration.md:149
 msgid "```yaml sudo: false language: cpp group: beta"
 msgstr ""
 
 #. type: Plain text
-#: Continuous-Integration.md:130
+#: Continuous-Integration.md:155
 #, no-wrap
 msgid ""
 "matrix:\n"
@@ -268,7 +315,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Continuous-Integration.md:136
+#: Continuous-Integration.md:161
 #, no-wrap
 msgid ""
 "install:\n"

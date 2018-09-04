@@ -46,7 +46,7 @@ msgstr ""
 #. type: Plain text
 #: Disabler.md:13
 msgid "```meson dep = dependency('foo')"
-msgstr ""
+msgstr "```meson\ndep = dependency('foo')"
 
 #. type: Plain text
 #: Disabler.md:15
