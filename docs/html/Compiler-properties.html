@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -11,13 +12,14 @@
 <title>Compiler properties</title>
 
 <link rel="stylesheet" href="assets/css/custom_bootstrap.css" type="text/css">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
 <link rel="stylesheet" href="assets/css/frontend.css" type="text/css">
 <link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
 
-<link rel="stylesheet" href="assets/css/prism.css" type="text/css">
 
 <script src="assets/js/mustache.min.js"></script>
 <script src="assets/js/jquery.js"></script>
+<script src="assets/js/scrollspy.js"></script>
 <script src="assets/js/bootstrap.js"></script>
 <script src="assets/js/typeahead.jquery.min.js"></script>
 <script src="assets/js/search.js"></script>
@@ -32,10 +34,6 @@
 
 <script src="assets/js/lines_around_headings.js"></script>
 
-<script src="assets/js/prism-core.js"></script>
-<script src="assets/js/prism-autoloader.js"></script>
-<script src="assets/js/prism_autoloader_path_override.js"></script>
-<script src="assets/js/trie.js"></script>
 
 <link rel="icon" type="image/png" href="assets/images/favicon.png">
 <link rel="shortcut icon" href="assets/images/favicon.png">
@@ -62,7 +60,7 @@ $('body').removeClass('no-script');
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<form action="" class="navbar-form pull-right" id="navbar-search-form">
+			<form class="navbar-form pull-right" id="navbar-search-form">
                                <div class="form-group has-feedback">
                                        <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
 				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
@@ -75,7 +73,7 @@ $('body').removeClass('no-script');
 				<span class="glyphicon glyphicon-menu-left"></span>
 			</a>
 			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
-				<img src="assets/images/meson_logo.png" alt="Home" id="home">
+				<img src="assets/images/meson_logo.png" alt="Home">
 			</a>
 		</div>
 		<div class="navbar-collapse collapse" id="navbar-wrapper">
@@ -156,9 +154,8 @@ $('body').removeClass('no-script');
 
 <div id="body">
 	<div id="main">
-				
-<div id="page-description" data-hotdoc-source="Compiler-properties.md" data-hotdoc-role="main">
-<h1 id="compiler-properties">Compiler properties</h1>
+				    <div id="page-description" data-hotdoc-source="Compiler-properties.md" data-hotdoc-role="main">
+        <h1 id="compiler-properties">Compiler properties</h1>
 <p>Not all compilers and platforms are alike. Therefore Meson provides the
 tools to detect properties of the system during configure time. To get most
 of this information, you first need to extract the <em>compiler object</em> from
@@ -287,16 +284,29 @@ Does a function exist?
 
 Just having a header doesn't say anything about its contents. Sometimes you
 need to explicitly check if some function exists. This is how we would check
-whether the function `somefunc` exists in header `someheader.h`
+whether the function `open_memstream` exists in header `stdio.h`
 
 ```meson
-if compiler.has_function('somefunc', prefix : '#include&lt;someheader.h&gt;')
+if compiler.has_function('open_memstream', prefix : '#include &lt;stdio.h&gt;')
   # function exists, do whatever is required.
 endif
 </code></pre>
+<p>Note that, on macOS programs can be compiled targeting older macOS versions
+than the one that the program is compiled on. It can't be assumed that the
+OS version that is compiled on matches the OS version that the binary will
+run on.</p>
+<p>Therefore when detecting function availability with <code>has_function</code>, it is
+important to specify the correct header in the prefix argument.</p>
+<p>In the example above, the function <code>open_memstream</code> is detected, which was
+introduced in macOS 10.13. When the user builds on macOS 10.13, but
+targeting macOS 10.11 (<code>-mmacosx-version-min=10.11</code>), this will correctly
+report the function as missing. Without the header however, it would lack
+the necessary availability information and incorrectly report the function
+as available.</p>
 <h1 id="does-a-structure-contain-a-member">Does a structure contain a member?</h1>
 <p>Some platforms have different standard structures. Here's how one would
-check if a struct called <code>mystruct</code> from header <code>myheader.h&lt;/hh&gt; contains a member called</code>some_member`.</p>
+check if a struct called <code>mystruct</code> from header <code>myheader.h</code> contains a
+member called <code>some_member</code>.</p>
 <pre><code class="language-meson">if compiler.has_member('struct mystruct', 'some_member', prefix : '#include&lt;myheader.h&gt;')
   # member exists, do whatever is required
 endif
@@ -320,7 +330,10 @@ argument.
 not understand. Thus this test can not be made 100% reliable.
 </code></pre>
 
-</div>
+    </div>
+        
+
+
 
 
 		
@@ -328,15 +341,9 @@ not understand. Thus this test can not be made 100% reliable.
 	<div id="search_results">
 		<p>The results of the search are</p>
 	</div>
+	<hr>
 	<div id="footer">
-		
-
-<hr>
-
-<div class="license-description">
-    Web サイトのライセンス情報は <a href="legal.html">Legal</a> ページに示しています。
-</div>
-
+		    
 
 	</div>
 </div>
@@ -344,7 +351,7 @@ not understand. Thus this test can not be made 100% reliable.
 <div id="toc-column">
 	
 		<div class="edit-button">
-		<a href="https://github.com/mesonbuild/meson//edit/master/markdown/Compiler-properties.md" data-hotdoc-role="edit-button">Edit on github</a>
+		
 
 	</div>
 		<div id="toc-wrapper">
@@ -354,7 +361,7 @@ not understand. Thus this test can not be made 100% reliable.
 </div>
 </main>
 
-</body>
 
 <script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
 </html>

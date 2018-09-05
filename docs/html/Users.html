@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -11,13 +12,14 @@
 <title>List of projects using Meson</title>
 
 <link rel="stylesheet" href="assets/css/custom_bootstrap.css" type="text/css">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
 <link rel="stylesheet" href="assets/css/frontend.css" type="text/css">
 <link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
 
-<link rel="stylesheet" href="assets/css/prism.css" type="text/css">
 
 <script src="assets/js/mustache.min.js"></script>
 <script src="assets/js/jquery.js"></script>
+<script src="assets/js/scrollspy.js"></script>
 <script src="assets/js/bootstrap.js"></script>
 <script src="assets/js/typeahead.jquery.min.js"></script>
 <script src="assets/js/search.js"></script>
@@ -32,10 +34,6 @@
 
 <script src="assets/js/lines_around_headings.js"></script>
 
-<script src="assets/js/prism-core.js"></script>
-<script src="assets/js/prism-autoloader.js"></script>
-<script src="assets/js/prism_autoloader_path_override.js"></script>
-<script src="assets/js/trie.js"></script>
 
 <link rel="icon" type="image/png" href="assets/images/favicon.png">
 <link rel="shortcut icon" href="assets/images/favicon.png">
@@ -62,7 +60,7 @@ $('body').removeClass('no-script');
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<form action="" class="navbar-form pull-right" id="navbar-search-form">
+			<form class="navbar-form pull-right" id="navbar-search-form">
                                <div class="form-group has-feedback">
                                        <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
 				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
@@ -75,7 +73,7 @@ $('body').removeClass('no-script');
 				<span class="glyphicon glyphicon-menu-left"></span>
 			</a>
 			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
-				<img src="assets/images/meson_logo.png" alt="Home" id="home">
+				<img src="assets/images/meson_logo.png" alt="Home">
 			</a>
 		</div>
 		<div class="navbar-collapse collapse" id="navbar-wrapper">
@@ -156,18 +154,25 @@ $('body').removeClass('no-script');
 
 <div id="body">
 	<div id="main">
-				
-<div id="page-description" data-hotdoc-source="Users.md" data-hotdoc-role="main">
-<hr>
+				    <div id="page-description" data-hotdoc-source="Users.md" data-hotdoc-role="main">
+        <hr>
 <p>title: Users ...</p>
 <h1 id="list-of-projects-using-meson">List of projects using Meson</h1>
-<p>If you have a project that uses Meson that you want to add to this list, let
-us know and we'll add it.</p>
+<p>If you have a project that uses Meson that you want to add to this list,
+please <a href="https://github.com/mesonbuild/meson/edit/master/docs/markdown/Users.md">file a
+pull-request</a>
+for it. All the software on this list is tested for regressions before
+release, so it's highly recommended that projects add themselves here. Some
+additional projects are listed in the <a href="https://github.com/topics/meson"><code>meson</code> GitHub
+topic</a>.</p>
 <ul>
 <li>
 <a href="https://github.com/tobimensch/aqemu">AQEMU</a>, a Qt GUI for QEMU virtual
 machines, since version 0.9.3</li>
 <li><a href="https://github.com/jpakkane/mesonarduino">Arduino sample project</a></li>
+<li>
+<a href="https://gitlab.freedesktop.org/bolt/bolt">bolt</a> Userpsace daemon to
+enable security levels for Thunderbolt™ 3 on Linux</li>
 <li>
 <a href="https://github.com/budgie-desktop/budgie-desktop">Budgie Desktop</a>, a
 desktop environment built on GNOME technologies</li>
@@ -175,48 +180,82 @@ desktop environment built on GNOME technologies</li>
 <a href="https://github.com/systemd/casync">casync</a>, Content-Addressable Data
 Synchronization Tool</li>
 <li>
+<a href="https://github.com/linuxmint/cinnamon-desktop">cinnamon-desktop</a>, the
+cinnamon desktop library</li>
+<li>
+<a href="https://github.com/bus1/dbus-broker">dbus-broker</a>, Linux D-Bus Message
+Broker</li>
+<li>
+<a href="http://dpdk.org/browse/dpdk">Dpdk</a>, Data plane development kit, a set of
+libraries and drivers for fast packet processing</li>
+<li>
+<a href="https://github.com/doitsujin/dxvk">DXVK</a>, a Vulkan-based Direct3D 11
+implementation for Linux using Wine</li>
+<li>
 <a href="https://github.com/ebassi/emeus">Emeus</a>, Constraint based layout manager
 for GTK+</li>
 <li>
-<a href="https://www.frida.re/">Frida</a>, a dynamic binary instrumentation toolkit</li>
+<a href="https://github.com/trilader/arduino-esp8266-meson">ESP8266 Arduino sample
+project</a> Sample
+project for using the ESP8266 Arduino port with Meson</li>
+<li>
+<a href="https://wiki.gnome.org/Apps/Fractal/">Fractal</a>, a Matrix messaging
+client for GNOME</li>
+<li>
+<a href="https://github.com/frida/frida-core">Frida</a>, a dynamic binary
+instrumentation toolkit</li>
+<li>
+<a href="https://github.com/hughsie/fwupd">fwupd</a>, a simple daemon to allow
+session software to update firmware</li>
 <li>
 <a href="https://wiki.gnome.org/Apps/Geary">Geary</a>, an email application built
 around conversations, for the GNOME 3 desktop.</li>
 <li>
-<a href="https://git.gnome.org/browse/glib/">GLib</a>, cross-platform C library used
-by GTK+ and GStreamer (not the default yet)</li>
+<a href="https://gitlab.gnome.org/GNOME/glib">GLib</a>, cross-platform C library
+used by GTK+ and GStreamer (not the default yet)</li>
 <li>
-<a href="https://git.gnome.org/browse/gnome-builder/">Gnome Builder</a>, an IDE for
-the Gnome platform</li>
+<a href="https://gitlab.gnome.org/GNOME/gnome-boxes">GNOME Boxes</a>, a GNOME
+hypervisor</li>
 <li>
-<a href="https://github.com/gnome-mpv/gnome-mpv">Gnome MPV</a>, Gnome frontend to
+<a href="https://gitlab.gnome.org/GNOME/gnome-builder">GNOME Builder</a>, an IDE for
+the GNOME platform</li>
+<li>
+<a href="https://github.com/gnome-mpv/gnome-mpv">GNOME MPV</a>, GNOME frontend to
 the mpv video player</li>
 <li>
-<a href="https://github.com/matthiasclasen/gr">Gnome Recipes</a>, application for
+<a href="https://gitlab.gnome.org/GNOME/recipes">GNOME Recipes</a>, application for
 cooking recipes</li>
 <li>
-<a href="https://git.gnome.org//browse/gnome-software">Gnome Software</a>, an app
-store for Gnome</li>
+<a href="https://gitlab.gnome.org/GNOME/gnome-software">GNOME Software</a>, an app
+store for GNOME</li>
 <li>
-<a href="https://github.com/vinszent/gnome-twitch">Gnome Twitch</a>, an app for
-viewing Twitch streams on Gnome desktop</li>
+<a href="https://github.com/vinszent/gnome-twitch">GNOME Twitch</a>, an app for
+viewing Twitch streams on GNOME desktop</li>
+<li>
+<a href="https://gitlab.gnome.org/GNOME/gnome-usage">GNOME Usage</a>, a GNOME
+application for visualizing system resources</li>
 <li>
 <a href="https://ebassi.github.io/graphene/">Graphene</a>, a thin type library for
 graphics</li>
 <li>
-<a href="https://mail.gnome.org/archives/grilo-list/2017-February/msg00000.html">Grilo</a>
-and <a href="https://git.gnome.org/browse/grilo-plugins/commit/?id=ea047c4fb63e90268eb795ed91a09a2be5068a4c">Grilo
-plugins</a>,
-the Grilo multimedia framework</li>
+<a href="https://git.gnome.org/browse/grilo">Grilo</a> and <a href="https://git.gnome.org/browse/grilo-plugins">Grilo
+plugins</a>, the Grilo
+multimedia framework</li>
 <li>
 <a href="https://cgit.freedesktop.org/gstreamer/gstreamer/">GStreamer</a>,
 multimedia framework (not the default yet)</li>
 <li>
-<a href="https://git.gnome.org/browse/gtk+/">GTK+</a>, the multi-platform toolkit
+<a href="https://gitlab.gnome.org/GNOME/gtk">GTK+</a>, the multi-platform toolkit
 used by GNOME</li>
 <li>
 <a href="https://gitlab.com/csoriano/GtkDApp">GtkDApp</a>, an application template
 for developing Flatpak apps with Gtk+ and D</li>
+<li>
+<a href="https://git.gnome.org/browse/gvfs/">GVfs</a>, a userspace virtual
+filesystem designed to work with the I/O abstraction of GIO</li>
+<li>
+<a href="https://github.com/bil-elmoussaoui/Hardcode-Tray">Hardcode-Tray</a>, fixes
+hardcoded tray icons in Linux</li>
 <li>
 <a href="https://github.com/hexchat/hexchat">HexChat</a>, a cross-platform IRC
 client in C</li>
@@ -224,7 +263,10 @@ client in C</li>
 <a href="https://cgit.freedesktop.org/xorg/app/intel-gpu-tools/">IGT</a>, Linux
 kernel graphics driver test suite.</li>
 <li>
-<a href="https://git.gnome.org/browse/json-glib">Json-glib</a>, GLib-based JSON
+<a href="https://github.com/open-source-parsers/jsoncpp">JsonCpp</a>, a C++ library
+for interacting with JSON</li>
+<li>
+<a href="https://gitlab.gnome.org/GNOME/json-glib">Json-glib</a>, GLib-based JSON
 manipulation library</li>
 <li>
 <a href="https://github.com/att/ast">Ksh</a>, a Korn Shell</li>
@@ -235,53 +277,85 @@ abstracting DRM kernel interfaces</li>
 <a href="https://github.com/anholt/libepoxy/">Libepoxy</a>, a library for handling
 OpenGL function pointer management</li>
 <li>
-<a href="https://git.gnome.org/browse/libgit2-glib/">Libgit2-glib</a>, a GLib
-wrapper for libgit2</li>
+<a href="https://github.com/libfuse/libfuse">libfuse</a>, the reference
+implementation of the Linux FUSE (Filesystem in Userspace) interface</li>
 <li>
-<a href="https://github.com/grindhold/libhttpseverywhere">Libhttpseverywhere</a>, a
+<a href="https://git.gnome.org/browse/libgit2-glib">Libgit2-glib</a>, a GLib wrapper
+for libgit2</li>
+<li>
+<a href="https://git.gnome.org/browse/libhttpseverywhere">Libhttpseverywhere</a>, a
 library to enable httpseverywhere on any desktop app</li>
-<li><a href="https://github.com/Antergos/lightdm-webkit2-greeter">Lightdm-Webkit2-Greeter</a></li>
+<li>
+<a href="https://github.com/fedora-modularity/libmodulemd">libmodulemd</a>, a
+GObject Introspected library for managing <a href="https://getfedora.org/">Fedora
+Project</a> module metadata.</li>
+<li>
+<a href="https://github.com/Framstag/libosmscout">Libosmscout</a>, a C++ library for offline map rendering, routing and location<br>
+lookup based on OpenStreetMap data</li>
+<li>
+<a href="https://gitlab.com/randy408/libspng">libspng</a>, a C library for reading and writing Portable Network Graphics (PNG)
+format files</li>
+<li>
+<a href="https://github.com/intel/libva">Libva</a>, an implementation for the VA (VIdeo Acceleration) API</li>
+<li>
+<a href="https://github.com/openzim/libzim">Libzim</a>, the reference implementation for the ZIM file format</li>
 <li><a href="https://github.com/kiwix/kiwix-lib">Kiwix libraries</a></li>
 <li>
-<a href="https://www.mesa3d.org/">Mesa</a>, An open source graphics driver project</li>
+<a href="https://cgit.freedesktop.org/mesa/mesa/">Mesa</a>, An open source graphics driver project</li>
 <li>
-<a href="https://git.gnome.org/browse/nautilus/commit/?id=ed5652c89ac0654df2e82b54b00b27d51c825465">Nautilus</a>
-the Gnome file manager</li>
+<a href="https://github.com/albfan/miraclecast">MiracleCast</a>, connect external monitors to your system via Wifi-Display specification aka Miracast</li>
 <li>
-<a href="http://cgit.freedesktop.org/gstreamer/orc/">Orc</a>, the Optimized Inner
-Loop Runtime Compiler (not the default yet)</li>
+<a href="https://gitlab.gnome.org/GNOME/nautilus">Nautilus</a>, the GNOME file manager</li>
 <li>
-<a href="https://git.gnome.org/browse/pango/">Pango</a>, an Internationalized text
-layout and rendering library (not the default yet)</li>
+<a href="https://github.com/linuxmint/nemo">Nemo</a>, the file manager for the Cinnamon desktop environment</li>
 <li>
-<a href="https://github.com/jpakkane/parzip">Parzip</a>, a multithreaded
-reimplementation of Zip</li>
+<a href="http://cgit.freedesktop.org/gstreamer/orc/">Orc</a>, the Optimized Inner Loop Runtime Compiler (not the default yet)</li>
 <li>
-<a href="http://pitivi.org/">Pitivi</a>, a nonlinear video editor</li>
+<a href="https://github.com/kerolasa/outlier">Outlier</a>, a small Hello World style meson example project</li>
 <li>
-<a href="https://git.gnome.org/browse/polari">Polari</a>, an IRC client</li>
+<a href="https://git.gnome.org/browse/pango/">Pango</a>, an Internationalized text layout and rendering library (not the default yet)</li>
 <li>
-<a href="https://wiki.gnome.org/Apps/Sysprof">Sysprof</a>, a profiling tool</li>
+<a href="https://github.com/jpakkane/parzip">Parzip</a>, a multithreaded reimplementation of Zip</li>
+<li>
+<a href="https://github.com/PipeWire/pipewire">PipeWire</a>, a framework for video and audio for containerized applications</li>
+<li>
+<a href="https://github.com/pithos/pithos">Pithos</a>, a Pandora Radio client</li>
+<li>
+<a href="https://github.com/pitivi/pitivi/">Pitivi</a>, a nonlinear video editor</li>
+<li>
+<a href="https://gitlab.gnome.org/GNOME/polari">Polari</a>, an IRC client</li>
+<li>
+<a href="https://github.com/radare/radare2">radare2</a>, unix-like reverse engineering framework and commandline tools (not the default)</li>
+<li>
+<a href="https://github.com/libfuse/sshfs">SSHFS</a>, allows you to mount a remote filesystem using SFTP</li>
+<li>
+<a href="https://git.gnome.org/browse/sysprof">Sysprof</a>, a profiling tool</li>
 <li>
 <a href="https://github.com/systemd/systemd">systemd</a>, the init system</li>
 <li>
-<a href="https://cgit.freedesktop.org/xorg/xserver/">Xorg</a> the X.org display
-server (not the default yet)</li>
+<a href="https://github.com/dimkr/szl">szl</a>, a lightweight, embeddable scripting language</li>
 <li>
-<a href="https://github.com/valum-framework/valum">Valum</a>, a micro web framework
-written in Vala</li>
+<a href="https://taisei-project.org/">Taisei Project</a>, an open-source Touhou Project clone and fangame</li>
 <li>
-<a href="https://lists.freedesktop.org/archives/wayland-devel/2016-November/031984.html">Wayland and
-Weston</a>,
-a next generation display server (not merged yet)</li>
+<a href="https://github.com/eyelash/xi-gtk">xi-gtk</a>, a GTK+ front-end for the Xi editor</li>
 <li>
-<a href="https://github.com/facebook/zstd/commit/4dca56ed832c6a88108a2484a8f8ff63d8d76d91">ZStandard</a>
-a compression algorithm developed at Facebook (not used by default)</li>
+<a href="https://cgit.freedesktop.org/xorg/xserver/">Xorg</a>, the X.org display server (not the default yet)</li>
+<li>
+<a href="https://github.com/valum-framework/valum">Valum</a>, a micro web framework written in Vala</li>
+<li>
+<a href="https://lists.freedesktop.org/archives/wayland-devel/2016-November/031984.html">Wayland and Weston</a>, a next generation display server (not merged yet)</li>
+<li>
+<a href="https://github.com/swaywm/wlroots">wlroots</a>, a modular Wayland compositor library</li>
+<li>
+<a href="https://github.com/facebook/zstd/commit/4dca56ed832c6a88108a2484a8f8ff63d8d76d91">ZStandard</a>, a compression algorithm developed at Facebook (not used by default)</li>
 </ul>
 <p>Note that a more up-to-date list of GNOME projects that use Meson can be
 found <a href="https://wiki.gnome.org/Initiatives/GnomeGoals/MesonPorting">here</a>.</p>
 
-</div>
+    </div>
+        
+
+
 
 
 		
@@ -289,15 +363,9 @@ found <a href="https://wiki.gnome.org/Initiatives/GnomeGoals/MesonPorting">here<
 	<div id="search_results">
 		<p>The results of the search are</p>
 	</div>
+	<hr>
 	<div id="footer">
-		
-
-<hr>
-
-<div class="license-description">
-    Web サイトのライセンス情報は <a href="legal.html">Legal</a> ページに示しています。
-</div>
-
+		    
 
 	</div>
 </div>
@@ -305,7 +373,7 @@ found <a href="https://wiki.gnome.org/Initiatives/GnomeGoals/MesonPorting">here<
 <div id="toc-column">
 	
 		<div class="edit-button">
-		<a href="https://github.com/mesonbuild/meson//edit/master/markdown/Users.md" data-hotdoc-role="edit-button">Edit on github</a>
+		
 
 	</div>
 		<div id="toc-wrapper">
@@ -315,7 +383,7 @@ found <a href="https://wiki.gnome.org/Initiatives/GnomeGoals/MesonPorting">here<
 </div>
 </main>
 
-</body>
 
 <script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
 </html>

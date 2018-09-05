@@ -20,7 +20,7 @@ $(absbuilddir)/html/index.html: $(mdfiles)
 .PHONY: install
 install: $(absbuilddir)/html/index.html
 	if ! test "$(absbuilddir)" = "$(absdocsdir)"; then \
-	  cp -pR $(absbuilddir)/* $(absdocsdir) \
+	  cp -pR $(absbuilddir)/* $(absdocsdir); \
 	else \
-	  echo Nothin to be processed.\
+	  echo Nothin to be processed.;\
 	fi

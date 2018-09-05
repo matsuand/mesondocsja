@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -11,13 +12,14 @@
 <title>Qt5 module</title>
 
 <link rel="stylesheet" href="assets/css/custom_bootstrap.css" type="text/css">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
 <link rel="stylesheet" href="assets/css/frontend.css" type="text/css">
 <link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
 
-<link rel="stylesheet" href="assets/css/prism.css" type="text/css">
 
 <script src="assets/js/mustache.min.js"></script>
 <script src="assets/js/jquery.js"></script>
+<script src="assets/js/scrollspy.js"></script>
 <script src="assets/js/bootstrap.js"></script>
 <script src="assets/js/typeahead.jquery.min.js"></script>
 <script src="assets/js/search.js"></script>
@@ -32,10 +34,6 @@
 
 <script src="assets/js/lines_around_headings.js"></script>
 
-<script src="assets/js/prism-core.js"></script>
-<script src="assets/js/prism-autoloader.js"></script>
-<script src="assets/js/prism_autoloader_path_override.js"></script>
-<script src="assets/js/trie.js"></script>
 
 <link rel="icon" type="image/png" href="assets/images/favicon.png">
 <link rel="shortcut icon" href="assets/images/favicon.png">
@@ -62,7 +60,7 @@ $('body').removeClass('no-script');
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<form action="" class="navbar-form pull-right" id="navbar-search-form">
+			<form class="navbar-form pull-right" id="navbar-search-form">
                                <div class="form-group has-feedback">
                                        <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
 				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
@@ -75,7 +73,7 @@ $('body').removeClass('no-script');
 				<span class="glyphicon glyphicon-menu-left"></span>
 			</a>
 			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
-				<img src="assets/images/meson_logo.png" alt="Home" id="home">
+				<img src="assets/images/meson_logo.png" alt="Home">
 			</a>
 		</div>
 		<div class="navbar-collapse collapse" id="navbar-wrapper">
@@ -156,9 +154,8 @@ $('body').removeClass('no-script');
 
 <div id="body">
 	<div id="main">
-				
-<div id="page-description" data-hotdoc-source="Qt5-module.md" data-hotdoc-role="main">
-<h1 id="qt5-module">Qt5 module</h1>
+				    <div id="page-description" data-hotdoc-source="Qt5-module.md" data-hotdoc-role="main">
+        <h1 id="qt5-module">Qt5 module</h1>
 <p>The Qt5 module provides tools to automatically deal with the various tools
 and steps required for Qt. The module has two methods.</p>
 <h2 id="preprocess">preprocess</h2>
@@ -185,7 +182,14 @@ and steps required for Qt. The module has two methods.</p>
 <li>
 <code>build_by_default</code> when set to true, to have this target be built by default, that is, when invoking plain ninja; the default value is false (optional).</li>
 </ul>
-<p>A simple example would look like this:</p>
+<h2 id="dependencies">Dependencies</h2>
+<p>See <a href="Dependencies.html#qt4-qt5">Qt dependencies</a></p>
+<p>The 'modules' argument is used to include Qt modules in the project.  See
+the Qt documentation for the <a href="http://doc.qt.io/qt-5/qtmodules.html">list of
+modules</a>.</p>
+<p>The 'private_headers' argument allows usage of Qt's modules private
+headers.  (since v0.47.0)</p>
+<h2 id="example-a-simple-example-would-look-like-this">Example A simple example would look like this:</h2>
 <pre><code class="language-meson">qt5 = import('qt5')
 qt5_dep = dependency('qt5', modules: ['Core', 'Gui'])
 inc = include_directories('includes')
@@ -197,11 +201,11 @@ executable('myprog', 'main.cpp', 'myclass.cpp', moc_files,
            include_directories: inc,
            dependencies : qt5_dep)
 </code></pre>
-<p>The 'modules' argument is used to include Qt modules in the project.  See
-the Qt documentation for the <a href="http://doc.qt.io/qt-5/qtmodules.html">list of
-modules</a>.</p>
 
-</div>
+    </div>
+        
+
+
 
 
 		
@@ -209,15 +213,9 @@ modules</a>.</p>
 	<div id="search_results">
 		<p>The results of the search are</p>
 	</div>
+	<hr>
 	<div id="footer">
-		
-
-<hr>
-
-<div class="license-description">
-    Web サイトのライセンス情報は <a href="legal.html">Legal</a> ページに示しています。
-</div>
-
+		    
 
 	</div>
 </div>
@@ -225,7 +223,7 @@ modules</a>.</p>
 <div id="toc-column">
 	
 		<div class="edit-button">
-		<a href="https://github.com/mesonbuild/meson//edit/master/markdown/Qt5-module.md" data-hotdoc-role="edit-button">Edit on github</a>
+		
 
 	</div>
 		<div id="toc-wrapper">
@@ -235,7 +233,7 @@ modules</a>.</p>
 </div>
 </main>
 
-</body>
 
 <script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
 </html>

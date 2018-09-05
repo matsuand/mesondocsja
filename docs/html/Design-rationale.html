@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -12,13 +13,14 @@
 </title>
 
 <link rel="stylesheet" href="assets/css/custom_bootstrap.css" type="text/css">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
 <link rel="stylesheet" href="assets/css/frontend.css" type="text/css">
 <link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
 
-<link rel="stylesheet" href="assets/css/prism.css" type="text/css">
 
 <script src="assets/js/mustache.min.js"></script>
 <script src="assets/js/jquery.js"></script>
+<script src="assets/js/scrollspy.js"></script>
 <script src="assets/js/bootstrap.js"></script>
 <script src="assets/js/typeahead.jquery.min.js"></script>
 <script src="assets/js/search.js"></script>
@@ -33,10 +35,6 @@
 
 <script src="assets/js/lines_around_headings.js"></script>
 
-<script src="assets/js/prism-core.js"></script>
-<script src="assets/js/prism-autoloader.js"></script>
-<script src="assets/js/prism_autoloader_path_override.js"></script>
-<script src="assets/js/trie.js"></script>
 
 <link rel="icon" type="image/png" href="assets/images/favicon.png">
 <link rel="shortcut icon" href="assets/images/favicon.png">
@@ -63,7 +61,7 @@ $('body').removeClass('no-script');
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<form action="" class="navbar-form pull-right" id="navbar-search-form">
+			<form class="navbar-form pull-right" id="navbar-search-form">
                                <div class="form-group has-feedback">
                                        <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
 				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
@@ -76,7 +74,7 @@ $('body').removeClass('no-script');
 				<span class="glyphicon glyphicon-menu-left"></span>
 			</a>
 			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
-				<img src="assets/images/meson_logo.png" alt="Home" id="home">
+				<img src="assets/images/meson_logo.png" alt="Home">
 			</a>
 		</div>
 		<div class="navbar-collapse collapse" id="navbar-wrapper">
@@ -157,9 +155,8 @@ $('body').removeClass('no-script');
 
 <div id="body">
 	<div id="main">
-				
-<div id="page-description" data-hotdoc-source="Design-rationale.md" data-hotdoc-role="main">
-<hr>
+				    <div id="page-description" data-hotdoc-source="Design-rationale.md" data-hotdoc-role="main">
+        <hr>
 <p>title: Design rationale ...</p>
 <h1 id="this-is-the-original-design-rationale-for-meson-the-syntax-it-describes-does-not-match-the-released-version">This is the original design rationale for Meson. The syntax it describes does not match the released version</h1>
 <p>A software developer's most important tool is the editor. If you talk to
@@ -300,7 +297,7 @@ arguments. They look like this.</p>
 External dependencies are simple to use.
 
 ```meson project('external lib', 'c')  libdep = find_dep('extlibrary',
-required : true)  sources = ['main.c', 'file1.c', 'file2.c', 'file3.c']
+required : true)  sourcelist = ['main.c', 'file1.c', 'file2.c', 'file3.c']
 executable('program', sources : sourcelist, dep : libdep)  ```
 
 In other build systems you have to manually add the compile and link flags
@@ -348,7 +345,10 @@ blown build system. For that I need your help. Comments and especially
 patches are more than welcome.
 </code></pre>
 
-</div>
+    </div>
+        
+
+
 
 
 		
@@ -356,15 +356,9 @@ patches are more than welcome.
 	<div id="search_results">
 		<p>The results of the search are</p>
 	</div>
+	<hr>
 	<div id="footer">
-		
-
-<hr>
-
-<div class="license-description">
-    Web サイトのライセンス情報は <a href="legal.html">Legal</a> ページに示しています。
-</div>
-
+		    
 
 	</div>
 </div>
@@ -372,7 +366,7 @@ patches are more than welcome.
 <div id="toc-column">
 	
 		<div class="edit-button">
-		<a href="https://github.com/mesonbuild/meson//edit/master/markdown/Design-rationale.md" data-hotdoc-role="edit-button">Edit on github</a>
+		
 
 	</div>
 		<div id="toc-wrapper">
@@ -382,7 +376,7 @@ patches are more than welcome.
 </div>
 </main>
 
-</body>
 
 <script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
 </html>

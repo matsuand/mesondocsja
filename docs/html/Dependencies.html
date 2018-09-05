@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -11,13 +12,14 @@
 <title>依存関係</title>
 
 <link rel="stylesheet" href="assets/css/custom_bootstrap.css" type="text/css">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
 <link rel="stylesheet" href="assets/css/frontend.css" type="text/css">
 <link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
 
-<link rel="stylesheet" href="assets/css/prism.css" type="text/css">
 
 <script src="assets/js/mustache.min.js"></script>
 <script src="assets/js/jquery.js"></script>
+<script src="assets/js/scrollspy.js"></script>
 <script src="assets/js/bootstrap.js"></script>
 <script src="assets/js/typeahead.jquery.min.js"></script>
 <script src="assets/js/search.js"></script>
@@ -32,10 +34,6 @@
 
 <script src="assets/js/lines_around_headings.js"></script>
 
-<script src="assets/js/prism-core.js"></script>
-<script src="assets/js/prism-autoloader.js"></script>
-<script src="assets/js/prism_autoloader_path_override.js"></script>
-<script src="assets/js/trie.js"></script>
 
 <link rel="icon" type="image/png" href="assets/images/favicon.png">
 <link rel="shortcut icon" href="assets/images/favicon.png">
@@ -62,7 +60,7 @@ $('body').removeClass('no-script');
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<form action="" class="navbar-form pull-right" id="navbar-search-form">
+			<form class="navbar-form pull-right" id="navbar-search-form">
                                <div class="form-group has-feedback">
                                        <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
 				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
@@ -75,7 +73,7 @@ $('body').removeClass('no-script');
 				<span class="glyphicon glyphicon-menu-left"></span>
 			</a>
 			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
-				<img src="assets/images/meson_logo.png" alt="Home" id="home">
+				<img src="assets/images/meson_logo.png" alt="Home">
 			</a>
 		</div>
 		<div class="navbar-collapse collapse" id="navbar-wrapper">
@@ -156,9 +154,8 @@ $('body').removeClass('no-script');
 
 <div id="body">
 	<div id="main">
-				
-<div id="page-description" data-hotdoc-source="Dependencies.md" data-hotdoc-role="main">
-<h1 id="">依存関係</h1>
+				    <div id="page-description" data-hotdoc-source="Dependencies.md" data-hotdoc-role="main">
+        <h1 id="">依存関係</h1>
 <p>Very few applications are fully self-contained, but rather they use external
 libraries and frameworks to do their work. Meson makes it very easy to find
 and use external dependencies. Here is how one would use the zlib
@@ -195,8 +192,8 @@ parameter, which might be useful in certain situations:</p>
 
 The dependency detector works with all libraries that provide a `pkg-config`
 file. Unfortunately several packages don't provide pkg-config files. Meson
-has autodetection support for some of these, and they are described later on
-this page.
+has autodetection support for some of these, and they are described [later
+in this page](#dependencies-with-custom-lookup-functionality).
 
 # Declaring your own
 
@@ -219,11 +216,11 @@ simple to use system dependencies when they are available and to build
 dependencies manually when they are not.</p>
 <p>To make this work, the dependency must have Meson build definitions and it
 must declare its own dependency like this:</p>
-<pre><code>foo_dep = declare_dependency(...)
+<pre><code class="language-meson">    foo_dep = declare_dependency(...)
 </code></pre>
 <p>Then any project that wants to use it can write out the following
 declaration in their main <code>meson.build</code> file.</p>
-<pre><code>foo_dep = dependency('foo', fallback : ['foo', 'foo_dep'])
+<pre><code class="language-meson">    foo_dep = dependency('foo', fallback : ['foo', 'foo_dep'])
 </code></pre>
 <p>What this declaration means is that first Meson tries to look up the
 dependency from the system (such as by using pkg-config). If it is not
@@ -233,7 +230,50 @@ either an external or an internal dependency object. Since they can be used
 interchangeably, the rest of the build definitions do not need to care which
 one it is. Meson will take care of all the work behind the scenes to make
 this work.</p>
+<h1 id="dependency-method">Dependency method</h1>
+<p>You can use the keyword <code>method</code> to let meson know what method to use when
+searching for the dependency. The default value is <code>auto</code>.  Aditional
+dependencies methods are <code>pkg-config</code>, <code>config-tool</code>, <code>system</code>, <code>sysconfig</code>,
+<code>qmake</code>, <code>extraframework</code> and <code>dub</code>.</p>
+<p><code>meson cups_dep = dependency('cups', method : 'pkg-config')</code></p>
+<h3 id="some-notes-on-dub">Some notes on Dub</h3>
+<p>Please understand that meson is only able to find dependencies that exist in
+the local Dub repository. You need to manually fetch and build the target
+dependencies.</p>
+<p>For <code>urld</code>.  <code>dub fetch urld dub build urld</code></p>
+<p>Other thing you need to keep in mind is that both meson and Dub need to be
+using the same compiler. This can be achieved using Dub's <code>-compiler</code>
+argument and/or manually setting the <code>DC</code> environment variable when running
+meson.  <code>dub build urld --compiler=dmd DC="dmd" meson builddir</code></p>
 <h1 id="dependencies-with-custom-lookup-functionality">Dependencies with custom lookup functionality</h1>
+<p>Some dependencies have specific detection logic.</p>
+<p>Generic dependency names are case-sensitive<sup><a href="Dependencies.html#footnote1">1</a></sup>, but
+these dependency names are matched case-insensitively.  The recommended
+style is to write them in all lower-case.</p>
+<p>In some cases, more than one detection method exists, and the <code>method</code>
+keyword may be used to select a detection method to use.  The <code>auto</code> method
+uses any checking mechanisms in whatever order meson thinks is best.</p>
+<p>e.g. libwmf and CUPS provide both pkg-config and config-tool support. You
+can force one or another via the <code>method</code> keyword:</p>
+<pre><code class="language-meson">dependency('libwmf', method : 'config-tool')  ```
+
+## Dependencies using config tools
+
+[CUPS](#cups), [LLVM](#llvm), [pcap](#pcap), [WxWidgets](#wxwidgets),
+[libwmf](#libwmf), and GnuStep either do not provide pkg-config modules or
+additionally can be detected via a config tool (cups-config, llvm-config,
+etc). Meson has native support for these tools, and they can be found like
+other dependencies:
+
+```meson
+pcap_dep = dependency('pcap', version : '&gt;=1.0')
+cups_dep = dependency('cups', version : '&gt;=1.4')
+llvm_dep = dependency('llvm', version : '&gt;=4.0')
+</code></pre>
+<h2 id="appleframeworks">AppleFrameworks</h2>
+<p>Use the <code>modules</code> keyword to list frameworks required, e.g.</p>
+<p><code>meson dep = dependency('appleframeworks', modules : 'foundation')</code></p>
+<p>These dependencies can never be found for non-OSX hosts.</p>
 <h2 id="boost">Boost</h2>
 <p>Boost is not a single dependency but rather a group of different
 libraries. To use Boost headers-only libraries, simply add Boost as a
@@ -252,7 +292,12 @@ those to link against your targets.</p>
 the BOOST_ROOT, BOOST_INCLUDEDIR, and/or BOOST_LIBRARYDIR environment
 variables.</p>
 <p>You can set the argument <code>threading</code> to <code>single</code> to use boost libraries that
-has been compiled for single-threaded use instead.</p>
+have been compiled for single-threaded use instead.</p>
+<h2 id="cups">CUPS</h2>
+<p><code>method</code> may be <code>auto</code>, <code>config-tool</code>, <code>pkg-config</code> or <code>extraframework</code>.</p>
+<h2 id="gl">GL</h2>
+<p>This finds the OpenGL library in a way appropriate to the platform.</p>
+<p><code>method</code> may be <code>auto</code>, <code>pkg-config</code> or <code>system</code>.</p>
 <h2 id="gtest-and-gmock">GTest and GMock</h2>
 <p>GTest and GMock come as sources that must be compiled as part of your
 project. With Meson you don't have to care about the details, just pass
@@ -260,26 +305,72 @@ project. With Meson you don't have to care about the details, just pass
 want to use GMock, it is recommended to use GTest as well, as getting it to
 work standalone is tricky.</p>
 <p>You can set the <code>main</code> keyword argument to <code>true</code> to use the <code>main()</code>
-function provided by GTest: <code>gtest_dep = dependency('gtest', main : true, required : false) e = executable('testprog', 'test.cc', dependencies : gtest_dep) test('gtest test', e)</code> ## MPI</p>
+function provided by GTest: <code>gtest_dep = dependency('gtest', main : true, required : false) e = executable('testprog', 'test.cc', dependencies : gtest_dep) test('gtest test', e)</code></p>
+<h2 id="libwmf">libwmf</h2>
+<p><em>(added 0.44.0)</em></p>
+<p><code>method</code> may be <code>auto</code>, <code>config-tool</code> or <code>pkg-config</code>.</p>
+<h2 id="llvm">LLVM</h2>
+<p>Meson has native support for LLVM going back to version LLVM version 3.5.
+It supports a few additional features compared to other config-tool based
+dependencies.</p>
+<p>As of 0.44.0 Meson supports the <code>static</code> keyword argument for LLVM. Before
+this LLVM &gt;= 3.9 would always dynamically link, while older versions would
+statically link, due to a quirk in <code>llvm-config</code>.</p>
+<h3 id="modules-aka-components">Modules, a.k.a. Components</h3>
+<p>Meson wraps LLVM's concept of components in it's own modules concept.  When
+you need specific components you add them as modules as meson will do the
+right thing:</p>
+<pre><code class="language-meson">llvm_dep = dependency('llvm', version : '&gt;= 4.0', modules : ['amdgpu'])
+</code></pre>
+<p>As of 0.44.0 it can also take optional modules (these will affect the
+arguments generated for a static link):</p>
+<pre><code class="language-meson">llvm_dep = dependency(
+  'llvm', version : '&gt;= 4.0', modules : ['amdgpu'], optional_modules : ['inteljitevents'],
+)
+</code></pre>
+<h2 id="mpi">MPI</h2>
+<p><em>(added 0.42.0)</em></p>
 <p>MPI is supported for C, C++ and Fortran. Because dependencies are
 language-specific, you must specify the requested language using the
 <code>language</code> keyword argument, i.e.,</p>
 <ul>
 <li>
-<code>dependency('mpi', language='c')</code> for the C MPI headers and libraries</li>
+<code>dependency('mpi', language: 'c')</code> for the C MPI headers and libraries</li>
 <li>
-<code>dependency('mpi', language='cpp')</code> for the C++ MPI headers and libraries</li>
+<code>dependency('mpi', language: 'cpp')</code> for the C++ MPI headers and libraries</li>
 <li>
-<code>dependency('mpi', language='fortran')</code> for the Fortran MPI headers and libraries</li>
+<code>dependency('mpi', language: 'fortran')</code> for the Fortran MPI headers and libraries</li>
 </ul>
 <p>Meson prefers pkg-config for MPI, but if your MPI implementation does not
 provide them, it will search for the standard wrapper executables, <code>mpic</code>,
 <code>mpicxx</code>, <code>mpic++</code>, <code>mpifort</code>, <code>mpif90</code>, <code>mpif77</code>. If these are not in your
 path, they can be specified by setting the standard environment variables
 <code>MPICC</code>, <code>MPICXX</code>, <code>MPIFC</code>, <code>MPIF90</code>, or <code>MPIF77</code>, during configuration.</p>
-<h2 id="qt5">Qt5</h2>
-<p>Meson has native Qt5 support. Its usage is best demonstrated with an
-example.</p>
+<h2 id="openmp">OpenMP</h2>
+<p><em>(added 0.46.0)</em></p>
+<p>This dependency selects the appropriate compiler flags and/or libraries to
+use for OpenMP support.</p>
+<p>The <code>language</code> keyword may used.</p>
+<h2 id="pcap">pcap</h2>
+<p><em>(added 0.42.0)</em></p>
+<p><code>method</code> may be <code>auto</code>, <code>config-tool</code> or <code>pkg-config</code>.</p>
+<h2 id="python3">Python3</h2>
+<p>Python3 is handled specially by meson:</p>
+<ol>
+<li>Meson tries to use <code>pkg-config</code>.</li>
+<li>If <code>pkg-config</code> fails meson uses a fallback:
+<ul>
+<li>On Windows the fallback is the current <code>python3</code> interpreter.</li>
+<li>On OSX the fallback is a framework dependency from <code>/Library/Frameworks</code>.</li>
+</ul>
+</li>
+</ol>
+<p>Note that <code>python3</code> found by this dependency might differ from the one used
+in <code>python3</code> module because modules uses the current interpreter, but
+dependency tries <code>pkg-config</code> first.</p>
+<p><code>method</code> may be <code>auto</code>, <code>extraframework</code>, <code>pkg-config</code> or <code>sysconfig</code></p>
+<h2 id="qt4-qt5">Qt4 &amp; Qt5</h2>
+<p>Meson has native Qt support. Its usage is best demonstrated with an example.</p>
 <pre><code class="language-meson">qt5_mod = import('qt5')  qt5widgets = dependency('qt5', modules : 'Widgets')
 
 processed = qt5_mod.preprocess(
@@ -303,40 +394,51 @@ the correct order, which is done with the <code>preprocess</code> method of the 
 module. Its output is simply put in the list of sources for the target. The
 <code>modules</code> keyword of <code>dependency</code> works just like it does with Boost. It
 tells which subparts of Qt the program uses.</p>
-<h2 id="dependencies-using-config-tools">Dependencies using config tools</h2>
-<p>CUPS, LLVM, PCAP, WxWidgets, libwmf, and GnuStep either do not provide
-pkg-config modules or additionally can be detected via a config tool
-(cups-config, llvm-config, etc). Meson has native support for these tools,
-and then can be found like other dependencies:</p>
-<pre><code class="language-meson">pcap_dep = dependency('pcap', version : '&gt;=1.0')
-cups_dep = dependency('cups', version : '&gt;=1.4')
-llvm_dep = dependency('llvm', version : '&gt;=4.0')
-</code></pre>
-<p>Some of these tools (like wmf and cups) provide both pkg-config and config
-tools support. You can force one or another via the method keyword:</p>
-<pre><code class="language-meson">wmf_dep = dependency('wmf', method : 'config-tool')
-</code></pre>
-<h2 id="llvm">LLVM</h2>
-<p>Meson has native support for LLVM going back to version LLVM version 3.5.
-It supports a few additional features compared to other config-tool based
-dependencies.</p>
-<p>As of 0.44.0 Meson supports the <code>static</code> keyword argument for LLVM. Before
-this LLVM &gt;= 3.9 would always dynamically link, while older versions would
-statically link, due to a quirk in <code>llvm-config</code>.</p>
-<h3 id="modules-aka-components">Modules, a.k.a. Components</h3>
-<p>Meson wraps LLVM's concept of components in it's own modules concept.  When
-you need specific components you add them as modules as meson will do the
-right thing:</p>
-<pre><code class="language-meson">llvm_dep = dependency('llvm', version : '&gt;= 4.0', modules : ['amdgpu'])
-</code></pre>
-<p>As of 0.44.0 it can also take optional modules (these will affect the
-arguments generated for a static link):</p>
-<pre><code class="language-meson">llvm_dep = dependency(
-  'llvm', version : '&gt;= 4.0', modules : ['amdgpu'], optional_modules : ['inteljitevents'],
+<p>Setting the optional <code>private_headers</code> keyword to true adds the private
+header include path of the given module(s) to the compiler flags.  (since
+v0.47.0)</p>
+<p><strong>Note</strong> using private headers in your project is a bad idea, do so at your own
+risk.</p>
+<p><code>method</code> may be <code>auto</code>, <code>pkgconfig</code> or <code>qmake</code>.</p>
+<h2 id="sdl2">SDL2</h2>
+<p>SDL2 can be located using <code>pkg-confg</code>, the <code>sdl2-config</code> config tool, or as
+an OSX framework.</p>
+<p><code>method</code> may be <code>auto</code>, <code>config-tool</code>, <code>extraframework</code> or <code>pkg-config</code>.</p>
+<h2 id="threads">Threads</h2>
+<p>This dependency selects the appropriate compiler flags and/or libraries to
+use for thread support.</p>
+<p>See <a href="Threads.html">threads</a>.</p>
+<h2 id="valgrind">Valgrind</h2>
+<p>Meson will find valgrind using <code>pkg-config</code>, but only uses the compilation
+flags and avoids trying to link with it's non-PIC static libs.</p>
+<h2 id="vulkan">Vulkan</h2>
+<p><em>(added 0.42.0)</em></p>
+<p>Vulkan can be located using <code>pkg-config</code>, or the <code>VULKAN_SDK</code> environment
+variable.</p>
+<p><code>method</code> may be <code>auto</code>, <code>pkg-config</code> or <code>system</code>.</p>
+<h2 id="wxwidgets">WxWidgets</h2>
+<p>Similar to <a href="Dependencies.html#boost">Boost</a>, WxWidgets is not a single library but rather a
+collection of modules. WxWidgets is supported via <code>wx-config</code>.  Meson
+substitutes <code>modules</code> to <code>wx-config</code> invocation, it generates -
+<code>compile_args</code> using <code>wx-config --cxxflags $modules...</code> - <code>link_args</code> using
+<code>wx-config --libs $modules...</code></p>
+<h3 id="example">Example</h3>
+<pre><code class="language-meson">wx_dep = dependency(
+  'wxwidgets', version : '&gt;=3.0.0', modules : ['std', 'stc'],
 )
 </code></pre>
+<pre><code class="language-shell">
+# link_args: $ wx-config --libs std stc ```
 
-</div>
+&lt;hr&gt;
+&lt;a name="footnote1"&gt;1&lt;/a&gt;: They may appear to be case-insensitive, if the
+    underlying file system happens to be case-insensitive.
+</code></pre>
+
+    </div>
+        
+
+
 
 
 		
@@ -344,15 +446,9 @@ arguments generated for a static link):</p>
 	<div id="search_results">
 		<p>The results of the search are</p>
 	</div>
+	<hr>
 	<div id="footer">
-		
-
-<hr>
-
-<div class="license-description">
-    Web サイトのライセンス情報は <a href="legal.html">Legal</a> ページに示しています。
-</div>
-
+		    
 
 	</div>
 </div>
@@ -360,7 +456,7 @@ arguments generated for a static link):</p>
 <div id="toc-column">
 	
 		<div class="edit-button">
-		<a href="https://github.com/mesonbuild/meson//edit/master/markdown/Dependencies.md" data-hotdoc-role="edit-button">Edit on github</a>
+		
 
 	</div>
 		<div id="toc-wrapper">
@@ -370,7 +466,7 @@ arguments generated for a static link):</p>
 </div>
 </main>
 
-</body>
 
 <script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
 </html>

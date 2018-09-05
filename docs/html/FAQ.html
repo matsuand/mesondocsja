@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -11,13 +12,14 @@
 <title>FAQ</title>
 
 <link rel="stylesheet" href="assets/css/custom_bootstrap.css" type="text/css">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
 <link rel="stylesheet" href="assets/css/frontend.css" type="text/css">
 <link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
 
-<link rel="stylesheet" href="assets/css/prism.css" type="text/css">
 
 <script src="assets/js/mustache.min.js"></script>
 <script src="assets/js/jquery.js"></script>
+<script src="assets/js/scrollspy.js"></script>
 <script src="assets/js/bootstrap.js"></script>
 <script src="assets/js/typeahead.jquery.min.js"></script>
 <script src="assets/js/search.js"></script>
@@ -32,10 +34,6 @@
 
 <script src="assets/js/lines_around_headings.js"></script>
 
-<script src="assets/js/prism-core.js"></script>
-<script src="assets/js/prism-autoloader.js"></script>
-<script src="assets/js/prism_autoloader_path_override.js"></script>
-<script src="assets/js/trie.js"></script>
 
 <link rel="icon" type="image/png" href="assets/images/favicon.png">
 <link rel="shortcut icon" href="assets/images/favicon.png">
@@ -62,7 +60,7 @@ $('body').removeClass('no-script');
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<form action="" class="navbar-form pull-right" id="navbar-search-form">
+			<form class="navbar-form pull-right" id="navbar-search-form">
                                <div class="form-group has-feedback">
                                        <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
 				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
@@ -75,7 +73,7 @@ $('body').removeClass('no-script');
 				<span class="glyphicon glyphicon-menu-left"></span>
 			</a>
 			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
-				<img src="assets/images/meson_logo.png" alt="Home" id="home">
+				<img src="assets/images/meson_logo.png" alt="Home">
 			</a>
 		</div>
 		<div class="navbar-collapse collapse" id="navbar-wrapper">
@@ -156,9 +154,8 @@ $('body').removeClass('no-script');
 
 <div id="body">
 	<div id="main">
-				
-<div id="page-description" data-hotdoc-source="FAQ.md" data-hotdoc-role="main">
-<h1 id="meson-">Meson のよく尋ねられる質問</h1>
+				    <div id="page-description" data-hotdoc-source="FAQ.md" data-hotdoc-role="main">
+        <h1 id="meson-">Meson のよく尋ねられる質問</h1>
 <p>See also <a href="howtox.html">How do I do X in Meson</a>.</p>
 <h2 id="-meson-">なぜ Meson という名前なんですか？</h2>
 <p>When the name was originally chosen, there were two main limitations: there
@@ -260,7 +257,7 @@ subdir('tests') # test binaries would link against the library here
 <h2 id="why-is-there-not-a-make-backend">Why is there not a Make backend?</h2>
 <p>Because Make is slow. This is not an implementation issue, Make simply can
 not be made fast. For further info we recommend you read <a href="http://neugierig.org/software/chromium/notes/2011/02/ninja.html">this
-post</a> by
+post</a>  by
 Evan Martin, the author of Ninja. Makefiles also have a syntax that is very
 unpleasant to write which makes them a big maintenance burden.</p>
 <p>The only reason why one would use Make instead of Ninja is working on a
@@ -322,6 +319,34 @@ for the very first time. After that the setting is considered to have a
 value and thus the default value is ignored. To change an existing build dir
 to <code>c++14</code>, either reconfigure your build dir with <code>meson configure</code> or
 delete the build dir and recreate it from scratch.</p>
+<p>The reason we don't automatically change the option value when the default
+is changed is that it is impossible to know to do that reliably. The actual
+question that we need to solve is "if the option's value is foo and the
+default value is bar, should we change the option value to bar also". There
+are many choices:</p>
+<ul>
+<li>
+<p>if the user has changed the value themselves from the default, then we
+must not change it back</p>
+</li>
+<li>
+<p>if the user has not changed the value, but changes the default value,
+then this section's premise would seem to indicate that the value should
+be changed</p>
+</li>
+<li>
+<p>suppose the user changes the value from the default to foo, then back to
+bar and then changes the default value to bar, the correct step to take
+is ambiguous by itself</p>
+</li>
+</ul>
+<p>In order to solve the latter question we would need to remember not only the
+current and old value, but also all the times the user has changed the value
+and from which value to which other value. Since people don't remember their
+own actions that far back, toggling between states based on long history
+would be confusing.</p>
+<p>Because of this we do the simple and understandable thing: default values
+are only defaults and will never affect the value of an option once set.</p>
 <h2 id="does-wrap-download-sources-behind-my-back">Does wrap download sources behind my back?</h2>
 <p>It does not. In order for Meson to download anything from the net while
 building, two conditions must be met.</p>
@@ -338,8 +363,42 @@ option called <code>wrap-mode</code> which can be used to disable wrap downloads
 altogether with <code>--wrap-mode=nodownload</code>. You can also disable dependency
 fallbacks altogether with <code>--wrap-mode=nofallback</code>, which also implies the
 <code>nodownload</code> option.</p>
+<p>If on the other hand, you want meson to always use the fallback for
+dependencies, even when an external dependency exists and could satisfy the
+version requirements, for example in order to make sure your project builds
+when fallbacks are used, you can use <code>--wrap-mode=forcefallback</code> since
+0.46.0.</p>
+<h2 id="why-is-meson-implemented-in-python-rather-than-programming-language-x">Why is Meson implemented in Python rather than [programming language X]?</h2>
+<p>Because build systems are special in ways normal applications aren't.</p>
+<p>Perhaps the biggest limitation is that because Meson is used to build
+software at the very lowest levels of the OS, it is part of the core
+bootstrap for new systems. Whenever support for a new CPU architecture is
+added, Meson must run on the system before software using it can be compiled
+natively. This requirement adds two hard limitations.</p>
+<p>The first one is that Meson must have the minimal amount of dependencies,
+because they must all be built during the bootstrap to get Meson to work.</p>
+<p>The second is that Meson must support all CPU architectures, both existing
+and future ones. As an example many new programming languages have only an
+LLVM based compiler available. LLVM has limited CPU support compared to,
+say, GCC, and thus bootstrapping Meson on such platforms would first require
+adding new processor support to LLVM. This is in most cases unfeasible.</p>
+<p>A further limitation is that we want developers on as many platforms as
+possible to submit to Meson development using the default tools provided by
+their operating system. In practice what this means is that Windows
+developers should be able to contribute using nothing but Visual Studio.</p>
+<p>At the time of writing (April 2018) there are only three languages that
+could fullfill these requirements:</p>
+<ul>
+<li>C</li>
+<li>C++</li>
+<li>Python</li>
+</ul>
+<p>Out of these we have chosen Python because it is the best fit for our needs.</p>
 
-</div>
+    </div>
+        
+
+
 
 
 		
@@ -347,15 +406,9 @@ fallbacks altogether with <code>--wrap-mode=nofallback</code>, which also implie
 	<div id="search_results">
 		<p>The results of the search are</p>
 	</div>
+	<hr>
 	<div id="footer">
-		
-
-<hr>
-
-<div class="license-description">
-    Web サイトのライセンス情報は <a href="legal.html">Legal</a> ページに示しています。
-</div>
-
+		    
 
 	</div>
 </div>
@@ -363,7 +416,7 @@ fallbacks altogether with <code>--wrap-mode=nofallback</code>, which also implie
 <div id="toc-column">
 	
 		<div class="edit-button">
-		<a href="https://github.com/mesonbuild/meson//edit/master/markdown/FAQ.md" data-hotdoc-role="edit-button">Edit on github</a>
+		
 
 	</div>
 		<div id="toc-wrapper">
@@ -373,7 +426,7 @@ fallbacks altogether with <code>--wrap-mode=nofallback</code>, which also implie
 </div>
 </main>
 
-</body>
 
 <script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
 </html>

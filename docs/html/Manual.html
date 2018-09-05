@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -11,13 +12,14 @@
 <title>マニュアル</title>
 
 <link rel="stylesheet" href="assets/css/custom_bootstrap.css" type="text/css">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
 <link rel="stylesheet" href="assets/css/frontend.css" type="text/css">
 <link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
 
-<link rel="stylesheet" href="assets/css/prism.css" type="text/css">
 
 <script src="assets/js/mustache.min.js"></script>
 <script src="assets/js/jquery.js"></script>
+<script src="assets/js/scrollspy.js"></script>
 <script src="assets/js/bootstrap.js"></script>
 <script src="assets/js/typeahead.jquery.min.js"></script>
 <script src="assets/js/search.js"></script>
@@ -32,10 +34,6 @@
 
 <script src="assets/js/lines_around_headings.js"></script>
 
-<script src="assets/js/prism-core.js"></script>
-<script src="assets/js/prism-autoloader.js"></script>
-<script src="assets/js/prism_autoloader_path_override.js"></script>
-<script src="assets/js/trie.js"></script>
 
 <link rel="icon" type="image/png" href="assets/images/favicon.png">
 <link rel="shortcut icon" href="assets/images/favicon.png">
@@ -62,7 +60,7 @@ $('body').removeClass('no-script');
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<form action="" class="navbar-form pull-right" id="navbar-search-form">
+			<form class="navbar-form pull-right" id="navbar-search-form">
                                <div class="form-group has-feedback">
                                        <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
 				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
@@ -75,7 +73,7 @@ $('body').removeClass('no-script');
 				<span class="glyphicon glyphicon-menu-left"></span>
 			</a>
 			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
-				<img src="assets/images/meson_logo.png" alt="Home" id="home">
+				<img src="assets/images/meson_logo.png" alt="Home">
 			</a>
 		</div>
 		<div class="navbar-collapse collapse" id="navbar-wrapper">
@@ -156,13 +154,15 @@ $('body').removeClass('no-script');
 
 <div id="body">
 	<div id="main">
-				
-<div id="page-description" data-hotdoc-source="Manual.md" data-hotdoc-role="main">
-<h1 id="">マニュアル</h1>
+				    <div id="page-description" data-hotdoc-source="Manual.md" data-hotdoc-role="main">
+        <h1 id="">マニュアル</h1>
 <p>これは Meson のユーザーマニュアルです。Git head
 の内容に基づいています。これよりも古い版では、説明内容がうまく動作しないものがあるかもしれません。</p>
 
-</div>
+    </div>
+        
+
+
 
 
 		<div id="subpages">
@@ -180,6 +180,12 @@ $('body').removeClass('no-script');
 			</div>
 			<div class="col-sm-12 col-md-8 subpage-description">
 								<p>Meson プロジェクトの構築</p>
+							</div>
+						<div class="col-sm-12 col-md-4">
+				<a href="Builtin-options.html">ビルトインオプション</a>
+			</div>
+			<div class="col-sm-12 col-md-8 subpage-description">
+								<p>Built-in options to configure project properties</p>
 							</div>
 						<div class="col-sm-12 col-md-4">
 				<a href="Using-with-Visual-Studio.html">Visual Studio での利用</a>
@@ -215,7 +221,7 @@ $('body').removeClass('no-script');
 				<a href="Installing.html">インストール</a>
 			</div>
 			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>Installing targets</p>
+								<p>インストールターゲット</p>
 							</div>
 						<div class="col-sm-12 col-md-4">
 				<a href="Adding-arguments.html">引数の追加</a>
@@ -227,7 +233,7 @@ $('body').removeClass('no-script');
 				<a href="Configuration.html">設定</a>
 			</div>
 			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>Build-time configuration options</p>
+								<p>ビルド時の設定オプション</p>
 							</div>
 						<div class="col-sm-12 col-md-4">
 				<a href="Compiler-properties.html">Compiler properties</a>
@@ -293,7 +299,7 @@ $('body').removeClass('no-script');
 				<a href="Localisation.html">Localisation</a>
 			</div>
 			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>（概要の記述はありません）</p>
+								<p>Localization with GNU Gettext</p>
 							</div>
 						<div class="col-sm-12 col-md-4">
 				<a href="Build-options.html">ビルドオプション</a>
@@ -311,7 +317,7 @@ $('body').removeClass('no-script');
 				<a href="Disabler.html">Disabling parts of the build</a>
 			</div>
 			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>（概要の記述はありません）</p>
+								<p>Disabling options</p>
 							</div>
 						<div class="col-sm-12 col-md-4">
 				<a href="Modules.html">モジュール</a>
@@ -341,7 +347,7 @@ $('body').removeClass('no-script');
 				<a href="IDE-integration.html">IDE integration</a>
 			</div>
 			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>（概要の記述はありません）</p>
+								<p>Meson's API to integrate Meson support into an IDE</p>
 							</div>
 						<div class="col-sm-12 col-md-4">
 				<a href="Custom-build-targets.html">カスタムビルドターゲット</a>
@@ -371,7 +377,7 @@ $('body').removeClass('no-script');
 				<a href="Creating-releases.html">リリースの生成</a>
 			</div>
 			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>Creating releases</p>
+								<p>リリースの生成</p>
 							</div>
 						<div class="col-sm-12 col-md-4">
 				<a href="Creating-OSX-packages.html">OSX パッケージの生成</a>
@@ -386,10 +392,10 @@ $('body').removeClass('no-script');
 								<p>Creating universal Linux binaries</p>
 							</div>
 						<div class="col-sm-12 col-md-4">
-				<a href="Project-templates.html">Project templates</a>
+				<a href="Project-templates.html">プロジェクトテンプレート</a>
 			</div>
 			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>（概要の記述はありません）</p>
+								<p>Project templates</p>
 							</div>
 					</div>
 	</div>
@@ -398,15 +404,9 @@ $('body').removeClass('no-script');
 	<div id="search_results">
 		<p>The results of the search are</p>
 	</div>
+	<hr>
 	<div id="footer">
-		
-
-<hr>
-
-<div class="license-description">
-    Web サイトのライセンス情報は <a href="legal.html">Legal</a> ページに示しています。
-</div>
-
+		    
 
 	</div>
 </div>
@@ -414,7 +414,7 @@ $('body').removeClass('no-script');
 <div id="toc-column">
 	
 		<div class="edit-button">
-		<a href="https://github.com/mesonbuild/meson//edit/master/markdown/Manual.md" data-hotdoc-role="edit-button">Edit on github</a>
+		
 
 	</div>
 		<div id="toc-wrapper">
@@ -424,7 +424,7 @@ $('body').removeClass('no-script');
 </div>
 </main>
 
-</body>
 
 <script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
 </html>

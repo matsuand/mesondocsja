@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -11,13 +12,14 @@
 <title>Porting from Autotools</title>
 
 <link rel="stylesheet" href="assets/css/custom_bootstrap.css" type="text/css">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
 <link rel="stylesheet" href="assets/css/frontend.css" type="text/css">
 <link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
 
-<link rel="stylesheet" href="assets/css/prism.css" type="text/css">
 
 <script src="assets/js/mustache.min.js"></script>
 <script src="assets/js/jquery.js"></script>
+<script src="assets/js/scrollspy.js"></script>
 <script src="assets/js/bootstrap.js"></script>
 <script src="assets/js/typeahead.jquery.min.js"></script>
 <script src="assets/js/search.js"></script>
@@ -32,10 +34,6 @@
 
 <script src="assets/js/lines_around_headings.js"></script>
 
-<script src="assets/js/prism-core.js"></script>
-<script src="assets/js/prism-autoloader.js"></script>
-<script src="assets/js/prism_autoloader_path_override.js"></script>
-<script src="assets/js/trie.js"></script>
 
 <link rel="icon" type="image/png" href="assets/images/favicon.png">
 <link rel="shortcut icon" href="assets/images/favicon.png">
@@ -62,7 +60,7 @@ $('body').removeClass('no-script');
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<form action="" class="navbar-form pull-right" id="navbar-search-form">
+			<form class="navbar-form pull-right" id="navbar-search-form">
                                <div class="form-group has-feedback">
                                        <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
 				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
@@ -75,7 +73,7 @@ $('body').removeClass('no-script');
 				<span class="glyphicon glyphicon-menu-left"></span>
 			</a>
 			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
-				<img src="assets/images/meson_logo.png" alt="Home" id="home">
+				<img src="assets/images/meson_logo.png" alt="Home">
 			</a>
 		</div>
 		<div class="navbar-collapse collapse" id="navbar-wrapper">
@@ -156,9 +154,8 @@ $('body').removeClass('no-script');
 
 <div id="body">
 	<div id="main">
-				
-<div id="page-description" data-hotdoc-source="Porting-from-autotools.md" data-hotdoc-role="main">
-<h1 id="porting-from-autotools">Porting from Autotools</h1>
+				    <div id="page-description" data-hotdoc-source="Porting-from-autotools.md" data-hotdoc-role="main">
+        <h1 id="porting-from-autotools">Porting from Autotools</h1>
 <p>This page uses <a href="https://github.com/hughsie/appstream-glib/">AppStream-glib</a>
 as an example project. AppStream-Glib contains some libraries, GObject
 Introspection data, tests, man pages, i18n, bash-completion with optional
@@ -665,8 +662,8 @@ schemadir = os.path.join(os.environ['MESON_INSTALL_PREFIX'], 'share',
 'glib-2.0', 'schemas')
 
 if not os.environ.get('DESTDIR'):
-	print('Compiling gsettings schemas...')
-	subprocess.call(['glib-compile-schemas', schemadir])
+    print('Compiling gsettings schemas...')
+    subprocess.call(['glib-compile-schemas', schemadir])
 </code></pre>
 <h3 id="gettext">gettext</h3>
 <p>Note this example does not include <code>intltool</code> usage.</p>
@@ -705,7 +702,10 @@ install_dir: join_paths(get_option('datadir'), 'appdata')
 `po/meson.build`: ```meson i18n.gettext(gettext_package, preset: 'glib')
 </code></pre>
 
-</div>
+    </div>
+        
+
+
 
 
 		
@@ -713,15 +713,9 @@ install_dir: join_paths(get_option('datadir'), 'appdata')
 	<div id="search_results">
 		<p>The results of the search are</p>
 	</div>
+	<hr>
 	<div id="footer">
-		
-
-<hr>
-
-<div class="license-description">
-    Web サイトのライセンス情報は <a href="legal.html">Legal</a> ページに示しています。
-</div>
-
+		    
 
 	</div>
 </div>
@@ -729,7 +723,7 @@ install_dir: join_paths(get_option('datadir'), 'appdata')
 <div id="toc-column">
 	
 		<div class="edit-button">
-		<a href="https://github.com/mesonbuild/meson//edit/master/markdown/Porting-from-autotools.md" data-hotdoc-role="edit-button">Edit on github</a>
+		
 
 	</div>
 		<div id="toc-wrapper">
@@ -739,7 +733,7 @@ install_dir: join_paths(get_option('datadir'), 'appdata')
 </div>
 </main>
 
-</body>
 
 <script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
 </html>

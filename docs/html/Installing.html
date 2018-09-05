@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -11,13 +12,14 @@
 <title>インストール</title>
 
 <link rel="stylesheet" href="assets/css/custom_bootstrap.css" type="text/css">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
 <link rel="stylesheet" href="assets/css/frontend.css" type="text/css">
 <link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
 
-<link rel="stylesheet" href="assets/css/prism.css" type="text/css">
 
 <script src="assets/js/mustache.min.js"></script>
 <script src="assets/js/jquery.js"></script>
+<script src="assets/js/scrollspy.js"></script>
 <script src="assets/js/bootstrap.js"></script>
 <script src="assets/js/typeahead.jquery.min.js"></script>
 <script src="assets/js/search.js"></script>
@@ -32,10 +34,6 @@
 
 <script src="assets/js/lines_around_headings.js"></script>
 
-<script src="assets/js/prism-core.js"></script>
-<script src="assets/js/prism-autoloader.js"></script>
-<script src="assets/js/prism_autoloader_path_override.js"></script>
-<script src="assets/js/trie.js"></script>
 
 <link rel="icon" type="image/png" href="assets/images/favicon.png">
 <link rel="shortcut icon" href="assets/images/favicon.png">
@@ -62,7 +60,7 @@ $('body').removeClass('no-script');
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<form action="" class="navbar-form pull-right" id="navbar-search-form">
+			<form class="navbar-form pull-right" id="navbar-search-form">
                                <div class="form-group has-feedback">
                                        <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
 				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
@@ -75,7 +73,7 @@ $('body').removeClass('no-script');
 				<span class="glyphicon glyphicon-menu-left"></span>
 			</a>
 			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
-				<img src="assets/images/meson_logo.png" alt="Home" id="home">
+				<img src="assets/images/meson_logo.png" alt="Home">
 			</a>
 		</div>
 		<div class="navbar-collapse collapse" id="navbar-wrapper">
@@ -156,11 +154,9 @@ $('body').removeClass('no-script');
 
 <div id="body">
 	<div id="main">
-				
-<div id="page-description" data-hotdoc-source="Installing.md" data-hotdoc-role="main">
-<h1 id="">インストール</h1>
-<p>By default Meson will not install anything. Build targets can be installed
-by tagging them as installable in the definition.</p>
+				    <div id="page-description" data-hotdoc-source="Installing.md" data-hotdoc-role="main">
+        <h1 id="">インストール</h1>
+<p>デフォルトでは Meson は何もインストールしません。ビルドターゲットをインストールするには、インストールする対象として定義づけする必要があります。</p>
 <pre><code class="language-meson">project('install', 'c')
 shared_library('mylib', 'libfile.c', install : true)
 </code></pre>
@@ -172,11 +168,20 @@ that with the <code>install_dir</code> argument.</p>
 <pre><code class="language-meson">executable('prog', 'prog.c', install : true, install_dir : 'my/special/dir')
 </code></pre>
 <p>Other install commands are the following.</p>
-<pre><code class="language-meson">install_headers('header.h', subdir : 'projname') # -&gt;
-include/projname/header.h
-install_man('foo.1') # -&gt; share/man/man1/foo.1.gz
-install_data('datafile.cat', install_dir : join_paths(get_option('datadir'),
-'progname')) # -&gt; share/progname/datafile.dat
+<pre><code class="language-meson">include/projname/header.h install_man('foo.1') # -&gt; share/man/man1/foo.1.gz
+install_data('datafile.dat', install_dir : join_paths(get_option('datadir'),
+'progname')) # -&gt; share/progname/datafile.dat ```
+
+`install_data()` supports rename of the file *since 0.46.0*.
+
+```meson # file.txt -&gt; {datadir}/{projectname}/new-name.txt
+install_data('file.txt', rename : 'new-name.txt')
+
+# file1.txt -&gt; share/myapp/dir1/data.txt
+# file2.txt -&gt; share/myapp/dir2/data.txt
+install_data(['file1.txt', 'file2.txt'],
+             rename : ['dir1/data.txt', 'dir2/data.txt'],
+             install_dir : 'share/myapp')
 </code></pre>
 <p>Sometimes you want to copy an entire subtree directly. For this use case
 there is the <code>install_subdir</code> command, which can be used like this.</p>
@@ -215,8 +220,20 @@ with the <code>DESTDIR</code> environment variable and it is used just like with
 build systems:</p>
 <pre><code class="language-console">$ DESTDIR=/path/to/staging/area ninja install
 </code></pre>
+<h2 id="custom-install-behaviour">Custom install behaviour</h2>
+<p>The default install target (executed via, e.g., <code>ninja install</code>) does
+installing with reasonable default options. More control over the install
+behaviour can be achieved with the <code>meson install</code> command, that has been
+available since 0.47.0.</p>
+<p>For example, if you wish to install the current setup without rebuilding the
+code (which the default install target always does) and only installing
+those files that have changed, you would run this command in the build tree:</p>
+<p><code>console $ meson install --no-rebuild --only-changed</code></p>
 
-</div>
+    </div>
+        
+
+
 
 
 		
@@ -224,15 +241,9 @@ build systems:</p>
 	<div id="search_results">
 		<p>The results of the search are</p>
 	</div>
+	<hr>
 	<div id="footer">
-		
-
-<hr>
-
-<div class="license-description">
-    Web サイトのライセンス情報は <a href="legal.html">Legal</a> ページに示しています。
-</div>
-
+		    
 
 	</div>
 </div>
@@ -240,7 +251,7 @@ build systems:</p>
 <div id="toc-column">
 	
 		<div class="edit-button">
-		<a href="https://github.com/mesonbuild/meson//edit/master/markdown/Installing.md" data-hotdoc-role="edit-button">Edit on github</a>
+		
 
 	</div>
 		<div id="toc-wrapper">
@@ -250,7 +261,7 @@ build systems:</p>
 </div>
 </main>
 
-</body>
 
 <script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
 </html>

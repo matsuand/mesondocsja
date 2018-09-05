@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -11,13 +12,14 @@
 <title>文法</title>
 
 <link rel="stylesheet" href="assets/css/custom_bootstrap.css" type="text/css">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
 <link rel="stylesheet" href="assets/css/frontend.css" type="text/css">
 <link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
 
-<link rel="stylesheet" href="assets/css/prism.css" type="text/css">
 
 <script src="assets/js/mustache.min.js"></script>
 <script src="assets/js/jquery.js"></script>
+<script src="assets/js/scrollspy.js"></script>
 <script src="assets/js/bootstrap.js"></script>
 <script src="assets/js/typeahead.jquery.min.js"></script>
 <script src="assets/js/search.js"></script>
@@ -32,10 +34,6 @@
 
 <script src="assets/js/lines_around_headings.js"></script>
 
-<script src="assets/js/prism-core.js"></script>
-<script src="assets/js/prism-autoloader.js"></script>
-<script src="assets/js/prism_autoloader_path_override.js"></script>
-<script src="assets/js/trie.js"></script>
 
 <link rel="icon" type="image/png" href="assets/images/favicon.png">
 <link rel="shortcut icon" href="assets/images/favicon.png">
@@ -62,7 +60,7 @@ $('body').removeClass('no-script');
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<form action="" class="navbar-form pull-right" id="navbar-search-form">
+			<form class="navbar-form pull-right" id="navbar-search-form">
                                <div class="form-group has-feedback">
                                        <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
 				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
@@ -75,7 +73,7 @@ $('body').removeClass('no-script');
 				<span class="glyphicon glyphicon-menu-left"></span>
 			</a>
 			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
-				<img src="assets/images/meson_logo.png" alt="Home" id="home">
+				<img src="assets/images/meson_logo.png" alt="Home">
 			</a>
 		</div>
 		<div class="navbar-collapse collapse" id="navbar-wrapper">
@@ -156,9 +154,8 @@ $('body').removeClass('no-script');
 
 <div id="body">
 	<div id="main">
-				
-<div id="page-description" data-hotdoc-source="Syntax.md" data-hotdoc-role="main">
-<h1 id="">文法</h1>
+				    <div id="page-description" data-hotdoc-source="Syntax.md" data-hotdoc-role="main">
+        <h1 id="">文法</h1>
 <p>The syntax of Meson's specification language has been kept as simple as
 possible. It is <em>strongly typed</em> so no object is ever converted to another
 under the covers. Variables have no visible type which makes Meson
@@ -193,6 +190,10 @@ var2 += [4]
 y = 3 * 4
 d = 5 % 3 # 結果は 2 です
 </code></pre>
+<p>Hexadecimal literals are supported since version 0.45.0:</p>
+<p><code>meson int_255 = 0xFF</code></p>
+<p>Octal and binary literals are supported since version 0.47.0:</p>
+<p><code>meson int_493 = 0o755 int_1365 = 0b10101010101</code></p>
 <p>文字列は以下のようにして数値に変換できます。</p>
 <pre><code class="language-meson">string_var = '42'
 num = string_var.to_int()
@@ -205,9 +206,40 @@ num = string_var.to_int()
 <p>Meson における文字列はシングルクォートで囲みます。</p>
 <pre><code class="language-meson">single quote = 'contains a \' character'
 </code></pre>
-<p>Similarly <code>\n</code> gets converted to a newline and <code>\\</code> to a single backslash.</p>
+<p>エスケープシーケンスの一覧は以下のとおりです。</p>
+<ul>
+<li>
+<code>\\</code> バックスラッシュ</li>
+<li>
+<code>\'</code> シングルクォート</li>
+<li>
+<code>\a</code> ベル</li>
+<li>
+<code>\b</code> バックスペース</li>
+<li>
+<code>\f</code> フォームフィード</li>
+<li>
+<code>\n</code> 改行</li>
+<li>
+<code>\r</code> キャリッジリターン</li>
+<li>
+<code>\t</code> 水平タブ</li>
+<li>
+<code>\v</code> 垂直タブ</li>
+<li>
+<code>\ooo</code> ooo で示される 8 進数値</li>
+<li>
+<code>\xhh</code> hh で示される 16 進数値</li>
+<li>
+<code>\uxxxx</code> xxxx で示される 16 ビットキャラクター</li>
+<li>
+<code>\Uxxxxxxxx</code> xxxxxxxx で示される 32 ビットキャラクター</li>
+<li>
+<code>\N{name}</code> Character named name in Unicode database</li>
+</ul>
+<p>As in python and C, up to three octal digits are accepted in <code>\ooo</code>.</p>
 <h4 id="5">文字列の連結</h4>
-<p>文字列は <code>+</code> によって結合され、新たな文字列となります。</p>
+<p>文字列は <code>+</code> によって連結されて、新たな文字列となります。</p>
 <pre><code class="language-meson">str1 = 'abc'
 str2 = 'xyz'
 combined = str1 + '_' + str2 # 文字が連結されて abc_xyz に
@@ -220,8 +252,9 @@ int main (int argc, char ** argv) {
   return FOO_SUCCESS;
 }'''
 </code></pre>
-<p>This can also be combined with the string formatting functionality described
-below.</p>
+<p>These are raw strings that do not support the escape sequences listed
+above.  These strings can also be combined with the string formatting
+functionality described below.</p>
 <h4 id="7">文字列の整形</h4>
 <p>Strings can be built using the string formatting functionality.</p>
 <pre><code class="language-meson">template = 'string: @0@, number: @1@, bool: @2@'
@@ -331,12 +364,23 @@ argument, <code>false</code> otherwise</li>
 the back of the array, indexing out of bounds is a fatal error. Provided
 for backwards-compatibility, it is identical to array indexing.</li>
 </ul>
-<h2 id="11">関数呼び出し</h2>
+<h2 id="11">ディクショナリ</h2>
+<p>Dictionaries are delimited by curly braces. A dictionary can contain an
+arbitrary number of key value pairs. Keys are required to be literal
+strings, values can be objects of any type.</p>
+<p><code>meson my_dict = {'foo': 42, 'bar': 'baz'}</code></p>
+<p>Keys must be unique:</p>
+<p><code>meson # This will fail my_dict = {'foo': 42, 'foo': 43}</code></p>
+<p>Dictionaries are immutable.</p>
+<p>Dictionaries are available since 0.47.0.</p>
+<p>Visit the <a href="Reference-manual.html#dictionary-object">Reference Manual</a> to read
+about the methods exposed by dictionaries.</p>
+<h2 id="12">関数呼び出し</h2>
 <p>Meson provides a set of usable functions. The most common use case is
 creating build objects.</p>
 <pre><code class="language-meson">executable('progname', 'prog.c')
 </code></pre>
-<h2 id="12">メソッド呼び出し</h2>
+<h2 id="13">メソッド呼び出し</h2>
 <p>Objects can have methods, which are called with the dot operator. The exact
 methods it provides depends on the object.</p>
 <pre><code class="language-meson">myobj = some_function()
@@ -360,9 +404,16 @@ if opt == 'foo'
 endif
 </code></pre>
 <h2 id="foreach-">foreach ステートメント</h2>
-<p>To do an operation on all elements of an array, use the <code>foreach</code>
-command. As an example, here's how you would define two executables with
-corresponding tests.</p>
+<p>To do an operation on all elements of an iterable, use the <code>foreach</code>
+command.</p>
+<blockquote>
+<p>Note that Meson variables are immutable. Trying to assign a new value &gt; to
+the iterated object inside a foreach loop will not affect foreach's &gt;
+control flow.</p>
+</blockquote>
+<h3 id="foreach-with-an-array">Foreach with an array</h3>
+<p>Here's an example of how you could define two executables with corresponding
+tests using arrays and foreach.</p>
 <pre><code class="language-meson">progs = [['prog1', ['prog1.c', 'foo.c']],
          ['prog2', ['prog2.c', 'bar.c']]]
 
@@ -371,9 +422,28 @@ foreach p : progs
   test(p[0], exe)
 endforeach
 </code></pre>
-<p>Note that Meson variables are immutable. Trying to assign a new value to
-<code>progs</code> inside a foreach loop will not affect foreach's control flow.</p>
-<h2 id="13">論理演算子</h2>
+<h3 id="foreach-with-a-dictionary">Foreach with a dictionary</h3>
+<p>Here's an example of you could iterate a set of components that should be
+compiled in according to some configuration. This uses a
+[dictionary][dictionaries], which is available since 0.47.0.</p>
+<pre><code class="language-meson">components = {
+  'foo': ['foo.c'],
+  'bar': ['bar.c'],
+  'baz': ['baz.c'],
+}
+
+# compute a configuration based on system dependencies, custom logic conf =
+configuration_data()  conf.set('USE_FOO', 1)
+
+# Determine the sources to compile
+sources_to_compile = []
+foreach name, sources : components
+  if conf.get('USE_@0@'.format(name.to_upper()), 0) == 1
+    sources_to_compile += sources
+  endif
+endforeach
+</code></pre>
+<h2 id="14">論理演算子</h2>
 <p>Meson has the standard range of logical operations.</p>
 <pre><code class="language-meson">if a and b
   # do something
@@ -389,13 +459,13 @@ if not (f or g)
 endif
 </code></pre>
 <p>Logical operations work only on boolean values.</p>
-<h2 id="14">コメント</h2>
+<h2 id="15">コメント</h2>
 <p>A comment starts with the <code>#</code> character and extends until the end of the
 line.</p>
 <pre><code class="language-meson">some_function() # これはコメントです
 some_other_function()
 </code></pre>
-<h2 id="15">三項演算子</h2>
+<h2 id="16">三項演算子</h2>
 <p>三項演算子は他の言語と同様に動作します。</p>
 <pre><code class="language-meson">x = condition ? true_value : false_value
 </code></pre>
@@ -412,7 +482,7 @@ have been written where the include command is.</p>
 <pre><code class="language-meson">test_data_dir = 'data'
 subdir('tests')
 </code></pre>
-<h2 id="16">ユーザー定義の関数およびメソッド</h2>
+<h2 id="17">ユーザー定義の関数およびメソッド</h2>
 <p>Meson does not currently support user-defined functions or methods. The
 addition of user-defined functions would make Meson Turing-complete which
 would make it harder to reason about and more difficult to integrate with
@@ -421,7 +491,10 @@ FAQ</a>.
 If because of this limitation you find yourself copying and pasting code a
 lot you may be able to use a <a href="Syntax.html#foreach-statements"><code>foreach</code> loop instead</a>.</p>
 
-</div>
+    </div>
+        
+
+
 
 
 		
@@ -429,15 +502,9 @@ lot you may be able to use a <a href="Syntax.html#foreach-statements"><code>fore
 	<div id="search_results">
 		<p>The results of the search are</p>
 	</div>
+	<hr>
 	<div id="footer">
-		
-
-<hr>
-
-<div class="license-description">
-    Web サイトのライセンス情報は <a href="legal.html">Legal</a> ページに示しています。
-</div>
-
+		    
 
 	</div>
 </div>
@@ -445,7 +512,7 @@ lot you may be able to use a <a href="Syntax.html#foreach-statements"><code>fore
 <div id="toc-column">
 	
 		<div class="edit-button">
-		<a href="https://github.com/mesonbuild/meson//edit/master/markdown/Syntax.md" data-hotdoc-role="edit-button">Edit on github</a>
+		
 
 	</div>
 		<div id="toc-wrapper">
@@ -455,7 +522,7 @@ lot you may be able to use a <a href="Syntax.html#foreach-statements"><code>fore
 </div>
 </main>
 
-</body>
 
 <script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
 </html>

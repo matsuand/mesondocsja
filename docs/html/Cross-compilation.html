@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -11,13 +12,14 @@
 <title>クロスコンパイル</title>
 
 <link rel="stylesheet" href="assets/css/custom_bootstrap.css" type="text/css">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
 <link rel="stylesheet" href="assets/css/frontend.css" type="text/css">
 <link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
 
-<link rel="stylesheet" href="assets/css/prism.css" type="text/css">
 
 <script src="assets/js/mustache.min.js"></script>
 <script src="assets/js/jquery.js"></script>
+<script src="assets/js/scrollspy.js"></script>
 <script src="assets/js/bootstrap.js"></script>
 <script src="assets/js/typeahead.jquery.min.js"></script>
 <script src="assets/js/search.js"></script>
@@ -32,10 +34,6 @@
 
 <script src="assets/js/lines_around_headings.js"></script>
 
-<script src="assets/js/prism-core.js"></script>
-<script src="assets/js/prism-autoloader.js"></script>
-<script src="assets/js/prism_autoloader_path_override.js"></script>
-<script src="assets/js/trie.js"></script>
 
 <link rel="icon" type="image/png" href="assets/images/favicon.png">
 <link rel="shortcut icon" href="assets/images/favicon.png">
@@ -62,7 +60,7 @@ $('body').removeClass('no-script');
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<form action="" class="navbar-form pull-right" id="navbar-search-form">
+			<form class="navbar-form pull-right" id="navbar-search-form">
                                <div class="form-group has-feedback">
                                        <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
 				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
@@ -75,7 +73,7 @@ $('body').removeClass('no-script');
 				<span class="glyphicon glyphicon-menu-left"></span>
 			</a>
 			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
-				<img src="assets/images/meson_logo.png" alt="Home" id="home">
+				<img src="assets/images/meson_logo.png" alt="Home">
 			</a>
 		</div>
 		<div class="navbar-collapse collapse" id="navbar-wrapper">
@@ -156,32 +154,32 @@ $('body').removeClass('no-script');
 
 <div id="body">
 	<div id="main">
-				
-<div id="page-description" data-hotdoc-source="Cross-compilation.md" data-hotdoc-role="main">
-<h1 id="">クロスコンパイル</h1>
+				    <div id="page-description" data-hotdoc-source="Cross-compilation.md" data-hotdoc-role="main">
+        <h1 id="">クロスコンパイル</h1>
 <p>Meson has full support for cross compilation. Since cross compiling is more
 complicated than native building, let's first go over some nomenclature. The
 three most important definitions are traditionally called <em>build</em>, <em>host</em>
 and <em>target</em>. This is confusing because those terms are used for quite many
 different things. To simplify the issue, we are going to call these the
 <em>build machine</em>, <em>host machine</em> and <em>target machine</em>. Their definitions are
-the following</p>
+the following:</p>
 <ul>
 <li>
-<em>build machine</em> is the computer that is doing the actual compiling</li>
+<em>build machine</em> is the computer that is doing the actual compiling.</li>
 <li>
-<em>host machine</em> is the machine on which the compiled binary will run</li>
+<em>host machine</em> is the machine on which the compiled binary will run.</li>
 <li>
 <em>target machine</em> is the machine on which the compiled binary's output will
-run (this is only meaningful for programs such as compilers that, when
-run, produce object code for a different CPU than what the program is
-being run on)</li>
+run, <em>only meaningful</em> if the program produces machine-specific output.</li>
 </ul>
 <p>The <code>tl/dr</code> summary is the following: if you are doing regular cross
-compilation, you only care about <em>build_machine</em> and <em>host_machine</em>. Just
-ignore <em>target_machine</em> altogether and you will be correct 99% of the
-time. If your needs are more complex or you are interested in the actual
-details, do read on.</p>
+compilation, you only care about <code>build_machine</code> and <code>host_machine</code>. Just
+ignore <code>target_machine</code> altogether and you will be correct 99% of the
+time. Only compilers and similar tools care about the target machine. In
+fact, for so-called "multi-target" tools the target machine need not be
+fixed at build-time like the others but chosen at runtime, so
+<code>target_machine</code> <em>still</em> doesn't matter. If your needs are more complex or
+you are interested in the actual details, do read on.</p>
 <p>This might be easier to understand through examples. Let's start with the
 regular, not cross-compiling case. In these cases all of these three
 machines are the same. Simple so far.</p>
@@ -204,6 +202,18 @@ side note, be careful when reading cross compilation articles on Wikipedia
 or the net in general. It is very common for them to get build, host and
 target mixed up, even in consecutive sentences, which can leave you puzzled
 until you figure it out.</p>
+<p>A lot of confusion stems from the fact that when you cross-compile
+something, the 3 systems (<em>build</em>, <em>host</em>, and <em>target</em>) used when building
+the cross compiler don't align with the ones used when building something
+with that newly-built cross compiler. To take our Canadian Cross scenario
+from above (for full generality), since its <em>host machine</em> is x86 Windows,
+the <em>build machine</em> of anything we build with it is <em>x86 Windows</em>. And since
+its <em>target machine</em> is MIPS Linux, the <em>host machine</em> of anything we build
+with it is <em>MIPS Linux</em>. Only the <em>target machine</em> of whatever we build with
+it can be freely chosen by us, say if we want to build another cross
+compiler that runs on MIPS Linux and targets Aarch64 iOS. As this example
+hopefully makes clear to you, the platforms are shifted over to the left by
+one position.</p>
 <p>If you did not understand all of the details, don't worry. For most people
 it takes a while to wrap their head around these concepts. Don't panic, it
 might take a while to click, but you will get the hang of it eventually.</p>
@@ -227,8 +237,9 @@ Linux. Other choices include running the application with qemu or a hardware
 simulator. If you have this kind of a wrapper, these lines are all you need
 to write. Meson will automatically use the given wrapper when it needs to
 run host binaries. This happens e.g. when running the project's test suite.</p>
-<p>The next section lists properties of the cross compiler and thus of the
-target system. It looks like this:</p>
+<p>The next section lists properties of the cross compiler and its target
+system, and thus properties of host system of what we're building. It looks
+like this:</p>
 <pre><code class="language-ini">[properties]
 sizeof_int = 4
 sizeof_wchar_t = 4
@@ -357,7 +368,7 @@ somekey = 'somevalue'
 </code></pre>
 <h2 id="cross-file-locations">Cross file locations</h2>
 <p>As of version 0.44.0 meson supports loading cross files from system
-locations on Linux and the BSDs. This will be $XDG_DATA_DIRS/meson/cross, or
+locations (except on Windows).  This will be $XDG_DATA_DIRS/meson/cross, or
 if XDG_DATA_DIRS is undefined, then /usr/local/share/meson/cross and
 /usr/share/meson/cross will be tried in that order, for system wide cross
 files. User local files can be put in $XDG_DATA_HOME/meson/cross, or
@@ -368,16 +379,19 @@ files. User local files can be put in $XDG_DATA_HOME/meson/cross, or
 <li>The user local location</li>
 <li>The system wide locations in order</li>
 </ul>
-<p>Linux and BSD distributions are encouraged to ship cross files either with
-their cross compiler toolchain packages or as a standalone package, and put
-them in one of the system paths referenced above.</p>
+<p>Distributions are encouraged to ship cross files either with their cross
+compiler toolchain packages or as a standalone package, and put them in one
+of the system paths referenced above.</p>
 <p>These files can be loaded automatically without adding a path to the cross
 file. For example, if a ~/.local/share/meson/cross contains a file called
 x86-linux, then the following command would start a cross build using that
 cross files:</p>
 <p><code>sh meson builddir/ --cross-file x86-linux</code></p>
 
-</div>
+    </div>
+        
+
+
 
 
 		
@@ -385,15 +399,9 @@ cross files:</p>
 	<div id="search_results">
 		<p>The results of the search are</p>
 	</div>
+	<hr>
 	<div id="footer">
-		
-
-<hr>
-
-<div class="license-description">
-    Web サイトのライセンス情報は <a href="legal.html">Legal</a> ページに示しています。
-</div>
-
+		    
 
 	</div>
 </div>
@@ -401,7 +409,7 @@ cross files:</p>
 <div id="toc-column">
 	
 		<div class="edit-button">
-		<a href="https://github.com/mesonbuild/meson//edit/master/markdown/Cross-compilation.md" data-hotdoc-role="edit-button">Edit on github</a>
+		
 
 	</div>
 		<div id="toc-wrapper">
@@ -411,7 +419,7 @@ cross files:</p>
 </div>
 </main>
 
-</body>
 
 <script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
 </html>

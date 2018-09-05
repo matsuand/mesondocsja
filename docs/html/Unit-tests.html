@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -11,13 +12,14 @@
 <title>ユニットテスト</title>
 
 <link rel="stylesheet" href="assets/css/custom_bootstrap.css" type="text/css">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
 <link rel="stylesheet" href="assets/css/frontend.css" type="text/css">
 <link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
 
-<link rel="stylesheet" href="assets/css/prism.css" type="text/css">
 
 <script src="assets/js/mustache.min.js"></script>
 <script src="assets/js/jquery.js"></script>
+<script src="assets/js/scrollspy.js"></script>
 <script src="assets/js/bootstrap.js"></script>
 <script src="assets/js/typeahead.jquery.min.js"></script>
 <script src="assets/js/search.js"></script>
@@ -32,10 +34,6 @@
 
 <script src="assets/js/lines_around_headings.js"></script>
 
-<script src="assets/js/prism-core.js"></script>
-<script src="assets/js/prism-autoloader.js"></script>
-<script src="assets/js/prism_autoloader_path_override.js"></script>
-<script src="assets/js/trie.js"></script>
 
 <link rel="icon" type="image/png" href="assets/images/favicon.png">
 <link rel="shortcut icon" href="assets/images/favicon.png">
@@ -62,7 +60,7 @@ $('body').removeClass('no-script');
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<form action="" class="navbar-form pull-right" id="navbar-search-form">
+			<form class="navbar-form pull-right" id="navbar-search-form">
                                <div class="form-group has-feedback">
                                        <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
 				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
@@ -75,7 +73,7 @@ $('body').removeClass('no-script');
 				<span class="glyphicon glyphicon-menu-left"></span>
 			</a>
 			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
-				<img src="assets/images/meson_logo.png" alt="Home" id="home">
+				<img src="assets/images/meson_logo.png" alt="Home">
 			</a>
 		</div>
 		<div class="navbar-collapse collapse" id="navbar-wrapper">
@@ -156,9 +154,8 @@ $('body').removeClass('no-script');
 
 <div id="body">
 	<div id="main">
-				
-<div id="page-description" data-hotdoc-source="Unit-tests.md" data-hotdoc-role="main">
-<h1 id="">ユニットテスト</h1>
+				    <div id="page-description" data-hotdoc-source="Unit-tests.md" data-hotdoc-role="main">
+        <h1 id="">ユニットテスト</h1>
 <p>Meson comes with a fully functional unit test system. To use it simply build
 an executable and then use it in a test.</p>
 <pre><code class="language-meson">e = executable('prog', 'testprog.c')
@@ -182,7 +179,8 @@ generate the corresponding targets. These targets are <code>coverage-xml</code> 
 <code>coverage-text</code> which are both provided by <a href="http://gcovr.com">Gcovr</a> and
 <code>coverage-html</code>, which requires
 <a href="https://ltp.sourceforge.io/coverage/lcov.php">Lcov</a> and
-<a href="https://linux.die.net/man/1/genhtml">GenHTML</a>.</p>
+<a href="https://linux.die.net/man/1/genhtml">GenHTML</a> or <a href="http://gcovr.com">Gcovr</a>
+with html support.</p>
 <p>The output of these commands is written to the log directory <code>meson-logs</code> in
 your build directory.</p>
 <h2 id="parallelism">Parallelism</h2>
@@ -218,6 +216,10 @@ running <code>ninja test</code>.</p>
 <p>You can also run only a single test by giving its name:</p>
 <pre><code class="language-console">$ meson test testname
 </code></pre>
+<p>Tests belonging to a suite <code>suite</code> can be run as follows</p>
+<p><code>console $ meson test --suite (sub)project_name:suite</code></p>
+<p>Since version <em>0.46</em>, <code>(sub)project_name</code> can be omitted if it is the
+top-level project.</p>
 <p>Sometimes you need to run the tests multiple times, which is done like this:</p>
 <pre><code class="language-console">$ meson test --repeat=10
 </code></pre>
@@ -242,10 +244,17 @@ program crashes, GDB will halt and the user can debug the application. Note
 that testing timeouts are disabled in this case so <code>meson test</code> will not
 kill <code>gdb</code> while the developer is still debugging it. The downside is that
 if the test binary freezes, the test runner will wait forever.</p>
+<p><code>console $ meson test --print-errorlogs</code></p>
+<p>Meson will report the output produced by the failing tests along with other
+useful informations as the environmental variables. This is useful, for
+example, when you run the tests on Travis-CI, Jenkins and the like.</p>
 <p>For further information see the command line help of Meson by running <code>meson test -h</code>.</p>
 <p><strong>NOTE:</strong> If <code>meson test</code> does not work for you, you likely have a old version of Meson. In that case you should call <code>mesontest</code> instead. If <code>mesontest</code> doesn't work either you have a very old version prior to 0.37.0 and should upgrade.</p>
 
-</div>
+    </div>
+        
+
+
 
 
 		
@@ -253,15 +262,9 @@ if the test binary freezes, the test runner will wait forever.</p>
 	<div id="search_results">
 		<p>The results of the search are</p>
 	</div>
+	<hr>
 	<div id="footer">
-		
-
-<hr>
-
-<div class="license-description">
-    Web サイトのライセンス情報は <a href="legal.html">Legal</a> ページに示しています。
-</div>
-
+		    
 
 	</div>
 </div>
@@ -269,7 +272,7 @@ if the test binary freezes, the test runner will wait forever.</p>
 <div id="toc-column">
 	
 		<div class="edit-button">
-		<a href="https://github.com/mesonbuild/meson//edit/master/markdown/Unit-tests.md" data-hotdoc-role="edit-button">Edit on github</a>
+		
 
 	</div>
 		<div id="toc-wrapper">
@@ -279,7 +282,7 @@ if the test binary freezes, the test runner will wait forever.</p>
 </div>
 </main>
 
-</body>
 
 <script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
 </html>

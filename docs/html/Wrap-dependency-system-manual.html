@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -11,13 +12,14 @@
 <title>Wrap dependency system manual</title>
 
 <link rel="stylesheet" href="assets/css/custom_bootstrap.css" type="text/css">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
 <link rel="stylesheet" href="assets/css/frontend.css" type="text/css">
 <link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
 
-<link rel="stylesheet" href="assets/css/prism.css" type="text/css">
 
 <script src="assets/js/mustache.min.js"></script>
 <script src="assets/js/jquery.js"></script>
+<script src="assets/js/scrollspy.js"></script>
 <script src="assets/js/bootstrap.js"></script>
 <script src="assets/js/typeahead.jquery.min.js"></script>
 <script src="assets/js/search.js"></script>
@@ -32,10 +34,6 @@
 
 <script src="assets/js/lines_around_headings.js"></script>
 
-<script src="assets/js/prism-core.js"></script>
-<script src="assets/js/prism-autoloader.js"></script>
-<script src="assets/js/prism_autoloader_path_override.js"></script>
-<script src="assets/js/trie.js"></script>
 
 <link rel="icon" type="image/png" href="assets/images/favicon.png">
 <link rel="shortcut icon" href="assets/images/favicon.png">
@@ -62,7 +60,7 @@ $('body').removeClass('no-script');
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<form action="" class="navbar-form pull-right" id="navbar-search-form">
+			<form class="navbar-form pull-right" id="navbar-search-form">
                                <div class="form-group has-feedback">
                                        <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
 				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
@@ -75,7 +73,7 @@ $('body').removeClass('no-script');
 				<span class="glyphicon glyphicon-menu-left"></span>
 			</a>
 			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
-				<img src="assets/images/meson_logo.png" alt="Home" id="home">
+				<img src="assets/images/meson_logo.png" alt="Home">
 			</a>
 		</div>
 		<div class="navbar-collapse collapse" id="navbar-wrapper">
@@ -156,9 +154,8 @@ $('body').removeClass('no-script');
 
 <div id="body">
 	<div id="main">
-				
-<div id="page-description" data-hotdoc-source="Wrap-dependency-system-manual.md" data-hotdoc-role="main">
-<h1 id="wrap-dependency-system-manual">Wrap dependency system manual</h1>
+				    <div id="page-description" data-hotdoc-source="Wrap-dependency-system-manual.md" data-hotdoc-role="main">
+        <h1 id="wrap-dependency-system-manual">Wrap dependency system manual</h1>
 <p>One of the major problems of multiplatform development is wrangling all your
 dependencies. This is easy on Linux where you can use system packages but
 awkward on other platforms. Most of those do not have a package manager at
@@ -182,23 +179,22 @@ extract it inside your project's <code>subprojects</code> directory. However the
 simpler way. You can specify a Wrap file that tells Meson how to download it
 for you. An example wrap file would look like this and should be put in
 <code>subprojects/foobar.wrap</code>:</p>
-<pre><code class="language-ini">
+<pre><code class="language-ini">[wrap-file] directory = libfoobar-1.0
+
 source_url = https://example.com/foobar-1.0.tar.gz source_filename =
 foobar-1.0.tar.gz source_hash =
-5ebeea0dfb75d090ea0e7ff84799b2a7a1550db3fe61eb5f6f61c2e971e57663 ```
-
-If you then use this subproject in your build, Meson will automatically
+5ebeea0dfb75d090ea0e7ff84799b2a7a1550db3fe61eb5f6f61c2e971e57663
+</code></pre>
+<p>If you then use this subproject in your build, Meson will automatically
 download and extract it during build. This makes subproject embedding
-extremely easy.
-
-Unfortunately most software projects in the world do not build with
+extremely easy.</p>
+<p>Unfortunately most software projects in the world do not build with
 Meson. Because of this Meson allows you to specify a patch URL. This works
 in much the same way as Debian's distro patches. That is, they are
 downloaded and automatically applied to the subproject. These files contain
 a Meson build definition for the given subproject. A wrap file with an
-additional patch URL would look like this.
-
-```ini [wrap-file] directory = libfoobar-1.0
+additional patch URL would look like this.</p>
+<pre><code class="language-ini">[wrap-file] directory = libfoobar-1.0
 
 source_url = https://upstream.example.com/foobar-1.0.tar.gz source_filename
 = foobar-1.0.tar.gz source_hash =
@@ -206,57 +202,46 @@ source_url = https://upstream.example.com/foobar-1.0.tar.gz source_filename
 
 patch_url = https://myserver.example.com/libfoobar-meson.tar.gz
 patch_filename = libfoobar-meson.tar.gz patch_hash =
-8c9d00702d5fe4a6bf25a36b821a332f6b2dfd117c66fe818b88b23d604635e9 ```
-
-In this example the Wrap manager would download the patch and unzip it in
-libfoobar's directory.
-
-This approach makes it extremely simple to embed dependencies that require
+8c9d00702d5fe4a6bf25a36b821a332f6b2dfd117c66fe818b88b23d604635e9
+</code></pre>
+<p>In this example the Wrap manager would download the patch and unzip it in
+libfoobar's directory.</p>
+<p>This approach makes it extremely simple to embed dependencies that require
 build system changes. You can write the Meson build definition for the
 dependency in total isolation. This is a lot better than doing it inside
 your own source tree, especially if it contains hundreds of thousands of
 lines of code. Once you have a working build definition, just zip up the
 Meson build files (and others you have changed) and put them somewhere where
-you can download them.
-
-## Branching subprojects directly from git
-
-The above mentioned scheme assumes that your subproject is working off
+you can download them.</p>
+<h2 id="branching-subprojects-directly-from-git">Branching subprojects directly from git</h2>
+<p>The above mentioned scheme assumes that your subproject is working off
 packaged files. Sometimes you want to check code out directly from
 Git. Meson supports this natively. All you need to do is to write a slightly
-different wrap file.
-
-```ini [wrap-git] directory=samplesubproject
-url=https://github.com/jpakkane/samplesubproject.git revision=head ```
-
-The format is straightforward. The only thing to note is the revision
-element that can have one of two values. The first is `head` which will
+different wrap file.</p>
+<pre><code class="language-ini">[wrap-git] directory=samplesubproject
+url=https://github.com/jpakkane/samplesubproject.git revision=head
+</code></pre>
+<p>The format is straightforward. The only thing to note is the revision
+element that can have one of two values. The first is <code>head</code> which will
 cause Meson to track the master head (doing a repull whenever the build
-definition is altered). The second type is a commit hash. In this case Meson
-will use the commit specified (with `git checkout [hash id]`).
-
-Note that in this case you cannot specify an extra patch file to use. The
-git repo must contain all necessary Meson build definitions.
-
-Usually you would use subprojects as read only. However in some cases you
+definition is altered). The second type is a commit hash or a tag. In this
+case Meson will use the commit specified (with <code>git checkout [hash/tag id]</code>).</p>
+<p>Note that in this case you cannot specify an extra patch file to use. The
+git repo must contain all necessary Meson build definitions.</p>
+<p>Usually you would use subprojects as read only. However in some cases you
 want to do commits to subprojects and push them upstream. For these cases
 you can specify the upload URL by adding the following at the end of your
-wrap file:
-
-```ini push-url=git@git.example.com:projects/someproject.git # Supported
-since version 0.37.0 ```
-
-## Using wrapped projects
-
-To use a subproject simply do this in your top level `meson.build`.
-
-```meson foobar_sp = subproject('foobar')  ```
-
-Usually dependencies consist of some header files plus a library to link
-against. To do this you would declare this internal dependency like this:
-
-```meson
-foobar_dep = declare_dependency(link_with : mylib,
+wrap file:</p>
+<pre><code class="language-ini">push-url=git@git.example.com:projects/someproject.git # Supported since
+version 0.37.0
+</code></pre>
+<h2 id="using-wrapped-projects">Using wrapped projects</h2>
+<p>To use a subproject simply do this in your top level <code>meson.build</code>.</p>
+<pre><code class="language-meson">foobar_sp = subproject('foobar')
+</code></pre>
+<p>Usually dependencies consist of some header files plus a library to link
+against. To do this you would declare this internal dependency like this:</p>
+<pre><code class="language-meson">foobar_dep = declare_dependency(link_with : mylib,
   include_directories : myinc)
 </code></pre>
 <p>Then in your main project you would use them like this:</p>
@@ -273,7 +258,8 @@ project must be buildable without them or otherwise the packager will hate
 you.</p>
 <p>Doing this with Meson and Wrap is simple. Here's how you would use distro
 packages and fall back to embedding if the dependency is not available.</p>
-<pre><code class="language-meson">
+<pre><code class="language-meson">foobar_dep = dependency('foobar', required : false)
+
 if not foobar_dep.found()
   foobar_subproj = subproject('foobar')
   # the subproject defines an internal dependency with
@@ -286,26 +272,25 @@ executable('toplevel_exe', 'prog.c',
 </code></pre>
 <p>Because this is such a common operation, Meson provides a shortcut for this
 use case.</p>
-<pre><code class="language-meson">'foobar_dep'])  ```
-
-The `fallback` keyword argument takes two items, the name of the subproject
+<pre><code class="language-meson">foobar_dep = dependency('foobar', fallback : ['foobar', 'foobar_dep'])
+</code></pre>
+<p>The <code>fallback</code> keyword argument takes two items, the name of the subproject
 and the name of the variable that holds the dependency. If you need to do
 something more complicated, such as extract several different variables,
-then you need to do it yourself with the manual method described above.
-
-With this setup when foobar is provided by the system, we use it. When that
-is not the case we use the embedded version. Note that `foobar_dep` can
+then you need to do it yourself with the manual method described above.</p>
+<p>With this setup when foobar is provided by the system, we use it. When that
+is not the case we use the embedded version. Note that <code>foobar_dep</code> can
 point to an external or an internal dependency but you don't have to worry
-about their differences. Meson will take care of the details for you.
+about their differences. Meson will take care of the details for you.</p>
+<h2 id="getting-wraps">Getting wraps</h2>
+<p>Usually you don't want to write your wraps by hand. There is an online
+repository called <a href="Using-the-WrapDB.html">WrapDB</a> that provides many
+dependencies ready to use.</p>
 
-## Getting wraps
+    </div>
+        
 
-Usually you don't want to write your wraps by hand. There is an online
-repository called [WrapDB](Using-the-WrapDB.md) that provides many
-dependencies ready to use.
-</code></pre>
 
-</div>
 
 
 		<div id="subpages">
@@ -361,15 +346,9 @@ dependencies ready to use.
 	<div id="search_results">
 		<p>The results of the search are</p>
 	</div>
+	<hr>
 	<div id="footer">
-		
-
-<hr>
-
-<div class="license-description">
-    Web サイトのライセンス情報は <a href="legal.html">Legal</a> ページに示しています。
-</div>
-
+		    
 
 	</div>
 </div>
@@ -377,7 +356,7 @@ dependencies ready to use.
 <div id="toc-column">
 	
 		<div class="edit-button">
-		<a href="https://github.com/mesonbuild/meson//edit/master/markdown/Wrap-dependency-system-manual.md" data-hotdoc-role="edit-button">Edit on github</a>
+		
 
 	</div>
 		<div id="toc-wrapper">
@@ -387,7 +366,7 @@ dependencies ready to use.
 </div>
 </main>
 
-</body>
 
 <script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
 </html>

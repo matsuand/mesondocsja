@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -11,13 +12,14 @@
 <title>Contributing to Meson</title>
 
 <link rel="stylesheet" href="assets/css/custom_bootstrap.css" type="text/css">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
 <link rel="stylesheet" href="assets/css/frontend.css" type="text/css">
 <link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
 
-<link rel="stylesheet" href="assets/css/prism.css" type="text/css">
 
 <script src="assets/js/mustache.min.js"></script>
 <script src="assets/js/jquery.js"></script>
+<script src="assets/js/scrollspy.js"></script>
 <script src="assets/js/bootstrap.js"></script>
 <script src="assets/js/typeahead.jquery.min.js"></script>
 <script src="assets/js/search.js"></script>
@@ -32,10 +34,6 @@
 
 <script src="assets/js/lines_around_headings.js"></script>
 
-<script src="assets/js/prism-core.js"></script>
-<script src="assets/js/prism-autoloader.js"></script>
-<script src="assets/js/prism_autoloader_path_override.js"></script>
-<script src="assets/js/trie.js"></script>
 
 <link rel="icon" type="image/png" href="assets/images/favicon.png">
 <link rel="shortcut icon" href="assets/images/favicon.png">
@@ -62,7 +60,7 @@ $('body').removeClass('no-script');
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<form action="" class="navbar-form pull-right" id="navbar-search-form">
+			<form class="navbar-form pull-right" id="navbar-search-form">
                                <div class="form-group has-feedback">
                                        <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
 				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
@@ -75,7 +73,7 @@ $('body').removeClass('no-script');
 				<span class="glyphicon glyphicon-menu-left"></span>
 			</a>
 			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
-				<img src="assets/images/meson_logo.png" alt="Home" id="home">
+				<img src="assets/images/meson_logo.png" alt="Home">
 			</a>
 		</div>
 		<div class="navbar-collapse collapse" id="navbar-wrapper">
@@ -156,11 +154,8 @@ $('body').removeClass('no-script');
 
 <div id="body">
 	<div id="main">
-				
-<div id="page-description" data-hotdoc-source="Contributing.md" data-hotdoc-role="main">
-<hr>
-<p>short-description: Contributing to Meson ...</p>
-<h1 id="contributing-to-meson">Contributing to Meson</h1>
+				    <div id="page-description" data-hotdoc-source="Contributing.md" data-hotdoc-role="main">
+        <h1 id="contributing-to-meson">Contributing to Meson</h1>
 <p>A large fraction of Meson is contributed by people outside the core
 team. This documentation explains some of the design rationales of Meson as
 well as how to create and submit your patches for inclusion to Meson.</p>
@@ -170,8 +165,100 @@ well as how to create and submit your patches for inclusion to Meson.</p>
 Github</a>. This causes them to be
 run through the CI system. All submissions must pass a full CI test run
 before they are even considered for submission.</p>
+<h2 id="keeping-pull-requests-up-to-date">Keeping pull requests up to date</h2>
+<p>It is possible that while your pull request is being reviewed, other changes
+are committed to master that cause merge conflicts that must be
+resolved. The basic rule for this is very simple: keep your pull request up
+to date using rebase <em>only</em>.</p>
+<p>Do not merge head back to your branch. Any merge commits in your pull
+request make it not acceptable for merging into master and you must remove
+them.</p>
+<h2 id="special-procedure-for-new-features">Special procedure for new features</h2>
+<p>Every new feature requires some extra steps, namely:</p>
+<ul>
+<li>Must include a project test under <code>test cases/</code>, or if that's not
+possible or if the test requires a special environment, it must go into
+<code>run_unittests.py</code>.</li>
+<li>Must be registered with the <a href="Release-notes-for-0-47-0.html#Feature_detection_based_on_meson_version_in_project">FeatureChecks
+framework</a>
+that will warn the user if they try to use a new feature while targetting
+an older meson version.</li>
+<li>Needs a release note snippet inside <code>docs/markdown/snippets/</code> with a
+heading and a brief paragraph explaining what the feature does with an
+example.</li>
+</ul>
+<h2 id="acceptance-and-merging">Acceptance and merging</h2>
+<p>The kind of review and acceptance any merge proposal gets depends on the
+changes it contains. All pull requests must be reviewed and accepted by
+someone with commit rights who is not the original submitter. Merge requests
+can be roughly split into three different categories.</p>
+<p>The first one consists of MRs that only change the markdown documentation
+under <code>docs/markdown</code>. Anyone with access rights can push changes to these
+directly to master. For major changes it is still recommended to create a MR
+so other people can comment on it.</p>
+<p>The second group consists of merges that don't change any functionality,
+fixes to the CI system and bug fixes that have added regression tests (see
+below) and don't change existing functionality. Once successfully reviewed
+anyone with merge rights can merge these to master.</p>
+<p>The final kind of merges are those that add new functionality or change
+existing functionality in a backwards incompatible way. These require the
+approval of the project lead.</p>
+<p>In a simplified list form the split would look like the following:</p>
+<ul>
+<li>members with commit access can do:
+<ul>
+<li>documentation changes (directly to master if warranted)</li>
+<li>bug fixes that don't change functionality</li>
+<li>refactorings</li>
+<li>new dependency types</li>
+<li>new tool support (e.g. a new Doxygen-kind of tool)</li>
+<li>support for new compilers to existing languages</li>
+</ul>
+</li>
+<li>project leader decision is needed for:
+<ul>
+<li>new modules</li>
+<li>new functions in the Meson language</li>
+<li>syntax changes for Meson files</li>
+<li>changes breaking backwards compatibility</li>
+<li>support for new languages</li>
+</ul>
+</li>
+</ul>
+<h2 id="strategy-for-merging-pull-requests-to-trunk">Strategy for merging pull requests to trunk</h2>
+<p>Meson's merge strategy should fullfill the following guidelines:</p>
+<ul>
+<li>
+<p>preserve as much history as possible</p>
+</li>
+<li>
+<p>have as little junk in the repo as possible</p>
+</li>
+<li>
+<p>everything in the "master lineage" should always pass all tests</p>
+</li>
+</ul>
+<p>These goals are slightly contradictory so the correct thing to do often
+requires some judgement on part of the person doing the merge. Github
+provides three different merge options, The rules of thumb for choosing
+between them goes like this:</p>
+<ul>
+<li>
+<p>single commit pull requests should always be rebased</p>
+</li>
+<li>
+<p>a pull request with one commit and one "fixup" commit (such as testing
+something to see if it passes CI) should be squashed</p>
+</li>
+<li>
+<p>large branches with many commits should be merged with a merge commit,
+especially if one of the commits does not pass all tests (which happens
+in e.g. large and difficult refactorings)</p>
+</li>
+</ul>
+<p>If in doubt, ask for guidance on IRC.</p>
 <h2 id="tests">Tests</h2>
-<p>All new features must come with automatic tests that throughly prove that
+<p>All new features must come with automatic tests that thoroughly prove that
 the feature is working as expected. Similarly bug fixes must come with a
 unit test that demonstrates the bug, proves that it has been fixed and
 prevents the feature from breaking in the future.</p>
@@ -200,6 +287,26 @@ that certain compiler arguments can be found in the command line or that the
 generated pkg-config files actually work should be done with a unit test.</p>
 <p>Projects needed by unit tests are in the <code>test cases/unit</code>
 subdirectory. They are not run as part of <code>./run_project_tests.py</code>.</p>
+<h3 id="skipping-integration-tests">Skipping integration tests</h3>
+<p>Meson uses several continuous integration testing systems that have slightly
+different interface. To promote consistent naming policy, use:</p>
+<ul>
+<li>
+<code>[skip ci]</code> in the commit title if you want to disable all integration
+tests - <code>[skip appveyor]</code> in the commit title if you want to disable
+Windows-only tests</li>
+</ul>
+<p>Continuous integration systems currently used:</p>
+<ul>
+<li>
+<a href="https://docs.travis-ci.com/user/customizing-the-build/#Skipping-a-build">Travis-CI</a>
+allows <code>[skip ci]</code> anywhere in the commit messages.</li>
+<li>
+<a href="https://www.appveyor.com/docs/how-to/filtering-commits/#skip-directive-in-commit-message">AppVeyor</a>
+requires <code>[skip ci]</code> or <code>[skip appveyor]</code> in the commit title.</li>
+<li>
+<a href="https://sider.review">Sider</a>  runs Flake8 (see below)</li>
+</ul>
 <h2 id="documentation">Documentation</h2>
 <p>The <code>docs</code> directory contains the full documentation that will be used to
 generate <a href="http://mesonbuild.com">the Meson web site</a>. Every change in
@@ -210,6 +317,10 @@ changes in other documentation, too.</p>
 features should be written in standalone files in the
 <code>docs/markdown/snippets</code> directory. The release manager will combine them
 into one page when doing the release.</p>
+<p><a href="Contributing.html#skipping-integration-tests">Integration tests should be disabled</a> for
+documentation-only commits by putting <code>[skip ci]</code> into commit title.
+Reviewers should ask contributors to put <code>[skip ci]</code> into the title because
+tests are run again after merge for <code>master</code>.</p>
 <h2 id="python-coding-style">Python Coding style</h2>
 <p>Meson follows the basic Python coding style. Additional rules are the
 following:</p>
@@ -224,63 +335,88 @@ wasted effort</li>
 project are contained in setup.cfg.</p>
 <p>To run Flake8 on your local clone of Meson:</p>
 <p><code>console $ python3 -m pip install flake8 $ cd meson $ flake8</code></p>
-<h2 id="cc-coding-style">C/C++ coding style</h2>
-<p>Meson has a bunch of test code in several languages. The rules for those are
-simple.</p>
-<ul>
-<li>indent 4 spaces, no tabs ever - brace always on the same line as
-if/for/else/function definition</li>
-</ul>
-<h2 id="external-dependencies">External dependencies</h2>
-<p>The goal of Meson is to be as easily usable as possible. The user experience
+<p>To run it automatically before committing:</p>
+<pre><code class="language-console">true ```
+
+## C/C++ coding style
+
+Meson has a bunch of test code in several languages. The rules for those are
+simple.
+
+- indent 4 spaces, no tabs ever - brace always on the same line as
+if/for/else/function definition
+
+
+
+## External dependencies
+
+The goal of Meson is to be as easily usable as possible. The user experience
 should be "get Python3 and Ninja, run", even on Windows. Unfortunately this
 means that we can't have dependencies on projects outside of Python's
 standard library. This applies only to core functionality, though. For
 additional helper programs etc the use of external dependencies may be
 ok. If you feel that you are dealing with this kind of case, please contact
-the developers first with your use case.</p>
-<h2 id="turing-completeness">Turing completeness</h2>
-<p>The main design principle of Meson is that the definition language is not
+the developers first with your use case.
+
+## Turing completeness
+
+The main design principle of Meson is that the definition language is not
 Turing complete. Any change that would make Meson Turing complete is
 automatically rejected. In practice this means that defining your own
-functions inside <code>meson.build</code> files and generalised loops will not be added
-to the language.</p>
-<h2 id="do-i-need-to-sign-a-cla-in-order-to-contribute">Do I need to sign a CLA in order to contribute?</h2>
-<p>No you don't. All contributions are welcome.</p>
-<h2 id="no-lingering-state">No lingering state</h2>
-<p>Meson operates in much the same way as functional programming languages. It
-has inputs, which include <code>meson.build</code> files, values of options, compilers
+functions inside `meson.build` files and generalised loops will not be added
+to the language.
+
+## Do I need to sign a CLA in order to contribute?
+
+No you don't. All contributions are welcome.
+
+## No lingering state
+
+Meson operates in much the same way as functional programming languages. It
+has inputs, which include `meson.build` files, values of options, compilers
 and so on. These are passed to a function, which generates output build
-definition. This function is pure, which means that:</p>
-<ul>
-<li>for any given input the output is always the same</li>
-<li>running Meson twice in a row <em>always</em> produce the same output in both
-runs</li>
-</ul>
-<p>The latter one is important, because it enforces that there is no way for
+definition. This function is pure, which means that:
+
+ - for any given input the output is always the same
+ - running Meson twice in a row _always_ produce the same output in both
+   runs
+
+The latter one is important, because it enforces that there is no way for
 "secret state" to pass between consecutive invocations of Meson. This is the
-reason why, for example, there is no <code>set_option</code> function even though there
-is a <code>get_option</code> one.</p>
-<p>If this were not the case, we could never know if the build output is
-"stable". For example suppose there were a <code>set_option</code> function and a
-boolean variable <code>flipflop</code>. Then you could do this:</p>
-<p><code>meson set_option('flipflop', not get_option('flipflop'))</code></p>
-<p>This piece of code would never converge. Every Meson run would change the
+reason why, for example, there is no `set_option` function even though there
+is a `get_option` one.
+
+If this were not the case, we could never know if the build output is
+"stable". For example suppose there were a `set_option` function and a
+boolean variable `flipflop`. Then you could do this:
+
+```meson set_option('flipflop', not get_option('flipflop'))  ```
+
+This piece of code would never converge. Every Meson run would change the
 value of the option and thus the output you get out of this build definition
-would be random.</p>
-<p>Meson does not permit this by forbidding these sorts of covert channels.</p>
-<p>There is one exception to this rule. Users can call into external commands
-with <code>run_command</code>. If the output of that command does not behave like a
+would be random.
+
+Meson does not permit this by forbidding these sorts of covert channels.
+
+There is one exception to this rule. Users can call into external commands
+with `run_command`. If the output of that command does not behave like a
 pure function, this problem arises. Meson does not try to guard against this
 case, it is the responsibility of the user to make sure the commands they
-run behave like pure functions.</p>
-<h2 id="environment-variables">Environment variables</h2>
-<p>Environment variables are like global variables, except that they are also
+run behave like pure functions.
+
+## Environment variables
+
+Environment variables are like global variables, except that they are also
 hidden by default. Envvars should be avoided whenever possible, all
 functionality should be exposed in better ways such as command line
-switches.</p>
+switches.
 
-</div>
+</code></pre>
+
+    </div>
+        
+
+
 
 
 		
@@ -288,15 +424,9 @@ switches.</p>
 	<div id="search_results">
 		<p>The results of the search are</p>
 	</div>
+	<hr>
 	<div id="footer">
-		
-
-<hr>
-
-<div class="license-description">
-    Web サイトのライセンス情報は <a href="legal.html">Legal</a> ページに示しています。
-</div>
-
+		    
 
 	</div>
 </div>
@@ -304,7 +434,7 @@ switches.</p>
 <div id="toc-column">
 	
 		<div class="edit-button">
-		<a href="https://github.com/mesonbuild/meson//edit/master/markdown/Contributing.md" data-hotdoc-role="edit-button">Edit on github</a>
+		
 
 	</div>
 		<div id="toc-wrapper">
@@ -314,7 +444,7 @@ switches.</p>
 </div>
 </main>
 
-</body>
 
 <script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
 </html>

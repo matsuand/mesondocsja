@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -11,13 +12,14 @@
 <title>Meson ビルドシステム</title>
 
 <link rel="stylesheet" href="assets/css/custom_bootstrap.css" type="text/css">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
 <link rel="stylesheet" href="assets/css/frontend.css" type="text/css">
 <link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
 
-<link rel="stylesheet" href="assets/css/prism.css" type="text/css">
 
 <script src="assets/js/mustache.min.js"></script>
 <script src="assets/js/jquery.js"></script>
+<script src="assets/js/scrollspy.js"></script>
 <script src="assets/js/bootstrap.js"></script>
 <script src="assets/js/typeahead.jquery.min.js"></script>
 <script src="assets/js/search.js"></script>
@@ -32,10 +34,6 @@
 
 <script src="assets/js/lines_around_headings.js"></script>
 
-<script src="assets/js/prism-core.js"></script>
-<script src="assets/js/prism-autoloader.js"></script>
-<script src="assets/js/prism_autoloader_path_override.js"></script>
-<script src="assets/js/trie.js"></script>
 
 <link rel="icon" type="image/png" href="assets/images/favicon.png">
 <link rel="shortcut icon" href="assets/images/favicon.png">
@@ -62,7 +60,7 @@ $('body').removeClass('no-script');
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<form action="" class="navbar-form pull-right" id="navbar-search-form">
+			<form class="navbar-form pull-right" id="navbar-search-form">
                                <div class="form-group has-feedback">
                                        <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
 				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
@@ -75,7 +73,7 @@ $('body').removeClass('no-script');
 				<span class="glyphicon glyphicon-menu-left"></span>
 			</a>
 			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
-				<img src="assets/images/meson_logo.png" alt="Home" id="home">
+				<img src="assets/images/meson_logo.png" alt="Home">
 			</a>
 		</div>
 		<div class="navbar-collapse collapse" id="navbar-wrapper">
@@ -156,21 +154,19 @@ $('body').removeClass('no-script');
 
 <div id="body">
 	<div id="main">
-				
-<div id="page-description" data-hotdoc-source="index.md" data-hotdoc-role="main">
-<h1 id="meson-">Meson ビルドシステム</h1>
-<p>（オリジナル Git head 2017-12-13 10:20:54 -0800 対応）</p>
+				    <div id="page-description" data-hotdoc-source="index.md" data-hotdoc-role="main">
+        <h1 id="meson-">Meson ビルドシステム</h1>
+<p>（オリジナル Git head 2018-08-31 00:27:00 +0300 対応）</p>
 <h2 id="">概要</h2>
 <p>Meson
-はオープンソースによるビルドシステムです。処理速度をできるだけ向上させるとともに、できるだけユーザーフレンドリーなシステムを目指すことを重視しています。</p>
+はオープンソースによるビルドシステムです。処理速度を向上させるとともに、できるだけユーザーフレンドリーなシステムを目指すことを重視しています。</p>
 <p>The main design point of Meson is that every moment a developer spends
 writing or debugging build definitions is a second wasted. So is every
 second spent waiting for the build system to actually start compiling code.</p>
 <h2 id="1">機能</h2>
 <ul>
-<li>multiplatform support for Linux, macOS, Windows, GCC, Clang, Visual
-Studio and others</li>
-<li>supported languages include C, C++, D, Fortran, Java, Rust</li>
+<li>Linux, macOS, Windows, GCC, Clang, Visual Studio などに対するマルチプラットフォーム対応</li>
+<li>C, C++, D, Fortran, Java, Rust などへの言語対応</li>
 <li>build definitions in a very readable and user friendly non-Turing
 complete DSL</li>
 <li>cross compilation for many operating systems as well as bare metal</li>
@@ -186,13 +182,24 @@ first one is the mailing list, which is hosted at <a href="https://groups.google
 Groups</a>.</p>
 <p>The second way is via IRC. The channel to use is <code>#mesonbuild</code> at
 <a href="https://freenode.net/">Freenode</a>.</p>
+<h3 id="projects-using-meson"><a href="http://mesonbuild.com/Users.html">Projects using Meson</a></h3>
+<p>Many projects out there are using Meson and their communities are also a
+great resource for learning about what (and what not too!) do when trying to
+convert to using Meson.</p>
+<p><a href="http://mesonbuild.com/Users.html">A short list of Meson users can be found
+here</a>  but there are many more. We would
+love to hear about your success stories too and how things could be improved
+too!</p>
 <h2 id="3">開発</h2>
 <p>All development on Meson is done on the <a href="https://github.com/mesonbuild/meson">GitHub
 project</a>. Instructions for contributing
 can be found on the <a href="Contributing.html">contribution page</a>.</p>
 <p>You do not need to sign a CLA to contribute to Meson.</p>
 
-</div>
+    </div>
+        
+
+
 
 
 		<div class="hide-if-js">
@@ -238,6 +245,12 @@ can be found on the <a href="Contributing.html">contribution page</a>.</p>
 								<p>（概要の記述はありません）</p>
 							</div>
 						<div class="col-sm-12 col-md-4">
+				<a href="Style-guide.html">推奨する記述スタイル</a>
+			</div>
+			<div class="col-sm-12 col-md-8 subpage-description">
+								<p>Style recommendations for Meson files</p>
+							</div>
+						<div class="col-sm-12 col-md-4">
 				<a href="FAQ.html">FAQ</a>
 			</div>
 			<div class="col-sm-12 col-md-8 subpage-description">
@@ -277,7 +290,7 @@ can be found on the <a href="Contributing.html">contribution page</a>.</p>
 				<a href="Contributing.html">Contributing to Meson</a>
 			</div>
 			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>（概要の記述はありません）</p>
+								<p>Contributing to Meson</p>
 							</div>
 						<div class="col-sm-12 col-md-4">
 				<a href="legal.html">Legal information</a>
@@ -289,7 +302,7 @@ can be found on the <a href="Contributing.html">contribution page</a>.</p>
 				<a href="Videos.html">Videos</a>
 			</div>
 			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>（概要の記述はありません）</p>
+								<p>Videos about Meson</p>
 							</div>
 					</div>
 	</div>
@@ -300,15 +313,9 @@ can be found on the <a href="Contributing.html">contribution page</a>.</p>
 	<div id="search_results">
 		<p>The results of the search are</p>
 	</div>
+	<hr>
 	<div id="footer">
-		
-
-<hr>
-
-<div class="license-description">
-    Web サイトのライセンス情報は <a href="legal.html">Legal</a> ページに示しています。
-</div>
-
+		    
 
 	</div>
 </div>
@@ -316,7 +323,7 @@ can be found on the <a href="Contributing.html">contribution page</a>.</p>
 <div id="toc-column">
 	
 		<div class="edit-button">
-		<a href="https://github.com/mesonbuild/meson//edit/master/markdown/index.md" data-hotdoc-role="edit-button">Edit on github</a>
+		
 
 	</div>
 		<div id="toc-wrapper">
@@ -326,7 +333,7 @@ can be found on the <a href="Contributing.html">contribution page</a>.</p>
 </div>
 </main>
 
-</body>
 
 <script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
 </html>

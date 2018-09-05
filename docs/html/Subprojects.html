@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -11,13 +12,14 @@
 <title>サブプロジェクト</title>
 
 <link rel="stylesheet" href="assets/css/custom_bootstrap.css" type="text/css">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
 <link rel="stylesheet" href="assets/css/frontend.css" type="text/css">
 <link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
 
-<link rel="stylesheet" href="assets/css/prism.css" type="text/css">
 
 <script src="assets/js/mustache.min.js"></script>
 <script src="assets/js/jquery.js"></script>
+<script src="assets/js/scrollspy.js"></script>
 <script src="assets/js/bootstrap.js"></script>
 <script src="assets/js/typeahead.jquery.min.js"></script>
 <script src="assets/js/search.js"></script>
@@ -32,10 +34,6 @@
 
 <script src="assets/js/lines_around_headings.js"></script>
 
-<script src="assets/js/prism-core.js"></script>
-<script src="assets/js/prism-autoloader.js"></script>
-<script src="assets/js/prism_autoloader_path_override.js"></script>
-<script src="assets/js/trie.js"></script>
 
 <link rel="icon" type="image/png" href="assets/images/favicon.png">
 <link rel="shortcut icon" href="assets/images/favicon.png">
@@ -62,7 +60,7 @@ $('body').removeClass('no-script');
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<form action="" class="navbar-form pull-right" id="navbar-search-form">
+			<form class="navbar-form pull-right" id="navbar-search-form">
                                <div class="form-group has-feedback">
                                        <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
 				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
@@ -75,7 +73,7 @@ $('body').removeClass('no-script');
 				<span class="glyphicon glyphicon-menu-left"></span>
 			</a>
 			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
-				<img src="assets/images/meson_logo.png" alt="Home" id="home">
+				<img src="assets/images/meson_logo.png" alt="Home">
 			</a>
 		</div>
 		<div class="navbar-collapse collapse" id="navbar-wrapper">
@@ -156,9 +154,8 @@ $('body').removeClass('no-script');
 
 <div id="body">
 	<div id="main">
-				
-<div id="page-description" data-hotdoc-source="Subprojects.md" data-hotdoc-role="main">
-<h1 id="">サブプロジェクト</h1>
+				    <div id="page-description" data-hotdoc-source="Subprojects.md" data-hotdoc-role="main">
+        <h1 id="">サブプロジェクト</h1>
 <p>Some platforms do not provide a native packaging system. In these cases it
 is common to bundle all third party libraries in your source tree. This is
 usually frowned upon because it makes it hard to add these kinds of projects
@@ -168,7 +165,8 @@ both at the same time. The way this is done is that Meson allows you to take
 any other Meson project and make it a part of your build without (in the
 best case) any changes to its Meson setup. It becomes a transparent part of
 the project. The basic idiom goes something like this.</p>
-<pre><code class="language-meson"></code></pre>
+<pre><code class="language-meson">dep = dependency('foo', fallback : [subproject_name, variable_name])
+</code></pre>
 <p>As an example, suppose we have a simple project that provides a shared
 library. It would be set up like this.</p>
 <pre><code class="language-meson">project('simple', 'c')
@@ -182,41 +180,87 @@ subdirectory called <code>subprojects</code> in the root of the master directory
 we create a subdirectory called <code>simple</code> and put the subproject in that
 directory. Now the subproject can be used like this.</p>
 <pre><code class="language-meson">project('master', 'c')
-dep = dependency('simple', fallback : ['simple', 'simple_dep']
+dep = dependency('simple', fallback : ['simple', 'simple_dep'])
 exe = executable('prog', 'prog.c',
                  dependencies : dep, install : true)
 </code></pre>
 <p>With this setup the system dependency is used when it is available,
 otherwise we fall back on the bundled version. If you wish to always use the
 embedded version, then you would declare it like this:</p>
-<pre><code class="language-meson">simple_sp.get_variable('simple_dep')  ```
-
-All Meson features of the subproject, such as project options keep working
+<pre><code class="language-meson">simple_sp = subproject('simple')
+dep = simple_sp.get_variable('simple_dep')
+</code></pre>
+<p>All Meson features of the subproject, such as project options keep working
 and can be set in the master project. There are a few limitations, the most
 important being that global compiler arguments must be set in the main
 project before calling subproject. Subprojects must not set global arguments
 because there is no way to do that reliably over multiple subprojects. To
-check whether you are running as a subproject, use the `is_subproject`
-function.
-
-It should be noted that this only works for subprojects that are built with
+check whether you are running as a subproject, use the <code>is_subproject</code>
+function.</p>
+<p>It should be noted that this only works for subprojects that are built with
 Meson. It can not be used with any other build system. The reason is the
 simple fact that there is no possible way to do this reliably with mixed
-build systems.
+build systems.</p>
+<p>Subprojects can use other subprojects, but all subprojects must reside in
+the top level <code>subprojects</code> directory. Recursive use of subprojects is not
+allowed, though, so you can't have subproject <code>a</code> that uses subproject <code>b</code>
+and have <code>b</code> also use <code>a</code>.</p>
+<h1 id="commandline-options">Command-line options</h1>
+<p>The usage of subprojects can be controlled by users and distros with the
+following command-line options:</p>
+<ul>
+<li>
+<p><strong>--wrap-mode=nodownload</strong></p>
+<p>Meson will not use the network to download any subprojects or
+fetch any wrap information. Only pre-existing sources will be used.
+This is useful (mostly for distros) when you want to only use the
+sources provided by a software release, and want to manually handle
+or provide missing dependencies.</p>
+</li>
+<li>
+<p><strong>--wrap-mode=nofallback</strong></p>
+<p>Meson will not use subproject fallbacks for any dependency
+declarations in the build files, and will only look for them in the
+system. Note that this does not apply to unconditional subproject()
+calls, and those are meant to be used for sources that cannot be
+provided by the system, such as copylibs.</p>
+</li>
+<li>
+<p><strong>--wrap-mode=forcefallback</strong></p>
+<p>Meson will not look at the system for any dependencies which have
+subproject fallbacks available, and will <em>only</em> use subprojects for
+them. This is useful when you want to test your fallback setup, or
+want to specifically build against the library sources provided by
+your subprojects.</p>
+</li>
+</ul>
+<h1 id="obtaining-subprojects">Obtaining subprojects</h1>
+<p>Meson ships with a dependency system to automatically obtain dependency
+subprojects. It is documented in the <a href="Wrap-dependency-system-manual.html">Wrap dependency system
+manual</a>.</p>
+<h1 id="why-must-all-subprojects-be-inside-a-single-directory">Why must all subprojects be inside a single directory?</h1>
+<p>There are several reasons.</p>
+<p>First of all, to maintain any sort of sanity, the system must prevent going
+inside other subprojects with <code>subdir()</code> or variations thereof. Having the
+subprojects in well defined places makes this easy. If subprojects could be
+anywhere at all, it would be a lot harder.</p>
+<p>Second of all it is extremely important that end users can easily see what
+subprojects any project has. Because they are in one, and only one, place,
+reviewing them becomes easy.</p>
+<p>This is also a question of convention. Since all Meson projects have the
+same layout w.r.t subprojects, switching between projects becomes
+easier. You don't have to spend time on a new project traipsing through the
+source tree looking for subprojects. They are always in the same place.</p>
+<p>Finally if you can have subprojects anywhere, this increases the possibility
+of having many different (possibly incompatible) versions of a dependency in
+your source tree. Then changing some code (such as changing the order you
+traverse directories) may cause a completely different version of the
+subproject to be used by accident.</p>
 
-Subprojects can use other subprojects, but all subprojects must reside in
-the top level `subprojects` directory. Recursive use of subprojects is not
-allowed, though, so you can't have subproject `a` that uses subproject `b`
-and have `b` also use `a`.
+    </div>
+        
 
-# Obtaining subprojects
 
-Meson ships with a dependency system to automatically obtain dependency
-subprojects. It is documented in the [Wrap dependency system
-manual](Wrap-dependency-system-manual.md).
-</code></pre>
-
-</div>
 
 
 		
@@ -224,15 +268,9 @@ manual](Wrap-dependency-system-manual.md).
 	<div id="search_results">
 		<p>The results of the search are</p>
 	</div>
+	<hr>
 	<div id="footer">
-		
-
-<hr>
-
-<div class="license-description">
-    Web サイトのライセンス情報は <a href="legal.html">Legal</a> ページに示しています。
-</div>
-
+		    
 
 	</div>
 </div>
@@ -240,7 +278,7 @@ manual](Wrap-dependency-system-manual.md).
 <div id="toc-column">
 	
 		<div class="edit-button">
-		<a href="https://github.com/mesonbuild/meson//edit/master/markdown/Subprojects.md" data-hotdoc-role="edit-button">Edit on github</a>
+		
 
 	</div>
 		<div id="toc-wrapper">
@@ -250,7 +288,7 @@ manual](Wrap-dependency-system-manual.md).
 </div>
 </main>
 
-</body>
 
 <script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
 </html>

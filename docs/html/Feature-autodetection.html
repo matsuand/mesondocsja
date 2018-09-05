@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -11,13 +12,14 @@
 <title>Feature autodetection</title>
 
 <link rel="stylesheet" href="assets/css/custom_bootstrap.css" type="text/css">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
 <link rel="stylesheet" href="assets/css/frontend.css" type="text/css">
 <link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
 
-<link rel="stylesheet" href="assets/css/prism.css" type="text/css">
 
 <script src="assets/js/mustache.min.js"></script>
 <script src="assets/js/jquery.js"></script>
+<script src="assets/js/scrollspy.js"></script>
 <script src="assets/js/bootstrap.js"></script>
 <script src="assets/js/typeahead.jquery.min.js"></script>
 <script src="assets/js/search.js"></script>
@@ -32,10 +34,6 @@
 
 <script src="assets/js/lines_around_headings.js"></script>
 
-<script src="assets/js/prism-core.js"></script>
-<script src="assets/js/prism-autoloader.js"></script>
-<script src="assets/js/prism_autoloader_path_override.js"></script>
-<script src="assets/js/trie.js"></script>
 
 <link rel="icon" type="image/png" href="assets/images/favicon.png">
 <link rel="shortcut icon" href="assets/images/favicon.png">
@@ -62,7 +60,7 @@ $('body').removeClass('no-script');
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<form action="" class="navbar-form pull-right" id="navbar-search-form">
+			<form class="navbar-form pull-right" id="navbar-search-form">
                                <div class="form-group has-feedback">
                                        <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
 				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
@@ -75,7 +73,7 @@ $('body').removeClass('no-script');
 				<span class="glyphicon glyphicon-menu-left"></span>
 			</a>
 			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
-				<img src="assets/images/meson_logo.png" alt="Home" id="home">
+				<img src="assets/images/meson_logo.png" alt="Home">
 			</a>
 		</div>
 		<div class="navbar-collapse collapse" id="navbar-wrapper">
@@ -156,9 +154,8 @@ $('body').removeClass('no-script');
 
 <div id="body">
 	<div id="main">
-				
-<div id="page-description" data-hotdoc-source="Feature-autodetection.md" data-hotdoc-role="main">
-<h1 id="feature-autodetection">Feature autodetection</h1>
+				    <div id="page-description" data-hotdoc-source="Feature-autodetection.md" data-hotdoc-role="main">
+        <h1 id="feature-autodetection">Feature autodetection</h1>
 <p>Meson is designed for high productivity. It tries to do as many things
 automatically as it possibly can.</p>
 <h2 id="ccache">CCache</h2>
@@ -172,11 +169,14 @@ then use the specified compiler without CCache.</p>
 <h2 id="coverage">Coverage</h2>
 <p>When doing a code coverage build, Meson will check the existence of binaries
 <code>gcovr</code>, <code>lcov</code> and <code>genhtml</code>. If the first one is found, it will create
-targets called <em>coverage-text</em> and <em>coverage-xml</em>. If the latter two are
-found, it generates the target <em>coverage-html</em>. You can then generate
-coverage reports just by calling e.g. <code>ninja coverage-xml</code>.</p>
+targets called <em>coverage-text</em> and <em>coverage-xml</em>. If the latter two or a
+new enough <code>gcovr</code> is found, it generates the target <em>coverage-html</em>. You
+can then generate coverage reports just by calling e.g. <code>ninja coverage-xml</code>.</p>
 
-</div>
+    </div>
+        
+
+
 
 
 		
@@ -184,15 +184,9 @@ coverage reports just by calling e.g. <code>ninja coverage-xml</code>.</p>
 	<div id="search_results">
 		<p>The results of the search are</p>
 	</div>
+	<hr>
 	<div id="footer">
-		
-
-<hr>
-
-<div class="license-description">
-    Web サイトのライセンス情報は <a href="legal.html">Legal</a> ページに示しています。
-</div>
-
+		    
 
 	</div>
 </div>
@@ -200,7 +194,7 @@ coverage reports just by calling e.g. <code>ninja coverage-xml</code>.</p>
 <div id="toc-column">
 	
 		<div class="edit-button">
-		<a href="https://github.com/mesonbuild/meson//edit/master/markdown/Feature-autodetection.md" data-hotdoc-role="edit-button">Edit on github</a>
+		
 
 	</div>
 		<div id="toc-wrapper">
@@ -210,7 +204,7 @@ coverage reports just by calling e.g. <code>ninja coverage-xml</code>.</p>
 </div>
 </main>
 
-</body>
 
 <script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
 </html>

@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -11,13 +12,14 @@
 <title>GNOME モジュール</title>
 
 <link rel="stylesheet" href="assets/css/custom_bootstrap.css" type="text/css">
+<link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
 <link rel="stylesheet" href="assets/css/frontend.css" type="text/css">
 <link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
 
-<link rel="stylesheet" href="assets/css/prism.css" type="text/css">
 
 <script src="assets/js/mustache.min.js"></script>
 <script src="assets/js/jquery.js"></script>
+<script src="assets/js/scrollspy.js"></script>
 <script src="assets/js/bootstrap.js"></script>
 <script src="assets/js/typeahead.jquery.min.js"></script>
 <script src="assets/js/search.js"></script>
@@ -32,10 +34,6 @@
 
 <script src="assets/js/lines_around_headings.js"></script>
 
-<script src="assets/js/prism-core.js"></script>
-<script src="assets/js/prism-autoloader.js"></script>
-<script src="assets/js/prism_autoloader_path_override.js"></script>
-<script src="assets/js/trie.js"></script>
 
 <link rel="icon" type="image/png" href="assets/images/favicon.png">
 <link rel="shortcut icon" href="assets/images/favicon.png">
@@ -62,7 +60,7 @@ $('body').removeClass('no-script');
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<form action="" class="navbar-form pull-right" id="navbar-search-form">
+			<form class="navbar-form pull-right" id="navbar-search-form">
                                <div class="form-group has-feedback">
                                        <input type="text" class="form-control input-sm" name="search" id="sidenav-lookup-field" placeholder="search" disabled>
 				       <span class="glyphicon glyphicon-search form-control-feedback" id="search-mgn-glass"></span>
@@ -75,7 +73,7 @@ $('body').removeClass('no-script');
 				<span class="glyphicon glyphicon-menu-left"></span>
 			</a>
 			<a id="home-link" href="index.html" class="hotdoc-navbar-brand">
-				<img src="assets/images/meson_logo.png" alt="Home" id="home">
+				<img src="assets/images/meson_logo.png" alt="Home">
 			</a>
 		</div>
 		<div class="navbar-collapse collapse" id="navbar-wrapper">
@@ -156,9 +154,8 @@ $('body').removeClass('no-script');
 
 <div id="body">
 	<div id="main">
-				
-<div id="page-description" data-hotdoc-source="Gnome-module.md" data-hotdoc-role="main">
-<h1 id="gnome-">GNOME モジュール</h1>
+				    <div id="page-description" data-hotdoc-source="Gnome-module.md" data-hotdoc-role="main">
+        <h1 id="gnome-">GNOME モジュール</h1>
 <p>This module provides helper tools for build operations needed when building
 Gnome/GLib programs.</p>
 <p><strong>Note</strong>: the compilation commands here might not work properly when
@@ -200,16 +197,33 @@ depending on previous options</li>
 <li>
 <code>install_header</code>: (<em>Added 0.37.0</em>) if true, install the header file</li>
 <li>
-<code>source_dir</code>: a list of subdirectories where the resource compiler should
-look up the files, relative to the location of the XML file</li>
+<code>source_dir</code>: a list of directories where the resource compiler should
+look up the files</li>
 </ul>
 <p>Returns an array containing: <code>[c_source, header_file]</code> or
 <code>[gresource_bundle]</code></p>
+<p>Example:</p>
+<pre><code class="language-meson">
+asresources = gnome.compile_resources(
+    'as-resources', 'data/asresources.gresource.xml',
+    source_dir: 'data',
+    c_name: 'as'
+)
+
+executable(
+    meson.project_name(),
+    asresources,
+    dependencies: my_deps,
+    install: true
+)
+</code></pre>
 <h3 id="gnomegenerate_gir">gnome.generate_gir()</h3>
-<p>Generates GObject introspection data. Takes one positional argument, the
-build target you want to build gir data for. There are several keyword
-arguments. Many of these map directly to the <code>g-ir-scanner</code> tool so see its
-documentation for more information.</p>
+<p>Generates GObject introspection data.</p>
+<p>Takes one or more positional arguments:</p>
+<p>Either one or more library objects you want to build gir data for, or a
+single executable object.</p>
+<p>There are several keyword arguments. Many of these map directly to the
+<code>g-ir-scanner</code> tool so see its documentation for more information.</p>
 <ul>
 <li>
 <code>dependencies</code>: deps to use during introspection scanning</li>
@@ -282,7 +296,9 @@ argument is the basename of the output files.</p>
 <p>Returns an array of two elements which are: <code>[c_source, header_file]</code></p>
 <h3 id="gnomemkenums">gnome.mkenums()</h3>
 <p>Generates enum files for GObject using the <code>glib-mkenums</code> tool. The first
-argument is the base name of the output files.</p>
+argument is the base name of the output files, unless <code>c_template</code> and
+<code>h_template</code> are specified. In this case, the output files will be the base
+name of the values passed as templates.</p>
 <p>This method is essentially a wrapper around the <code>glib-mkenums</code> tool's
 command line API. It is the most featureful method for enum creation.</p>
 <p>Typically you either provide template files or you specify the various
@@ -392,13 +408,21 @@ should trigger a re-compile if changed.</li>
 </ul>
 <h3 id="gnomegdbus_codegen">gnome.gdbus_codegen()</h3>
 <p>Compiles the given XML schema into gdbus source code. Takes two positional
-arguments, the first one specifies the name of the source files and the
-second specifies the XML file name.</p>
+arguments, the first one specifies the base name to use while creating the
+output source and header and the second specifies one XML file.</p>
 <ul>
+<li>
+<code>sources</code>: list of XML files</li>
 <li>
 <code>interface_prefix</code>: prefix for the interface</li>
 <li>
 <code>namespace</code>: namespace of the interface</li>
+<li>
+<code>extra_args</code>: (<em>Added 0.47.0</em>) additional command line arguments to pass</li>
+<li>
+<code>autocleanup</code>: <em>(Added 0.47.0)</em> if set generates autocleanup code. Can be
+one of <code>none</code>, <code>objects</code> or <code>all</code>
+</li>
 <li>
 <code>object_manager</code>: <em>(Added 0.40.0)</em> if true generates object manager code</li>
 <li>
@@ -408,13 +432,28 @@ annotation for <code>'ELEMENT', 'KEY', 'VALUE'</code>
 <li>
 <code>docbook</code>: <em>(Added 0.43.0)</em> prefix to generate <code>'PREFIX'-NAME.xml</code>
 docbooks</li>
+<li>
+<code>build_by_default</code>: causes, when set to true, to have this target be built
+by default, that is, when invoking plain <code>ninja</code>, the default value is
+true for all built target types</li>
+<li>
+<code>install_dir</code>: (<em>Added 0.46.0</em>) location to install the header or bundle
+depending on previous options</li>
+<li>
+<code>install_header</code>: (<em>Added 0.46.0</em>) if true, install the header file</li>
 </ul>
-<p>Returns an opaque object containing the source files. Add it to a top level
+<p>Starting <em>0.46.0</em>, this function returns a list of at least two custom
+targets (in order): one for the source code and one for the header. The list
+will contain a third custom target for the generated docbook files if that
+keyword argument is passed.</p>
+<p>Earlier versions return a single custom target representing all the
+outputs.  Generally, you should just add this list of targets to a top level
 target's source list.</p>
 <p>Example:</p>
 <pre><code class="language-meson">
 # The returned source would be passed to another target
-gdbus_src = gnome.gdbus_codegen('example-interface', 'com.example.Sample.xml',
+gdbus_src = gnome.gdbus_codegen('example-interface',
+  sources: 'com.example.Sample.xml',
   interface_prefix : 'com.example.',
   namespace : 'Sample',
   annotations : [
@@ -514,7 +553,10 @@ normally these are only built on install.</p>
 HTML files will be installed. Usually used with <code>install_data</code> to install
 extra files, such as images, to the output directory.</p>
 
-</div>
+    </div>
+        
+
+
 
 
 		
@@ -522,15 +564,9 @@ extra files, such as images, to the output directory.</p>
 	<div id="search_results">
 		<p>The results of the search are</p>
 	</div>
+	<hr>
 	<div id="footer">
-		
-
-<hr>
-
-<div class="license-description">
-    Web サイトのライセンス情報は <a href="legal.html">Legal</a> ページに示しています。
-</div>
-
+		    
 
 	</div>
 </div>
@@ -538,7 +574,7 @@ extra files, such as images, to the output directory.</p>
 <div id="toc-column">
 	
 		<div class="edit-button">
-		<a href="https://github.com/mesonbuild/meson//edit/master/markdown/Gnome-module.md" data-hotdoc-role="edit-button">Edit on github</a>
+		
 
 	</div>
 		<div id="toc-wrapper">
@@ -548,7 +584,7 @@ extra files, such as images, to the output directory.</p>
 </div>
 </main>
 
-</body>
 
 <script src="assets/js/navbar_offset_scroller.js"></script>
+</body>
 </html>
