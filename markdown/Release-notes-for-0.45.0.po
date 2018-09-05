@@ -27,7 +27,7 @@ msgstr ""
 msgid "title: Release 0.45 short-description: Release notes for 0.45 ..."
 msgstr ""
 "title: リリース 0.45\n"
-"short-description: Release notes for 0.45\n..."
+"short-description: リリースノート 0.45\n..."
 
 #. type: Plain text
 #: Release-notes-for-0.45.0.md:7

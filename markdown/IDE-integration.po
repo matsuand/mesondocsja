@@ -27,6 +27,7 @@ msgstr ""
 msgid ""
 "short-description: Meson's API to integrate Meson support into an IDE ..."
 msgstr ""
+"short-description: Meson's API to integrate Meson support into an IDE\n..."
 
 #. type: Plain text
 #: IDE-integration.md:6

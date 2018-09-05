@@ -244,6 +244,7 @@ abs_mesondir = @abs_mesondir@
 abs_srcdir = @abs_srcdir@
 abs_top_builddir = @abs_top_builddir@
 abs_top_srcdir = @abs_top_srcdir@
+absdocsdir = @absdocsdir@
 am__leading_dot = @am__leading_dot@
 am__tar = @am__tar@
 am__untar = @am__untar@
@@ -280,6 +281,7 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 SUBDIRS = theme markdown
+absbuilddir = @abs_builddocdir@
 mdfiles = $(wildcard markdown/*.md markdown/snippets/*.md)
 all: all-recursive
 
@@ -622,7 +624,6 @@ check: check-recursive
 all-am: Makefile
 installdirs: installdirs-recursive
 installdirs-am:
-install: install-recursive
 install-exec: install-exec-recursive
 install-data: install-data-recursive
 uninstall: uninstall-recursive
@@ -748,8 +749,16 @@ dirs:
 	@if ! test -d "images"; then \
 	  cp -pR $(MESONDIR)/images .; \
 	fi
-build_docs/html/index.html: $(mdfiles)
+$(absbuilddir)/html/index.html: $(mdfiles)
 	hotdoc run
+
+.PHONY: install
+install: $(absbuilddir)/html/index.html
+	if test "$(absbuilddir)" = "$(absdocsdir)"; then \
+	  cp -pR $(absbuilddir)/* $(absdocsdir) \
+	else \
+	  echo Nothin to be processed.\
+	fi
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

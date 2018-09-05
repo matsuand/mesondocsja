@@ -233,72 +233,72 @@ msgstr ""
 #. type: Plain text
 #: Syntax.md:101
 msgid "The full list of escape sequences is:"
-msgstr ""
+msgstr "エスケープシーケンスの一覧は以下のとおりです。"
 
 #. type: Bullet: '* '
 #: Syntax.md:116
 msgid "`\\\\` Backslash"
-msgstr ""
+msgstr "`\\\\` バックスラッシュ"
 
 #. type: Bullet: '* '
 #: Syntax.md:116
 msgid "`\\'` Single quote"
-msgstr ""
+msgstr "`\\'` シングルクォート"
 
 #. type: Bullet: '* '
 #: Syntax.md:116
 msgid "`\\a` Bell"
-msgstr ""
+msgstr "`\\a` ベル"
 
 #. type: Bullet: '* '
 #: Syntax.md:116
 msgid "`\\b` Backspace"
-msgstr ""
+msgstr "`\\b` バックスペース"
 
 #. type: Bullet: '* '
 #: Syntax.md:116
 msgid "`\\f` Formfeed"
-msgstr ""
+msgstr "`\\f` フォームフィード"
 
 #. type: Bullet: '* '
 #: Syntax.md:116
 msgid "`\\n` Newline"
-msgstr ""
+msgstr "`\\n` 改行"
 
 #. type: Bullet: '* '
 #: Syntax.md:116
 msgid "`\\r` Carriage Return"
-msgstr ""
+msgstr "`\\r` キャリッジリターン"
 
 #. type: Bullet: '* '
 #: Syntax.md:116
 msgid "`\\t` Horizontal Tab"
-msgstr ""
+msgstr "`\\t` 水平タブ"
 
 #. type: Bullet: '* '
 #: Syntax.md:116
 msgid "`\\v` Vertical Tab"
-msgstr ""
+msgstr "`\\v` 垂直タブ"
 
 #. type: Bullet: '* '
 #: Syntax.md:116
 msgid "`\\ooo` Character with octal value ooo"
-msgstr ""
+msgstr "`\\ooo` ooo で示される 8 進数値"
 
 #. type: Bullet: '* '
 #: Syntax.md:116
 msgid "`\\xhh` Character with hex value hh"
-msgstr ""
+msgstr "`\\xhh` hh で示される 16 進数値"
 
 #. type: Bullet: '* '
 #: Syntax.md:116
 msgid "`\\uxxxx` Character with 16-bit hex value xxxx"
-msgstr ""
+msgstr "`\\uxxxx` xxxx で示される 16 ビットキャラクター"
 
 #. type: Bullet: '* '
 #: Syntax.md:116
 msgid "`\\Uxxxxxxxx` Character with 32-bit hex value xxxxxxxx"
-msgstr ""
+msgstr "`\\Uxxxxxxxx` xxxxxxxx で示される 32 ビットキャラクター"
 
 #. type: Bullet: '* '
 #: Syntax.md:116
@@ -318,7 +318,7 @@ msgstr "#### 文字列の連結"
 #. type: Plain text
 #: Syntax.md:122
 msgid "Strings can be concatenated to form a new string using the `+` symbol."
-msgstr "文字列は `+` によって結合され、新たな文字列となります。"
+msgstr "文字列は `+` によって連結されて、新たな文字列となります。"
 
 #. type: Plain text
 #: Syntax.md:128
@@ -697,12 +697,12 @@ msgstr ""
 
 #. type: Plain text
 #: Syntax.md:295
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "Dictionaries\n"
 "--\n"
 msgstr ""
-"関数呼び出し\n"
+"ディクショナリ\n"
 "--\n"
 
 #. type: Plain text

@@ -25,7 +25,7 @@ msgstr ""
 #. type: Plain text
 #: Contributing.md:4
 msgid "short-description: Contributing to Meson ..."
-msgstr ""
+msgstr "short-description: Contributing to Meson\n..."
 
 #. type: Plain text
 #: Contributing.md:6

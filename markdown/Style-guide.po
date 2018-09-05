@@ -25,12 +25,12 @@ msgstr ""
 #. type: Plain text
 #: Style-guide.md:4
 msgid "short-description: Style recommendations for Meson files ..."
-msgstr ""
+msgstr "short-description: Style recommendations for Meson files\n..."
 
 #. type: Plain text
 #: Style-guide.md:6
 msgid "# Style recommendations"
-msgstr ""
+msgstr "# 推奨する記述スタイル"
 
 #. type: Plain text
 #: Style-guide.md:9
@@ -42,12 +42,12 @@ msgstr ""
 #. type: Plain text
 #: Style-guide.md:11
 msgid "## Tabs or spaces?"
-msgstr ""
+msgstr "## タブか空白か？"
 
 #. type: Plain text
 #: Style-guide.md:13
 msgid "Always spaces."
-msgstr ""
+msgstr "常に空白とします。"
 
 #. type: Plain text
 #: Style-guide.md:15

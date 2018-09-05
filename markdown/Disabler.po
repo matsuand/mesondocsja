@@ -25,7 +25,7 @@ msgstr ""
 #. type: Plain text
 #: Disabler.md:4
 msgid "short-description: Disabling options ..."
-msgstr ""
+msgstr "short-description: Disabling options\n..."
 
 #. type: Plain text
 #: Disabler.md:6

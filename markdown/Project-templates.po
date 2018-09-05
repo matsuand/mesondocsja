@@ -25,12 +25,12 @@ msgstr ""
 #. type: Plain text
 #: Project-templates.md:4
 msgid "short-description: Project templates ..."
-msgstr ""
+msgstr "short-description: Project templates\n..."
 
 #. type: Plain text
 #: Project-templates.md:6
 msgid "# Project templates"
-msgstr ""
+msgstr "# プロジェクトテンプレート"
 
 #. type: Plain text
 #: Project-templates.md:11
@@ -40,6 +40,9 @@ msgid ""
 "can be accessed with the `meson init` command. A typical project setup would "
 "go like this:"
 msgstr ""
+"開発初心者が作業を進めやすくするために、Meson ではさまざまな種類のプロジェクト"
+"に対する基本設定を生成するツールを提供しています。この機能は `meson init` コマ"
+"ンドを使って実現します。典型的なプロジェクトの生成手順は以下のとおりです。"
 
 #. type: Plain text
 #: Project-templates.md:17
@@ -47,6 +50,8 @@ msgid ""
 "```console $ mkdir project_name $ cd project_name $ meson init --language=c "
 "--name=myproject --version=0.1 ```"
 msgstr ""
+"```console\n$ mkdir project_name\n$ cd project_name\n$ meson init --language=c "
+"--name=myproject --version=0.1\n```"
 
 #. type: Plain text
 #: Project-templates.md:21
@@ -59,7 +64,7 @@ msgstr ""
 #. type: Plain text
 #: Project-templates.md:26
 msgid "``` $ meson builddir $ ninja -C builddir ```"
-msgstr ""
+msgstr "```\n$ meson builddir\n$ ninja -C builddir\n```"
 
 #. type: Plain text
 #: Project-templates.md:29

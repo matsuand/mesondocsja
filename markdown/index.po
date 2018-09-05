@@ -45,9 +45,8 @@ msgid ""
 "Meson is an open source build system meant to be both extremely fast, and, "
 "even more importantly, as user friendly as possible."
 msgstr ""
-"Meson はオープンソースによるビルドシステムです。処理速度をできるだけ向上させ"
-"るとともに、できるだけユーザーフレンドリーなシステムを目指すことを重視してい"
-"ます。"
+"Meson はオープンソースによるビルドシステムです。処理速度を向上させるととも"
+"に、できるだけユーザーフレンドリーなシステムを目指すことを重視しています。"
 
 #. type: Plain text
 #: index.md:16
@@ -68,11 +67,13 @@ msgid ""
 "multiplatform support for Linux, macOS, Windows, GCC, Clang, Visual Studio "
 "and others"
 msgstr ""
+"Linux, macOS, Windows, GCC, Clang, Visual Studio などに対するマルチプラット"
+"フォーム対応"
 
 #. type: Bullet: '*   '
 #: index.md:26
 msgid "supported languages include C, C++, D, Fortran, Java, Rust"
-msgstr ""
+msgstr "C, C++, D, Fortran, Java, Rust などへの言語対応"
 
 #. type: Bullet: '*   '
 #: index.md:26

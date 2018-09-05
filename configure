@@ -593,6 +593,7 @@ MESONDIR
 SPHINXBUILD
 PO4ATRANSLATE
 PO4AGETTEXTIZE
+absdocsdir
 AM_BACKSLASH
 AM_DEFAULT_VERBOSITY
 AM_DEFAULT_V
@@ -2331,6 +2332,9 @@ fi
 
 
 
+
+
+absdocsdir=`(cd ${srcdir}/docs && pwd)`
 
 
 

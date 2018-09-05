@@ -26,7 +26,7 @@ msgstr ""
 #: Installing.md:4
 msgid "short-description: Installing targets ..."
 msgstr ""
-"short-description: Installing targets\n"
+"short-description: インストールターゲット\n"
 "..."
 
 #. type: Plain text
@@ -40,6 +40,8 @@ msgid ""
 "By default Meson will not install anything. Build targets can be installed "
 "by tagging them as installable in the definition."
 msgstr ""
+"デフォルトでは Meson は何もインストールしません。ビルドターゲットをインスト"
+"ールするには、インストールする対象として定義づけする必要があります。"
 
 #. type: Plain text
 #: Installing.md:14

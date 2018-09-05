@@ -46,6 +46,9 @@ AC_DEFUN([AC_CHECK_BUILD_DIR],[
   AC_SUBST(abs_builddocdir)
 ])
 
+absdocsdir=`(cd ${srcdir}/docs && pwd)`
+AC_SUBST(absdocsdir)
+
 dnl
 dnl Check for po4a-gettextize
 dnl

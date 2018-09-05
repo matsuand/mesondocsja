@@ -69,21 +69,25 @@ msgid ""
 "strive to ensure that it will always be working and usable. All commits go "
 "through a pull-request process that runs CI and tests several platforms."
 msgstr ""
+"最新の開発コードは [Git] から入手することができます。"
+"and we "
+"strive to ensure that it will always be working and usable. All commits go "
+"through a pull-request process that runs CI and tests several platforms."
 
 #. type: Plain text
 #: Getting-meson.md:24
 msgid "## Installing Meson with pip"
-msgstr ""
+msgstr "## pip を用いた Meson のインストール"
 
 #. type: Plain text
 #: Getting-meson.md:27
-#, fuzzy
 msgid ""
 "Meson is available in the [Python Package Index] and can be installed with "
 "`pip3 install meson` which requires root and will install it system-wide."
 msgstr ""
 "また Meson は [Python パッケージインデックス] に含まれるため、`pip3 install "
-"meson` によりインストールすることもできます。"
+"meson` によりインストールすることもできます。これは root 権限が必要であり、"
+"インストールはシステムワイドに行われます。"
 
 #. type: Plain text
 #: Getting-meson.md:32
@@ -97,7 +101,7 @@ msgstr ""
 #. type: Plain text
 #: Getting-meson.md:34
 msgid "## Installing Meson and Ninja with the MSI installer"
-msgstr ""
+msgstr "## MSI インストーラーを使った Meson と Ninja のインストール"
 
 #. type: Plain text
 #: Getting-meson.md:39

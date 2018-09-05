@@ -26,6 +26,7 @@ msgstr ""
 #: Builtin-options.md:4
 msgid "short-description: Built-in options to configure project properties ..."
 msgstr ""
+"short-description: Built-in options to configure project properties\n..."
 
 #. type: Plain text
 #: Builtin-options.md:6

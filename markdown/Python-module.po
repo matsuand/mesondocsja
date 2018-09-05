@@ -38,7 +38,7 @@ msgstr ""
 #. type: Plain text
 #: Python-module.md:11
 msgid "# Python module"
-msgstr ""
+msgstr "# Python モジュール"
 
 #. type: Plain text
 #: Python-module.md:14
@@ -46,17 +46,19 @@ msgid ""
 "This module provides support for finding and building extensions against "
 "python installations, be they python 2 or 3."
 msgstr ""
+"このモジュールは python に関するインストールを行うものに対して、検索やビル"
+"ドを行う拡張サポート機能を提供します。"
 
 #. type: Plain text
 #: Python-module.md:16
 #, no-wrap
 msgid "*Added 0.46.0*\n"
-msgstr ""
+msgstr "*0.46.0 にて追加*\n"
 
 #. type: Plain text
 #: Python-module.md:18
 msgid "## Functions"
-msgstr ""
+msgstr "## 関数"
 
 #. type: Plain text
 #: Python-module.md:20
@@ -142,7 +144,7 @@ msgstr ""
 #. type: Plain text
 #: Python-module.md:58
 msgid "### Methods"
-msgstr ""
+msgstr "### メソッド"
 
 #. type: Plain text
 #: Python-module.md:60

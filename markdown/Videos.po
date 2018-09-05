@@ -25,7 +25,7 @@ msgstr ""
 #. type: Plain text
 #: Videos.md:4
 msgid "short-description: Videos about Meson ..."
-msgstr ""
+msgstr "short-description: Videos about Meson\n..."
 
 #. type: Plain text
 #: Videos.md:6
