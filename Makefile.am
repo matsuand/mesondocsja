@@ -5,7 +5,7 @@ absdocsdir = @absdocsdir@
 absbuilddir = @abs_builddocdir@
 MESONDIR = @abs_mesondir@/docs
 
-all: dirs build_docs/html/index.html
+all: dirs $(absbuilddir)/html/index.html
 
 .PHONY: dirs
 dirs:
@@ -19,7 +19,7 @@ $(absbuilddir)/html/index.html: $(mdfiles)
 
 .PHONY: install
 install: $(absbuilddir)/html/index.html
-	if test "$(absbuilddir)" = "$(absdocsdir)"; then \
+	if ! test "$(absbuilddir)" = "$(absdocsdir)"; then \
 	  cp -pR $(absbuilddir)/* $(absdocsdir) \
 	else \
 	  echo Nothin to be processed.\

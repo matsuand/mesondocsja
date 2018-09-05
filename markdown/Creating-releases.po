@@ -25,7 +25,7 @@ msgstr ""
 #. type: Plain text
 #: Creating-releases.md:4
 msgid "short-description: Creating releases ..."
-msgstr "short-description: Creating releases\n..."
+msgstr "short-description: リリースの生成\n..."
 
 #. type: Plain text
 #: Creating-releases.md:6

@@ -26,7 +26,7 @@ msgstr ""
 #: Configuration.md:4
 msgid "short-description: Build-time configuration options ..."
 msgstr ""
-"short-description: Build-time configuration options\n"
+"short-description: ビルド時の設定オプション\n"
 "..."
 
 #. type: Plain text
@@ -54,7 +54,7 @@ msgstr ""
 #. type: Plain text
 #: Configuration.md:14
 msgid "Suppose we have the following Meson snippet:"
-msgstr "以下のような Messon の設定を行うとします。"
+msgstr "以下のような Messon の設定を行なうとします。"
 
 #. type: Plain text
 #: Configuration.md:22
@@ -101,7 +101,6 @@ msgstr ""
 
 #. type: Plain text
 #: Configuration.md:43
-#, fuzzy
 msgid ""
 "More specifically, Meson will find all strings of the type `@varname@` and "
 "replace them with respective values set in `conf_data`. You can use a single "
@@ -111,12 +110,6 @@ msgid ""
 "unusable and trying to call it causes an error.  Copy of immutable "
 "`configuration_data` is still immutable."
 msgstr ""
-"More specifically, Meson will find all strings of the type `@varname@` and "
-"replace them with respective values set in `conf_data`. You can use a single "
-"`configuration_data` object as many times as you like, but it becomes "
-"immutable after being passed to the `configure_file` function. That is, "
-"after it has been used once to generate output the `set` function becomes "
-"unusable and trying to call it causes an error."
 
 #. type: Plain text
 #: Configuration.md:46
@@ -158,12 +151,8 @@ msgstr ""
 
 #. type: Plain text
 #: Configuration.md:64
-#, fuzzy
 msgid "```meson conf_data.set('TOKEN', '\"value\"')  ```"
-msgstr ""
-"```meson\n"
-"conf.set('TOKEN', '\"value\"') \n"
-"```"
+msgstr "```meson\nconf_data.set('TOKEN', '\"value\"')\n```"
 
 #. type: Plain text
 #: Configuration.md:67
@@ -173,14 +162,12 @@ msgstr ""
 
 #. type: Plain text
 #: Configuration.md:72
-#, fuzzy
 msgid ""
 "```meson plain_var = 'value' conf_data.set_quoted('TOKEN', plain_var) # "
 "becomes #define TOKEN \"value\" ```"
 msgstr ""
-"```meson\n"
-"plain_var = 'value' conf.set_quoted('TOKEN', plain_var)\n"
-"# becomes #define TOKEN \"value\"\n"
+"```meson\nplain_var = 'value' conf_data.set_quoted('TOKEN', plain_var) # "
+"becomes #define TOKEN \"value\"\n```"
 "```"
 
 #. type: Plain text
@@ -241,13 +228,12 @@ msgstr ""
 
 #. type: Plain text
 #: Configuration.md:108
-#, fuzzy
 msgid ""
 "```meson conf_data.set('BAR', true, description : 'Set BAR if it is "
 "available')  ```"
 msgstr ""
-"```meson\n"
-"cdata.set('BAR', true, description : 'Set BAR if it is available') \n"
+"```meson\nconf_data.set('BAR', true, description : 'Set BAR if it is "
+"available')\n```"
 "```"
 
 #. type: Plain text

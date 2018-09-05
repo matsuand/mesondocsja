@@ -19,7 +19,7 @@ msgstr ""
 #. type: Plain text
 #: _Sidebar.md:2
 msgid "## Quick References"
-msgstr ""
+msgstr "## クィックリファレンス"
 
 #. type: Bullet: '* '
 #: _Sidebar.md:9
