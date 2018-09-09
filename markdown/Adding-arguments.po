@@ -26,7 +26,7 @@ msgstr ""
 #: Adding-arguments.md:4
 msgid "short-description: Adding compiler arguments ..."
 msgstr ""
-"short-description: Adding compiler arguments\n"
+"short-description: コンパイラー引数の追加\n"
 "..."
 
 #. type: Plain text

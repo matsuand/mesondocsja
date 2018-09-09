@@ -19,7 +19,7 @@ msgstr ""
 #. type: Plain text
 #: howtox.md:2
 msgid "# How do I do X in Meson?"
-msgstr ""
+msgstr "# Meson で XXX はどうやるの？"
 
 #. type: Plain text
 #: howtox.md:6
@@ -32,17 +32,17 @@ msgstr ""
 #. type: Plain text
 #: howtox.md:8
 msgid "## Set compiler"
-msgstr ""
+msgstr "## コンパイラーの設定"
 
 #. type: Plain text
 #: howtox.md:10
 msgid "When first running Meson, set it in an environment variable."
-msgstr ""
+msgstr "Meson を実行する際に、環境変数に設定します。"
 
 #. type: Plain text
 #: howtox.md:14
 msgid "```console $ CC=mycc meson <options> ```"
-msgstr ""
+msgstr "```console\n$ CC=mycc meson <options>\n```"
 
 #. type: Plain text
 #: howtox.md:19
@@ -88,12 +88,12 @@ msgstr ""
 #. type: Plain text
 #: howtox.md:41
 msgid "```meson executable(..., override_options : ['c_std=c11'])  ```"
-msgstr ""
+msgstr "```meson\nexecutable(..., override_options : ['c_std=c11'])\n```"
 
 #. type: Plain text
 #: howtox.md:43
 msgid "## Enable threads"
-msgstr ""
+msgstr "## スレッドの有効化"
 
 #. type: Plain text
 #: howtox.md:47
@@ -108,6 +108,8 @@ msgid ""
 "```meson thread_dep = dependency('threads')  executable(..., dependencies : "
 "thread_dep)  ```"
 msgstr ""
+"```meson\nthread_dep = dependency('threads')\nexecutable(..., dependencies : "
+"thread_dep)\n```"
 
 #. type: Plain text
 #: howtox.md:54
@@ -128,6 +130,7 @@ msgstr ""
 msgid ""
 "```console $ CFLAGS=-fsomething LDFLAGS=-Wl,--linker-flag meson <options> ```"
 msgstr ""
+"```console\n$ CFLAGS=-fsomething LDFLAGS=-Wl,--linker-flag meson <options>\n```"
 
 #. type: Plain text
 #: howtox.md:62
@@ -160,7 +163,7 @@ msgstr ""
 #. type: Plain text
 #: howtox.md:78
 msgid "```meson executable(..., c_args : extra_args)  ```"
-msgstr ""
+msgstr "```meson\nexecutable(..., c_args : extra_args)\n```"
 
 #. type: Plain text
 #: howtox.md:80
@@ -189,6 +192,8 @@ msgid ""
 "```meson txt = run_command('script', 'argument').stdout().strip()  cdata = "
 "configuration_data()  cdata.set('SOMETHING', txt)  configure_file(...)  ```"
 msgstr ""
+"```meson\ntxt = run_command('script', 'argument').stdout().strip()\ncdata = "
+"configuration_data()\ncdata.set('SOMETHING', txt)\nconfigure_file(...)\n```"
 
 #. type: Plain text
 #: howtox.md:97
@@ -215,7 +220,7 @@ msgstr ""
 #. type: Plain text
 #: howtox.md:108
 msgid "```console $ meson <other flags> -Db_coverage=true ```"
-msgstr ""
+msgstr "```console\n$ meson <other flags> -Db_coverage=true\n```"
 
 #. type: Plain text
 #: howtox.md:110
@@ -227,6 +232,7 @@ msgstr ""
 msgid ""
 "```console $ ninja $ ninja test $ ninja coverage-html (or coverage-xml)  ```"
 msgstr ""
+"```console\n$ ninja\n$ ninja test\n$ ninja coverage-html (または coverage-xml)\n```"
 
 #. type: Plain text
 #: howtox.md:118
@@ -250,7 +256,7 @@ msgstr ""
 #. type: Plain text
 #: howtox.md:130
 msgid "```console $ meson configure -Dc_args=-Og ```"
-msgstr ""
+msgstr "```console\n$ meson configure -Dc_args=-Og\n```"
 
 #. type: Plain text
 #: howtox.md:132
@@ -273,7 +279,7 @@ msgstr ""
 #. type: Plain text
 #: howtox.md:142
 msgid "```console $ meson <other options> -Db_sanitize=address ```"
-msgstr ""
+msgstr "```console\n$ meson <other options> -Db_sanitize=address\n```"
 
 #. type: Plain text
 #: howtox.md:146
@@ -296,7 +302,7 @@ msgstr ""
 #. type: Plain text
 #: howtox.md:154
 msgid "```console $ ninja scan-build ```"
-msgstr ""
+msgstr "```console\n$ ninja scan-build\n```"
 
 #. type: Plain text
 #: howtox.md:157
@@ -308,7 +314,7 @@ msgstr ""
 #. type: Plain text
 #: howtox.md:161
 msgid "```console $ SCANBUILD=<your exe> ninja scan-build ```"
-msgstr ""
+msgstr "```console\n$ SCANBUILD=<your exe> ninja scan-build\n```"
 
 #. type: Plain text
 #: howtox.md:164
@@ -328,6 +334,8 @@ msgid ""
 "```console $ meson <Meson options, such as --buildtype=debugoptimized> -"
 "Db_pgo=generate $ ninja -C builddir ```"
 msgstr ""
+"```console\n$ meson <Meson オプション, 例えば --buildtype=debugoptimized> -"
+"Db_pgo=generate\n$ ninja -C builddir\n```"
 
 #. type: Plain text
 #: howtox.md:176
@@ -346,7 +354,7 @@ msgstr ""
 #. type: Plain text
 #: howtox.md:184
 msgid "```console $ meson configure -Db_pgo=use $ ninja ```"
-msgstr ""
+msgstr "```console\n$ meson configure -Db_pgo=use $ ninja\n```"
 
 #. type: Plain text
 #: howtox.md:186
@@ -372,11 +380,13 @@ msgid ""
 "```meson cc = meson.get_compiler('c')  m_dep = cc.find_library('m', "
 "required : false)  executable(..., dependencies : m_dep)  ```"
 msgstr ""
+"```meson\ncc = meson.get_compiler('c')\nm_dep = cc.find_library('m', "
+"required : false)\nexecutable(..., dependencies : m_dep)\n```"
 
 #. type: Plain text
 #: howtox.md:200
 msgid "## Install an executable to `libexecdir`"
-msgstr ""
+msgstr "## 実行モジュールを `libexecdir` へインストール"
 
 #. type: Plain text
 #: howtox.md:203
@@ -384,3 +394,5 @@ msgid ""
 "```meson executable(..., install : true, install_dir : "
 "get_option('libexecdir'))  ```"
 msgstr ""
+"```meson\nexecutable(..., install : true, install_dir : "
+"get_option('libexecdir'))\n```"

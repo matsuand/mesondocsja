@@ -153,12 +153,12 @@ msgstr ""
 #. type: Plain text
 #: Getting-meson.md:58
 msgid "# Platform-specific install quirks"
-msgstr ""
+msgstr "# プラットフォーム固有のインストール例"
 
 #. type: Plain text
 #: Getting-meson.md:60
 msgid "## Windows Python3 quirks"
-msgstr ""
+msgstr "## Windows Python3 の場合"
 
 #. type: Plain text
 #: Getting-meson.md:63
@@ -166,6 +166,8 @@ msgid ""
 "When installing Python 3, it is highly recommended (but not required) that "
 "you select the installer options as follows:"
 msgstr ""
+"Python 3 をインストールする場合は (必須ではないですが) 以下に示すようなインス"
+"トーラーオプションを選択することが強く推奨されます。"
 
 #. type: Plain text
 #: Getting-meson.md:67
@@ -189,7 +191,7 @@ msgstr ""
 #. type: Plain text
 #: Getting-meson.md:74
 msgid "## MSYS2 Python3 quirks"
-msgstr ""
+msgstr "## MSYS2 Python3 の場合"
 
 #. type: Plain text
 #: Getting-meson.md:79
@@ -215,20 +217,3 @@ msgstr ""
 "  [Git]: https://github.com/mesonbuild/meson\n"
 "  [Python のホームページ]: https://www.python.org/downloads/\n"
 "  [Ninja モジュール]: https://ninja-build.org/\n"
-
-#~ msgid "Meson releases can be downloaded from the [GitHub release page]."
-#~ msgstr ""
-#~ "Meson は [GitHub リリースページ] からダウンロードすることができます。"
-
-#~ msgid "The newest development code can be obtained directly from [Git]"
-#~ msgstr "開発版の最新は [Git] から直接入手してください。"
-
-#~ msgid ""
-#~ "Depending on your platform and backend you wish to use, you might need "
-#~ "the [Ninja executable]. Again, use your distro-provided version if "
-#~ "possible. Otherwise download it from Ninja project's web site."
-#~ msgstr ""
-#~ "利用しているプラットフォームや、バックエンドを利用するかどうかによって、"
-#~ "[Ninja モジュール] を必要とすることもあります。ここでもできるだけ、ディス"
-#~ "トリビューションが提供しているモジュールを利用するようにしてください。それ"
-#~ "ができない場合は、Ninja プロジェクトの Web サイトから入手してください。"

@@ -19,7 +19,7 @@ msgstr ""
 #. type: Plain text
 #: Python-3-module.md:2
 msgid "# Python 3 module"
-msgstr ""
+msgstr "# Python 3 モジュール"
 
 #. type: Plain text
 #: Python-3-module.md:5
@@ -27,6 +27,7 @@ msgid ""
 "This module provides support for dealing with Python 3. It has the following "
 "methods."
 msgstr ""
+"本モジュールは Python 3 をサポートします。以下に示すようなメソッドがあります。"
 
 #. type: Plain text
 #: Python-3-module.md:7
@@ -40,12 +41,16 @@ msgid ""
 "have a different name on different operating systems. Returns an [external "
 "program](Reference-manual.html#external-program-object) object."
 msgstr ""
+"これは、クロスプラットフォームにおいて Python 3 実行モジュールを見つけ出す際"
+"に利用します。実行モジュールは、オペレーティングシステムが変わるとその名前も"
+"変わるかもしれません。このメソッドは [external program ](Reference-manual.html"
+"#external-program-object) を返します。"
 
 #. type: Plain text
 #: Python-3-module.md:13 Python-3-module.md:26
 #, no-wrap
 msgid "*Added 0.38.0*\n"
-msgstr ""
+msgstr "*バージョン 0.38.0 にて追加*\n"
 
 #. type: Plain text
 #: Python-3-module.md:15
@@ -82,7 +87,7 @@ msgstr ""
 #: Python-3-module.md:32 Python-3-module.md:38
 #, no-wrap
 msgid "*Added 0.40.0*\n"
-msgstr ""
+msgstr "*バージョン 0.40.0 にて追加*\n"
 
 #. type: Plain text
 #: Python-3-module.md:34

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-09-01 16:24+0900\n"
+"POT-Creation-Date: 2018-09-08 14:35+0900\n"
 "PO-Revision-Date: 2017-09-30 21:44+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -19,7 +19,7 @@ msgstr ""
 #. type: Plain text
 #: Reference-tables.md:2
 msgid "# Reference tables"
-msgstr "# リファレンス表"
+msgstr "# リファレンス一覧"
 
 #. type: Plain text
 #: Reference-tables.md:4
@@ -56,6 +56,26 @@ msgid ""
 "| arm       | ARM compiler                   |\n"
 "| armclang  | ARMCLANG compiler              |\n"
 msgstr ""
+"| 値        | コンパイラーファミリー         |\n"
+"| -----     | ----------------               |\n"
+"| gcc       | GNU コンパイラーコレクション   |\n"
+"| clang     | Clang コンパイラー             |\n"
+"| msvc      | Microsoft Visual Studio        |\n"
+"| intel     | Intel コンパイラー             |\n"
+"| llvm      | LLVM ベースのコンパイラー (Swift, D) |\n"
+"| mono      | Xamarin C# コンパイラー        |\n"
+"| dmd       | D 言語リファレンスコンパイラー |\n"
+"| rustc     | Rust コンパイラー              |\n"
+"| valac     | Vala コンパイラー              |\n"
+"| pathscale | Pathscale Fortran コンパイラー |\n"
+"| pgi       | Portland Fortran コンパイラー  |\n"
+"| sun       | Sun Fortran コンパイラー       |\n"
+"| g95       | G95 Fortran コンパイラー       |\n"
+"| open64    | Open64 Fortran コンパイラー    |\n"
+"| nagfor    | NAG Fortran コンパイラー       |\n"
+"| lcc       | Elbrus C/C++/Fortran コンパイラー |\n"
+"| arm       | ARM コンパイラー               |\n"
+"| armclang  | ARMCLANG コンパイラー          |\n"
 
 #. type: Plain text
 #: Reference-tables.md:29
@@ -131,7 +151,7 @@ msgstr "以下は `.system()` メソッドの呼び出しによって得られ�
 
 #. type: Plain text
 #: Reference-tables.md:81
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "| Value               | Comment                         |\n"
 "| -----               | -------                         |\n"
@@ -149,7 +169,7 @@ msgstr ""
 "| linux               | |\n"
 "| darwin              | OSX または iOS |\n"
 "| windows             | Windows 全バージョン |\n"
-"| cygwin              | Windows での Cygwin 環境 |\n"
+"| cygwin              | Windows 上の Cygwin 環境 |\n"
 "| haiku               | |\n"
 "| freebsd             | FreeBSD およびその派生 OS |\n"
 "| dragonfly           | DragonFly BSD |\n"
@@ -175,7 +195,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-tables.md:101
+#: Reference-tables.md:102
 #, no-wrap
 msgid ""
 "| Language      | Parameter name |\n"
@@ -190,4 +210,95 @@ msgid ""
 "| Objective C++ | objcpp_args |\n"
 "| Rust          | rust_args |\n"
 "| Vala          | vala_args |\n"
+msgstr ""
+
+#. type: Plain text
+#: Reference-tables.md:105
+msgid "## Function Attributes"
+msgstr ""
+
+#. type: Plain text
+#: Reference-tables.md:109
+msgid ""
+"These are the parameters names that are supported using `compiler."
+"has_function_attribute()` or `compiler.get_supported_function_attributes()`"
+msgstr ""
+
+#. type: Plain text
+#: Reference-tables.md:111
+msgid "### GCC __attribute__"
+msgstr ""
+
+#. type: Plain text
+#: Reference-tables.md:114
+msgid ""
+"These values are supported using the GCC style `__attribute__` annotations, "
+"which are supported by GCC, Clang, and other compilers."
+msgstr ""
+
+#. type: Plain text
+#: Reference-tables.md:155
+#, no-wrap
+msgid ""
+"| Name                 |\n"
+"|----------------------|\n"
+"| alias                |\n"
+"| aligned              |\n"
+"| alloc_size           |\n"
+"| always_inline        |\n"
+"| artificial           |\n"
+"| cold                 |\n"
+"| const                |\n"
+"| constructor          |\n"
+"| constructor_priority |\n"
+"| deprecated           |\n"
+"| destructor           |\n"
+"| error                |\n"
+"| externally_visible   |\n"
+"| fallthrough          |\n"
+"| flatten              |\n"
+"| format               |\n"
+"| format_arg           |\n"
+"| gnu_inline           |\n"
+"| hot                  |\n"
+"| ifunc                |\n"
+"| malloc               |\n"
+"| noclone              |\n"
+"| noinline             |\n"
+"| nonnull              |\n"
+"| noreturn             |\n"
+"| nothrow              |\n"
+"| optimize             |\n"
+"| packed               |\n"
+"| pure                 |\n"
+"| returns_nonnull      |\n"
+"| unused               |\n"
+"| used                 |\n"
+"| visibility           |\n"
+"| warning              |\n"
+"| warn_unused_result   |\n"
+"| weak                 |\n"
+"| weakreaf             |\n"
+msgstr ""
+
+#. type: Plain text
+#: Reference-tables.md:157
+msgid "### MSVC __declspec"
+msgstr ""
+
+#. type: Plain text
+#: Reference-tables.md:160
+msgid ""
+"These values are supported using the MSVC style `__declspec` annotation, "
+"which are supported by MSVC, GCC, Clang, and other compilers."
+msgstr ""
+
+#. type: Plain text
+#: Reference-tables.md:164
+#, no-wrap
+msgid ""
+"| Name                 |\n"
+"|----------------------|\n"
+"| dllexport            |\n"
+"| dllimport            |\n"
 msgstr ""

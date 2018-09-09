@@ -42,25 +42,24 @@ msgid ""
 "after they have been constructed. This ensures that all information "
 "pertaining to a given build target is specified in one well defined place."
 msgstr ""
-"Meson には 3 種類のビルドターゲット、つまり実行モジュール、スタティックライ"
-"ブラリ、共有ライブラリがあります。これは `executable`、`static_library`、"
+"Meson には 3 種類のビルドターゲットがあります。実行モジュール、スタティック"
+"ライブラリ、共有ライブラリです。これは `executable`、`static_library`、"
 "`shared_library` の各コマンドによって生成されます。このコマンドによって生成"
 "されるオブジェクトは**不変的**なものです。つまり一度作り上げたものは、他の"
-"ものに変更することはできません。"
-"This ensures that all information "
-"pertaining to a given build target is specified in one well defined place."
+"ものに変更することはできません。したがって記述されたビルドターゲットの情報"
+"のすべては確実に保持され、1 つの記述箇所において特定されることになります。"
 
 #. type: Plain text
 #: Build-targets.md:16
 msgid "As an example, here is how you would build a shared library."
-msgstr ""
+msgstr "例として、以下は共有ライブラリを作り出すものです。"
 
 #. type: Plain text
 #: Build-targets.md:21
 msgid ""
 "```meson project('shared lib', 'c')  shared_library('mylib', 'source.c')  ```"
 msgstr ""
-"```meson\nproject('shared lib', 'c') \nshared_library('mylib', 'source.c') \n```"
+"```meson\nproject('shared lib', 'c')\nshared_library('mylib', 'source.c')\n```"
 
 #. type: Plain text
 #: Build-targets.md:24
@@ -68,6 +67,9 @@ msgid ""
 "In Unix-like operating systems, shared libraries can be versioned. Meson "
 "supports this with keyword arguments."
 msgstr ""
+"Unix ライクなオペレーティングシステムにおいて、共有ライブラリにはバージョン"
+"番号がつくことがあります。これに対して Meson はキーワード引数を用いて対応す"
+"ることができます。"
 
 #. type: Plain text
 #: Build-targets.md:29
@@ -84,6 +86,8 @@ msgid ""
 "It is common to build a library and then an executable that links against "
 "it. This is supported as well."
 msgstr ""
+"ライブラリをビルドしたら、普通はそれをリンクする実行モジュールを生成します。"
+"これも以下のようにして対応できます。"
 
 #. type: Plain text
 #: Build-targets.md:38
@@ -101,11 +105,17 @@ msgid ""
 "from the build directory. There is no need to write shell scripts or set "
 "environment variables."
 msgstr ""
+"Meson はすべてをうまく処理してくれるので、ビルド結果として生成された実行モ"
+"ジュールは、ビルドディレクトリ内にて直接実行できるようになります。このとき"
+"には、シェルスクリプトを用意したり環境変数を定義したりするようなことは必要"
+"ありません。"
 
 #. type: Plain text
 #: Build-targets.md:44
 msgid "One target can have multiple language source files."
 msgstr ""
+"ビルドターゲットにおいては、プログラミング言語の異なるソースファイルを複数"
+"指定することもできます。"
 
 #. type: Plain text
 #: Build-targets.md:49

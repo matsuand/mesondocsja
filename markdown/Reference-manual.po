@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-09-05 16:30+0900\n"
+"POT-Creation-Date: 2018-09-08 14:35+0900\n"
 "PO-Revision-Date: 2017-09-30 21:44+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -3460,13 +3460,32 @@ msgstr ""
 msgid "- `version()` returns the compiler's version number as a string."
 msgstr ""
 
+#. type: Bullet: '- '
+#: Reference-manual.md:1762
+msgid ""
+"`has_function_attribute(name)` *(added in 0.48.0)* returns `true` if the "
+"compiler supports the GNU style (`__attribute__(...)`) `name`. This is "
+"preferable to manual compile checks as it may be optimized for compilers "
+"that do not support such attributes.  [This table](Reference-tables.html#gcc-"
+"attribute-support) Lists all of the supported attributes."
+msgstr ""
+
+#. type: Bullet: '- '
+#: Reference-manual.md:1767
+msgid ""
+"`get_supported_function_attributes(list_of_names)` *(added in 0.48.0)  "
+"returns an array containing any names that are supported GCC style "
+"attributes. Equivalent to `has_function_attribute` was called on each of "
+"them individually."
+msgstr ""
+
 #. type: Plain text
-#: Reference-manual.md:1757
+#: Reference-manual.md:1769
 msgid "The following keyword arguments can be used:"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1766
+#: Reference-manual.md:1778
 msgid ""
 "`args` can be used to pass a list of compiler arguments that are required to "
 "find the header or symbol. For example, you might need to pass the include "
@@ -3478,14 +3497,14 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1769
+#: Reference-manual.md:1781
 msgid ""
 "`include_directories` specifies extra directories for header searches. "
 "*(added 0.38.0)*"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1774
+#: Reference-manual.md:1786
 msgid ""
 "`name` the name to use for printing a message about the compiler check. "
 "Supported by the methods `compiles()`, `links()`, and `run()`. If this "
@@ -3494,7 +3513,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1782
+#: Reference-manual.md:1794
 msgid ""
 "`prefix` can be used to add #includes and other things that are required for "
 "the symbol to be declared. System definitions should be passed via compiler "
@@ -3505,7 +3524,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1788
+#: Reference-manual.md:1800
 #, no-wrap
 msgid ""
 "**Note:** These compiler checks do not use compiler arguments added with \n"
@@ -3516,7 +3535,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1794
+#: Reference-manual.md:1806
 msgid ""
 "Note that if you have a single prefix with all your dependencies, you might "
 "find it easier to append to the environment variables `C_INCLUDE_PATH` with "
@@ -3526,7 +3545,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1798
+#: Reference-manual.md:1810
 msgid ""
 "However, with GCC, these variables will be ignored when cross-compiling. In "
 "that case you need to use a specs file. See: <http://www.mingw.org/wiki/"
@@ -3534,61 +3553,61 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1800
+#: Reference-manual.md:1812
 msgid "### `string` object"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1803
+#: Reference-manual.md:1815
 msgid ""
 "All [strings](Syntax.md#strings) have the following methods. Strings are "
 "immutable, all operations return their results as a new string."
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1806
+#: Reference-manual.md:1818
 msgid ""
 "`contains(string)` returns true if string contains the string specified as "
 "the argument"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1809
+#: Reference-manual.md:1821
 msgid ""
 "`endswith(string)` returns true if string ends with the string specified as "
 "the argument"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1812
+#: Reference-manual.md:1824
 msgid ""
 "`format()` formats text, see the [Syntax manual](Syntax.md#string-"
 "formatting) for usage info"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1815
+#: Reference-manual.md:1827
 msgid ""
 "`join(list_of_strings)` is the opposite of split, for example `'.'."
 "join(['a', 'b', 'c']` yields `'a.b.c'`"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1819
+#: Reference-manual.md:1831
 msgid ""
 "`split(split_character)` splits the string at the specified character (or "
 "whitespace if not set) and returns the parts in an array"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1822
+#: Reference-manual.md:1834
 msgid ""
 "`startswith(string)` returns true if string starts with the string specified "
 "as the argument"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1826
+#: Reference-manual.md:1838
 msgid ""
 "`strip()` removes whitespace at the beginning and end of the string *(added "
 "0.43.0)* optionally can take one positional string argument, and all "
@@ -3596,73 +3615,73 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1829
+#: Reference-manual.md:1841
 msgid ""
 "`to_int` returns the string converted to an integer (error if string is not "
 "a number)"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1831
+#: Reference-manual.md:1843
 msgid "- `to_lower()` creates a lower case version of the string"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1833
+#: Reference-manual.md:1845
 msgid "- `to_upper()` creates an upper case version of the string"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1836
+#: Reference-manual.md:1848
 msgid ""
 "`underscorify()` creates a string where every non-alphabetical non-number "
 "character is replaced with `_`"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1840
+#: Reference-manual.md:1852
 msgid ""
 "`version_compare(comparison_string)` does semantic version comparison, if `x "
 "= '1.2.3'` then `x.version_compare('>1.0.0')` returns `true`"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1842
+#: Reference-manual.md:1854
 msgid "### `Number` object"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1844
+#: Reference-manual.md:1856
 msgid "[Numbers](Syntax.md#numbers) support these methods:"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Reference-manual.md:1847
+#: Reference-manual.md:1859
 msgid "`is_even()` returns true if the number is even"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Reference-manual.md:1847
+#: Reference-manual.md:1859
 msgid "`is_odd()` returns true if the number is odd"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1849
+#: Reference-manual.md:1861
 msgid "### `boolean` object"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1851
+#: Reference-manual.md:1863
 msgid "A [boolean](Syntax.md#booleans) object has two simple methods:"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1853
+#: Reference-manual.md:1865
 msgid "- `to_int()` as above, but returns either `1` or `0`"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1859
+#: Reference-manual.md:1871
 msgid ""
 "`to_string()` returns the string `'true'` if the boolean is true or "
 "`'false'` otherwise. You can also pass it two strings as positional "
@@ -3672,24 +3691,24 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1861
+#: Reference-manual.md:1873
 msgid "### `array` object"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1863
+#: Reference-manual.md:1875
 msgid "The following methods are defined for all [arrays](Syntax.md#arrays):"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1866
+#: Reference-manual.md:1878
 msgid ""
 "`contains(item)`, returns `true` if the array contains the object given as "
 "argument, `false` otherwise"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1871
+#: Reference-manual.md:1883
 msgid ""
 "`get(index, fallback)`, returns the object at the given index, negative "
 "indices count from the back of the array, indexing out of bounds returns the "
@@ -3698,38 +3717,38 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1873
+#: Reference-manual.md:1885
 msgid "- `length()`, the size of the array"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1876
+#: Reference-manual.md:1888
 msgid ""
 "You can also iterate over arrays with the [`foreach` statement](Syntax."
 "md#foreach-statements)."
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1878
+#: Reference-manual.md:1890
 msgid "### `dictionary` object"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1880
+#: Reference-manual.md:1892
 msgid ""
 "The following methods are defined for all [dictionaries](Syntax."
 "md#dictionaries):"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1883
+#: Reference-manual.md:1895
 msgid ""
 "`has_key(key)` returns `true` if the dictionary contains the key given as "
 "argument, `false` otherwise"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1888
+#: Reference-manual.md:1900
 msgid ""
 "`get(key, fallback)`, returns the value for the key given as first argument "
 "if it is present in the dictionary, or the optional fallback value given as "
@@ -3738,41 +3757,41 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1891
+#: Reference-manual.md:1903
 msgid ""
 "You can also iterate over dictionaries with the [`foreach` statement](Syntax."
 "md#foreach-statements)."
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1893
+#: Reference-manual.md:1905
 msgid "Dictionaries are available since 0.47.0."
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1896
+#: Reference-manual.md:1908
 msgid ""
 "Since 0.48.0 dictionaries can be added (e.g. `d1 = d2 + d3` and `d1 += "
 "d2`).  Values from the second dictionary overrides values from the first."
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1898
+#: Reference-manual.md:1910
 msgid "## Returned objects"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1900
+#: Reference-manual.md:1912
 msgid "These are objects returned by the [functions listed above](#functions)."
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1902
+#: Reference-manual.md:1914
 msgid "### `build target` object"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1907
+#: Reference-manual.md:1919
 msgid ""
 "A build target is either an [executable](#executable), [shared library]"
 "(#shared_library), [static library](#static_library), [both shared and "
@@ -3780,7 +3799,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1915
+#: Reference-manual.md:1927
 msgid ""
 "`extract_all_objects()` is same as `extract_objects` but returns all object "
 "files generated by this target. Since 0.46.0 keyword argument `recursive` "
@@ -3791,7 +3810,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1921
+#: Reference-manual.md:1933
 msgid ""
 "`extract_objects()` returns an opaque value representing the generated "
 "object files of arguments, usually used to take single object files and link "
@@ -3801,7 +3820,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1926
+#: Reference-manual.md:1938
 msgid ""
 "`full_path()` returns a full path pointing to the result target file.  NOTE: "
 "In most cases using the object itself will do the same job as this and will "
@@ -3810,7 +3829,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1931
+#: Reference-manual.md:1943
 msgid ""
 "`private_dir_include()` returns a opaque value that works like "
 "`include_directories` but points to the private directory of this target, "
@@ -3819,12 +3838,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1934
+#: Reference-manual.md:1946
 msgid "### `configuration` data object"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1940
+#: Reference-manual.md:1952
 msgid ""
 "This object is returned by [`configuration_data()`](#configuration_data) and "
 "encapsulates configuration values to be used for generating configuration "
@@ -3833,7 +3852,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1944
+#: Reference-manual.md:1956
 msgid ""
 "`get(varname, default_value)` returns the value of `varname`, if the value "
 "has not been set returns `default_value` if it is defined *(added 0.38.0)* "
@@ -3841,7 +3860,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1949
+#: Reference-manual.md:1961
 msgid ""
 "`get_unquoted(varname, default_value)` returns the value of `varname` but "
 "without surrounding double quotes (`\"`). If the value has not been set "
@@ -3850,12 +3869,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1951
+#: Reference-manual.md:1963
 msgid "- `has(varname)`, returns `true` if the specified variable is set"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1955
+#: Reference-manual.md:1967
 msgid ""
 "`merge_from(other)` takes as argument a different configuration data object "
 "and copies all entries from that object to the current object, available "
@@ -3863,26 +3882,26 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1957
+#: Reference-manual.md:1969
 msgid "- `set(varname, value)`, sets a variable to a given value"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1961
+#: Reference-manual.md:1973
 msgid ""
 "`set10(varname, boolean_value)` is the same as above but the value is either "
 "`true` or `false` and will be written as 1 or 0, respectively"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1964
+#: Reference-manual.md:1976
 msgid ""
 "`set_quoted(varname, value)` is same as `set` but quotes the value in double "
 "quotes (`\"`)"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1970
+#: Reference-manual.md:1982
 msgid ""
 "They all take the `description` keyword that will be written in the result "
 "file. The replacement assumes a file with C syntax. If your generated file "
@@ -3891,19 +3910,19 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1972
+#: Reference-manual.md:1984
 msgid "### `custom target` object"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1975
+#: Reference-manual.md:1987
 msgid ""
 "This object is returned by [`custom_target`](#custom_target) and contains a "
 "target with the following methods:"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1980
+#: Reference-manual.md:1992
 msgid ""
 "`full_path()` returns a full path pointing to the result target file NOTE: "
 "In most cases using the object itself will do the same job as this and will "
@@ -3912,7 +3931,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:1986
+#: Reference-manual.md:1998
 msgid ""
 "`[index]` returns an opaque object that references this target, and can be "
 "used as a source in other targets. When it is used as such it will make that "
@@ -3921,24 +3940,24 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1988
+#: Reference-manual.md:2000
 msgid "### `dependency` object"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:1991
+#: Reference-manual.md:2003
 msgid ""
 "This object is returned by [`dependency()`](#dependency) and contains an "
 "external dependency with the following methods:"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Reference-manual.md:1993
+#: Reference-manual.md:2005
 msgid "`found()` which returns whether the dependency was found"
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Reference-manual.md:2001
+#: Reference-manual.md:2013
 msgid ""
 "`get_pkgconfig_variable(varname)` (*Added 0.36.0*) will get the pkg-config "
 "variable specified, or, if invoked on a non pkg-config dependency, error "
@@ -3949,7 +3968,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Reference-manual.md:2005
+#: Reference-manual.md:2017
 msgid ""
 "`get_configtool_variable(varname)` (*Added 0.44.0*) will get the command "
 "line argument from the config tool (with `--` prepended), or, if invoked on "
@@ -3957,7 +3976,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Reference-manual.md:2010
+#: Reference-manual.md:2022
 msgid ""
 "`type_name()` which returns a string describing the type of the dependency, "
 "the most common values are `internal` for deps created with "
@@ -3966,14 +3985,14 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Reference-manual.md:2014
+#: Reference-manual.md:2026
 msgid ""
 "`version()` is the version number as a string, for example `1.2.8`.  "
 "`unknown` if the dependency provider doesn't support determining the version."
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Reference-manual.md:2021 Reference-manual.md:2108
+#: Reference-manual.md:2033 Reference-manual.md:2120
 msgid ""
 "`partial_dependency(compile_args : false, link_args : false, links : false, "
 "includes : false, source : false)` (*added 0.46.0*) returns a new dependency "
@@ -3983,7 +4002,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:2024
+#: Reference-manual.md:2036
 #, no-wrap
 msgid ""
 "   If the parent has any dependencies, those will be applied to the new\n"
@@ -3991,7 +4010,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:2030
+#: Reference-manual.md:2042
 #, no-wrap
 msgid ""
 "   ```meson\n"
@@ -4002,7 +4021,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:2034
+#: Reference-manual.md:2046
 #, no-wrap
 msgid ""
 "   dep3 will add `['-Werror=foo', '-Werror=bar']` to the compiler args\n"
@@ -4011,43 +4030,43 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:2036
+#: Reference-manual.md:2048
 #, no-wrap
 msgid "   The following arguments will add the following attributes:\n"
 msgstr ""
 
 #. type: Bullet: '   - '
-#: Reference-manual.md:2042
+#: Reference-manual.md:2054
 msgid "compile_args: any arguments passed to the compiler"
 msgstr ""
 
 #. type: Bullet: '   - '
-#: Reference-manual.md:2042
+#: Reference-manual.md:2054
 msgid "link_args: any arguments passed to the linker"
 msgstr ""
 
 #. type: Bullet: '   - '
-#: Reference-manual.md:2042
+#: Reference-manual.md:2054
 msgid "links: anything passed via link_with or link_whole"
 msgstr ""
 
 #. type: Bullet: '   - '
-#: Reference-manual.md:2042
+#: Reference-manual.md:2054
 msgid "includes: any include_directories"
 msgstr ""
 
 #. type: Bullet: '   - '
-#: Reference-manual.md:2042
+#: Reference-manual.md:2054
 msgid "sources: any compiled or static sources the dependency has"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:2044
+#: Reference-manual.md:2056
 msgid "### `disabler` object"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:2050
+#: Reference-manual.md:2062
 msgid ""
 "A disabler object is an object that behaves in much the same way as NaN "
 "numbers do in floating point math. That is when used in any statement "
@@ -4057,17 +4076,17 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '  - '
-#: Reference-manual.md:2052
+#: Reference-manual.md:2064
 msgid "`found()`, always returns `false`"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:2054
+#: Reference-manual.md:2066
 msgid "### `external program` object"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:2058
+#: Reference-manual.md:2070
 msgid ""
 "This object is returned by [`find_program()`](#find_program) and contains an "
 "external (i.e. not built as part of this project) program and has the "
@@ -4075,12 +4094,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:2060
+#: Reference-manual.md:2072
 msgid "- `found()` which returns whether the executable was found"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:2064
+#: Reference-manual.md:2076
 msgid ""
 "`path()` which returns a string pointing to the script or executable **NOTE:"
 "** You should not need to use this method. Passing the object itself should "
@@ -4088,12 +4107,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:2066
+#: Reference-manual.md:2078
 msgid "### `environment` object"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:2071
+#: Reference-manual.md:2083
 msgid ""
 "This object is returned by [`environment()`](#environment) and stores "
 "detailed information about how environment variables should be set during "
@@ -4102,7 +4121,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:2079
+#: Reference-manual.md:2091
 msgid ""
 "`append(varname, value1, value2, ...)` appends the given values to the old "
 "value of the environment variable, e.g.  `env.append('FOO', 'BAR', 'BAZ', "
@@ -4113,14 +4132,14 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:2082
+#: Reference-manual.md:2094
 msgid ""
 "`prepend(varname, value1, value2, ...)` is the same as `append` except that "
 "it writes to the beginning of the variable"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:2087
+#: Reference-manual.md:2099
 msgid ""
 "`set(varname, value1, value2)` sets the environment variable specified in "
 "the first argument to the values in the second argument joined by the "
@@ -4129,7 +4148,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:2090
+#: Reference-manual.md:2102
 #, no-wrap
 msgid ""
 "**Note:** All these methods overwrite the previously-defined value(s)\n"
@@ -4137,12 +4156,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:2092
+#: Reference-manual.md:2104
 msgid "### `external library` object"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:2096
+#: Reference-manual.md:2108
 msgid ""
 "This object is returned by [`find_library()`](#find_library) and contains an "
 "external (i.e. not built as part of this project)  library. This object has "
@@ -4150,24 +4169,24 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Reference-manual.md:2098
+#: Reference-manual.md:2110
 msgid "`found` which returns whether the library was found."
 msgstr ""
 
 #. type: Bullet: ' - '
-#: Reference-manual.md:2101
+#: Reference-manual.md:2113
 msgid ""
 "`type_name()` (*added 0.48.0*) which returns a string describing the type of "
 "the dependency, which will be `library` in this case."
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:2110
+#: Reference-manual.md:2122
 msgid "### `generator` object"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:2114
+#: Reference-manual.md:2126
 msgid ""
 "This object is returned by [`generator()`](#generator) and contains a "
 "generator that is used to transform files from one type to another by an "
@@ -4175,7 +4194,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: Reference-manual.md:2127
+#: Reference-manual.md:2139
 msgid ""
 "`process(list_of_files, ...)` takes a list of files, causes them to be "
 "processed and returns an object containing the result which can then, for "
@@ -4190,19 +4209,19 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:2129
+#: Reference-manual.md:2141
 msgid "### `subproject` object"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:2132
+#: Reference-manual.md:2144
 msgid ""
 "This object is returned by [`subproject()`](#subproject) and is an opaque "
 "object representing it."
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:2136
+#: Reference-manual.md:2148
 msgid ""
 "`get_variable(name)` fetches the specified variable from inside the "
 "subproject. This is useful to, for instance, get a [declared dependency]"
@@ -4210,12 +4229,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:2138
+#: Reference-manual.md:2150
 msgid "### `run result` object"
 msgstr ""
 
 #. type: Plain text
-#: Reference-manual.md:2142
+#: Reference-manual.md:2154
 msgid ""
 "This object encapsulates the result of trying to compile and run a sample "
 "piece of code with [`compiler.run()`](#compiler-object) or [`run_command()`]"
@@ -4223,23 +4242,23 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:2147
+#: Reference-manual.md:2159
 msgid ""
 "`compiled()` if true, the compilation succeeded, if false it did not and the "
 "other methods return unspecified data"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:2147
+#: Reference-manual.md:2159
 msgid "`returncode()` the return code of executing the compiled binary"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:2147
+#: Reference-manual.md:2159
 msgid "`stderr()` the standard error produced when the command was run"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Reference-manual.md:2147
+#: Reference-manual.md:2159
 msgid "`stdout()` the standard out produced when the command was run"
 msgstr ""

@@ -41,7 +41,7 @@ msgid ""
 "by tagging them as installable in the definition."
 msgstr ""
 "デフォルトでは Meson は何もインストールしません。ビルドターゲットをインスト"
-"ールするには、インストールする対象として定義づけする必要があります。"
+"ールするには、インストールする対象として定義づけを行う必要があります。"
 
 #. type: Plain text
 #: Installing.md:14

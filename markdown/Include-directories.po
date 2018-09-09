@@ -25,7 +25,7 @@ msgstr ""
 #. type: Plain text
 #: Include-directories.md:4
 msgid "short-description: Instructions on handling include directories ..."
-msgstr "short-description: Instructions on handling include directories\n..."
+msgstr "short-description: インクルードディレクトリの扱い手順\n..."
 
 #. type: Plain text
 #: Include-directories.md:6
@@ -40,6 +40,12 @@ msgid ""
 "some subdirectory and wish to add its `include` subdirectory to some "
 "target's search path. To create a include directory object we do this:"
 msgstr ""
+"C / C++ プロジェクトでは、ヘッダーファイルをソースファイルとは別ディレクトリ"
+"に配置することが多くあります。そこでインクルードディレクトリを指定する必要が"
+"出てきます。"
+"Let's assume that we are at "
+"some subdirectory and wish to add its `include` subdirectory to some "
+"target's search path. To create a include directory object we do this:"
 
 #. type: Plain text
 #: Include-directories.md:12

@@ -55,6 +55,9 @@ msgid ""
 "writing or debugging build definitions is a second wasted. So is every "
 "second spent waiting for the build system to actually start compiling code."
 msgstr ""
+"Meson の主要な設計ポイントは、開発者がビルド定義を書いたりデバッグしたり"
+"する時間がまったくの無駄であるという点です。コンパイルコードを実行できる"
+"ようになるまでビルドシステムの処理を待つ時間も、同じく無駄な時間です。"
 
 #. type: Plain text
 #: index.md:18
@@ -118,6 +121,9 @@ msgid ""
 "first one is the mailing list, which is hosted at [Google Groups](https://"
 "groups.google.com/forum/#!forum/mesonbuild)."
 msgstr ""
+"Meson 開発者と交流を深める方法は主に 2 つあります。1 つはメーリングリスト"
+"です。これは [Google Groups](https://groups.google.com/forum/#!forum/meson"
+"build) においてホストされています。"
 
 #. type: Plain text
 #: index.md:35
@@ -125,11 +131,13 @@ msgid ""
 "The second way is via IRC. The channel to use is `#mesonbuild` at [Freenode]"
 "(https://freenode.net/)."
 msgstr ""
+"2 つめは IRC です。チャネルは [Freenode](https://freenode.net/) における"
+"`#mesonbuild` です。"
 
 #. type: Plain text
 #: index.md:37
 msgid "### [Projects using Meson](http://mesonbuild.com/Users.html)"
-msgstr ""
+msgstr "### [Meson を使ったプロジェクト](./Users.html)"
 
 #. type: Plain text
 #: index.md:41

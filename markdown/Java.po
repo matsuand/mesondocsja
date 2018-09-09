@@ -25,7 +25,7 @@ msgstr ""
 #. type: Plain text
 #: Java.md:5
 msgid "title: Java short-description: Compiling Java programs ..."
-msgstr "title: Java\nshort-description: Compiling Java programs\n..."
+msgstr "title: Java\nshort-description: Java プログラムのコンパイル\n..."
 
 #. type: Plain text
 #: Java.md:7
@@ -38,6 +38,8 @@ msgid ""
 "Meson has experimental support for compiling Java programs. The basic syntax "
 "consists of only one function and would be used like this:"
 msgstr ""
+"Meson には実験的なサポートとして、Java プログラムをコンパイルする機能がありま"
+"す。基本的にはただ一つの関数を用いるものであり、以下のようになります。"
 
 #. type: Plain text
 #: Java.md:12
@@ -62,6 +64,7 @@ msgstr "test('javatest', myjar) \n```"
 msgid ""
 "However note that Meson places limitations on how you lay out your code."
 msgstr ""
+"ただしソースコードを配置する場所に関して、前提条件がいくつかあります。"
 
 #. type: Bullet: '* '
 #: Java.md:23

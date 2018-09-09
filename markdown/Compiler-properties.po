@@ -19,7 +19,7 @@ msgstr ""
 #. type: Plain text
 #: Compiler-properties.md:2
 msgid "# Compiler properties"
-msgstr ""
+msgstr "# コンパイラープロパティ"
 
 #. type: Plain text
 #: Compiler-properties.md:7
@@ -29,11 +29,15 @@ msgid ""
 "of this information, you first need to extract the *compiler object* from "
 "the main *meson* variable."
 msgstr ""
+"コンパイラーにしてもプラットフォームにしても、どれも同じではありません。"
+"したがって Meson では、設定の処理時にシステムのプロパティを検出する機能が"
+"提供されています。このプロパティ情報を得るには、まず初めに *meson* 変数か"
+"ら *コンパイラーオブジェクト* を得ることが必要になります。"
 
 #. type: Plain text
 #: Compiler-properties.md:11
 msgid "```meson compiler = meson.get_compiler('c')  ```"
-msgstr ""
+msgstr "```meson\ncompiler = meson.get_compiler('c')\n```"
 
 #. type: Plain text
 #: Compiler-properties.md:17
@@ -43,11 +47,16 @@ msgid ""
 "The call is valid for all languages specified in the *project* declaration. "
 "Trying to obtain some other compiler will lead to an unrecoverable error."
 msgstr ""
+"ここでは C コンパイラーを取得しました。同じように引数に `cpp` を与えれば C++ "
+"コンパイラー、`objc` を与えれば objective C コンパイラーを得ることができます。"
+"このプロパティ取得は、*project* 宣言にて指定されたプログラミング言語であれば"
+"何でも構いません。指定していない言語のコンパイラーを得ようとすると、致命的なエ"
+"ラーになります。"
 
 #. type: Plain text
 #: Compiler-properties.md:19
 msgid "## System information"
-msgstr ""
+msgstr "## システム情報"
 
 #. type: Plain text
 #: Compiler-properties.md:23
@@ -60,7 +69,7 @@ msgstr ""
 #. type: Plain text
 #: Compiler-properties.md:27
 msgid "```meson host_machine.system()  ```"
-msgstr ""
+msgstr "```meson\nhost_machine.system()\n```"
 
 #. type: Plain text
 #: Compiler-properties.md:29
@@ -69,6 +78,8 @@ msgid ""
 "Compiler id\n"
 "==\n"
 msgstr ""
+"コンパイラー ID\n"
+"==\n"
 
 #. type: Plain text
 #: Compiler-properties.md:35
@@ -77,6 +88,10 @@ msgid ""
 "string describing the \"family\" of the compiler. See [reference tables]"
 "(Reference-tables.md) for a list of supported compiler ids."
 msgstr ""
+"コンパイラーオブジェクトには `get_id` というメソッドがあります。このメソッド"
+"の戻り値は、コンパイラーの \"ファミリー\" を表わす文字列です。"
+"サポートされているコンパイラー ID については [リファレンス一覧]"
+"(Reference-tables.md) に示されています。"
 
 #. type: Plain text
 #: Compiler-properties.md:37
@@ -85,6 +100,8 @@ msgid ""
 "Does code compile?\n"
 "==\n"
 msgstr ""
+"コードはコンパイルされるか？\n"
+"==\n"
 
 #. type: Plain text
 #: Compiler-properties.md:42
@@ -100,6 +117,9 @@ msgid ""
 "```meson code = '''#include<stdio.h> void func() { printf(\"Compile me.\\n"
 "\"); } ''' ```"
 msgstr ""
+"```meson\n"
+"code = '''#include<stdio.h>\nvoid func() { printf(\"Compile me.\\n"
+"\"); }\n'''\n```"
 
 #. type: Plain text
 #: Compiler-properties.md:50 Compiler-properties.md:75
@@ -109,7 +129,7 @@ msgstr ""
 #. type: Plain text
 #: Compiler-properties.md:54
 msgid "```meson result = compiler.compiles(code, name : 'basic check')  ```"
-msgstr ""
+msgstr "```meson\nresult = compiler.compiles(code, name : 'basic check')\n```"
 
 #. type: Plain text
 #: Compiler-properties.md:59
@@ -127,6 +147,8 @@ msgid ""
 "Does code compile and link?\n"
 "==\n"
 msgstr ""
+"コードはコンパイルされリンクされるか？\n"
+"==\n"
 
 #. type: Plain text
 #: Compiler-properties.md:67
@@ -143,6 +165,9 @@ msgid ""
 "```meson result = compiler.links(code, args : '-lfoo', name : 'link check')  "
 "```"
 msgstr ""
+"```meson\n"
+"result = compiler.links(code, args : '-lfoo', name : 'link check')\n"
+"```"
 
 #. type: Plain text
 #: Compiler-properties.md:84
@@ -160,11 +185,14 @@ msgid ""
 "Compile and run test application\n"
 "==\n"
 msgstr ""
+"テストアプリケーションのコンパイルと実行\n"
+"==\n"
 
 #. type: Plain text
 #: Compiler-properties.md:90
 msgid "Here is how you would compile and run a small test application."
 msgstr ""
+"以下に示すのは、単純なテストアプリケーションをコンパイルし実行する例です。"
 
 #. type: Plain text
 #: Compiler-properties.md:101
@@ -201,6 +229,12 @@ msgid ""
 "| stdout     | Program's standard out as text.                                                             |\n"
 "| stderr     | Program's standard error as text.                                                           |\n"
 msgstr ""
+"| メソッド   | 戻り値                                                                                      |\n"
+"| ------     | ------------                                                                                |\n"
+"| compiled   | `True` if compilation succeeded. If `false` then all other methods return undefined values. |\n"
+"| returncode | The return code of the application as an integer                                            |\n"
+"| stdout     | Program's standard out as text.                                                             |\n"
+"| stderr     | Program's standard error as text.                                                           |\n"
 
 #. type: Plain text
 #: Compiler-properties.md:114
@@ -217,6 +251,11 @@ msgid ""
 "endif\n"
 "```\n"
 msgstr ""
+"```meson\n"
+"if result.stdout().strip() == 'some_value'\n"
+"  # 何らかの処理\n"
+"endif\n"
+"```\n"
 
 #. type: Plain text
 #: Compiler-properties.md:123
@@ -225,6 +264,8 @@ msgid ""
 "Does a header exist?\n"
 "==\n"
 msgstr ""
+"ヘッダーの存在チェック\n"
+"==\n"
 
 #. type: Plain text
 #: Compiler-properties.md:130
@@ -246,6 +287,11 @@ msgid ""
 "endif\n"
 "```\n"
 msgstr ""
+"```meson\n"
+"if compiler.has_header('sys/fstat.h')\n"
+"  # ヘッダー存在時、何らかの処理\n"
+"endif\n"
+"```\n"
 
 #. type: Plain text
 #: Compiler-properties.md:138
@@ -269,6 +315,8 @@ msgid ""
 "```meson wcharsize = compiler.sizeof('wchar_t', prefix : '#include<wchar."
 "h>')  ```"
 msgstr ""
+"```meson\nwcharsize = compiler.sizeof('wchar_t', prefix : '#include<wchar."
+"h>')\n```"
 
 #. type: Plain text
 #: Compiler-properties.md:153
@@ -294,6 +342,8 @@ msgid ""
 "Does a function exist?\n"
 "==\n"
 msgstr ""
+"関数の存在チェック\n"
+"==\n"
 
 #. type: Plain text
 #: Compiler-properties.md:165
@@ -313,6 +363,11 @@ msgid ""
 "endif\n"
 "```\n"
 msgstr ""
+"```meson\n"
+"if compiler.has_function('open_memstream', prefix : '#include <stdio.h>')\n"
+"  # 関数の存在時、何らかの必要な処理\n"
+"endif\n"
+"```\n"
 
 #. type: Plain text
 #: Compiler-properties.md:176
@@ -348,6 +403,8 @@ msgid ""
 "Does a structure contain a member?\n"
 "==\n"
 msgstr ""
+"構造体メンバーの存在チェック\n"
+"==\n"
 
 #. type: Plain text
 #: Compiler-properties.md:193
@@ -367,6 +424,11 @@ msgid ""
 "endif\n"
 "```\n"
 msgstr ""
+"```meson\n"
+"if compiler.has_member('struct mystruct', 'some_member', prefix : '#include<myheader.h>')\n"
+"  # メンバー存在時、何らかの必要な処理\n"
+"endif\n"
+"```\n"
 
 #. type: Plain text
 #: Compiler-properties.md:201
@@ -391,6 +453,8 @@ msgid ""
 "```meson int_alignment = compiler.alignment('int') # Will most likely "
 "contain the value 4.  ```"
 msgstr ""
+"```meson\nint_alignment = compiler.alignment('int') # Will most likely "
+"contain the value 4.\n```"
 
 #. type: Plain text
 #: Compiler-properties.md:213
@@ -409,6 +473,7 @@ msgstr ""
 msgid ""
 "```meson has_special_flags = compiler.has_argument('-Wspecialthing')  ```"
 msgstr ""
+"```meson\nhas_special_flags = compiler.has_argument('-Wspecialthing')\n```"
 
 #. type: Plain text
 #: Compiler-properties.md:223

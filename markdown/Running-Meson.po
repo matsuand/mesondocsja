@@ -53,6 +53,8 @@ msgid ""
 "Additionally, the invocation can pass options to meson.  The list of options "
 "is documented [here](Builtin-options.md)."
 msgstr ""
+"さらに Meson に対してオプションをつけて実行する方法も示します。オプションの一覧"
+"は [ここ](Builtin-options.md) に示しています。"
 
 #. type: Plain text
 #: Running-Meson.md:20
@@ -117,7 +119,7 @@ msgid ""
 "the location of `meson.build`. The other one will be your `pwd`."
 msgstr ""
 "ヒント： meson 実行の際の書式は `meson [options] [srcdir] [builddir]` です。"
-"`srcdir` と `builddir` はいずれかを省略することもできます。その場合 `srcdir` "
+"`srcdir` と `builddir` はいずれかを省略することができます。その場合 `srcdir` "
 "は、`meson.build` ファイルの位置により決定されます。また `builddir` は `pwd` "
 "になります。"
 
@@ -372,6 +374,8 @@ msgid ""
 "Exit status\n"
 "==\n"
 msgstr ""
+"終了時のステータスコード\n"
+"==\n"
 
 #. type: Plain text
 #: Running-Meson.md:160
@@ -379,3 +383,6 @@ msgid ""
 "Meson exits with status 0 if successful, 1 for problems with the command "
 "line or meson.build file, and 2 for internal errors."
 msgstr ""
+"Meson は正常に処理終了したときは、ステータスコード 0 を返します。またコマ"
+"ンドラインや meson.build ファイルに問題があったときは 1 を返します。そして"
+"内部エラー発生時は 2 を返します。"

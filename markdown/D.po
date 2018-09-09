@@ -26,14 +26,14 @@ msgstr ""
 #: D.md:5
 msgid "title: D short-description: Compiling D sources ..."
 msgstr ""
-"title: D\n"
-"short-description: Compiling D sources\n"
+"title: D 言語\n"
+"short-description: D 言語ソースのコンパイル\n"
 "..."
 
 #. type: Plain text
 #: D.md:7
 msgid "# Compiling D applications"
-msgstr "# D アプリケーションのコンパイル"
+msgstr "# D 言語アプリケーションのコンパイル"
 
 #. type: Plain text
 #: D.md:10
@@ -41,19 +41,18 @@ msgid ""
 "Meson has support for compiling D programs. A minimal `meson.build` file for "
 "D looks like this:"
 msgstr ""
+"Meson は D 言語ソースのコンパイルをサポートしています。D 言語を扱う最小限の "
+"`meson.build` は以下のようになります。"
 
 #. type: Plain text
 #: D.md:13
 msgid "```meson project('myapp', 'd')"
-msgstr ""
-"```meson\n"
-"project('myapp', 'd')"
+msgstr "```meson\nproject('myapp', 'd')"
 
 #. type: Plain text
 #: D.md:16
 msgid "executable('myapp', 'app.d')  ```"
-msgstr ""
-"executable('myapp', 'app.d') \n"
+msgstr "executable('myapp', 'app.d')\n```"
 "```"
 
 #. type: Plain text

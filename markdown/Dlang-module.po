@@ -19,17 +19,17 @@ msgstr ""
 #. type: Plain text
 #: Dlang-module.md:2
 msgid "# Dlang module"
-msgstr ""
+msgstr "# D 言語モジュール"
 
 #. type: Plain text
 #: Dlang-module.md:4
 msgid "This module provides tools related to the D programming language."
-msgstr ""
+msgstr "本モジュールは D 言語に関連するツールを提供します。"
 
 #. type: Plain text
 #: Dlang-module.md:6
 msgid "## Usage"
-msgstr ""
+msgstr "## 利用方法"
 
 #. type: Plain text
 #: Dlang-module.md:9
@@ -37,6 +37,8 @@ msgid ""
 "To use this module, just do: **`dlang = import('dlang')`**.  You can, of "
 "course, replace the name `dlang` with anything else."
 msgstr ""
+"このモジュールを利用するには、単純に **`dlang = import('dlang')`** としま"
+"す。もちろん `dlang` という変数名は何でもかまいません。"
 
 #. type: Plain text
 #: Dlang-module.md:12
@@ -44,6 +46,8 @@ msgid ""
 "The module only exposes one fucntion, `generate_dub_file`, used to "
 "automatically generate Dub configuration files."
 msgstr ""
+"このモジュールが提供する関数は `generate_dub_file` というものただ一つです。"
+"これは自動的に Dub 設定ファイルを生成します。"
 
 #. type: Plain text
 #: Dlang-module.md:18
@@ -53,6 +57,11 @@ msgid ""
 "additional keywords, they will be automatically translated to json and added "
 "to the `dub.json` file."
 msgstr ""
+"### generate_dub_file()\n"
+"This method only has two required arguments, the "
+"project name and the source folder. You can pass other arguments with "
+"additional keywords, they will be automatically translated to json and added "
+"to the `dub.json` file."
 
 #. type: Plain text
 #: Dlang-module.md:23
@@ -63,6 +72,10 @@ msgid ""
 "generate_dub_file(\"project name\", \"source/folder\", key: \"value\" ...)\n"
 "```\n"
 msgstr ""
+"**書式**\n"
+"```meson\n"
+"generate_dub_file(\"project name\", \"source/folder\", key: \"value\" ...)\n"
+"```\n"
 
 #. type: Plain text
 #: Dlang-module.md:37
@@ -82,6 +95,19 @@ msgid ""
 ")\n"
 "```\n"
 msgstr ""
+"**記述例**\n"
+"```meson\n"
+"dlang = import('dlang')\n"
+"dlang.generate_dub_file(meson.project_name().to_lower(), meson.source_root(),\n"
+"                        authors: 'Meson Team',\n"
+"                        description: 'Test executable',\n"
+"                        copyright: 'Copyright © 2018, Meson Team',\n"
+"                        license: 'MIT',\n"
+"                        sourceFiles: 'test.d',\n"
+"                        targetType: 'executable',\n"
+"                        dependencies: my_dep\n"
+")\n"
+"```\n"
 
 #. type: Plain text
 #: Dlang-module.md:41

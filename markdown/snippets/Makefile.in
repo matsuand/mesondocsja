@@ -209,6 +209,7 @@ basenames = \
 	dependency_version               \
 	dict_add                         \
 	distscript                       \
+	fatal_warnings                   \
 	generate_gir_multiple_libraries  \
 	hotdoc_module                    \
 	native_args                      \
@@ -455,6 +456,8 @@ pot/dict_add.pot: $(abs_mesondir)/dict_add.md
 	$(call GETPOT, $^, $@)
 pot/distscript.pot: $(abs_mesondir)/distscript.md
 	$(call GETPOT, $^, $@)
+pot/fatal_warnings.pot: $(abs_mesondir)/fatal_warnings.md
+	$(call GETPOT, $^, $@)
 pot/generate_gir_multiple_libraries.pot: $(abs_mesondir)/generate_gir_multiple_libraries.md
 	$(call GETPOT, $^, $@)
 pot/hotdoc_module.pot: $(abs_mesondir)/hotdoc_module.md
@@ -476,6 +479,8 @@ $(srcdir)/dependency_version.po: pot/dependency_version.pot
 $(srcdir)/dict_add.po: pot/dict_add.pot
 	$(call MSGPROC, $^, $@)
 $(srcdir)/distscript.po: pot/distscript.pot
+	$(call MSGPROC, $^, $@)
+$(srcdir)/fatal_warnings.po: pot/fatal_warnings.pot
 	$(call MSGPROC, $^, $@)
 $(srcdir)/generate_gir_multiple_libraries.po: pot/generate_gir_multiple_libraries.pot
 	$(call MSGPROC, $^, $@)
@@ -500,6 +505,8 @@ dict_add.md: $(abs_mesondir)/dict_add.md $(srcdir)/dict_add.po
 	$(call PO4ATRANS, $(abs_mesondir)/dict_add.md, $(srcdir)/dict_add.po)
 distscript.md: $(abs_mesondir)/distscript.md $(srcdir)/distscript.po
 	$(call PO4ATRANS, $(abs_mesondir)/distscript.md, $(srcdir)/distscript.po)
+fatal_warnings.md: $(abs_mesondir)/fatal_warnings.md $(srcdir)/fatal_warnings.po
+	$(call PO4ATRANS, $(abs_mesondir)/fatal_warnings.md, $(srcdir)/fatal_warnings.po)
 generate_gir_multiple_libraries.md: $(abs_mesondir)/generate_gir_multiple_libraries.md $(srcdir)/generate_gir_multiple_libraries.po
 	$(call PO4ATRANS, $(abs_mesondir)/generate_gir_multiple_libraries.md, $(srcdir)/generate_gir_multiple_libraries.po)
 hotdoc_module.md: $(abs_mesondir)/hotdoc_module.md $(srcdir)/hotdoc_module.po

@@ -25,12 +25,12 @@ msgstr ""
 #. type: Plain text
 #: Users.md:4
 msgid "title: Users ..."
-msgstr ""
+msgstr "title: ユーザー\n..."
 
 #. type: Plain text
 #: Users.md:6
 msgid "# List of projects using Meson"
-msgstr ""
+msgstr "# Meson を使ったプロジェクトの一覧"
 
 #. type: Plain text
 #: Users.md:9

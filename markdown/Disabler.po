@@ -25,23 +25,23 @@ msgstr ""
 #. type: Plain text
 #: Disabler.md:4
 msgid "short-description: Disabling options ..."
-msgstr "short-description: Disabling options\n..."
+msgstr "short-description: 無効オプション\n..."
 
 #. type: Plain text
 #: Disabler.md:6
 msgid "# Disabling parts of the build"
-msgstr ""
+msgstr "# ビルド部分の無効化"
 
 #. type: Plain text
 #: Disabler.md:8
 #, no-wrap
 msgid "*This feature is available since version 0.44.0.*\n"
-msgstr ""
+msgstr "*この機能はバージョン 0.44.0 以降において利用可能です。*\n"
 
 #. type: Plain text
 #: Disabler.md:10
 msgid "The following is a common fragment found in many projects:"
-msgstr ""
+msgstr "以下は、多くのプロジェクトにおいて見られる一部分です。"
 
 #. type: Plain text
 #: Disabler.md:13
