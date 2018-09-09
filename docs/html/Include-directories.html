@@ -156,10 +156,11 @@ $('body').removeClass('no-script');
 	<div id="main">
 				    <div id="page-description" data-hotdoc-source="Include-directories.md" data-hotdoc-role="main">
         <h1 id="">インクルードディレクトリ</h1>
-<p>Most <code>C</code>/<code>C++</code> projects have headers in different directories than
-sources. Thus you need to specify include directories. Let's assume that we
-are at some subdirectory and wish to add its <code>include</code> subdirectory to some
-target's search path. To create a include directory object we do this:</p>
+<p>C / C++
+プロジェクトでは、ヘッダーファイルをソースファイルとは別ディレクトリに配置することが多くあります。そこでインクルードディレクトリを指定する必要が出てきます。Let's
+assume that we are at some subdirectory and wish to add its <code>include</code>
+subdirectory to some target's search path. To create a include directory
+object we do this:</p>
 <pre><code class="language-meson">incdir = include_directories('include')
 </code></pre>
 <p>The <code>incdir</code> variable now holds a reference to the <code>include</code> subdir. Now we

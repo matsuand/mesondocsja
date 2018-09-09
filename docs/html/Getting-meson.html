@@ -191,10 +191,9 @@ page</a>.</p>
 <p>If you will only use the Visual Studio backend (<code>--backend=vs</code>) to generate
 Visual Studio solutions on Windows or the XCode backend (<code>--backend=xcode</code>)
 to generate XCode projects on macOS, you do not need Ninja.</p>
-<h1 id="platformspecific-install-quirks">Platform-specific install quirks</h1>
-<h2 id="windows-python3-quirks">Windows Python3 quirks</h2>
-<p>When installing Python 3, it is highly recommended (but not required) that
-you select the installer options as follows:</p>
+<h1 id="1">プラットフォーム固有のインストール例</h1>
+<h2 id="windows-python3-">Windows Python3 の場合</h2>
+<p>Python 3 をインストールする場合は (必須ではないですが) 以下に示すようなインストーラーオプションを選択することが強く推奨されます。</p>
 <p><img src="images/py3-install-1.png" alt="installer step 1" title="Enable 'Add Python 3.6 to
 PATH' and click 'Customize installation'" id="installer-step-1">  <img src="images/py3-install-2.png" alt="installer step 2" title="Optional Features: ensure 'pip' is enabled" id="installer-step-2">
 <img src="images/py3-install-3.png" alt="installer step 3" title="Advanced Options: enable
@@ -203,7 +202,7 @@ PATH' and click 'Customize installation'" id="installer-step-1">  <img src="imag
 Meson with pip. You will also be able to directly run <code>meson</code> in any shell
 on Windows instead of having to run <code>py -3</code> with the full path to the
 <code>meson.py</code> script.</p>
-<h2 id="msys2-python3-quirks">MSYS2 Python3 quirks</h2>
+<h2 id="msys2-python3-">MSYS2 Python3 の場合</h2>
 <p>If you are using MSYS2 on Windows as your development environment, please
 make sure that you <strong>do not use</strong> the <code>msys/python</code> package to provide
 Python 3. Use either <code>mingw32/mingw-w64-i686-python3</code> or

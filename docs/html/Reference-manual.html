@@ -1722,6 +1722,20 @@ keyword argument, you can specify external dependencies to use with
 <li>
 <p><code>version()</code> returns the compiler's version number as a string.</p>
 </li>
+<li>
+<p><code>has_function_attribute(name)</code> <em>(added in 0.48.0)</em> returns <code>true</code> if the
+compiler supports the GNU style (<code>__attribute__(...)</code>) <code>name</code>. This is
+preferable to manual compile checks as it may be optimized for compilers
+that do not support such attributes.  <a href="Reference-tables.html#gcc-attribute-support">This
+table</a> Lists all of the
+supported attributes.</p>
+</li>
+<li>
+<p><code>get_supported_function_attributes(list_of_names)</code> *(added in 0.48.0)
+returns an array containing any names that are supported GCC style
+attributes. Equivalent to <code>has_function_attribute</code> was called on each of
+them individually.</p>
+</li>
 </ul>
 <p>The following keyword arguments can be used:</p>
 <ul>

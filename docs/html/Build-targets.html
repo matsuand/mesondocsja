@@ -156,30 +156,27 @@ $('body').removeClass('no-script');
 	<div id="main">
 				    <div id="page-description" data-hotdoc-source="Build-targets.md" data-hotdoc-role="main">
         <h1 id="">ビルドターゲット</h1>
-<p>Meson には 3 種類のビルドターゲット、つまり実行モジュール、スタティックライブラリ、共有ライブラリがあります。これは
+<p>Meson には 3 種類のビルドターゲットがあります。実行モジュール、スタティックライブラリ、共有ライブラリです。これは
 <code>executable</code>、<code>static_library</code>、<code>shared_library</code>
-の各コマンドによって生成されます。このコマンドによって生成されるオブジェクトは<strong>不変的</strong>なものです。つまり一度作り上げたものは、他のものに変更することはできません。This
-ensures that all information pertaining to a given build target is specified
-in one well defined place.</p>
-<p>As an example, here is how you would build a shared library.</p>
+の各コマンドによって生成されます。このコマンドによって生成されるオブジェクトは<strong>不変的</strong>なものです。つまり一度作り上げたものは、他のものに変更することはできません。したがって記述されたビルドターゲットの情報のすべては確実に保持され、1
+つの記述箇所において特定されることになります。</p>
+<p>例として、以下は共有ライブラリを作り出すものです。</p>
 <pre><code class="language-meson">project('shared lib', 'c')
 shared_library('mylib', 'source.c')
 </code></pre>
-<p>In Unix-like operating systems, shared libraries can be versioned. Meson
-supports this with keyword arguments.</p>
+<p>Unix ライクなオペレーティングシステムにおいて、共有ライブラリにはバージョン番号がつくことがあります。これに対して Meson
+はキーワード引数を用いて対応することができます。</p>
 <pre><code class="language-meson">project('shared lib', 'c')
 shared_library('mylib', 'source.c', version : '1.2.3', soversion : '0')
 </code></pre>
-<p>It is common to build a library and then an executable that links against
-it. This is supported as well.</p>
+<p>ライブラリをビルドしたら、普通はそれをリンクする実行モジュールを生成します。これも以下のようにして対応できます。</p>
 <pre><code class="language-meson">project('shared lib', 'c')
 lib = shared_library('mylib', 'source.c')
 executable('program', 'prog.c', link_with : lib)
 </code></pre>
-<p>Meson sets things up so that the resulting executable can be run directly
-from the build directory. There is no need to write shell scripts or set
-environment variables.</p>
-<p>One target can have multiple language source files.</p>
+<p>Meson
+はすべてをうまく処理してくれるので、ビルド結果として生成された実行モジュールは、ビルドディレクトリ内にて直接実行できるようになります。このときには、シェルスクリプトを用意したり環境変数を定義したりするようなことは必要ありません。</p>
+<p>ビルドターゲットにおいては、プログラミング言語の異なるソースファイルを複数指定することもできます。</p>
 <pre><code class="language-meson">project('multilang', 'c', 'cpp')
 executable('multiexe', 'file.c', 'file2.cc')
 </code></pre>

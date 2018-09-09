@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<title>Compiler properties</title>
+<title>コンパイラープロパティ</title>
 
 <link rel="stylesheet" href="assets/css/custom_bootstrap.css" type="text/css">
 <link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
@@ -155,62 +155,57 @@ $('body').removeClass('no-script');
 <div id="body">
 	<div id="main">
 				    <div id="page-description" data-hotdoc-source="Compiler-properties.md" data-hotdoc-role="main">
-        <h1 id="compiler-properties">Compiler properties</h1>
-<p>Not all compilers and platforms are alike. Therefore Meson provides the
-tools to detect properties of the system during configure time. To get most
-of this information, you first need to extract the <em>compiler object</em> from
-the main <em>meson</em> variable.</p>
-<p><code>meson compiler = meson.get_compiler('c')</code></p>
-<p>Here we extract the C compiler. We could also have given the argument <code>cpp</code>
-to get the C++ compiler, <code>objc</code> to get the objective C compiler and so
-on. The call is valid for all languages specified in the <em>project</em>
-declaration. Trying to obtain some other compiler will lead to an
-unrecoverable error.</p>
-<h2 id="system-information">System information</h2>
+        <h1 id="">コンパイラープロパティ</h1>
+<p>コンパイラーにしてもプラットフォームにしても、どれも同じではありません。したがって Meson
+では、設定の処理時にシステムのプロパティを検出する機能が提供されています。このプロパティ情報を得るには、まず初めに <em>meson</em> 変数から
+<em>コンパイラーオブジェクト</em> を得ることが必要になります。</p>
+<pre><code class="language-meson">compiler = meson.get_compiler('c')
+</code></pre>
+<p>ここでは C コンパイラーを取得しました。同じように引数に <code>cpp</code> を与えれば C++ コンパイラー、<code>objc</code> を与えれば objective
+C コンパイラーを得ることができます。このプロパティ取得は、<em>project</em>
+宣言にて指定されたプログラミング言語であれば何でも構いません。指定していない言語のコンパイラーを得ようとすると、致命的なエラーになります。</p>
+<h2 id="1">システム情報</h2>
 <p>This is a bit complex and more thoroughly explained on the page on <a href="Cross-compilation.html">cross
 compilation</a>. But if you just want to know the
 operating system your code will run on, issue this command:</p>
-<p><code>meson host_machine.system()</code></p>
-<h1 id="compiler-id">Compiler id</h1>
-<p>The compiler object has a method called <code>get_id</code>, which returns a lower case
-string describing the "family" of the compiler. See <a href="Reference-tables.html">reference
-tables</a> for a list of supported compiler ids.</p>
-<h1 id="does-code-compile">Does code compile?</h1>
+<pre><code class="language-meson">host_machine.system()
+</code></pre>
+<h1 id="-id">コンパイラー ID</h1>
+<p>コンパイラーオブジェクトには <code>get_id</code> というメソッドがあります。このメソッドの戻り値は、コンパイラーの "ファミリー"
+を表わす文字列です。サポートされているコンパイラー ID については <a href="Reference-tables.html">リファレンス一覧</a> に示されています。</p>
+<h1 id="2">コードはコンパイルされるか？</h1>
 <p>Sometimes the only way to test the system is to try to compile some sample
 code and see if it works. This is a two-phase operation. First we define
 some code using the multiline string operator:</p>
-<pre><code class="language-meson">} ''' ```
-
-Then we can run the test.
-
-```meson result = compiler.compiles(code, name : 'basic check')  ```
-
-The variable *result* will now contain either `true` or `false` depending on
-whether the compilation succeeded or not. The keyword argument `name` is
+<pre><code class="language-meson">code = '''#include&lt;stdio.h&gt;
+void func() { printf("Compile me.\n"); }
+'''
+</code></pre>
+<p>Then we can run the test.</p>
+<pre><code class="language-meson">result = compiler.compiles(code, name : 'basic check')
+</code></pre>
+<p>The variable <em>result</em> will now contain either <code>true</code> or <code>false</code> depending on
+whether the compilation succeeded or not. The keyword argument <code>name</code> is
 optional. If it is specified, Meson will write the result of the check to
-its log.
-
-Does code compile and link?
-==
-
-Sometimes it is necessary to check whether a certain code fragment not only
+its log.</p>
+<h1 id="3">コードはコンパイルされリンクされるか？</h1>
+<p>Sometimes it is necessary to check whether a certain code fragment not only
 compiles, but also links successfully, e.g. to check if a symbol is actually
 present in a library. This can be done using the '''.links()''' method on a
-compiler object like this:
-
-```meson code = '''#include&lt;stdio.h&gt; void func() { printf("Compile me.\n");
-} ''' ```
-
-Then we can run the test.
-
-```meson result = compiler.links(code, args : '-lfoo', name : 'link check')
+compiler object like this:</p>
+<pre><code class="language-meson">code = '''#include&lt;stdio.h&gt;
+void func() { printf("Compile me.\n"); }
+'''
+</code></pre>
+<p>Then we can run the test.</p>
+<pre><code class="language-meson">result = compiler.links(code, args : '-lfoo', name : 'link check')
 </code></pre>
 <p>The variable <em>result</em> will now contain either <code>true</code> or <code>false</code> depending on
 whether the compilation and linking succeeded or not. The keyword argument
 <code>name</code> is optional. If it is specified, Meson will write the result of the
 check to its log.</p>
-<h1 id="compile-and-run-test-application">Compile and run test application</h1>
-<p>Here is how you would compile and run a small test application.</p>
+<h1 id="4">テストアプリケーションのコンパイルと実行</h1>
+<p>以下に示すのは、単純なテストアプリケーションをコンパイルし実行する例です。</p>
 <pre><code class="language-meson">code = '''#include&lt;stdio.h&gt;
 int main(int argc, char **argv) {
   printf("%s\n", "stdout");
@@ -226,8 +221,8 @@ same as with <code>compiles</code>.</p>
 <table>
 <thead>
 <tr>
-<th> Method</th>
-<th> Return value</th>
+<th> メソッド</th>
+<th> 戻り値</th>
 </tr>
 </thead>
 <tbody>
@@ -251,44 +246,38 @@ same as with <code>compiles</code>.</p>
 </table>
 <p>Here is an example usage:</p>
 <pre><code class="language-meson">if result.stdout().strip() == 'some_value'
-  # do something
+  # 何らかの処理
 endif
 </code></pre>
-<h1 id="does-a-header-exist">Does a header exist?</h1>
+<h1 id="5">ヘッダーの存在チェック</h1>
 <p>Header files provided by different platforms vary quite a lot. Meson has
 functionality to detect whether a given header file is available on the
 system. The test is done by trying to compile a simple test program that
 includes the specified header. The following snippet describes how this
 feature can be used.</p>
 <pre><code class="language-meson">if compiler.has_header('sys/fstat.h')
-  # header exists, do something
+  # ヘッダー存在時、何らかの処理
 endif
 </code></pre>
 <h1 id="expression-size">Expression size</h1>
 <p>Often you need to determine the size of a particular element (such as <code>int</code>,
 <code>wchar_t</code> or <code>char*</code>). Using the <code>compiler</code> variable mentioned above, the
 check can be done like this.</p>
-<pre><code class="language-meson">'#include&lt;wchar.h&gt;')  ```
-
-This will put the size of `wchar_t` as reported by sizeof into variable
-`wcharsize`. The keyword argument `prefix` is optional. If specified its
+<pre><code class="language-meson">wcharsize = compiler.sizeof('wchar_t', prefix : '#include&lt;wchar.h&gt;')
+</code></pre>
+<p>This will put the size of <code>wchar_t</code> as reported by sizeof into variable
+<code>wcharsize</code>. The keyword argument <code>prefix</code> is optional. If specified its
 contents is put at the top of the source file. This argument is typically
-used for setting `#include` directives in configuration files.
-
-In older versions (&lt;= 0.30) meson would error out if the size could not be
+used for setting <code>#include</code> directives in configuration files.</p>
+<p>In older versions (&lt;= 0.30) meson would error out if the size could not be
 determined. Since version 0.31 it returns -1 if the size could not be
-determined.
-
-Does a function exist?
-==
-
-Just having a header doesn't say anything about its contents. Sometimes you
+determined.</p>
+<h1 id="6">関数の存在チェック</h1>
+<p>Just having a header doesn't say anything about its contents. Sometimes you
 need to explicitly check if some function exists. This is how we would check
-whether the function `open_memstream` exists in header `stdio.h`
-
-```meson
-if compiler.has_function('open_memstream', prefix : '#include &lt;stdio.h&gt;')
-  # function exists, do whatever is required.
+whether the function <code>open_memstream</code> exists in header <code>stdio.h</code></p>
+<pre><code class="language-meson">if compiler.has_function('open_memstream', prefix : '#include &lt;stdio.h&gt;')
+  # 関数の存在時、何らかの必要な処理
 endif
 </code></pre>
 <p>Note that, on macOS programs can be compiled targeting older macOS versions
@@ -303,12 +292,12 @@ targeting macOS 10.11 (<code>-mmacosx-version-min=10.11</code>), this will corre
 report the function as missing. Without the header however, it would lack
 the necessary availability information and incorrectly report the function
 as available.</p>
-<h1 id="does-a-structure-contain-a-member">Does a structure contain a member?</h1>
+<h1 id="7">構造体メンバーの存在チェック</h1>
 <p>Some platforms have different standard structures. Here's how one would
 check if a struct called <code>mystruct</code> from header <code>myheader.h</code> contains a
 member called <code>some_member</code>.</p>
 <pre><code class="language-meson">if compiler.has_member('struct mystruct', 'some_member', prefix : '#include&lt;myheader.h&gt;')
-  # member exists, do whatever is required
+  # メンバー存在時、何らかの必要な処理
 endif
 </code></pre>
 <h1 id="type-alignment">Type alignment</h1>
@@ -316,19 +305,17 @@ endif
 is common that a <code>char</code> can be at any address but a 32 bit integer only at
 locations which are divisible by four. Determining the alignment of data
 types is simple.</p>
-<pre><code class="language-meson">contain the value 4.  ```
-
-## Has argument
-
-This method tests if the compiler supports a given command line
-argument. This is implemented by compiling a small file with the given
-argument.
-
-```meson has_special_flags = compiler.has_argument('-Wspecialthing')  ```
-
-*Note*: some compilers silently swallow command line arguments they do
-not understand. Thus this test can not be made 100% reliable.
+<pre><code class="language-meson">int_alignment = compiler.alignment('int') # Will most likely contain the
+value 4.
 </code></pre>
+<h2 id="has-argument">Has argument</h2>
+<p>This method tests if the compiler supports a given command line
+argument. This is implemented by compiling a small file with the given
+argument.</p>
+<pre><code class="language-meson">has_special_flags = compiler.has_argument('-Wspecialthing')
+</code></pre>
+<p><em>Note</em>: some compilers silently swallow command line arguments they do
+not understand. Thus this test can not be made 100% reliable.</p>
 
     </div>
         

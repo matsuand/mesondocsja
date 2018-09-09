@@ -159,8 +159,8 @@ $('body').removeClass('no-script');
 <p>Meson を実行する方法は 2 つあります。1 つは、ソースツリーにおいて直接、コマンド <code>/path/to/source/meson.py</code>
 を実行することです。一方、Meson がインストールされていれば、そのコマンドは単に <code>meson</code>
 となります。本マニュアルでは、説明を簡単にするため、後者の方法のみを示していきます。</p>
-<p>Additionally, the invocation can pass options to meson.  The list of options
-is documented <a href="Builtin-options.html">here</a>.</p>
+<p>さらに Meson に対してオプションをつけて実行する方法も示します。オプションの一覧は <a href="Builtin-options.html">ここ</a>
+に示しています。</p>
 <p>本マニュアルの記述時点で、Meson はコマンドライン版のみが提供されています。つまり Meson
 はターミナル端末を使って実行することになります。MSVC コンパイラーを利用している場合は、"Visual Studio コマンドプロンプト" から
 Meson を実行します。</p>
@@ -175,7 +175,7 @@ meson ..
 <p>初めに、ビルドされるファイルを収容するディレクトリを生成します。そしてそのディレクトリに移動して Meson
 を実行します。実行の際にはソースのルートディレクトリを指定します。</p>
 <p>ヒント： meson 実行の際の書式は <code>meson [options] [srcdir] [builddir]</code> です。<code>srcdir</code> と
-<code>builddir</code> はいずれかを省略することもできます。その場合 <code>srcdir</code> は、<code>meson.build</code>
+<code>builddir</code> はいずれかを省略することができます。その場合 <code>srcdir</code> は、<code>meson.build</code>
 ファイルの位置により決定されます。また <code>builddir</code> は <code>pwd</code> になります。</p>
 <p>Meson then loads the build configuration file and writes the corresponding
 build backend in the build directory. By default Meson generates a <em>debug
@@ -285,9 +285,9 @@ packages. It is used like this:</p>
 <p>Meson には標準的なコマンドラインヘルプの機能があります。以下のコマンドによってヘルプを表示します。</p>
 <pre><code>meson --help
 </code></pre>
-<h1 id="exit-status">Exit status</h1>
-<p>Meson exits with status 0 if successful, 1 for problems with the command
-line or meson.build file, and 2 for internal errors.</p>
+<h1 id="5">終了時のステータスコード</h1>
+<p>Meson は正常に処理終了したときは、ステータスコード 0 を返します。またコマンドラインや meson.build ファイルに問題があったときは 1
+を返します。そして内部エラー発生時は 2 を返します。</p>
 
     </div>
         
