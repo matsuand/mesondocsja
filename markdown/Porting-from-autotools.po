@@ -19,7 +19,7 @@ msgstr ""
 #. type: Plain text
 #: Porting-from-autotools.md:2
 msgid "# Porting from Autotools"
-msgstr ""
+msgstr "# Autotools からの移植"
 
 #. type: Plain text
 #: Porting-from-autotools.md:4
@@ -53,6 +53,9 @@ msgid ""
 "```autoconf AC_PREREQ(2.63)  ``` Meson doesn't provide the same function, so "
 "just ignore this."
 msgstr ""
+"```autoconf\nAC_PREREQ(2.63)\n"
+"```\n"
+"Meson doesn't provide the same function, so just ignore this."
 
 #. type: Plain text
 #: Porting-from-autotools.md:27
@@ -70,6 +73,17 @@ msgid ""
 "`meson.build`:\n"
 "```meson\n"
 msgstr ""
+"### 変数定義\n"
+"`configure.ac`:\n"
+"```autoconf\n"
+"m4_define([as_major_version], [0])\n"
+"m4_define([as_minor_version], [3])\n"
+"m4_define([as_micro_version], [6])\n"
+"m4_define([as_version],\n"
+"          [as_major_version.as_minor_version.as_micro_version])\n"
+"```\n"
+"`meson.build`:\n"
+"```meson\n"
 
 #. type: Plain text
 #: Porting-from-autotools.md:30
@@ -77,6 +91,8 @@ msgid ""
 "as_version = meson.project_version() # set in project() below ver_arr = "
 "as_version.split('.')"
 msgstr ""
+"as_version = meson.project_version() # set in project() below\nver_arr = "
+"as_version.split('.')"
 
 #. type: Plain text
 #: Porting-from-autotools.md:35
@@ -84,6 +100,8 @@ msgid ""
 "as_major_version = ver_arr[0] as_minor_version = ver_arr[1] as_micro_version "
 "= ver_arr[2] ```"
 msgstr ""
+"as_major_version = ver_arr[0]\nas_minor_version = ver_arr[1]\nas_micro_version "
+"= ver_arr[2]\n```"
 
 #. type: Plain text
 #: Porting-from-autotools.md:47
@@ -101,6 +119,9 @@ msgid ""
 "AC_SUBST(AS_MINOR_VERSION)  AC_SUBST(AS_MICRO_VERSION)  "
 "AC_SUBST(AS_VERSION)  ```"
 msgstr ""
+"### AC_SUBST\n`configure.ac`:\n```autoconf\nAC_SUBST(AS_MAJOR_VERSION)\n"
+"AC_SUBST(AS_MINOR_VERSION)\nAC_SUBST(AS_MICRO_VERSION)\n"
+"AC_SUBST(AS_VERSION)\n```"
 
 #. type: Plain text
 #: Porting-from-autotools.md:58
@@ -123,7 +144,7 @@ msgstr ""
 #. type: Plain text
 #: Porting-from-autotools.md:66
 msgid "```autoconf AC_CONFIG_HEADERS([config.h])  ```"
-msgstr ""
+msgstr "```autoconf\nAC_CONFIG_HEADERS([config.h])\n```"
 
 #. type: Plain text
 #: Porting-from-autotools.md:68 Porting-from-autotools.md:94

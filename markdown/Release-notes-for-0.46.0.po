@@ -131,6 +131,8 @@ msgid ""
 "```meson cc = meson.get_compiler('c')  result = run_command(cc, '-print-file-"
 "name=plugin')  plugin_dev_path = result.stdout().strip()  ```"
 msgstr ""
+"```meson\ncc = meson.get_compiler('c')\nresult = run_command(cc, '-print-file-"
+"name=plugin')\nplugin_dev_path = result.stdout().strip()\n```"
 
 #. type: Plain text
 #: Release-notes-for-0.46.0.md:61
@@ -194,6 +196,9 @@ msgid ""
 "lib2 = static_library('b', objects : lib1.extract_all_objects(recursive : "
 "true))  ```"
 msgstr ""
+"```meson\nlib1 = static_library('a', 'source.c', objects : 'prebuilt.o')\n"
+"lib2 = static_library('b', objects : lib1.extract_all_objects(recursive : "
+"true))\n```"
 
 #. type: Plain text
 #: Release-notes-for-0.46.0.md:94
@@ -216,7 +221,7 @@ msgstr ""
 #. type: Plain text
 #: Release-notes-for-0.46.0.md:104
 msgid "```meson subproject('mydep')  ```"
-msgstr ""
+msgstr "```meson\nsubproject('mydep')\n```"
 
 #. type: Plain text
 #: Release-notes-for-0.46.0.md:106
@@ -229,6 +234,8 @@ msgid ""
 "```meson prog = find_program('my_custom_script')  meson."
 "override_find_program('mycodegen', prog)  ```"
 msgstr ""
+"```meson\nprog = find_program('my_custom_script')\nmeson."
+"override_find_program('mycodegen', prog)\n```"
 
 #. type: Plain text
 #: Release-notes-for-0.46.0.md:113
@@ -238,7 +245,7 @@ msgstr ""
 #. type: Plain text
 #: Release-notes-for-0.46.0.md:117
 msgid "```meson genprog = find_program('mycodegen')  ```"
-msgstr ""
+msgstr "```meson\ngenprog = find_program('mycodegen')\n```"
 
 #. type: Plain text
 #: Release-notes-for-0.46.0.md:120
@@ -323,7 +330,7 @@ msgstr ""
 #. type: Plain text
 #: Release-notes-for-0.46.0.md:162
 msgid "```meson meson init -fbd sdl2,gl ```"
-msgstr ""
+msgstr "```meson\nmeson init -fbd sdl2,gl\n```"
 
 #. type: Plain text
 #: Release-notes-for-0.46.0.md:167

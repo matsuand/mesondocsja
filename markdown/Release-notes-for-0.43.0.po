@@ -117,6 +117,7 @@ msgstr ""
 msgid ""
 "```ini [binaries] ...  objdump = '/usr/bin/arm-linux-gnueabihf-objdump-6' ```"
 msgstr ""
+"```ini\n[binaries]\n...\nobjdump = '/usr/bin/arm-linux-gnueabihf-objdump-6'\n```"
 
 #. type: Plain text
 #: Release-notes-for-0.43.0.md:61
@@ -129,7 +130,7 @@ msgstr ""
 #. type: Plain text
 #: Release-notes-for-0.43.0.md:65
 msgid "```meson native_objdump = find_program('objdump', native : true)  ```"
-msgstr ""
+msgstr "```meson\nnative_objdump = find_program('objdump', native : true)\n```"
 
 #. type: Plain text
 #: Release-notes-for-0.43.0.md:67
@@ -176,6 +177,8 @@ msgid ""
 "```meson warning_flags = [ ... ] flags = cc."
 "get_supported_arguments(warning_flags)  ```"
 msgstr ""
+"```meson\nwarning_flags = [ ... ]\nflags = cc."
+"get_supported_arguments(warning_flags)\n```"
 
 #. type: Plain text
 #: Release-notes-for-0.43.0.md:95
@@ -203,7 +206,7 @@ msgstr ""
 #. type: Plain text
 #: Release-notes-for-0.43.0.md:108
 msgid "```meson project('myprebuiltlibrary', 'c')"
-msgstr ""
+msgstr "```meson\nproject('myprebuiltlibrary', 'c')"
 
 #. type: Plain text
 #: Release-notes-for-0.43.0.md:114

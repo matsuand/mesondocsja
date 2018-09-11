@@ -1365,7 +1365,7 @@ index.add: $(srcdir)/index.add.in gitlog_current.txt
 	echo    " 対応）" >> $@
 .PHONY: gitlog_current
 gitlog_current: gitlog_current.txt
-gitlog_current.txt: @abs_mesondir@/.git/HEAD
+gitlog_current.txt: @abs_mesondir@/.git/ORIG_HEAD
 	rm -f $(abs_builddir)/$@
 	(cd $(abs_mesondir) && git log -1 --pretty=format:"%ad" --date=iso > $(abs_builddir)/$@)
 

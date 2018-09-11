@@ -19,7 +19,7 @@ msgstr ""
 #. type: Plain text
 #: RPM-module.md:2
 msgid "# RPM module"
-msgstr ""
+msgstr "# RPM モジュール"
 
 #. type: Plain text
 #: RPM-module.md:8
@@ -29,11 +29,16 @@ msgid ""
 "very simple. At the very end of your Meson project (that is, the end of your "
 "top level `meson.build` file) add these two lines."
 msgstr ""
+"RPM モジュールは Meson 用の rpm スペックファイルのサンプルを生成するために"
+"用います。これはインストールされているファイルやその依存関係などを自動検出"
+"します。利用方法はいたって簡単です。Meson プロジェクトファイルの最終に (つ"
+"まりトップレベルの `meson.build` ファイルの最後に) 以下の 2 行を追加するだけ"
+"です。"
 
 #. type: Plain text
 #: RPM-module.md:13
 msgid "```meson rpm = import('rpm')  rpm.generate_spec_template()  ```"
-msgstr ""
+msgstr "```meson\nrpm = import('rpm')\nrpm.generate_spec_template()\n```"
 
 #. type: Plain text
 #: RPM-module.md:16
@@ -42,3 +47,6 @@ msgid ""
 "directory. Then remove the two lines above and manually edit the template to "
 "add missing information. After this it is ready for use."
 msgstr ""
+"一度 Meson を実行すると、ビルドディレクトリ内にテンプレートファイルが書き出さ"
+"れます。こうしたら上で書き加えた 2 行は削除します。そしてそのテンプレートファ"
+"イルを編集し、不足する情報を書き加えます。こうしてこのファイルを利用します。"

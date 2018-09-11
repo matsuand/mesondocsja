@@ -151,12 +151,8 @@ msgstr ""
 
 #. type: Plain text
 #: Syntax.md:66
-#, fuzzy
 msgid "```meson int_255 = 0xFF ```"
-msgstr ""
-"```meson\n"
-"truth = true\n"
-"```"
+msgstr "```meson\nint_255 = 0xFF\n```"
 
 #. type: Plain text
 #: Syntax.md:68
@@ -166,7 +162,7 @@ msgstr ""
 #. type: Plain text
 #: Syntax.md:73
 msgid "```meson int_493 = 0o755 int_1365 = 0b10101010101 ```"
-msgstr ""
+msgstr "```meson\nint_493 = 0o755\nint_1365 = 0b10101010101\n```"
 
 #. type: Plain text
 #: Syntax.md:75
@@ -200,10 +196,7 @@ msgstr "論理値は `true` と `false` です。"
 #. type: Plain text
 #: Syntax.md:89
 msgid "```meson truth = true ```"
-msgstr ""
-"```meson\n"
-"truth = true\n"
-"```"
+msgstr "```meson\ntruth = true\n```"
 
 #. type: Plain text
 #: Syntax.md:91
@@ -715,12 +708,8 @@ msgstr ""
 
 #. type: Plain text
 #: Syntax.md:304
-#, fuzzy
 msgid "```meson my_dict = {'foo': 42, 'bar': 'baz'} ```"
-msgstr ""
-"```meson\n"
-"my_array += ['foo', 3, 4, another_obj]\n"
-"```"
+msgstr "```meson\nmy_dict = {'foo': 42, 'bar': 'baz'}\n```"
 
 #. type: Plain text
 #: Syntax.md:306
@@ -730,7 +719,7 @@ msgstr ""
 #. type: Plain text
 #: Syntax.md:311
 msgid "```meson # This will fail my_dict = {'foo': 42, 'foo': 43} ```"
-msgstr ""
+msgstr "```meson\n# This will fail\nmy_dict = {'foo': 42, 'foo': 43}\n```"
 
 #. type: Plain text
 #: Syntax.md:313

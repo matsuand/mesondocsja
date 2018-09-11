@@ -81,20 +81,16 @@ msgstr ""
 
 #. type: Plain text
 #: Installing.md:32
-#, fuzzy
 msgid ""
 "```meson install_headers('header.h', subdir : 'projname') # -> include/"
 "projname/header.h install_man('foo.1') # -> share/man/man1/foo.1.gz "
 "install_data('datafile.dat', install_dir : join_paths(get_option('datadir'), "
 "'progname')) # -> share/progname/datafile.dat ```"
 msgstr ""
-"```meson\n"
-"install_headers('header.h', subdir : 'projname') # -> include/projname/"
-"header.h\n"
-"install_man('foo.1') # -> share/man/man1/foo.1.gz \n"
-"install_data('datafile.cat', install_dir : join_paths(get_option('datadir'), "
-"'progname')) # -> share/progname/datafile.dat\n"
-"```"
+"```meson\ninstall_headers('header.h', subdir : 'projname')\n# -> include/"
+"projname/header.h\ninstall_man('foo.1')\n# -> share/man/man1/foo.1.gz\n"
+"install_data('datafile.dat', install_dir : join_paths(get_option('datadir'), "
+"'progname'))\n# -> share/progname/datafile.dat\n```"
 
 #. type: Plain text
 #: Installing.md:34
@@ -107,6 +103,8 @@ msgid ""
 "```meson # file.txt -> {datadir}/{projectname}/new-name.txt "
 "install_data('file.txt', rename : 'new-name.txt')"
 msgstr ""
+"```meson\n# file.txt -> {datadir}/{projectname}/new-name.txt\n"
+"install_data('file.txt', rename : 'new-name.txt')"
 
 #. type: Plain text
 #: Installing.md:45
@@ -134,8 +132,7 @@ msgid ""
 "include/mydir ```"
 msgstr ""
 "```meson\n"
-"install_subdir('mydir', install_dir : 'include') # mydir subtree -> include/"
-"mydir\n"
+"install_subdir('mydir', install_dir : 'include') # mydir subtree -> include/mydir\n"
 "```"
 
 #. type: Plain text

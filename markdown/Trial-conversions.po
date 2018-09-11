@@ -25,7 +25,7 @@ msgstr ""
 #. type: Plain text
 #: Trial-conversions.md:4
 msgid "title: Trial conversions ..."
-msgstr ""
+msgstr "title: Trial conversions\n..."
 
 #. type: Plain text
 #: Trial-conversions.md:6

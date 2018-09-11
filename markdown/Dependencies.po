@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-09-01 15:59+0900\n"
+"POT-Creation-Date: 2018-09-11 19:29+0900\n"
 "PO-Revision-Date: 2017-09-30 21:43+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -471,7 +471,7 @@ msgid "This finds the OpenGL library in a way appropriate to the platform."
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:227 Dependencies.md:393
+#: Dependencies.md:227 Dependencies.md:397
 msgid "`method` may be `auto`, `pkg-config` or `system`."
 msgstr ""
 
@@ -583,7 +583,7 @@ msgid "## MPI"
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:282 Dependencies.md:309 Dependencies.md:389
+#: Dependencies.md:282 Dependencies.md:309 Dependencies.md:393
 #, no-wrap
 msgid "*(added 0.42.0)*\n"
 msgstr ""
@@ -725,7 +725,15 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:361
+#: Dependencies.md:362
+msgid ""
+"You can set the `main` keyword argument to `true` to use the `WinMain()` "
+"function provided by qtmain static library (this argument does nothing on "
+"platforms other than Windows)."
+msgstr ""
+
+#. type: Plain text
+#: Dependencies.md:365
 msgid ""
 "Setting the optional `private_headers` keyword to true adds the private "
 "header include path of the given module(s) to the compiler flags.  (since "
@@ -733,7 +741,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:364
+#: Dependencies.md:368
 #, no-wrap
 msgid ""
 "**Note** using private headers in your project is a bad idea, do so at your own\n"
@@ -741,76 +749,76 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:366
+#: Dependencies.md:370
 msgid "`method` may be `auto`, `pkgconfig` or `qmake`."
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:368
+#: Dependencies.md:372
 msgid "## SDL2"
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:371
+#: Dependencies.md:375
 msgid ""
 "SDL2 can be located using `pkg-confg`, the `sdl2-config` config tool, or as "
 "an OSX framework."
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:373
+#: Dependencies.md:377
 msgid ""
 "`method` may be `auto`, `config-tool`, `extraframework` or `pkg-config`."
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:375
+#: Dependencies.md:379
 msgid "## Threads"
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:378
+#: Dependencies.md:382
 msgid ""
 "This dependency selects the appropriate compiler flags and/or libraries to "
 "use for thread support."
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:380
+#: Dependencies.md:384
 msgid "See [threads](Threads.md)."
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:382
+#: Dependencies.md:386
 msgid "## Valgrind"
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:385
+#: Dependencies.md:389
 msgid ""
 "Meson will find valgrind using `pkg-config`, but only uses the compilation "
 "flags and avoids trying to link with it's non-PIC static libs."
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:387
+#: Dependencies.md:391
 msgid "## Vulkan"
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:391
+#: Dependencies.md:395
 msgid ""
 "Vulkan can be located using `pkg-config`, or the `VULKAN_SDK` environment "
 "variable."
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:395
+#: Dependencies.md:399
 msgid "## WxWidgets"
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:401
+#: Dependencies.md:405
 msgid ""
 "Similar to [Boost](#boost), WxWidgets is not a single library but rather a "
 "collection of modules. WxWidgets is supported via `wx-config`.  Meson "
@@ -820,12 +828,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:403
+#: Dependencies.md:407
 msgid "### Example"
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:409
+#: Dependencies.md:413
 #, fuzzy, no-wrap
 msgid ""
 "```meson\n"
@@ -839,17 +847,17 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Dependencies.md:413
+#: Dependencies.md:417
 msgid "```shell # compile_args: $ wx-config --cxxflags std stc"
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:417
+#: Dependencies.md:421
 msgid "# link_args: $ wx-config --libs std stc ```"
 msgstr ""
 
 #. type: Plain text
-#: Dependencies.md:420
+#: Dependencies.md:424
 #, no-wrap
 msgid ""
 "<hr>\n"

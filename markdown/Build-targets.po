@@ -143,6 +143,10 @@ msgid ""
 "object file. A typical case is using an object file provided by a third "
 "party. Object files can be specified just like sources."
 msgstr ""
+"自分のソースファイルだけでなく、別のオブジェクトファイルを利用しないと、プロ"
+"ジェクトのビルドができないといったこともあります。よくあるのは、サードパーティ"
+"ー製のオブジェクトファイルを利用するような場合です。オブジェクトファイルは、"
+"ソースファイルと同じように指定することができます。"
 
 #. type: Plain text
 #: Build-targets.md:60

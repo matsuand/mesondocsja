@@ -34,6 +34,13 @@ msgid ""
 "      has-copyright: false\n"
 "...\n"
 msgstr ""
+"short-description: 汎用 Python モジュール\n"
+"authors:\n"
+"    - name: Mathieu Duponchelle\n"
+"      email: mathieu@centricular.com\n"
+"      years: [2018]\n"
+"      has-copyright: false\n"
+"...\n"
 
 #. type: Plain text
 #: Python-module.md:11
@@ -53,7 +60,7 @@ msgstr ""
 #: Python-module.md:16
 #, no-wrap
 msgid "*Added 0.46.0*\n"
-msgstr "*0.46.0 にて追加*\n"
+msgstr "*バージョン 0.46.0 にて追加*\n"
 
 #. type: Plain text
 #: Python-module.md:18
@@ -68,7 +75,7 @@ msgstr ""
 #. type: Plain text
 #: Python-module.md:24
 msgid "``` meson pymod.find_installation(name_or_path, ...)  ```"
-msgstr ""
+msgstr "``` meson\npymod.find_installation(name_or_path, ...)\n```"
 
 #. type: Plain text
 #: Python-module.md:26

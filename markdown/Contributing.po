@@ -437,7 +437,7 @@ msgstr ""
 #. type: Plain text
 #: Contributing.md:212
 msgid "```console $ python3 -m pip install flake8 $ cd meson $ flake8 ```"
-msgstr ""
+msgstr "```console\n$ python3 -m pip install flake8 $ cd meson $ flake8\n```"
 
 #. type: Plain text
 #: Contributing.md:214
@@ -450,6 +450,8 @@ msgid ""
 "```console $ flake8 --install-hook=git $ git config --bool flake8.strict "
 "true ```"
 msgstr ""
+"```console\n$ flake8 --install-hook=git\n$ git config --bool flake8.strict "
+"true\n```"
 
 #. type: Plain text
 #: Contributing.md:221

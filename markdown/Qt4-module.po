@@ -19,7 +19,7 @@ msgstr ""
 #. type: Plain text
 #: Qt4-module.md:2
 msgid "# Qt4 module"
-msgstr ""
+msgstr "# Qt4 モジュール"
 
 #. type: Plain text
 #: Qt4-module.md:4
@@ -27,3 +27,5 @@ msgid ""
 "This module provides support for Qt4's `moc`, `uic` and `rcc` tools. It is "
 "used identically to the [Qt 5 module](Qt5-module.md)."
 msgstr ""
+"このモジュールは Qt4 のツール `moc`, `uic`, `rcc` をサポートします。これは "
+"[Qt 5 モジュール](Qt5-module.md) と同じように利用されます。"

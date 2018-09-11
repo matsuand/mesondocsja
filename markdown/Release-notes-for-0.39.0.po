@@ -37,7 +37,7 @@ msgstr ""
 #. type: Plain text
 #: Release-notes-for-0.39.0.md:9
 msgid "# New features"
-msgstr ""
+msgstr "# 新機能"
 
 #. type: Plain text
 #: Release-notes-for-0.39.0.md:11

@@ -19,7 +19,7 @@ msgstr ""
 #. type: Plain text
 #: Qt5-module.md:2
 msgid "# Qt5 module"
-msgstr ""
+msgstr "# Qt5 モジュール"
 
 #. type: Plain text
 #: Qt5-module.md:5

@@ -34,11 +34,18 @@ msgid ""
 "      has-copyright: false\n"
 "...\n"
 msgstr ""
+"short-description: Hotdoc モジュール\n"
+"authors:\n"
+"    - name: Thibault Saunier\n"
+"      email: tsaunier@igalia.com\n"
+"      years: [2018]\n"
+"      has-copyright: false\n"
+"...\n"
 
 #. type: Plain text
 #: Hotdoc-module.md:11
 msgid "# Hotdoc module"
-msgstr ""
+msgstr "# Hotdoc モジュール"
 
 #. type: Plain text
 #: Hotdoc-module.md:14

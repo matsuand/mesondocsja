@@ -237,6 +237,14 @@ msgid ""
 "['>=2.3.0', '<=3.1.0'])  # Want to exclude one specific broken version "
 "dependency('foolite', version : ['>=3.12.1', '!=3.13.99'])  ```"
 msgstr ""
+"```meson\n"
+"# 最低バージョンが必要な場合\n"
+"dependency('zlib', version : '>1.2.1')\n"
+"# 最低最高の両バージョンが必要な場合\n"
+"dependency('opencv', version : ['>=2.3.0', '<=3.1.0'])\n"
+"# 特定バージョンが壊れていて除外したい場合\n"
+"dependency('foolite', version : ['>=3.12.1', '!=3.13.99'])\n"
+"```"
 
 #. type: Plain text
 #: Release-notes-for-0.37.0.md:89

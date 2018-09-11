@@ -63,6 +63,8 @@ msgid ""
 "```meson cc = meson.get_compiler('c')  two = cc.compute_int('1 + 1') # A "
 "very slow way of adding two numbers.  ```"
 msgstr ""
+"```meson\ncc = meson.get_compiler('c')\ntwo = cc.compute_int('1 + 1') # A "
+"very slow way of adding two numbers.\n```"
 
 #. type: Plain text
 #: Release-notes-for-0.40.0.md:22
@@ -124,6 +126,7 @@ msgstr ""
 msgid ""
 "```meson executable('foo', 'foo.c', override_options : ['werror=false'])  ```"
 msgstr ""
+"```meson\nexecutable('foo', 'foo.c', override_options : ['werror=false'])\n```"
 
 #. type: Plain text
 #: Release-notes-for-0.40.0.md:42
@@ -150,6 +153,8 @@ msgid ""
 "```meson cc = meson.get_compiler('c')  one = cc.get_define('__linux__') # "
 "returns '1' on Linux hosts ```"
 msgstr ""
+"```meson\ncc = meson.get_compiler('c')\none = cc.get_define('__linux__') # "
+"returns '1' on Linux hosts\n```"
 
 #. type: Plain text
 #: Release-notes-for-0.40.0.md:53
@@ -242,6 +247,7 @@ msgstr ""
 msgid ""
 "```meson qt5_dep = dependency('qt5', modules : 'core', method : 'qmake')  ```"
 msgstr ""
+"```meson\nqt5_dep = dependency('qt5', modules : 'core', method : 'qmake')\n```"
 
 #. type: Plain text
 #: Release-notes-for-0.40.0.md:89
@@ -264,6 +270,8 @@ msgid ""
 "```meson shared_library('foo', 'foo.c', link_whole : some_static_library)  "
 "```"
 msgstr ""
+"```meson\nshared_library('foo', 'foo.c', link_whole : some_static_library)\n"
+"```"
 
 #. type: Plain text
 #: Release-notes-for-0.40.0.md:97

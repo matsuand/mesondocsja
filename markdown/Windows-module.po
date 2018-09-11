@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-09-01 16:24+0900\n"
+"POT-Creation-Date: 2018-09-11 19:29+0900\n"
 "PO-Revision-Date: 2017-09-30 21:44+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -46,12 +46,12 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Windows-module.md:23
+#: Windows-module.md:24
 msgid "`args` lists extra arguments to pass to the resource compiler"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Windows-module.md:23
+#: Windows-module.md:24
 msgid ""
 "`depend_files` lists resource files that the resource script depends on (e."
 "g. bitmap, cursor, font, html, icon, message table, binary data or manifest "
@@ -59,16 +59,41 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Windows-module.md:23
+#: Windows-module.md:24
 msgid ""
 "`depends` lists target(s) that this target depends on, even though it does "
 "not take them as an argument (e.g. as above, but generated) (*since 0.47.0*)"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Windows-module.md:23
+#: Windows-module.md:24
 msgid ""
 "`include_directories` lists directories to be both searched by the resource "
 "compiler for referenced resource files, and added to the preprocessor "
 "include search path."
+msgstr ""
+
+#. type: Plain text
+#: Windows-module.md:27
+msgid ""
+"The resource compiler executable used is the first which exists from the "
+"following list:"
+msgstr ""
+
+#. type: Bullet: '1. '
+#: Windows-module.md:30
+msgid ""
+"The `windres` executable given in the `[binaries]` section of the cross-file"
+msgstr ""
+
+#. type: Bullet: '2. '
+#: Windows-module.md:30
+msgid "The `WINDRES` environment variable"
+msgstr ""
+
+#. type: Bullet: '3. '
+#: Windows-module.md:30
+msgid ""
+"The resource compiler which is part of the same toolset as the C or C++ "
+"compiler in use."
 msgstr ""

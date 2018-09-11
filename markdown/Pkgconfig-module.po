@@ -19,7 +19,7 @@ msgstr ""
 #. type: Plain text
 #: Pkgconfig-module.md:2
 msgid "# Pkgconfig module"
-msgstr ""
+msgstr "# Pkgconfig モジュール"
 
 #. type: Plain text
 #: Pkgconfig-module.md:5
@@ -27,11 +27,13 @@ msgid ""
 "This module is a simple generator for [pkg-config](https://pkg-config."
 "freedesktop.org/) files."
 msgstr ""
+"このモジュールは単純に [pkg-config](https://pkg-config.freedesktop.org"
+"/) ファイルを生成するものです。"
 
 #. type: Plain text
 #: Pkgconfig-module.md:7
 msgid "## Usage"
-msgstr ""
+msgstr "## 利用方法"
 
 #. type: Plain text
 #: Pkgconfig-module.md:11
@@ -40,6 +42,9 @@ msgid ""
 "function will then be available as `pkg.generate()`. You can, of course, "
 "replace the name `pkg` with anything else."
 msgstr ""
+"このモジュールを用いるには **`pkg = import('pkgconfig')`** を実行するだけで"
+"す。`pkg.generate()` を用いることで、以下に示すような機能を利用することがで"
+"きます。もちろん `pkg` という名前は別のものに変えてもかまいません。"
 
 #. type: Plain text
 #: Pkgconfig-module.md:13
@@ -52,11 +57,13 @@ msgid ""
 "The generated file's properties are specified with the following keyword "
 "arguments."
 msgstr ""
+"生成されたファイル内の各プロパティは、以下のキーワード引数により特定する"
+"ことができます。"
 
 #. type: Bullet: '- '
 #: Pkgconfig-module.md:54
 msgid "`description` a string describing the library"
-msgstr ""
+msgstr "`description` ライブラリを説明する文字列。"
 
 #. type: Bullet: '- '
 #: Pkgconfig-module.md:54
@@ -103,7 +110,7 @@ msgstr ""
 #. type: Bullet: '- '
 #: Pkgconfig-module.md:54
 msgid "`name` the name of this library"
-msgstr ""
+msgstr "`name` ライブラリ名。"
 
 #. type: Bullet: '- '
 #: Pkgconfig-module.md:54
@@ -131,6 +138,19 @@ msgid ""
 "- `d_module_versions` a list of module version flags used when compiling\n"
 "   D sources referred to by this pkg-config file\n"
 msgstr ""
+"- `requires` list of strings, pkgconfig-dependencies or libraries that\n"
+"   `pkgconfig.generate()` was used on to put in the `Requires` field\n"
+"- `requires_private` same as `requires` but for `Requires.private` field\n"
+"  field\n"
+"- `url` a string with a url for the library\n"
+"- `variables` a list of strings with custom variables to add to the\n"
+"  generated file. The strings must be in the form `name=value` and may\n"
+"  reference other pkgconfig variables,\n"
+"  e.g. `datadir=${prefix}/share`. The names `prefix`, `libdir` and\n"
+"  `installdir` are reserved and may not be used.\n"
+"- `version` ライブラリのバージョンを表わす文字列。\n"
+"- `d_module_versions` a list of module version flags used when compiling\n"
+"   D sources referred to by this pkg-config file\n"
 
 #. type: Plain text
 #: Pkgconfig-module.md:60
