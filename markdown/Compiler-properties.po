@@ -449,6 +449,7 @@ msgstr ""
 
 #. type: Plain text
 #: Compiler-properties.md:211
+#, no-wrap
 msgid ""
 "```meson int_alignment = compiler.alignment('int') # Will most likely "
 "contain the value 4.  ```"

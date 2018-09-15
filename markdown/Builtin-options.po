@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: FULL-PACKAGE-NAME VERSION\n"
-"POT-Creation-Date: 2018-09-03 17:02+0900\n"
+"POT-Creation-Date: 2018-09-15 13:23+0900\n"
 "PO-Revision-Date: 2018-09-03 17:02+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -26,7 +26,8 @@ msgstr ""
 #: Builtin-options.md:4
 msgid "short-description: Built-in options to configure project properties ..."
 msgstr ""
-"short-description: Built-in options to configure project properties\n..."
+"short-description: プロジェクトのプロパティを設定するビルトインオプション\n"
+"..."
 
 #. type: Plain text
 #: Builtin-options.md:6
@@ -40,11 +41,15 @@ msgid ""
 "files](Build-options.md) and built-in options that are either universal "
 "options, base options, compiler options."
 msgstr ""
+"Meson には大きく 2 種類のオプションがあります。ビルドファイルにおいて指定"
+"する [ビルドオプション](Build-options.md) ともう一つ、ビルトインオプション"
+"です。後者はさらに共通 (universal) オプション、基本 (base) オプション、"
+"コンパイラーオプションに分かれます。"
 
 #. type: Plain text
 #: Builtin-options.md:12
 msgid "## Universal options"
-msgstr ""
+msgstr "## 共通オプション (universal options)"
 
 #. type: Plain text
 #: Builtin-options.md:16
@@ -57,12 +62,14 @@ msgstr ""
 #. type: Plain text
 #: Builtin-options.md:18
 msgid "They can also be edited after setup using `meson configure`."
-msgstr ""
+msgstr "セットアップを終えていても `meson configure` を実行すれば、その設定を"
+"修正することができます。"
 
 #. type: Plain text
 #: Builtin-options.md:20
 msgid "Installation options are all relative to the prefix, except:"
-msgstr ""
+msgstr "インストールディレクトリに関するオプションは、プレフィックス "
+"(prefix) からの相対ディレクトリになりますが、以下のような例外もあります。"
 
 #. type: Bullet: '* '
 #: Builtin-options.md:23
@@ -70,6 +77,9 @@ msgid ""
 "When the prefix is `/usr`: `sysconfdir` defaults to `/etc`, `localstatedir` "
 "defaults to `/var`, and `sharedstatedir` defaults to `/var/lib`"
 msgstr ""
+"プレフィックスが `/usr` のとき、各ディレクトリのデフォルトはそれぞれ以下のよ"
+"うになります。`sysconfdir` は `/etc`、`localstatdir` は `/var`、"
+"`sharedstatedir` は `/var/lib`"
 
 #. type: Bullet: '* '
 #: Builtin-options.md:23
@@ -77,6 +87,9 @@ msgid ""
 "When the prefix is `/usr/local`: `localstatedir` defaults to `/var/local`, "
 "and `sharedstatedir` defaults to `/var/local/lib`"
 msgstr ""
+"プレフィックスが `/usr/local` のとき、各ディレクトリのデフォルトはそれぞれ以"
+"下のようになります。`localstatdir` は `/var/local`、`sharedstatedir` は "
+"`/var/local/lib`"
 
 #. type: Plain text
 #: Builtin-options.md:48
@@ -97,7 +110,7 @@ msgid ""
 "| sysconfdir                           | etc           | Sysconf data directory |\n"
 "| localstatedir                        | var           | Localstate data directory |\n"
 "| sharedstatedir                       | com           | Architecture-independent data directory |\n"
-"| werror                               | false         | Treat warnings as erros |\n"
+"| werror                               | false         | Treat warnings as errors |\n"
 "| warnlevel {1, 2, 3}                  | 1             | Set the warning level. From 1 = lowest to 3 = highest |\n"
 "| layout {mirror,flat}                 | mirror        | Build directory layout. |\n"
 "| default-library {shared, static, both} | shared       | Default library type. |\n"
@@ -107,6 +120,30 @@ msgid ""
 "| cross-file CROSS_FILE                |               | File describing cross compilation environment. |\n"
 "| wrap-mode {default, nofallback, nodownload, forcefallback} | | Special wrap mode to use |\n"
 msgstr ""
+"| オプション                           | デフォルト    | 内容 |\n"
+"| ------                               | ------------- | ----------- |\n"
+"| prefix                               | 後述参照      | インストールプレフィックス |\n"
+"| libdir                               | 後述参照      | ライブラリディレクトリ |\n"
+"| libexecdir                           | libexec       | ライブラリ実行ディレクトリ |\n"
+"| bindir                               | bin           | 実行ディレクトリ |\n"
+"| sbindir                              | sbin          | システム実行ディレクトリ |\n"
+"| includedir                           | include       | ヘッダーファイルディレクトリ |\n"
+"| datadir                              | share         | データファイルディレクトリ |\n"
+"| mandir                               | share/man     | man ページディレクトリ |\n"
+"| infodir                              | share/info    | Info ページディレクトリ |\n"
+"| localedir                            | share/locale  | ロケールデータディレクトリ |\n"
+"| sysconfdir                           | etc           | Sysconf データディレクトリ |\n"
+"| localstatedir                        | var           | ロケールステートデータディレクトリ |\n"
+"| sharedstatedir                       | com           | Architecture-independent data directory |\n"
+"| werror                               | false         | Treat warnings as errors |\n"
+"| warnlevel {1, 2, 3}                  | 1             | Set the warning level. From 1 = lowest to 3 = highest |\n"
+"| layout {mirror,flat}                 | mirror        | Build directory layout. |\n"
+"| default-library {shared, static, both} | shared       | Default library type. |\n"
+"| backend {ninja, vs,<br>vs2010, vs2015, vs2017, xcode} |               | Backend to use (default: ninja). |\n"
+"| stdsplit                             |               | Split stdout and stderr in test logs. |\n"
+"| errorlogs                            |               | Whether to print the logs from failing tests. |\n"
+"| cross-file CROSS_FILE                |               | File describing cross compilation environment. |\n"
+"| wrap-mode {default, nofallback, nodownload, forcefallback} | | Special wrap mode to use |\n"
 
 #. type: Plain text
 #: Builtin-options.md:52

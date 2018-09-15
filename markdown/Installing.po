@@ -262,4 +262,4 @@ msgstr ""
 #. type: Plain text
 #: Installing.md:116
 msgid "```console $ meson install --no-rebuild --only-changed ```"
-msgstr ""
+msgstr "```console\n$ meson install --no-rebuild --only-changed\n```"

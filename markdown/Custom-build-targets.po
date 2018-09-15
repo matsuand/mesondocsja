@@ -53,7 +53,7 @@ msgstr ""
 #. type: Plain text
 #: Custom-build-targets.md:17
 msgid "infile = 'source_code.txt' outfile = 'output.bin'"
-msgstr ""
+msgstr "infile = 'source_code.txt'\noutfile = 'output.bin'"
 
 #. type: Plain text
 #: Custom-build-targets.md:25

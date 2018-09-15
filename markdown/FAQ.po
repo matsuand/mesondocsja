@@ -25,9 +25,7 @@ msgstr ""
 #. type: Plain text
 #: FAQ.md:5
 msgid "title: FAQ ...  # Meson Frequently Asked Questions"
-msgstr ""
-"title: FAQ\n"
-"...\n"
+msgstr "title: FAQ\n...\n"
 "# Meson のよく尋ねられる質問"
 
 #. type: Plain text
@@ -66,7 +64,7 @@ msgstr ""
 #. type: Plain text
 #: FAQ.md:26
 msgid "```meson thread_dep = dependency('threads')  ```"
-msgstr ""
+msgstr "```meson\nthread_dep = dependency('threads')\n```"
 
 #. type: Plain text
 #: FAQ.md:31
@@ -93,7 +91,7 @@ msgstr ""
 #. type: Plain text
 #: FAQ.md:41
 msgid "```console $ pip3 install <your options here> meson ```"
-msgstr ""
+msgstr "```console\n$ pip3 install <your options here> meson\n```"
 
 #. type: Plain text
 #: FAQ.md:46
@@ -107,7 +105,7 @@ msgstr ""
 #. type: Plain text
 #: FAQ.md:50
 msgid "```console $ /path/to/meson.py <options> ```"
-msgstr ""
+msgstr "```console\n$ /path/to/meson.py <options>\n```"
 
 #. type: Plain text
 #: FAQ.md:55
@@ -126,13 +124,15 @@ msgstr ""
 #. type: Plain text
 #: FAQ.md:59
 msgid "Instead of specifying files explicitly, people seem to want to do this:"
-msgstr ""
+msgstr "各ファイルを明示的に記述するのではなく、以下のようにしたくなるかもしれ"
+"ません。"
 
 #. type: Plain text
 #: FAQ.md:63
 msgid ""
 "```meson executable('myprog', sources : '*.cpp') # This does NOT work! ```"
 msgstr ""
+"```meson\nexecutable('myprog', sources : '*.cpp') # これでは動作しません!\n```"
 
 #. type: Plain text
 #: FAQ.md:68
@@ -142,6 +142,11 @@ msgid ""
 "adds a new source file to the subdirectory, Meson should detect that and "
 "make it part of the build automatically."
 msgstr ""
+"Meson は上のような文法をサポートしていません。その理由は実にシンプルです。"
+"信頼性と処理速度をともに低下させるからです。"
+"By reliable we mean that if the user "
+"adds a new source file to the subdirectory, Meson should detect that and "
+"make it part of the build automatically."
 
 #. type: Plain text
 #: FAQ.md:78
@@ -187,7 +192,7 @@ msgstr ""
 #. type: Plain text
 #: FAQ.md:96
 msgid "```bash #!/bin/sh"
-msgstr ""
+msgstr "```bash\n#!/bin/sh"
 
 #. type: Plain text
 #: FAQ.md:101
@@ -212,6 +217,8 @@ msgid ""
 "```meson c = run_command('grabber.sh')  sources = c.stdout().strip()."
 "split('\\n')  e = executable('prog', sources)  ```"
 msgstr ""
+"```meson\nc = run_command('grabber.sh')\nsources = c.stdout().strip()."
+"split('\\n')\ne = executable('prog', sources)\n```"
 
 #. type: Plain text
 #: FAQ.md:112
@@ -428,7 +435,7 @@ msgstr ""
 #. type: Plain text
 #: FAQ.md:227
 msgid "```meson project('foobar', 'cpp')  ```"
-msgstr ""
+msgstr "```meson\nproject('foobar', 'cpp')\n```"
 
 #. type: Plain text
 #: FAQ.md:230
@@ -442,6 +449,7 @@ msgstr ""
 msgid ""
 "```meson project('foobar', 'cpp', default_options : ['cpp_std=c++14'])  ```"
 msgstr ""
+"```meson\nproject('foobar', 'cpp', default_options : ['cpp_std=c++14'])\n```"
 
 #. type: Plain text
 #: FAQ.md:242
