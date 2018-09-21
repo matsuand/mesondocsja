@@ -4,7 +4,7 @@ define GETPOT
   pot_absdir=${shell cd pot && pwd}
   pot_absname=$(pot_absdir)/${shell basename $2}
   (cd ${md_dir} && \
-     $(PO4AGETTEXTIZE) -f text -M utf-8 -m ${md_basename} -p ${pot_absname})
+     $(PO4AGETTEXTIZE) -f $3 -M utf-8 -m ${md_basename} -p ${pot_absname})
   @sed -i -e "s/CHARSET/ASCII/" ${pot_absname}
 endef
 
@@ -24,8 +24,8 @@ endef
 
 define PO4ATRANS
   if test "$3" = ""; then \
-    $(PO4ATRANSLATE) -k 0 -w 100 -f text -M UTF-8 -m $1 -l $@ -p $2; \
+    $(PO4ATRANSLATE) -k 0 -w 100 -f $4 -M UTF-8 -m $1 -l $@ -p $2; \
   else \
-    $(PO4ATRANSLATE) -k 0 -w 100 -f text -M UTF-8 -m $1 -l $@ -p $2 -A UTF-8 -a $3; \
+    $(PO4ATRANSLATE) -k 0 -w 100 -f $4 -M UTF-8 -m $1 -l $@ -p $2 -A UTF-8 -a $3; \
   fi
 endef

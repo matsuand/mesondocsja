@@ -1,0 +1,89 @@
+# Japanese translations for PACKAGE package
+# Copyright (C) 2018 Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2018-09-20 20:08+0900\n"
+"PO-Revision-Date: 2018-09-20 20:08+0900\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: matsuand個人翻訳\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. type: Content of: outside any tag (error?)
+#: navbar_links.html:1
+msgid "@require(page)"
+msgstr ""
+
+#. type: Content of: <li>
+#: navbar_links.html:4
+msgid ""
+"<a class=\"dropdown-toggle\" role=\"button\" data-toggle=\"dropdown\" aria-"
+"haspopup=\"true\" aria-expanded=\"false\"> Modules <span class=\"caret\"></"
+"span> </a>"
+msgstr ""
+"<a class=\"dropdown-toggle\" role=\"button\" data-toggle=\"dropdown\" aria-"
+"haspopup=\"true\" aria-expanded=\"false\"> モジュール <span class=\"caret\"></"
+"span> </a>"
+
+#. type: Content of: <li><ul>
+#: navbar_links.html:8
+msgid ""
+"@for tup in ((\"Gnome-module.html\",\"GNOME\"), \\ (\"i18n-module.html\","
+"\"i18n\"), \\ (\"Pkgconfig-module.html\",\"Pkgconfig\"), \\ (\"Python-module."
+"html\",\"Python\"), \\ (\"Python-3-module.html\",\"Python 3\"), \\ (\"Qt4-"
+"module.html\",\"Qt4\"), \\ (\"Qt5-module.html\",\"Qt5\"), \\ (\"RPM-module."
+"html\",\"RPM\"), \\ (\"Windows-module.html\",\"Windows\"), \\ (\"Hotdoc-"
+"module.html\",\"Hotdoc\")):"
+msgstr ""
+"@for tup in ((\"Gnome-module.html\",\"GNOME\"), \\\n(\"i18n-module.html\","
+"\"i18n\"), \\\n(\"Pkgconfig-module.html\",\"Pkgconfig\"), \\\n(\"Python-module."
+"html\",\"Python\"), \\\n(\"Python-3-module.html\",\"Python 3\"), \\\n(\"Qt4-"
+"module.html\",\"Qt4\"), \\\n(\"Qt5-module.html\",\"Qt5\"), \\\n(\"RPM-module."
+"html\",\"RPM\"), \\\n(\"Windows-module.html\",\"Windows\"), \\\n(\"Hotdoc-"
+"module.html\",\"Hotdoc\")):"
+
+#. type: Content of: <li><ul><li>
+#: navbar_links.html:19 navbar_links.html:37
+msgid "<a href=\"@tup[0]\">@tup[1]</a>"
+msgstr ""
+
+#. type: Content of: <li><ul>
+#: navbar_links.html:21 navbar_links.html:39
+msgid "@end"
+msgstr ""
+
+#. type: Content of: outside any tag (error?)
+#: navbar_links.html:24
+msgid "\\"
+msgstr ""
+
+#. type: Content of: <li>
+#: navbar_links.html:26
+msgid ""
+"<a class=\"dropdown-toggle\" role=\"button\" data-toggle=\"dropdown\" aria-"
+"haspopup=\"true\" aria-expanded=\"false\"> Quick References <span class="
+"\"caret\"></span> </a>"
+msgstr ""
+"<a class=\"dropdown-toggle\" role=\"button\" data-toggle=\"dropdown\" aria-"
+"haspopup=\"true\" aria-expanded=\"false\"> クィックリファレンス <span class="
+"\"caret\"></span> </a>"
+
+#. type: Content of: <li><ul>
+#: navbar_links.html:30
+msgid ""
+"@for tup in ((\"Reference-manual.html\", \"Functions\"), \\ (\"Build-options."
+"html\", \"Options\"), \\ (\"Configuration.html\", \"Configuration\"), \\ "
+"(\"Dependencies.html\", \"Dependencies\"), \\ (\"Unit-tests.html\", \"Tests"
+"\"), \\ (\"Syntax.html\", \"Syntax\")):"
+msgstr ""
+"@for tup in ((\"Reference-manual.html\", \"関数\"), \\\n(\"Build-options."
+"html\", \"オプション\"), \\\n(\"Configuration.html\", \"設定\"), \\\n"
+"(\"Dependencies.html\", \"依存関係\"), \\\n(\"Unit-tests.html\", \"テスト"
+"\"), \\\n(\"Syntax.html\", \"文法\")):"
