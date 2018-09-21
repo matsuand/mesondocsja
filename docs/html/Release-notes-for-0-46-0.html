@@ -80,9 +80,7 @@ $('body').removeClass('no-script');
 			<ul class="nav navbar-nav" id="menu">
 				
 <li class="dropdown">
-	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		モジュール <span class="caret"></span>
-	</a>
+	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> モジュール <span class="caret"></span> </a>
 	<ul class="dropdown-menu" id="modules-menu">
 					<li>
 				<a href="Gnome-module.html">GNOME</a>
@@ -92,6 +90,9 @@ $('body').removeClass('no-script');
 			</li>
 					<li>
 				<a href="Pkgconfig-module.html">Pkgconfig</a>
+			</li>
+					<li>
+				<a href="Python-module.html">Python</a>
 			</li>
 					<li>
 				<a href="Python-3-module.html">Python 3</a>
@@ -108,12 +109,13 @@ $('body').removeClass('no-script');
 					<li>
 				<a href="Windows-module.html">Windows</a>
 			</li>
+					<li>
+				<a href="Hotdoc-module.html">Hotdoc</a>
+			</li>
 			</ul>
 </li>
 <li class="dropdown">
-	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		クィックリファレンス <span class="caret"></span>
-	</a>
+	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> クィックリファレンス <span class="caret"></span> </a>
 	<ul class="dropdown-menu" id="quick-refs-menu">
 					<li>
 				<a href="Reference-manual.html">関数</a>
@@ -188,67 +190,54 @@ in which case sources will be compiled twice.</p>
 <p>This can be used to run the current compiler with the specified arguments to
 obtain additional information from it.  One of the use cases is to get the
 location of development files for the GCC plugins:</p>
-<pre><code class="language-meson">'-print-file-name=plugin')  plugin_dev_path = result.stdout().strip()  ```
-
-## declare_dependency() now supports `link_whole:`
-
-`declare_dependency()` now supports the `link_whole:` keyword argument which
-transparently works for build targets which use that dependency.
-
-## Old command names are now errors
-
-The old executable names `mesonintrospect`, `mesonconf`, `mesonrewriter` and
-`mesontest` have been deprecated for a long time. Starting from this version
+<pre><code class="language-meson">cc = meson.get_compiler('c')
+result = run_command(cc, '-print-file-name=plugin')
+plugin_dev_path = result.stdout().strip()
+</code></pre>
+<h2 id="declare_dependency-now-supports-link_whole">declare_dependency() now supports <code>link_whole:</code>
+</h2>
+<p><code>declare_dependency()</code> now supports the <code>link_whole:</code> keyword argument which
+transparently works for build targets which use that dependency.</p>
+<h2 id="old-command-names-are-now-errors">Old command names are now errors</h2>
+<p>The old executable names <code>mesonintrospect</code>, <code>mesonconf</code>, <code>mesonrewriter</code> and
+<code>mesontest</code> have been deprecated for a long time. Starting from this version
 they no longer do anything but instead always error out. All functionality
-is available as subcommands in the main `meson` binary.
-
-## Meson and meson configure now accept the same arguments
-
-Previously meson required that builtin arguments (like prefix) be passed as
-`--prefix` to `meson` and `-Dprefix` to `meson configure`. `meson` now
-accepts -D form like `meson configure` has. `meson configure` also accepts
-the `--prefix` form, like `meson` has.
-
-## Recursively extract objects
-
-The `recursive:` keyword argument has been added to
-`extract_all_objects()`. When set to `true` it will also return objects
-passed to the `objects:` argument of this target. By default only objects
+is available as subcommands in the main <code>meson</code> binary.</p>
+<h2 id="meson-and-meson-configure-now-accept-the-same-arguments">Meson and meson configure now accept the same arguments</h2>
+<p>Previously meson required that builtin arguments (like prefix) be passed as
+<code>--prefix</code> to <code>meson</code> and <code>-Dprefix</code> to <code>meson configure</code>. <code>meson</code> now
+accepts -D form like <code>meson configure</code> has. <code>meson configure</code> also accepts
+the <code>--prefix</code> form, like <code>meson</code> has.</p>
+<h2 id="recursively-extract-objects">Recursively extract objects</h2>
+<p>The <code>recursive:</code> keyword argument has been added to
+<code>extract_all_objects()</code>. When set to <code>true</code> it will also return objects
+passed to the <code>objects:</code> argument of this target. By default only objects
 built for this target are returned to maintain backward compatibility with
-previous versions. The default will eventually be changed to `true` in a
-future version.
-
-```meson lib1 = static_library('a', 'source.c', objects : 'prebuilt.o')
+previous versions. The default will eventually be changed to <code>true</code> in a
+future version.</p>
+<pre><code class="language-meson">lib1 = static_library('a', 'source.c', objects : 'prebuilt.o')
 lib2 = static_library('b', objects : lib1.extract_all_objects(recursive :
-true))  ```
-
-## Can override find_program()
-
-It is now possible to override the result of `find_program` to point to a
+true))
+</code></pre>
+<h2 id="can-override-find_program">Can override find_program()</h2>
+<p>It is now possible to override the result of <code>find_program</code> to point to a
 custom program you want. The overriding is global and applies to every
-subproject from there on. Here is how you would use it.
-
-In master project
-
-```meson subproject('mydep')  ```
-
-In the called subproject:
-
-```meson prog = find_program('my_custom_script')
-meson.override_find_program('mycodegen', prog)  ```
-
-In master project (or, in fact, any subproject):
-
-```meson genprog = find_program('mycodegen')  ```
-
-Now `genprog` points to the custom script. If the dependency had come from
-the system, then it would point to the system version.
-
-You can also use the return value of `configure_file()` to override a
-program in the same way as above:
-
-```meson
-prog_script = configure_file(input : 'script.sh.in',
+subproject from there on. Here is how you would use it.</p>
+<p>In master project</p>
+<pre><code class="language-meson">subproject('mydep')
+</code></pre>
+<p>In the called subproject:</p>
+<pre><code class="language-meson">prog = find_program('my_custom_script')
+meson.override_find_program('mycodegen', prog)
+</code></pre>
+<p>In master project (or, in fact, any subproject):</p>
+<pre><code class="language-meson">genprog = find_program('mycodegen')
+</code></pre>
+<p>Now <code>genprog</code> points to the custom script. If the dependency had come from
+the system, then it would point to the system version.</p>
+<p>You can also use the return value of <code>configure_file()</code> to override a
+program in the same way as above:</p>
+<pre><code class="language-meson">prog_script = configure_file(input : 'script.sh.in',
                              output : 'script.sh',
                              configuration : cdata)
 meson.override_find_program('mycodegen', prog_script)
@@ -275,7 +264,8 @@ take all recognizable source files in the current directory.  You can also
 specify a list of dependencies with the -d flag and automatically invoke a
 build with the -b flag to check if the code builds with those dependencies.</p>
 <p>For example,</p>
-<p><code>meson meson init -fbd sdl2,gl</code></p>
+<pre><code class="language-meson">meson init -fbd sdl2,gl
+</code></pre>
 <p>will look for C or C++ files in the current directory, generate a
 meson.build for them with the dependencies of sdl2 and gl and immediately
 try to build it, overwriting any previous meson.build and build directory.</p>

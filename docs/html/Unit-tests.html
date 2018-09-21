@@ -80,9 +80,7 @@ $('body').removeClass('no-script');
 			<ul class="nav navbar-nav" id="menu">
 				
 <li class="dropdown">
-	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		モジュール <span class="caret"></span>
-	</a>
+	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> モジュール <span class="caret"></span> </a>
 	<ul class="dropdown-menu" id="modules-menu">
 					<li>
 				<a href="Gnome-module.html">GNOME</a>
@@ -92,6 +90,9 @@ $('body').removeClass('no-script');
 			</li>
 					<li>
 				<a href="Pkgconfig-module.html">Pkgconfig</a>
+			</li>
+					<li>
+				<a href="Python-module.html">Python</a>
 			</li>
 					<li>
 				<a href="Python-3-module.html">Python 3</a>
@@ -108,12 +109,13 @@ $('body').removeClass('no-script');
 					<li>
 				<a href="Windows-module.html">Windows</a>
 			</li>
+					<li>
+				<a href="Hotdoc-module.html">Hotdoc</a>
+			</li>
 			</ul>
 </li>
 <li class="dropdown">
-	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		クィックリファレンス <span class="caret"></span>
-	</a>
+	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> クィックリファレンス <span class="caret"></span> </a>
 	<ul class="dropdown-menu" id="quick-refs-menu">
 					<li>
 				<a href="Reference-manual.html">関数</a>
@@ -217,7 +219,8 @@ running <code>ninja test</code>.</p>
 <pre><code class="language-console">$ meson test testname
 </code></pre>
 <p>Tests belonging to a suite <code>suite</code> can be run as follows</p>
-<p><code>console $ meson test --suite (sub)project_name:suite</code></p>
+<pre><code class="language-console">$ meson test --suite (sub)project_name:suite
+</code></pre>
 <p>Since version <em>0.46</em>, <code>(sub)project_name</code> can be omitted if it is the
 top-level project.</p>
 <p>Sometimes you need to run the tests multiple times, which is done like this:</p>
@@ -244,7 +247,8 @@ program crashes, GDB will halt and the user can debug the application. Note
 that testing timeouts are disabled in this case so <code>meson test</code> will not
 kill <code>gdb</code> while the developer is still debugging it. The downside is that
 if the test binary freezes, the test runner will wait forever.</p>
-<p><code>console $ meson test --print-errorlogs</code></p>
+<pre><code class="language-console">$ meson test --print-errorlogs
+</code></pre>
 <p>Meson will report the output produced by the failing tests along with other
 useful informations as the environmental variables. This is useful, for
 example, when you run the tests on Travis-CI, Jenkins and the like.</p>

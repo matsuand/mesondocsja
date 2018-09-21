@@ -80,9 +80,7 @@ $('body').removeClass('no-script');
 			<ul class="nav navbar-nav" id="menu">
 				
 <li class="dropdown">
-	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		モジュール <span class="caret"></span>
-	</a>
+	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> モジュール <span class="caret"></span> </a>
 	<ul class="dropdown-menu" id="modules-menu">
 					<li>
 				<a href="Gnome-module.html">GNOME</a>
@@ -92,6 +90,9 @@ $('body').removeClass('no-script');
 			</li>
 					<li>
 				<a href="Pkgconfig-module.html">Pkgconfig</a>
+			</li>
+					<li>
+				<a href="Python-module.html">Python</a>
 			</li>
 					<li>
 				<a href="Python-3-module.html">Python 3</a>
@@ -108,12 +109,13 @@ $('body').removeClass('no-script');
 					<li>
 				<a href="Windows-module.html">Windows</a>
 			</li>
+					<li>
+				<a href="Hotdoc-module.html">Hotdoc</a>
+			</li>
 			</ul>
 </li>
 <li class="dropdown">
-	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		クィックリファレンス <span class="caret"></span>
-	</a>
+	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> クィックリファレンス <span class="caret"></span> </a>
 	<ul class="dropdown-menu" id="quick-refs-menu">
 					<li>
 				<a href="Reference-manual.html">関数</a>
@@ -161,7 +163,8 @@ is no possible way for it to cover all corner cases. For these cases it
 permits you to define custom build targets. Here is how one would use it.</p>
 <pre><code class="language-meson">comp = find_program('custom_compiler')
 
-infile = 'source_code.txt' outfile = 'output.bin'
+infile = 'source_code.txt'
+outfile = 'output.bin'
 
 mytarget = custom_target('targetname',
   output : 'output.bin',

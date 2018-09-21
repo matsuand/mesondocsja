@@ -80,9 +80,7 @@ $('body').removeClass('no-script');
 			<ul class="nav navbar-nav" id="menu">
 				
 <li class="dropdown">
-	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		モジュール <span class="caret"></span>
-	</a>
+	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> モジュール <span class="caret"></span> </a>
 	<ul class="dropdown-menu" id="modules-menu">
 					<li>
 				<a href="Gnome-module.html">GNOME</a>
@@ -92,6 +90,9 @@ $('body').removeClass('no-script');
 			</li>
 					<li>
 				<a href="Pkgconfig-module.html">Pkgconfig</a>
+			</li>
+					<li>
+				<a href="Python-module.html">Python</a>
 			</li>
 					<li>
 				<a href="Python-3-module.html">Python 3</a>
@@ -108,12 +109,13 @@ $('body').removeClass('no-script');
 					<li>
 				<a href="Windows-module.html">Windows</a>
 			</li>
+					<li>
+				<a href="Hotdoc-module.html">Hotdoc</a>
+			</li>
 			</ul>
 </li>
 <li class="dropdown">
-	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		クィックリファレンス <span class="caret"></span>
-	</a>
+	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> クィックリファレンス <span class="caret"></span> </a>
 	<ul class="dropdown-menu" id="quick-refs-menu">
 					<li>
 				<a href="Reference-manual.html">関数</a>
@@ -163,56 +165,45 @@ Visual Studio backend works too.</p>
 <code>compute_int</code> method in the compiler objects</h2>
 <p>This method can be used to evaluate the value of an expression. As an
 example:</p>
-<pre><code class="language-meson">very slow way of adding two numbers.  ```
-
-## Visual Studio 2017 support
-
-There is now a VS2017 backend (`--backend=vs2017`) as well as a generic VS
-backend (`--backend=vs`) that autodetects the currently active VS version.
-
-## Automatic initialization of subprojects that are git submodules
-
-If you have a directory inside your subprojects directory (usually
-`subprojects/`) that is a git submodule, meson will automatically initialize
+<pre><code class="language-meson">cc = meson.get_compiler('c')
+two = cc.compute_int('1 + 1') # A very slow way of adding two numbers.
+</code></pre>
+<h2 id="visual-studio-2017-support">Visual Studio 2017 support</h2>
+<p>There is now a VS2017 backend (<code>--backend=vs2017</code>) as well as a generic VS
+backend (<code>--backend=vs</code>) that autodetects the currently active VS version.</p>
+<h2 id="automatic-initialization-of-subprojects-that-are-git-submodules">Automatic initialization of subprojects that are git submodules</h2>
+<p>If you have a directory inside your subprojects directory (usually
+<code>subprojects/</code>) that is a git submodule, meson will automatically initialize
 it if your build files refer to it. This will be done without needing a wrap
-file since git contains all the information needed.
-
-## No download mode for wraps
-
-Added a new option `wrap-mode` that can be toggled to prevent Meson from
+file since git contains all the information needed.</p>
+<h2 id="no-download-mode-for-wraps">No download mode for wraps</h2>
+<p>Added a new option <code>wrap-mode</code> that can be toggled to prevent Meson from
 downloading dependency projects. Attempting to do so will cause an
 error. This is useful for distro packagers and other cases where you must
 explicitly enforce that nothing is downloaded from the net during
-configuration or build.
-
-## Overriding options per target
-
-Build targets got a new keyword argument `override_options` that can be used
+configuration or build.</p>
+<h2 id="overriding-options-per-target">Overriding options per target</h2>
+<p>Build targets got a new keyword argument <code>override_options</code> that can be used
 to override system options. As an example if you have a target that you know
-can't be built with `-Werror` enabled you can override the value of the
-option like this:
-
-```meson executable('foo', 'foo.c', override_options : ['werror=false'])
+can't be built with <code>-Werror</code> enabled you can override the value of the
+option like this:</p>
+<pre><code class="language-meson">executable('foo', 'foo.c', override_options : ['werror=false'])
 </code></pre>
 <p>Note that this does not affect project options, only those options that come
 from Meson (language standards, unity builds etc).</p>
 <h2 id="compiler-object-get-define">Compiler object get define</h2>
 <p>Compiler objects got a new method <code>get_define()</code> that returns the given
 preprocessor symbol as a string.</p>
-<pre><code class="language-meson">returns '1' on Linux hosts ```
-
-## Cygwin support
-
-Meson now works under Cygwin and we have added it to our CI test matrix.
-
-## Multiple install directories
-
-Custom targets can produce many output files. Previously it was only
+<pre><code class="language-meson">cc = meson.get_compiler('c')
+one = cc.get_define('__linux__') # returns '1' on Linux hosts
+</code></pre>
+<h2 id="cygwin-support">Cygwin support</h2>
+<p>Meson now works under Cygwin and we have added it to our CI test matrix.</p>
+<h2 id="multiple-install-directories">Multiple install directories</h2>
+<p>Custom targets can produce many output files. Previously it was only
 possible to install all of them in the same directory, but now you can
-install each output in its own directory like this:
-
-```meson
-custom_target('two_out',
+install each output in its own directory like this:</p>
+<pre><code class="language-meson">custom_target('two_out',
   output : ['diff.h', 'diff.sh'],
   command : [creator, '@OUTDIR@'],
   install : true,
@@ -236,14 +227,16 @@ installed, so this is a backwards-compatible change.</p>
 either be detected via <code>pkg-config</code> or <code>qmake</code>. Until now Meson has had a
 heuristic for selecting which method to choose but sometimes it does the
 wrong thing. This can now be overridden with the <code>method</code> keyword like this:</p>
-<pre><code class="language-meson"></code></pre>
+<pre><code class="language-meson">qt5_dep = dependency('qt5', modules : 'core', method : 'qmake')
+</code></pre>
 <h2 id="link-whole-contents-of-static-libraries">Link whole contents of static libraries</h2>
 <p>The default behavior of static libraries is to discard all symbols that are
 not not directly referenced. This may lead to exported symbols being
 lost. Most compilers support "whole archive" linking that includes all
 symbols and code of a given static library. This is exposed with the
 <code>link_whole</code> keyword.</p>
-<pre><code class="language-meson"></code></pre>
+<pre><code class="language-meson">shared_library('foo', 'foo.c', link_whole : some_static_library)
+</code></pre>
 <p>Note that Visual Studio compilers only support this functionality on VS 2015
 and newer.</p>
 <h2 id="unity-builds-only-for-subprojects">Unity builds only for subprojects</h2>

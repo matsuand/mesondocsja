@@ -80,9 +80,7 @@ $('body').removeClass('no-script');
 			<ul class="nav navbar-nav" id="menu">
 				
 <li class="dropdown">
-	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		モジュール <span class="caret"></span>
-	</a>
+	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> モジュール <span class="caret"></span> </a>
 	<ul class="dropdown-menu" id="modules-menu">
 					<li>
 				<a href="Gnome-module.html">GNOME</a>
@@ -92,6 +90,9 @@ $('body').removeClass('no-script');
 			</li>
 					<li>
 				<a href="Pkgconfig-module.html">Pkgconfig</a>
+			</li>
+					<li>
+				<a href="Python-module.html">Python</a>
 			</li>
 					<li>
 				<a href="Python-3-module.html">Python 3</a>
@@ -108,12 +109,13 @@ $('body').removeClass('no-script');
 					<li>
 				<a href="Windows-module.html">Windows</a>
 			</li>
+					<li>
+				<a href="Hotdoc-module.html">Hotdoc</a>
+			</li>
 			</ul>
 </li>
 <li class="dropdown">
-	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		クィックリファレンス <span class="caret"></span>
-	</a>
+	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> クィックリファレンス <span class="caret"></span> </a>
 	<ul class="dropdown-menu" id="quick-refs-menu">
 					<li>
 				<a href="Reference-manual.html">関数</a>
@@ -190,11 +192,15 @@ exec = executable(
 <p>The cross file can now be used for overriding the result of
 <code>find_program</code>. As an example if you want to find the <code>objdump</code> command and
 have the following definition in your cross file:</p>
-<pre><code class="language-ini"></code></pre>
+<pre><code class="language-ini">[binaries]
+...
+objdump = '/usr/bin/arm-linux-gnueabihf-objdump-6'
+</code></pre>
 <p>Then issuing the command <code>find_program('objdump')</code> will return the version
 specified in the cross file. If you need the build machine's objdump, you
 can specify the <code>native</code> keyword like this:</p>
-<p><code>meson native_objdump = find_program('objdump', native : true)</code></p>
+<pre><code class="language-meson">native_objdump = find_program('objdump', native : true)
+</code></pre>
 <h1 id="easier-handling-of-supported-compiler-arguments">Easier handling of supported compiler arguments</h1>
 <p>A common pattern for handling multiple desired compiler arguments, was to
 test their presence and add them to an array one-by-one, e.g.:</p>
@@ -213,21 +219,19 @@ cc.add_project_argument(warning_flags)
 </code></pre>
 <p>A helper has been added for the foreach/has_argument pattern, so you can now
 simply do:</p>
-<pre><code class="language-meson">cc.get_supported_arguments(warning_flags)  ```
-
-# Better support for shared libraries in non-system paths
-
-Meson has support for prebuilt object files and static libraries.  This
+<pre><code class="language-meson">warning_flags = [ ... ]
+flags = cc.get_supported_arguments(warning_flags)
+</code></pre>
+<h1 id="better-support-for-shared-libraries-in-nonsystem-paths">Better support for shared libraries in non-system paths</h1>
+<p>Meson has support for prebuilt object files and static libraries.  This
 release adds feature parity to shared libraries that are either in
 non-standard system paths or shipped as part of your project. On systems
 that support rpath, Meson automatically adds rpath entries to built targets
-using manually found external libraries.
-
-This means that e.g. supporting prebuilt libraries shipped with your source
+using manually found external libraries.</p>
+<p>This means that e.g. supporting prebuilt libraries shipped with your source
 or provided by subprojects or wrap definitions by writing a build file like
-this:
-
-```meson project('myprebuiltlibrary', 'c')
+this:</p>
+<pre><code class="language-meson">project('myprebuiltlibrary', 'c')
 
 cc = meson.get_compiler('c')
 prebuilt = cc.find_library('mylib', dirs : meson.current_source_dir())

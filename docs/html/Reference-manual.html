@@ -80,9 +80,7 @@ $('body').removeClass('no-script');
 			<ul class="nav navbar-nav" id="menu">
 				
 <li class="dropdown">
-	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		モジュール <span class="caret"></span>
-	</a>
+	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> モジュール <span class="caret"></span> </a>
 	<ul class="dropdown-menu" id="modules-menu">
 					<li>
 				<a href="Gnome-module.html">GNOME</a>
@@ -92,6 +90,9 @@ $('body').removeClass('no-script');
 			</li>
 					<li>
 				<a href="Pkgconfig-module.html">Pkgconfig</a>
+			</li>
+					<li>
+				<a href="Python-module.html">Python</a>
 			</li>
 					<li>
 				<a href="Python-3-module.html">Python 3</a>
@@ -108,12 +109,13 @@ $('body').removeClass('no-script');
 					<li>
 				<a href="Windows-module.html">Windows</a>
 			</li>
+					<li>
+				<a href="Hotdoc-module.html">Hotdoc</a>
+			</li>
 			</ul>
 </li>
 <li class="dropdown">
-	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		クィックリファレンス <span class="caret"></span>
-	</a>
+	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> クィックリファレンス <span class="caret"></span> </a>
 	<ul class="dropdown-menu" id="quick-refs-menu">
 					<li>
 				<a href="Reference-manual.html">関数</a>
@@ -258,6 +260,7 @@ shared library. In addition it supports the following extra methods:</p>
 <code>get_shared_lib()</code> returns the shared library build target -
 <code>get_static_lib()</code> returns the static library build target</li>
 </ul>
+<p><em>Added 0.46.0</em></p>
 <h3 id="build_target">build_target()</h3>
 <p>Creates a build target whose type can be set dynamically with the
 <code>target_type</code> keyword argument. This declaration:</p>
@@ -1095,7 +1098,7 @@ Meson build files with <code>meson.project_license()</code>.</p>
 </li>
 <li>
 <p><code>meson_version</code> takes a string describing which Meson version the
-project requires. Usually something like <code>&gt;0.28.0</code>.</p>
+project requires. Usually something like <code>&gt;=0.28.0</code>.</p>
 </li>
 <li>
 <p><code>subproject_dir</code> specifies the top level directory name that holds Meson
@@ -1159,6 +1162,8 @@ script does file globbing internally)</li>
 <pre><code class="language-meson">    void set_variable(variable_name, value)
 </code></pre>
 <p>Assigns a value to the given variable name. Calling <code>set_variable('foo', bar)</code> is equivalent to <code>foo = bar</code>.</p>
+<p><strong>Note:</strong> Prior to v0.46.1, the <code>value</code> parameter could not be an
+array type, due to flattening of the function parameters.</p>
 <h3 id="shared_library">shared_library()</h3>
 <pre><code class="language-meson">    buildtarget shared_library(library_name, list_of_sources, ...)
 </code></pre>

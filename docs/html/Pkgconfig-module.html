@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<title>Pkgconfig module</title>
+<title>Pkgconfig モジュール</title>
 
 <link rel="stylesheet" href="assets/css/custom_bootstrap.css" type="text/css">
 <link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
@@ -80,9 +80,7 @@ $('body').removeClass('no-script');
 			<ul class="nav navbar-nav" id="menu">
 				
 <li class="dropdown">
-	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		モジュール <span class="caret"></span>
-	</a>
+	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> モジュール <span class="caret"></span> </a>
 	<ul class="dropdown-menu" id="modules-menu">
 					<li>
 				<a href="Gnome-module.html">GNOME</a>
@@ -92,6 +90,9 @@ $('body').removeClass('no-script');
 			</li>
 					<li>
 				<a href="Pkgconfig-module.html">Pkgconfig</a>
+			</li>
+					<li>
+				<a href="Python-module.html">Python</a>
 			</li>
 					<li>
 				<a href="Python-3-module.html">Python 3</a>
@@ -108,12 +109,13 @@ $('body').removeClass('no-script');
 					<li>
 				<a href="Windows-module.html">Windows</a>
 			</li>
+					<li>
+				<a href="Hotdoc-module.html">Hotdoc</a>
+			</li>
 			</ul>
 </li>
 <li class="dropdown">
-	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		クィックリファレンス <span class="caret"></span>
-	</a>
+	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> クィックリファレンス <span class="caret"></span> </a>
 	<ul class="dropdown-menu" id="quick-refs-menu">
 					<li>
 				<a href="Reference-manual.html">関数</a>
@@ -155,24 +157,21 @@ $('body').removeClass('no-script');
 <div id="body">
 	<div id="main">
 				    <div id="page-description" data-hotdoc-source="Pkgconfig-module.md" data-hotdoc-role="main">
-        <h1 id="pkgconfig-module">Pkgconfig module</h1>
-<p>This module is a simple generator for
-<a href="https://pkg-config.freedesktop.org/">pkg-config</a> files.</p>
-<h2 id="usage">Usage</h2>
-<p>To use this module, just do: <strong><code>pkg = import('pkgconfig')</code></strong>. The following
-function will then be available as <code>pkg.generate()</code>. You can, of course,
-replace the name <code>pkg</code> with anything else.</p>
+        <h1 id="pkgconfig-">Pkgconfig モジュール</h1>
+<p>このモジュールは単純に <a href="https://pkg-config.freedesktop.org/">pkg-config</a> ファイルを生成するものです。</p>
+<h2 id="">利用方法</h2>
+<p>このモジュールを用いるには <strong><code>pkg = import('pkgconfig')</code></strong> を実行するだけです。<code>pkg.generate()</code>
+を用いることで、以下に示すような機能を利用することができます。もちろん <code>pkg</code> という名前は別のものに変えてもかまいません。</p>
 <h3 id="pkggenerate">pkg.generate()</h3>
-<p>The generated file's properties are specified with the following keyword
-arguments.</p>
+<p>生成されたファイル内の各プロパティは、以下のキーワード引数により特定することができます。</p>
 <ul>
 <li>
-<code>description</code> a string describing the library</li>
+<code>description</code> ライブラリを説明する文字列。</li>
 <li>
 <code>extra_cflags</code> a list of extra compiler flags to be added to the <code>Cflags</code>
 field after the header search path</li>
 <li>
-<code>filebase</code>, the base name to use for the pkg-config file, as an example
+<code>filebase</code> the base name to use for the pkg-config file; as an example,
 the value of <code>libfoo</code> would produce a pkg-config file called <code>libfoo.pc</code>
 </li>
 <li>
@@ -181,7 +180,7 @@ the value of <code>libfoo</code> would produce a pkg-config file called <code>li
 </li>
 <li>
 <code>libraries</code> a list of built libraries (usually results of shared_library)
-that the user needs to link against. Arbitraty strings can also be
+that the user needs to link against. Arbitrary strings can also be
 provided and they will be added into the <code>Libs</code> field. Since 0.45.0
 dependencies of built libraries will be automatically added to
 <code>Libs.private</code> field. If a dependency is provided by pkg-config then it
@@ -193,7 +192,7 @@ objects can also be passed and will result in their <code>link_args</code> and
 <code>Libs.private</code> field. Since 0.45.0 it can also contain dependency objects,
 their <code>link_args</code> will be added to <code>Libs.private</code>.</li>
 <li>
-<code>name</code> the name of this library</li>
+<code>name</code> ライブラリ名。</li>
 <li>
 <code>subdirs</code> which subdirs of <code>include</code> should be added to the header search
 path, for example if you install headers into
@@ -215,7 +214,7 @@ reference other pkgconfig variables,
 e.g. <code>datadir=${prefix}/share</code>. The names <code>prefix</code>, <code>libdir</code> and
 <code>installdir</code> are reserved and may not be used.</li>
 <li>
-<code>version</code> a string describing the version of this library</li>
+<code>version</code> ライブラリのバージョンを表わす文字列。</li>
 <li>
 <code>d_module_versions</code> a list of module version flags used when compiling
 D sources referred to by this pkg-config file</li>

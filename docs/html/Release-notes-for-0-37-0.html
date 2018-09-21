@@ -80,9 +80,7 @@ $('body').removeClass('no-script');
 			<ul class="nav navbar-nav" id="menu">
 				
 <li class="dropdown">
-	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		モジュール <span class="caret"></span>
-	</a>
+	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> モジュール <span class="caret"></span> </a>
 	<ul class="dropdown-menu" id="modules-menu">
 					<li>
 				<a href="Gnome-module.html">GNOME</a>
@@ -92,6 +90,9 @@ $('body').removeClass('no-script');
 			</li>
 					<li>
 				<a href="Pkgconfig-module.html">Pkgconfig</a>
+			</li>
+					<li>
+				<a href="Python-module.html">Python</a>
 			</li>
 					<li>
 				<a href="Python-3-module.html">Python 3</a>
@@ -108,12 +109,13 @@ $('body').removeClass('no-script');
 					<li>
 				<a href="Windows-module.html">Windows</a>
 			</li>
+					<li>
+				<a href="Hotdoc-module.html">Hotdoc</a>
+			</li>
 			</ul>
 </li>
 <li class="dropdown">
-	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		クィックリファレンス <span class="caret"></span>
-	</a>
+	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> クィックリファレンス <span class="caret"></span> </a>
 	<ul class="dropdown-menu" id="quick-refs-menu">
 					<li>
 				<a href="Reference-manual.html">関数</a>
@@ -223,38 +225,52 @@ subproject git checkout.</p>
 <h2 id="pkgconfig-dependencies">pkg-config dependencies</h2>
 <p>Meson now supports multiple version restrictions while searching for
 pkg-config dependencies.</p>
-<pre><code class="language-meson">Want both a lower and an upper limit dependency('opencv', version :
-['&gt;=2.3.0', '&lt;=3.1.0'])  # Want to exclude one specific broken version
-dependency('foolite', version : ['&gt;=3.12.1', '!=3.13.99'])  ```
-
-## Overriding more binaries with environment variables
-
-You can now specify the binary to be used for the following tools by setting
-the corresponding environment variable
-
-| Name | Environment variable |
-| ---- | -------------------- |
-| pkg-config | PKG_CONFIG     |
-| readelf    | READELF        |
-| nm         | NM             |
-
-## Support for `localstatedir`
-
-Similar to other options such as `bindir` and `datadir`, you can now specify
-the `localstatedir` for a project by passing `--localstatedir=dir` to
-`meson` or `-Dlocalstatedir=dir` to `mesonconf` after configuration. You can
-also access it from inside the `meson.build` file with
-`get_option('localstatedir')`.
-
-## New compiler function `symbols_have_underscore_prefix`
-
-Checks if the compiler prefixes an underscore to C global symbols with the
+<pre><code class="language-meson"># 最低バージョンが必要な場合
+dependency('zlib', version : '&gt;1.2.1')
+# 最低最高の両バージョンが必要な場合
+dependency('opencv', version : ['&gt;=2.3.0', '&lt;=3.1.0'])
+# 特定バージョンが壊れていて除外したい場合
+dependency('foolite', version : ['&gt;=3.12.1', '!=3.13.99'])
+</code></pre>
+<h2 id="overriding-more-binaries-with-environment-variables">Overriding more binaries with environment variables</h2>
+<p>You can now specify the binary to be used for the following tools by setting
+the corresponding environment variable</p>
+<table>
+<thead>
+<tr>
+<th> Name</th>
+<th> Environment variable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> pkg-config</td>
+<td> PKG_CONFIG</td>
+</tr>
+<tr>
+<td> readelf</td>
+<td> READELF</td>
+</tr>
+<tr>
+<td> nm</td>
+<td> NM</td>
+</tr>
+</tbody>
+</table>
+<h2 id="support-for-localstatedir">Support for <code>localstatedir</code>
+</h2>
+<p>Similar to other options such as <code>bindir</code> and <code>datadir</code>, you can now specify
+the <code>localstatedir</code> for a project by passing <code>--localstatedir=dir</code> to
+<code>meson</code> or <code>-Dlocalstatedir=dir</code> to <code>mesonconf</code> after configuration. You can
+also access it from inside the <code>meson.build</code> file with
+<code>get_option('localstatedir')</code>.</p>
+<h2 id="new-compiler-function-symbols_have_underscore_prefix">New compiler function <code>symbols_have_underscore_prefix</code>
+</h2>
+<p>Checks if the compiler prefixes an underscore to C global symbols with the
 default calling convention. This is useful when linking to compiled assembly
 code, or other code that does not have its C symbol mangling handled
-transparently by the compiler.
-
-```meson
-cc = meson.get_compiler('c')
+transparently by the compiler.</p>
+<pre><code class="language-meson">cc = meson.get_compiler('c')
 conf = configuration_data()
 if cc.symbols_have_underscore_prefix()
     conf.set('SYMBOLS_HAVE_UNDERSCORE', true)

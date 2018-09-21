@@ -80,9 +80,7 @@ $('body').removeClass('no-script');
 			<ul class="nav navbar-nav" id="menu">
 				
 <li class="dropdown">
-	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		モジュール <span class="caret"></span>
-	</a>
+	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> モジュール <span class="caret"></span> </a>
 	<ul class="dropdown-menu" id="modules-menu">
 					<li>
 				<a href="Gnome-module.html">GNOME</a>
@@ -92,6 +90,9 @@ $('body').removeClass('no-script');
 			</li>
 					<li>
 				<a href="Pkgconfig-module.html">Pkgconfig</a>
+			</li>
+					<li>
+				<a href="Python-module.html">Python</a>
 			</li>
 					<li>
 				<a href="Python-3-module.html">Python 3</a>
@@ -108,12 +109,13 @@ $('body').removeClass('no-script');
 					<li>
 				<a href="Windows-module.html">Windows</a>
 			</li>
+					<li>
+				<a href="Hotdoc-module.html">Hotdoc</a>
+			</li>
 			</ul>
 </li>
 <li class="dropdown">
-	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		クィックリファレンス <span class="caret"></span>
-	</a>
+	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> クィックリファレンス <span class="caret"></span> </a>
 	<ul class="dropdown-menu" id="quick-refs-menu">
 					<li>
 				<a href="Reference-manual.html">関数</a>
@@ -156,7 +158,7 @@ $('body').removeClass('no-script');
 	<div id="main">
 				    <div id="page-description" data-hotdoc-source="index.md" data-hotdoc-role="main">
         <h1 id="meson-">Meson ビルドシステム</h1>
-<p>（オリジナル Git head 2018-08-31 00:27:00 +0300 対応）</p>
+<p>（オリジナル Git head 2018-09-18 12:03:54 +0100 対応）</p>
 <h2 id="">概要</h2>
 <p>Meson
 はオープンソースによるビルドシステムです。処理速度を向上させるとともに、できるだけユーザーフレンドリーなシステムを目指すことを重視しています。</p>
@@ -202,108 +204,88 @@ can be found on the <a href="Contributing.html">contribution page</a>.</p>
 		<div class="hide-if-js">
 
 <div id="subpages">
-	<h4>下位ページ</h4>
-	<div class="container-fluid">
-		<div class="row">
-						<div class="col-sm-12 col-md-4">
-				<a href="Getting-meson.html">Meson の入手</a>
-			</div>
-			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>（概要の記述はありません）</p>
-							</div>
-						<div class="col-sm-12 col-md-4">
-				<a href="Quick-guide.html">クィックガイド</a>
-			</div>
-			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>Guide to get started using meson</p>
-							</div>
-						<div class="col-sm-12 col-md-4">
-				<a href="Tutorial.html">チュートリアル</a>
-			</div>
-			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>簡単なチュートリアル</p>
-							</div>
-						<div class="col-sm-12 col-md-4">
-				<a href="Manual.html">マニュアル</a>
-			</div>
-			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>Meson ユーザーマニュアル</p>
-							</div>
-						<div class="col-sm-12 col-md-4">
-				<a href="Reference-manual.html">リファレンスマニュアル</a>
-			</div>
-			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>（概要の記述はありません）</p>
-							</div>
-						<div class="col-sm-12 col-md-4">
-				<a href="Reference-tables.html">リファレンス一覧</a>
-			</div>
-			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>（概要の記述はありません）</p>
-							</div>
-						<div class="col-sm-12 col-md-4">
-				<a href="Style-guide.html">推奨する記述スタイル</a>
-			</div>
-			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>Style recommendations for Meson files</p>
-							</div>
-						<div class="col-sm-12 col-md-4">
-				<a href="FAQ.html">FAQ</a>
-			</div>
-			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>（概要の記述はありません）</p>
-							</div>
-						<div class="col-sm-12 col-md-4">
-				<a href="Reproducible-builds.html">Reproducible builds</a>
-			</div>
-			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>（概要の記述はありません）</p>
-							</div>
-						<div class="col-sm-12 col-md-4">
-				<a href="howtox.html">Meson で XXX はどうやるの？</a>
-			</div>
-			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>（概要の記述はありません）</p>
-							</div>
-						<div class="col-sm-12 col-md-4">
-				<a href="Wrap-dependency-system-manual.html">Wrap dependency system manual</a>
-			</div>
-			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>（概要の記述はありません）</p>
-							</div>
-						<div class="col-sm-12 col-md-4">
-				<a href="Release-notes.html">リリースノート</a>
-			</div>
-			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>（概要の記述はありません）</p>
-							</div>
-						<div class="col-sm-12 col-md-4">
-				<a href="Additional.html">Additional documentation</a>
-			</div>
-			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>Misc documentation</p>
-							</div>
-						<div class="col-sm-12 col-md-4">
-				<a href="Contributing.html">Contributing to Meson</a>
-			</div>
-			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>Contributing to Meson</p>
-							</div>
-						<div class="col-sm-12 col-md-4">
-				<a href="legal.html">Legal information</a>
-			</div>
-			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>（概要の記述はありません）</p>
-							</div>
-						<div class="col-sm-12 col-md-4">
-				<a href="Videos.html">Videos</a>
-			</div>
-			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>Videos about Meson</p>
-							</div>
-					</div>
+	<p><b>Subpages:</b></p>
+			<p>
+		<a href="Getting-meson.html">Meson の入手</a>
+		–
+					<i><em>No description available</em></i>
+				</p>
+			<p>
+		<a href="Quick-guide.html">クィックガイド</a>
+		–
+					Guide to get started using meson
+				</p>
+			<p>
+		<a href="Tutorial.html">チュートリアル</a>
+		–
+					簡単なチュートリアル
+				</p>
+			<p>
+		<a href="Manual.html">マニュアル</a>
+		–
+					Meson ユーザーマニュアル
+				</p>
+			<p>
+		<a href="Reference-manual.html">リファレンスマニュアル</a>
+		–
+					<i><em>No description available</em></i>
+				</p>
+			<p>
+		<a href="Reference-tables.html">リファレンス一覧</a>
+		–
+					<i><em>No description available</em></i>
+				</p>
+			<p>
+		<a href="Style-guide.html">推奨する記述スタイル</a>
+		–
+					Style recommendations for Meson files
+				</p>
+			<p>
+		<a href="FAQ.html">FAQ</a>
+		–
+					<i><em>No description available</em></i>
+				</p>
+			<p>
+		<a href="Reproducible-builds.html">Reproducible builds</a>
+		–
+					<i><em>No description available</em></i>
+				</p>
+			<p>
+		<a href="howtox.html">Meson で XXX はどうやるの？</a>
+		–
+					<i><em>No description available</em></i>
+				</p>
+			<p>
+		<a href="Wrap-dependency-system-manual.html">Wrap dependency system manual</a>
+		–
+					<i><em>No description available</em></i>
+				</p>
+			<p>
+		<a href="Release-notes.html">リリースノート</a>
+		–
+					<i><em>No description available</em></i>
+				</p>
+			<p>
+		<a href="Additional.html">Additional documentation</a>
+		–
+					Misc documentation
+				</p>
+			<p>
+		<a href="Contributing.html">Contributing to Meson</a>
+		–
+					Contributing to Meson
+				</p>
+			<p>
+		<a href="legal.html">Legal information</a>
+		–
+					<i><em>No description available</em></i>
+				</p>
+			<p>
+		<a href="Videos.html">Videos</a>
+		–
+					Videos about Meson
+				</p>
 	</div>
-</div>
 
 </div>
 	</div>

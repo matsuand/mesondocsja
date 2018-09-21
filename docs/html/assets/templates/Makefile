@@ -115,7 +115,8 @@ am__can_run_installinfo = \
     *) (install-info --version) >/dev/null 2>&1;; \
   esac
 am__tagged_files = $(HEADERS) $(SOURCES) $(TAGS_FILES) $(LISP)
-am__DIST_COMMON = $(srcdir)/Makefile.in
+am__DIST_COMMON = $(srcdir)/../../../Makefile.def \
+	$(srcdir)/Makefile.in
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 ACLOCAL = ${SHELL} /home/matsuand/src/mesondocsja/missing aclocal-1.16
 AMTAR = $${TAR-tar}
@@ -198,12 +199,21 @@ target_alias =
 top_build_prefix = ../../../
 top_builddir = ../../..
 top_srcdir = ../../../../../src/mesondocsja
-html_modified = \
-	license.html       \
-	navbar_center.html \
-	navbar_links.html  \
-	subpages.html
+md_dir = ${shell dirname $1}
+md_basename = ${shell basename $1}
+pot_absdir = ${shell cd pot && pwd}
+pot_absname = $(pot_absdir)/${shell basename $2}
+basenames = \
+	license       \
+	navbar_center \
+	navbar_links
 
+htmlbasenames = $(addsuffix .html,  $(basenames))
+htmlfiles = $(htmlbasenames)
+potbasenames = $(addsuffix .pot, $(basenames))
+potfiles = $(addprefix pot/, $(potbasenames))
+pobasenames = $(addsuffix .po,  $(basenames))
+pofiles = $(addprefix $(srcdir)/, $(pobasenames))
 html_copying = \
 	brand-logo.html  \
 	extra_head.html
@@ -211,7 +221,7 @@ html_copying = \
 all: all-am
 
 .SUFFIXES:
-$(srcdir)/Makefile.in:  $(srcdir)/Makefile.am  $(am__configure_deps)
+$(srcdir)/Makefile.in:  $(srcdir)/Makefile.am $(srcdir)/../../../Makefile.def $(am__configure_deps)
 	@for dep in $?; do \
 	  case '$(am__configure_deps)' in \
 	    *$$dep*) \
@@ -231,6 +241,7 @@ Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	    echo ' cd $(top_builddir) && $(SHELL) ./config.status $(subdir)/$@ $(am__maybe_remake_depfiles)'; \
 	    cd $(top_builddir) && $(SHELL) ./config.status $(subdir)/$@ $(am__maybe_remake_depfiles);; \
 	esac;
+$(srcdir)/../../../Makefile.def $(am__empty):
 
 $(top_builddir)/config.status: $(top_srcdir)/configure $(CONFIG_STATUS_DEPENDENCIES)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
@@ -395,16 +406,69 @@ uninstall-am:
 
 .PRECIOUS: Makefile
 
+define GETPOT
+  (cd ${md_dir} && \
+     $(PO4AGETTEXTIZE) -f $3 -M utf-8 -m ${md_basename} -p ${pot_absname})
+  @sed -i -e "s/CHARSET/ASCII/" ${pot_absname}
+endef
 
-all: modified_copy $(html_copying)
+define MSGPROC
+  if test ! -f "$@"; then \
+    msginit --no-translator -l ja \
+     -i $1 -o $2 ;\
+    sed -i \
+           -e "/^\# PACKAGE.+/d" \
+           -e "/Language-Team/s/none/matsuand個人翻訳/" \
+           -e "/Content-Type/s/ASCII/UTF-8/" $2 ;\
+  else \
+    msgmerge -U $2 $1 ; \
+    touch $2 ; \
+  fi
+endef
 
-.PHONY: modified_copy
-modified_copy:
-	@if test "$(srcdir)" != "$(builddir)"; then \
-	  for f in $(html_modified) ; do \
-	    cp -p $(srcdir)/$$f .; \
-	  done \
-	fi
+define PO4ATRANS
+  if test "$3" = ""; then \
+    $(PO4ATRANSLATE) -k 0 -w 100 -f $4 -M UTF-8 -m $1 -l $@ -p $2; \
+  else \
+    $(PO4ATRANSLATE) -k 0 -w 100 -f $4 -M UTF-8 -m $1 -l $@ -p $2 -A UTF-8 -a $3; \
+  fi
+endef
+
+all: gettext
+
+.PHONY: gettext potdir
+gettext: potdir $(potfiles) $(pofiles) $(htmlfiles)
+potdir:
+	$(MKDIR_P) pot
+pot/license.pot: $(MESONDIR)/license.html
+	$(call GETPOT, $^, $@,xhtml)
+pot/navbar_center.pot: $(MESONDIR)/navbar_center.html
+	$(call GETPOT, $^, $@,xhtml)
+pot/navbar_links.pot: $(MESONDIR)/navbar_links.html
+	$(call GETPOT, $^, $@,xhtml)
+$(srcdir)/license.po: pot/license.pot
+	$(call MSGPROC, $^, $@)
+$(srcdir)/navbar_center.po: pot/navbar_center.pot
+	$(call MSGPROC, $^, $@)
+$(srcdir)/navbar_links.po: pot/navbar_links.pot
+	$(call MSGPROC, $^, $@)
+license.html: $(MESONDIR)/license.html $(srcdir)/license.po
+	$(call PO4ATRANS, $(MESONDIR)/license.html, $(srcdir)/license.po,,xhtml)
+navbar_center.html: $(MESONDIR)/navbar_center.html $(srcdir)/navbar_center.po
+	$(call PO4ATRANS, $(MESONDIR)/navbar_center.html, $(srcdir)/navbar_center.po,,xhtml)
+navbar_links.html: $(MESONDIR)/navbar_links.html $(srcdir)/navbar_links.po
+	$(call PO4ATRANS, $(MESONDIR)/navbar_links.html, $(srcdir)/navbar_links.po,,xhtml)
+
+all: gettext $(html_copying)
+
+#.PHONY: modified_copy
+#modified_copy:
+#	@if test "$(srcdir)" != "$(builddir)"; then \
+#	  for f in $(html_modified) ; do \
+#	    cp -p $(srcdir)/$$f .; \
+#	  done \
+#	fi
+
 brand-logo.html:  $(MESONDIR)/brand-logo.html
 	cp -p $^ $@
 extra_head.html:  $(MESONDIR)/extra_head.html

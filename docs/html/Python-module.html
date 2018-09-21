@@ -80,9 +80,7 @@ $('body').removeClass('no-script');
 			<ul class="nav navbar-nav" id="menu">
 				
 <li class="dropdown">
-	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		モジュール <span class="caret"></span>
-	</a>
+	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> モジュール <span class="caret"></span> </a>
 	<ul class="dropdown-menu" id="modules-menu">
 					<li>
 				<a href="Gnome-module.html">GNOME</a>
@@ -92,6 +90,9 @@ $('body').removeClass('no-script');
 			</li>
 					<li>
 				<a href="Pkgconfig-module.html">Pkgconfig</a>
+			</li>
+					<li>
+				<a href="Python-module.html">Python</a>
 			</li>
 					<li>
 				<a href="Python-3-module.html">Python 3</a>
@@ -108,12 +109,13 @@ $('body').removeClass('no-script');
 					<li>
 				<a href="Windows-module.html">Windows</a>
 			</li>
+					<li>
+				<a href="Hotdoc-module.html">Hotdoc</a>
+			</li>
 			</ul>
 </li>
 <li class="dropdown">
-	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		クィックリファレンス <span class="caret"></span>
-	</a>
+	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> クィックリファレンス <span class="caret"></span> </a>
 	<ul class="dropdown-menu" id="quick-refs-menu">
 					<li>
 				<a href="Reference-manual.html">関数</a>
@@ -157,10 +159,11 @@ $('body').removeClass('no-script');
 				    <div id="page-description" data-hotdoc-source="Python-module.md" data-hotdoc-role="main">
         <h1 id="python-">Python モジュール</h1>
 <p>このモジュールは python に関するインストールを行うものに対して、検索やビルドを行う拡張サポート機能を提供します。</p>
-<p><em>0.46.0 にて追加</em></p>
+<p><em>バージョン 0.46.0 にて追加</em></p>
 <h2 id="">関数</h2>
 <h3 id="find_installation"><code>find_installation()</code></h3>
-<p><code>meson pymod.find_installation(name_or_path, ...)</code></p>
+<pre><code class="language-meson">pymod.find_installation(name_or_path, ...)
+</code></pre>
 <p>Find a python installation matching <code>name_or_path</code>.</p>
 <p>That argument is optional, if not provided then the returned python
 installation will be the one used to run meson.</p>
@@ -187,7 +190,9 @@ provided by the sysconfig module matches the required major version</p>
 if no python installation can be found. If <code>required</code> is set to <code>false</code>,
 Meson will continue even if no python installation was found. You can then
 use the <code>.found()</code> method on the returned object to check whether it was
-found or not.</li>
+found or not. Since <em>0.48.0</em> the value of a
+<a href="Build-options.html#features"><code>feature</code></a> option can also be passed to the
+<code>required</code> keyword argument.</li>
 </ul>
 <p><strong>Returns</strong>: a <a href="Python-module.html#python_installation-object">python installation</a></p>
 <h2 id="python_installation-object">

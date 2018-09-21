@@ -80,9 +80,7 @@ $('body').removeClass('no-script');
 			<ul class="nav navbar-nav" id="menu">
 				
 <li class="dropdown">
-	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		モジュール <span class="caret"></span>
-	</a>
+	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> モジュール <span class="caret"></span> </a>
 	<ul class="dropdown-menu" id="modules-menu">
 					<li>
 				<a href="Gnome-module.html">GNOME</a>
@@ -92,6 +90,9 @@ $('body').removeClass('no-script');
 			</li>
 					<li>
 				<a href="Pkgconfig-module.html">Pkgconfig</a>
+			</li>
+					<li>
+				<a href="Python-module.html">Python</a>
 			</li>
 					<li>
 				<a href="Python-3-module.html">Python 3</a>
@@ -108,12 +109,13 @@ $('body').removeClass('no-script');
 					<li>
 				<a href="Windows-module.html">Windows</a>
 			</li>
+					<li>
+				<a href="Hotdoc-module.html">Hotdoc</a>
+			</li>
 			</ul>
 </li>
 <li class="dropdown">
-	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		クィックリファレンス <span class="caret"></span>
-	</a>
+	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> クィックリファレンス <span class="caret"></span> </a>
 	<ul class="dropdown-menu" id="quick-refs-menu">
 					<li>
 				<a href="Reference-manual.html">関数</a>
@@ -166,240 +168,198 @@ $('body').removeClass('no-script');
 
 
 		<div id="subpages">
-	<h4>下位ページ</h4>
-	<div class="container-fluid">
-		<div class="row">
-						<div class="col-sm-12 col-md-4">
-				<a href="Overview.html">概要</a>
-			</div>
-			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>Meson ビルドシステムの概要</p>
-							</div>
-						<div class="col-sm-12 col-md-4">
-				<a href="Running-Meson.html">Meson の実行</a>
-			</div>
-			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>Meson プロジェクトの構築</p>
-							</div>
-						<div class="col-sm-12 col-md-4">
-				<a href="Builtin-options.html">ビルトインオプション</a>
-			</div>
-			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>Built-in options to configure project properties</p>
-							</div>
-						<div class="col-sm-12 col-md-4">
-				<a href="Using-with-Visual-Studio.html">Visual Studio での利用</a>
-			</div>
-			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>Visual Studio での Meson の利用</p>
-							</div>
-						<div class="col-sm-12 col-md-4">
-				<a href="Meson-sample.html">Meson サンプル</a>
-			</div>
-			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>単純なプロジェクトによる説明</p>
-							</div>
-						<div class="col-sm-12 col-md-4">
-				<a href="Syntax.html">文法</a>
-			</div>
-			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>Meson ファイルの文法と構造</p>
-							</div>
-						<div class="col-sm-12 col-md-4">
-				<a href="Build-targets.html">ビルドターゲット</a>
-			</div>
-			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>ビルドターゲットの定義</p>
-							</div>
-						<div class="col-sm-12 col-md-4">
-				<a href="Include-directories.html">インクルードディレクトリ</a>
-			</div>
-			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>インクルードディレクトリの扱い手順</p>
-							</div>
-						<div class="col-sm-12 col-md-4">
-				<a href="Installing.html">インストール</a>
-			</div>
-			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>インストールターゲット</p>
-							</div>
-						<div class="col-sm-12 col-md-4">
-				<a href="Adding-arguments.html">引数の追加</a>
-			</div>
-			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>コンパイラー引数の追加</p>
-							</div>
-						<div class="col-sm-12 col-md-4">
-				<a href="Configuration.html">設定</a>
-			</div>
-			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>ビルド時の設定オプション</p>
-							</div>
-						<div class="col-sm-12 col-md-4">
-				<a href="Compiler-properties.html">コンパイラープロパティ</a>
-			</div>
-			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>（概要の記述はありません）</p>
-							</div>
-						<div class="col-sm-12 col-md-4">
-				<a href="Dependencies.html">依存関係</a>
-			</div>
-			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>Dependencies for external libraries and frameworks</p>
-							</div>
-						<div class="col-sm-12 col-md-4">
-				<a href="Threads.html">スレッド</a>
-			</div>
-			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>スレッドサポートの有効化</p>
-							</div>
-						<div class="col-sm-12 col-md-4">
-				<a href="External-commands.html">外部コマンド</a>
-			</div>
-			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>外部コマンドの実行</p>
-							</div>
-						<div class="col-sm-12 col-md-4">
-				<a href="Precompiled-headers.html">プリコンパイルヘッダー</a>
-			</div>
-			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>Using precompiled headers to reduce compilation time</p>
-							</div>
-						<div class="col-sm-12 col-md-4">
-				<a href="Unity-builds.html">Unity builds</a>
-			</div>
-			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>Unity builds are a technique for reducing build times</p>
-							</div>
-						<div class="col-sm-12 col-md-4">
-				<a href="Feature-autodetection.html">Feature autodetection</a>
-			</div>
-			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>Auto-detection of features like ccache and code coverage</p>
-							</div>
-						<div class="col-sm-12 col-md-4">
-				<a href="Generating-sources.html">ソースファイル生成</a>
-			</div>
-			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>コンパイル前のソースファイル生成</p>
-							</div>
-						<div class="col-sm-12 col-md-4">
-				<a href="Unit-tests.html">ユニットテスト</a>
-			</div>
-			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>Meson's own unit-test system</p>
-							</div>
-						<div class="col-sm-12 col-md-4">
-				<a href="Cross-compilation.html">クロスコンパイル</a>
-			</div>
-			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>クロスコンパイルの設定</p>
-							</div>
-						<div class="col-sm-12 col-md-4">
-				<a href="Localisation.html">Localisation</a>
-			</div>
-			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>Localization with GNU Gettext</p>
-							</div>
-						<div class="col-sm-12 col-md-4">
-				<a href="Build-options.html">ビルドオプション</a>
-			</div>
-			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>プロジェクトプロパティを設定するビルドオプション</p>
-							</div>
-						<div class="col-sm-12 col-md-4">
-				<a href="Subprojects.html">サブプロジェクト</a>
-			</div>
-			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>他の Meson プロジェクト内にサブプロジェクトとして利用する</p>
-							</div>
-						<div class="col-sm-12 col-md-4">
-				<a href="Disabler.html">ビルド部分の無効化</a>
-			</div>
-			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>無効オプション</p>
-							</div>
-						<div class="col-sm-12 col-md-4">
-				<a href="Modules.html">モジュール</a>
-			</div>
-			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>Meson modules for common build operations</p>
-							</div>
-						<div class="col-sm-12 col-md-4">
-				<a href="Java.html">Java</a>
-			</div>
-			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>Java プログラムのコンパイル</p>
-							</div>
-						<div class="col-sm-12 col-md-4">
-				<a href="Vala.html">Vala</a>
-			</div>
-			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>Compiling Vala and Genie programs</p>
-							</div>
-						<div class="col-sm-12 col-md-4">
-				<a href="D.html">D 言語</a>
-			</div>
-			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>D 言語ソースのコンパイル</p>
-							</div>
-						<div class="col-sm-12 col-md-4">
-				<a href="IDE-integration.html">IDE integration</a>
-			</div>
-			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>Meson's API to integrate Meson support into an IDE</p>
-							</div>
-						<div class="col-sm-12 col-md-4">
-				<a href="Custom-build-targets.html">カスタムビルドターゲット</a>
-			</div>
-			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>Build targets for custom languages or corner-cases</p>
-							</div>
-						<div class="col-sm-12 col-md-4">
-				<a href="Build-system-converters.html">ビルドシステムコンバーター</a>
-			</div>
-			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>Converting other build systems to Meson</p>
-							</div>
-						<div class="col-sm-12 col-md-4">
-				<a href="Configuring-a-build-directory.html">ビルドディレクトリの設定</a>
-			</div>
-			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>Configuring a pre-generated build directory</p>
-							</div>
-						<div class="col-sm-12 col-md-4">
-				<a href="Run-targets.html">ターゲットの実行</a>
-			</div>
-			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>Targets to run external commands</p>
-							</div>
-						<div class="col-sm-12 col-md-4">
-				<a href="Creating-releases.html">リリースの生成</a>
-			</div>
-			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>リリースの生成</p>
-							</div>
-						<div class="col-sm-12 col-md-4">
-				<a href="Creating-OSX-packages.html">OSX パッケージの生成</a>
-			</div>
-			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>Tools to create OS X packages</p>
-							</div>
-						<div class="col-sm-12 col-md-4">
-				<a href="Creating-Linux-binaries.html">Linux バイナリの生成</a>
-			</div>
-			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>Creating universal Linux binaries</p>
-							</div>
-						<div class="col-sm-12 col-md-4">
-				<a href="Project-templates.html">プロジェクトテンプレート</a>
-			</div>
-			<div class="col-sm-12 col-md-8 subpage-description">
-								<p>Project templates</p>
-							</div>
-					</div>
+	<p><b>Subpages:</b></p>
+			<p>
+		<a href="Overview.html">概要</a>
+		–
+					Meson ビルドシステムの概要
+				</p>
+			<p>
+		<a href="Running-Meson.html">Meson の実行</a>
+		–
+					Meson プロジェクトの構築
+				</p>
+			<p>
+		<a href="Builtin-options.html">ビルトインオプション</a>
+		–
+					プロジェクトのプロパティを設定するビルトインオプション
+				</p>
+			<p>
+		<a href="Using-with-Visual-Studio.html">Visual Studio での利用</a>
+		–
+					Visual Studio での Meson の利用
+				</p>
+			<p>
+		<a href="Meson-sample.html">Meson サンプル</a>
+		–
+					単純なプロジェクトによる説明
+				</p>
+			<p>
+		<a href="Syntax.html">文法</a>
+		–
+					Meson ファイルの文法と構造
+				</p>
+			<p>
+		<a href="Build-targets.html">ビルドターゲット</a>
+		–
+					ビルドターゲットの定義
+				</p>
+			<p>
+		<a href="Include-directories.html">インクルードディレクトリ</a>
+		–
+					インクルードディレクトリの扱い手順
+				</p>
+			<p>
+		<a href="Installing.html">インストール</a>
+		–
+					インストールターゲット
+				</p>
+			<p>
+		<a href="Adding-arguments.html">引数の追加</a>
+		–
+					コンパイラー引数の追加
+				</p>
+			<p>
+		<a href="Configuration.html">設定</a>
+		–
+					ビルド時の設定オプション
+				</p>
+			<p>
+		<a href="Compiler-properties.html">コンパイラープロパティ</a>
+		–
+					<i><em>No description available</em></i>
+				</p>
+			<p>
+		<a href="Dependencies.html">依存関係</a>
+		–
+					Dependencies for external libraries and frameworks
+				</p>
+			<p>
+		<a href="Threads.html">スレッド</a>
+		–
+					スレッドサポートの有効化
+				</p>
+			<p>
+		<a href="External-commands.html">外部コマンド</a>
+		–
+					外部コマンドの実行
+				</p>
+			<p>
+		<a href="Precompiled-headers.html">プリコンパイルヘッダー</a>
+		–
+					Using precompiled headers to reduce compilation time
+				</p>
+			<p>
+		<a href="Unity-builds.html">Unity builds</a>
+		–
+					Unity builds are a technique for reducing build times
+				</p>
+			<p>
+		<a href="Feature-autodetection.html">Feature autodetection</a>
+		–
+					Auto-detection of features like ccache and code coverage
+				</p>
+			<p>
+		<a href="Generating-sources.html">ソースファイル生成</a>
+		–
+					コンパイル前のソースファイル生成
+				</p>
+			<p>
+		<a href="Unit-tests.html">ユニットテスト</a>
+		–
+					Meson's own unit-test system
+				</p>
+			<p>
+		<a href="Cross-compilation.html">クロスコンパイル</a>
+		–
+					クロスコンパイルの設定
+				</p>
+			<p>
+		<a href="Localisation.html">Localisation</a>
+		–
+					Localization with GNU Gettext
+				</p>
+			<p>
+		<a href="Build-options.html">ビルドオプション</a>
+		–
+					プロジェクトプロパティを設定するビルドオプション
+				</p>
+			<p>
+		<a href="Subprojects.html">サブプロジェクト</a>
+		–
+					他の Meson プロジェクト内にサブプロジェクトとして利用する
+				</p>
+			<p>
+		<a href="Disabler.html">ビルド部分の無効化</a>
+		–
+					無効オプション
+				</p>
+			<p>
+		<a href="Modules.html">モジュール</a>
+		–
+					Meson modules for common build operations
+				</p>
+			<p>
+		<a href="Java.html">Java</a>
+		–
+					Java プログラムのコンパイル
+				</p>
+			<p>
+		<a href="Vala.html">Vala</a>
+		–
+					Compiling Vala and Genie programs
+				</p>
+			<p>
+		<a href="D.html">D 言語</a>
+		–
+					D 言語ソースのコンパイル
+				</p>
+			<p>
+		<a href="IDE-integration.html">IDE integration</a>
+		–
+					Meson's API to integrate Meson support into an IDE
+				</p>
+			<p>
+		<a href="Custom-build-targets.html">カスタムビルドターゲット</a>
+		–
+					Build targets for custom languages or corner-cases
+				</p>
+			<p>
+		<a href="Build-system-converters.html">ビルドシステムコンバーター</a>
+		–
+					Converting other build systems to Meson
+				</p>
+			<p>
+		<a href="Configuring-a-build-directory.html">ビルドディレクトリの設定</a>
+		–
+					Configuring a pre-generated build directory
+				</p>
+			<p>
+		<a href="Run-targets.html">ターゲットの実行</a>
+		–
+					Targets to run external commands
+				</p>
+			<p>
+		<a href="Creating-releases.html">リリースの生成</a>
+		–
+					リリースの生成
+				</p>
+			<p>
+		<a href="Creating-OSX-packages.html">OSX パッケージの生成</a>
+		–
+					Tools to create OS X packages
+				</p>
+			<p>
+		<a href="Creating-Linux-binaries.html">Linux バイナリの生成</a>
+		–
+					Creating universal Linux binaries
+				</p>
+			<p>
+		<a href="Project-templates.html">プロジェクトテンプレート</a>
+		–
+					プロジェクトテンプレート
+				</p>
 	</div>
-</div>
 	</div>
 	<div id="search_results">
 		<p>The results of the search are</p>

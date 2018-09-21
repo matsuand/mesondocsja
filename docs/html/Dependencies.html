@@ -80,9 +80,7 @@ $('body').removeClass('no-script');
 			<ul class="nav navbar-nav" id="menu">
 				
 <li class="dropdown">
-	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		モジュール <span class="caret"></span>
-	</a>
+	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> モジュール <span class="caret"></span> </a>
 	<ul class="dropdown-menu" id="modules-menu">
 					<li>
 				<a href="Gnome-module.html">GNOME</a>
@@ -92,6 +90,9 @@ $('body').removeClass('no-script');
 			</li>
 					<li>
 				<a href="Pkgconfig-module.html">Pkgconfig</a>
+			</li>
+					<li>
+				<a href="Python-module.html">Python</a>
 			</li>
 					<li>
 				<a href="Python-3-module.html">Python 3</a>
@@ -108,12 +109,13 @@ $('body').removeClass('no-script');
 					<li>
 				<a href="Windows-module.html">Windows</a>
 			</li>
+					<li>
+				<a href="Hotdoc-module.html">Hotdoc</a>
+			</li>
 			</ul>
 </li>
 <li class="dropdown">
-	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		クィックリファレンス <span class="caret"></span>
-	</a>
+	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> クィックリファレンス <span class="caret"></span> </a>
 	<ul class="dropdown-menu" id="quick-refs-menu">
 					<li>
 				<a href="Reference-manual.html">関数</a>
@@ -235,7 +237,8 @@ this work.</p>
 searching for the dependency. The default value is <code>auto</code>.  Aditional
 dependencies methods are <code>pkg-config</code>, <code>config-tool</code>, <code>system</code>, <code>sysconfig</code>,
 <code>qmake</code>, <code>extraframework</code> and <code>dub</code>.</p>
-<p><code>meson cups_dep = dependency('cups', method : 'pkg-config')</code></p>
+<pre><code class="language-meson">cups_dep = dependency('cups', method : 'pkg-config')
+</code></pre>
 <h3 id="some-notes-on-dub">Some notes on Dub</h3>
 <p>Please understand that meson is only able to find dependencies that exist in
 the local Dub repository. You need to manually fetch and build the target
@@ -255,24 +258,23 @@ keyword may be used to select a detection method to use.  The <code>auto</code> 
 uses any checking mechanisms in whatever order meson thinks is best.</p>
 <p>e.g. libwmf and CUPS provide both pkg-config and config-tool support. You
 can force one or another via the <code>method</code> keyword:</p>
-<pre><code class="language-meson">dependency('libwmf', method : 'config-tool')  ```
-
-## Dependencies using config tools
-
-[CUPS](#cups), [LLVM](#llvm), [pcap](#pcap), [WxWidgets](#wxwidgets),
-[libwmf](#libwmf), and GnuStep either do not provide pkg-config modules or
+<pre><code class="language-meson">cups_dep = dependency('cups', method : 'pkg-config')
+wmf_dep = dependency('libwmf', method : 'config-tool')
+</code></pre>
+<h2 id="dependencies-using-config-tools">Dependencies using config tools</h2>
+<p><a href="Dependencies.html#cups">CUPS</a>, <a href="Dependencies.html#llvm">LLVM</a>, <a href="Dependencies.html#pcap">pcap</a>, <a href="Dependencies.html#wxwidgets">WxWidgets</a>,
+<a href="Dependencies.html#libwmf">libwmf</a>, and GnuStep either do not provide pkg-config modules or
 additionally can be detected via a config tool (cups-config, llvm-config,
 etc). Meson has native support for these tools, and they can be found like
-other dependencies:
-
-```meson
-pcap_dep = dependency('pcap', version : '&gt;=1.0')
+other dependencies:</p>
+<pre><code class="language-meson">pcap_dep = dependency('pcap', version : '&gt;=1.0')
 cups_dep = dependency('cups', version : '&gt;=1.4')
 llvm_dep = dependency('llvm', version : '&gt;=4.0')
 </code></pre>
 <h2 id="appleframeworks">AppleFrameworks</h2>
 <p>Use the <code>modules</code> keyword to list frameworks required, e.g.</p>
-<p><code>meson dep = dependency('appleframeworks', modules : 'foundation')</code></p>
+<pre><code class="language-meson">dep = dependency('appleframeworks', modules : 'foundation')
+</code></pre>
 <p>These dependencies can never be found for non-OSX hosts.</p>
 <h2 id="boost">Boost</h2>
 <p>Boost is not a single dependency but rather a group of different
@@ -394,6 +396,9 @@ the correct order, which is done with the <code>preprocess</code> method of the 
 module. Its output is simply put in the list of sources for the target. The
 <code>modules</code> keyword of <code>dependency</code> works just like it does with Boost. It
 tells which subparts of Qt the program uses.</p>
+<p>You can set the <code>main</code> keyword argument to <code>true</code> to use the <code>WinMain()</code>
+function provided by qtmain static library (this argument does nothing on
+platforms other than Windows).</p>
 <p>Setting the optional <code>private_headers</code> keyword to true adds the private
 header include path of the given module(s) to the compiler flags.  (since
 v0.47.0)</p>

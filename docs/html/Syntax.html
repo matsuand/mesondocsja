@@ -80,9 +80,7 @@ $('body').removeClass('no-script');
 			<ul class="nav navbar-nav" id="menu">
 				
 <li class="dropdown">
-	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		モジュール <span class="caret"></span>
-	</a>
+	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> モジュール <span class="caret"></span> </a>
 	<ul class="dropdown-menu" id="modules-menu">
 					<li>
 				<a href="Gnome-module.html">GNOME</a>
@@ -92,6 +90,9 @@ $('body').removeClass('no-script');
 			</li>
 					<li>
 				<a href="Pkgconfig-module.html">Pkgconfig</a>
+			</li>
+					<li>
+				<a href="Python-module.html">Python</a>
 			</li>
 					<li>
 				<a href="Python-3-module.html">Python 3</a>
@@ -108,12 +109,13 @@ $('body').removeClass('no-script');
 					<li>
 				<a href="Windows-module.html">Windows</a>
 			</li>
+					<li>
+				<a href="Hotdoc-module.html">Hotdoc</a>
+			</li>
 			</ul>
 </li>
 <li class="dropdown">
-	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		クィックリファレンス <span class="caret"></span>
-	</a>
+	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> クィックリファレンス <span class="caret"></span> </a>
 	<ul class="dropdown-menu" id="quick-refs-menu">
 					<li>
 				<a href="Reference-manual.html">関数</a>
@@ -191,9 +193,12 @@ y = 3 * 4
 d = 5 % 3 # 結果は 2 です
 </code></pre>
 <p>Hexadecimal literals are supported since version 0.45.0:</p>
-<p><code>meson int_255 = 0xFF</code></p>
+<pre><code class="language-meson">int_255 = 0xFF
+</code></pre>
 <p>Octal and binary literals are supported since version 0.47.0:</p>
-<p><code>meson int_493 = 0o755 int_1365 = 0b10101010101</code></p>
+<pre><code class="language-meson">int_493 = 0o755
+int_1365 = 0b10101010101
+</code></pre>
 <p>文字列は以下のようにして数値に変換できます。</p>
 <pre><code class="language-meson">string_var = '42'
 num = string_var.to_int()
@@ -368,9 +373,12 @@ for backwards-compatibility, it is identical to array indexing.</li>
 <p>Dictionaries are delimited by curly braces. A dictionary can contain an
 arbitrary number of key value pairs. Keys are required to be literal
 strings, values can be objects of any type.</p>
-<p><code>meson my_dict = {'foo': 42, 'bar': 'baz'}</code></p>
+<pre><code class="language-meson">my_dict = {'foo': 42, 'bar': 'baz'}
+</code></pre>
 <p>Keys must be unique:</p>
-<p><code>meson # This will fail my_dict = {'foo': 42, 'foo': 43}</code></p>
+<pre><code class="language-meson"># This will fail
+my_dict = {'foo': 42, 'foo': 43}
+</code></pre>
 <p>Dictionaries are immutable.</p>
 <p>Dictionaries are available since 0.47.0.</p>
 <p>Visit the <a href="Reference-manual.html#dictionary-object">Reference Manual</a> to read
@@ -399,11 +407,28 @@ else
 endif
 
 opt = get_option('someoption')
-if opt == 'foo'
+if opt != 'foo'
   do_something()
 endif
 </code></pre>
-<h2 id="foreach-">foreach ステートメント</h2>
+<h2 id="14">論理演算子</h2>
+<p>Meson has the standard range of logical operations which can be used in <code>if</code>
+statements.</p>
+<pre><code class="language-meson">if a and b
+  # do something
+endif
+if c or d
+  # do something
+endif
+if not e
+  # do something
+endif
+if not (f or g)
+  # do something
+endif
+</code></pre>
+<p>Logical operations work only on boolean values.</p>
+<h2 id="foreach-">Foreach ステートメント</h2>
 <p>To do an operation on all elements of an iterable, use the <code>foreach</code>
 command.</p>
 <blockquote>
@@ -443,22 +468,6 @@ foreach name, sources : components
   endif
 endforeach
 </code></pre>
-<h2 id="14">論理演算子</h2>
-<p>Meson has the standard range of logical operations.</p>
-<pre><code class="language-meson">if a and b
-  # do something
-endif
-if c or d
-  # do something
-endif
-if not e
-  # do something
-endif
-if not (f or g)
-  # do something
-endif
-</code></pre>
-<p>Logical operations work only on boolean values.</p>
 <h2 id="15">コメント</h2>
 <p>A comment starts with the <code>#</code> character and extends until the end of the
 line.</p>

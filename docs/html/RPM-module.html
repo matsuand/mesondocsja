@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<title>RPM module</title>
+<title>RPM モジュール</title>
 
 <link rel="stylesheet" href="assets/css/custom_bootstrap.css" type="text/css">
 <link rel="stylesheet" href="assets/css/bootstrap-toc.min.css" type="text/css">
@@ -80,9 +80,7 @@ $('body').removeClass('no-script');
 			<ul class="nav navbar-nav" id="menu">
 				
 <li class="dropdown">
-	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		モジュール <span class="caret"></span>
-	</a>
+	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> モジュール <span class="caret"></span> </a>
 	<ul class="dropdown-menu" id="modules-menu">
 					<li>
 				<a href="Gnome-module.html">GNOME</a>
@@ -92,6 +90,9 @@ $('body').removeClass('no-script');
 			</li>
 					<li>
 				<a href="Pkgconfig-module.html">Pkgconfig</a>
+			</li>
+					<li>
+				<a href="Python-module.html">Python</a>
 			</li>
 					<li>
 				<a href="Python-3-module.html">Python 3</a>
@@ -108,12 +109,13 @@ $('body').removeClass('no-script');
 					<li>
 				<a href="Windows-module.html">Windows</a>
 			</li>
+					<li>
+				<a href="Hotdoc-module.html">Hotdoc</a>
+			</li>
 			</ul>
 </li>
 <li class="dropdown">
-	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		クィックリファレンス <span class="caret"></span>
-	</a>
+	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> クィックリファレンス <span class="caret"></span> </a>
 	<ul class="dropdown-menu" id="quick-refs-menu">
 					<li>
 				<a href="Reference-manual.html">関数</a>
@@ -155,15 +157,15 @@ $('body').removeClass('no-script');
 <div id="body">
 	<div id="main">
 				    <div id="page-description" data-hotdoc-source="RPM-module.md" data-hotdoc-role="main">
-        <h1 id="rpm-module">RPM module</h1>
-<p>The RPM module can be used to create a sample rpm spec file for a Meson
-project. It autodetects installed files, dependencies and so on. Using it is
-very simple. At the very end of your Meson project (that is, the end of your
-top level <code>meson.build</code> file) add these two lines.</p>
-<p><code>meson rpm = import('rpm') rpm.generate_spec_template()</code></p>
-<p>Run Meson once on your code and the template will be written in your build
-directory. Then remove the two lines above and manually edit the template to
-add missing information. After this it is ready for use.</p>
+        <h1 id="rpm-">RPM モジュール</h1>
+<p>RPM モジュールは Meson 用の rpm
+スペックファイルのサンプルを生成するために用います。これはインストールされているファイルやその依存関係などを自動検出します。利用方法はいたって簡単です。Meson
+プロジェクトファイルの最終に (つまりトップレベルの <code>meson.build</code> ファイルの最後に) 以下の 2 行を追加するだけです。</p>
+<pre><code class="language-meson">rpm = import('rpm')
+rpm.generate_spec_template()
+</code></pre>
+<p>一度 Meson を実行すると、ビルドディレクトリ内にテンプレートファイルが書き出されます。こうしたら上で書き加えた 2
+行は削除します。そしてそのテンプレートファイルを編集し、不足する情報を書き加えます。こうしてこのファイルを利用します。</p>
 
     </div>
         

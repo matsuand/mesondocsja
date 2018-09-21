@@ -80,9 +80,7 @@ $('body').removeClass('no-script');
 			<ul class="nav navbar-nav" id="menu">
 				
 <li class="dropdown">
-	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		モジュール <span class="caret"></span>
-	</a>
+	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> モジュール <span class="caret"></span> </a>
 	<ul class="dropdown-menu" id="modules-menu">
 					<li>
 				<a href="Gnome-module.html">GNOME</a>
@@ -92,6 +90,9 @@ $('body').removeClass('no-script');
 			</li>
 					<li>
 				<a href="Pkgconfig-module.html">Pkgconfig</a>
+			</li>
+					<li>
+				<a href="Python-module.html">Python</a>
 			</li>
 					<li>
 				<a href="Python-3-module.html">Python 3</a>
@@ -108,12 +109,13 @@ $('body').removeClass('no-script');
 					<li>
 				<a href="Windows-module.html">Windows</a>
 			</li>
+					<li>
+				<a href="Hotdoc-module.html">Hotdoc</a>
+			</li>
 			</ul>
 </li>
 <li class="dropdown">
-	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		クィックリファレンス <span class="caret"></span>
-	</a>
+	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> クィックリファレンス <span class="caret"></span> </a>
 	<ul class="dropdown-menu" id="quick-refs-menu">
 					<li>
 				<a href="Reference-manual.html">関数</a>
@@ -260,7 +262,8 @@ value with proper shell quoting like this:</p>
 quotes.</p>
 <p>To change values in subprojects prepend the name of the subproject and a
 colon:</p>
-<p><code>console $ meson configure -Dsubproject:option=newvalue</code></p>
+<pre><code class="language-console">$ meson configure -Dsubproject:option=newvalue
+</code></pre>
 <p><strong>NOTE:</strong> If you cannot call <code>meson configure</code> you likely have a old
 version of Meson. In that case you can call <code>mesonconf</code> instead, but
 that is deprecated in newer versions</p>
@@ -276,7 +279,7 @@ usual. However if you build this project as a subproject of another project
 which also has an option called <code>some_option</code>, then calling <code>get_option</code>
 returns the value of the superproject. If the value of <code>yield</code> is <code>false</code>,
 <code>get_option</code> returns the value of the subproject's option.</p>
-<h2 id="builtin-build-options">Built-in build options</h2>
+<h2 id="8">ビルドオプションの利用</h2>
 <p>There are a number of built-in options. To get the current list execute
 <code>meson configure</code> in the build directory.</p>
 <h3 id="visual-studio">Visual Studio</h3>

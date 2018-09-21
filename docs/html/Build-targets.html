@@ -80,9 +80,7 @@ $('body').removeClass('no-script');
 			<ul class="nav navbar-nav" id="menu">
 				
 <li class="dropdown">
-	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		モジュール <span class="caret"></span>
-	</a>
+	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> モジュール <span class="caret"></span> </a>
 	<ul class="dropdown-menu" id="modules-menu">
 					<li>
 				<a href="Gnome-module.html">GNOME</a>
@@ -92,6 +90,9 @@ $('body').removeClass('no-script');
 			</li>
 					<li>
 				<a href="Pkgconfig-module.html">Pkgconfig</a>
+			</li>
+					<li>
+				<a href="Python-module.html">Python</a>
 			</li>
 					<li>
 				<a href="Python-3-module.html">Python 3</a>
@@ -108,12 +109,13 @@ $('body').removeClass('no-script');
 					<li>
 				<a href="Windows-module.html">Windows</a>
 			</li>
+					<li>
+				<a href="Hotdoc-module.html">Hotdoc</a>
+			</li>
 			</ul>
 </li>
 <li class="dropdown">
-	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		クィックリファレンス <span class="caret"></span>
-	</a>
+	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> クィックリファレンス <span class="caret"></span> </a>
 	<ul class="dropdown-menu" id="quick-refs-menu">
 					<li>
 				<a href="Reference-manual.html">関数</a>
@@ -181,9 +183,7 @@ executable('program', 'prog.c', link_with : lib)
 executable('multiexe', 'file.c', 'file2.cc')
 </code></pre>
 <h2 id="1">オブジェクトファイル</h2>
-<p>Sometimes you can't build files from sources but need to utilize an existing
-object file. A typical case is using an object file provided by a third
-party. Object files can be specified just like sources.</p>
+<p>自分のソースファイルだけでなく、別のオブジェクトファイルを利用しないと、プロジェクトのビルドができないといったこともあります。よくあるのは、サードパーティー製のオブジェクトファイルを利用するような場合です。オブジェクトファイルは、ソースファイルと同じように指定することができます。</p>
 <pre><code class="language-meson">exe = executable('myexe', 'source.cpp', objects : 'third_party_object.o')
 </code></pre>
 <p>A different case is when you want to use object files built in one target

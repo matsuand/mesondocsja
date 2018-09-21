@@ -1,18 +1,20 @@
 @require(page)
 
 <li class="dropdown">
-	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		モジュール <span class="caret"></span>
-	</a>
+	<a class="dropdown-toggle" role="button" data-toggle="dropdown"
+aria-haspopup="true" aria-expanded="false"> モジュール <span
+class="caret"></span> </a>
 	<ul class="dropdown-menu" id="modules-menu">
 		@for tup in (("Gnome-module.html","GNOME"), \
-			     ("i18n-module.html","i18n"), \
-			     ("Pkgconfig-module.html","Pkgconfig"), \
-			     ("Python-3-module.html","Python 3"), \
-			     ("Qt4-module.html","Qt4"), \
-			     ("Qt5-module.html","Qt5"), \
-			     ("RPM-module.html","RPM"), \
-			     ("Windows-module.html","Windows")):
+("i18n-module.html","i18n"), \
+("Pkgconfig-module.html","Pkgconfig"), \
+("Python-module.html","Python"), \
+("Python-3-module.html","Python 3"), \
+("Qt4-module.html","Qt4"), \
+("Qt5-module.html","Qt5"), \
+("RPM-module.html","RPM"), \
+("Windows-module.html","Windows"), \
+("Hotdoc-module.html","Hotdoc")):
 			<li>
 				<a href="@tup[0]">@tup[1]</a>
 			</li>
@@ -21,16 +23,16 @@
 </li>
 \
 <li class="dropdown">
-	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		クィックリファレンス <span class="caret"></span>
-	</a>
+	<a class="dropdown-toggle" role="button" data-toggle="dropdown"
+aria-haspopup="true" aria-expanded="false"> クィックリファレンス <span
+class="caret"></span> </a>
 	<ul class="dropdown-menu" id="quick-refs-menu">
 		@for tup in (("Reference-manual.html", "関数"), \
-			     ("Build-options.html", "オプション"), \
-			     ("Configuration.html", "設定"), \
-			     ("Dependencies.html", "依存関係"), \
-			     ("Unit-tests.html", "テスト"), \
-			     ("Syntax.html", "文法")):
+("Build-options.html", "オプション"), \
+("Configuration.html", "設定"), \
+("Dependencies.html", "依存関係"), \
+("Unit-tests.html", "テスト"), \
+("Syntax.html", "文法")):
 			<li>
 				<a href="@tup[0]">@tup[1]</a>
 			</li>

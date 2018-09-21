@@ -80,9 +80,7 @@ $('body').removeClass('no-script');
 			<ul class="nav navbar-nav" id="menu">
 				
 <li class="dropdown">
-	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		モジュール <span class="caret"></span>
-	</a>
+	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> モジュール <span class="caret"></span> </a>
 	<ul class="dropdown-menu" id="modules-menu">
 					<li>
 				<a href="Gnome-module.html">GNOME</a>
@@ -92,6 +90,9 @@ $('body').removeClass('no-script');
 			</li>
 					<li>
 				<a href="Pkgconfig-module.html">Pkgconfig</a>
+			</li>
+					<li>
+				<a href="Python-module.html">Python</a>
 			</li>
 					<li>
 				<a href="Python-3-module.html">Python 3</a>
@@ -108,12 +109,13 @@ $('body').removeClass('no-script');
 					<li>
 				<a href="Windows-module.html">Windows</a>
 			</li>
+					<li>
+				<a href="Hotdoc-module.html">Hotdoc</a>
+			</li>
 			</ul>
 </li>
 <li class="dropdown">
-	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		クィックリファレンス <span class="caret"></span>
-	</a>
+	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> クィックリファレンス <span class="caret"></span> </a>
 	<ul class="dropdown-menu" id="quick-refs-menu">
 					<li>
 				<a href="Reference-manual.html">関数</a>
@@ -225,22 +227,17 @@ of directory itself, stripping basename of the source directory.</p>
 <h2 id="integer-options">Integer options</h2>
 <p>There is a new integer option type with optional minimum and maximum
 values. It can be specified like this in the <code>meson_options.txt</code> file:</p>
-<pre><code class="language-meson">: 3)  ```
-
-## New method meson.project_license()
-
-The `meson` builtin object now has a `project_license()` method that returns
-a list of all licenses for the project.
-
-## Rust cross-compilation
-
-Cross-compilation is now supported for Rust targets. Like other
+<pre><code class="language-meson">option('integer_option', type : 'integer', min : 0, max : 5, value : 3)
+</code></pre>
+<h2 id="new-method-mesonproject_license">New method meson.project_license()</h2>
+<p>The <code>meson</code> builtin object now has a <code>project_license()</code> method that returns
+a list of all licenses for the project.</p>
+<h2 id="rust-crosscompilation">Rust cross-compilation</h2>
+<p>Cross-compilation is now supported for Rust targets. Like other
 cross-compilers, the Rust binary must be specified in your cross file. It
-should specify a `--target` (as installed by `rustup target`)  and a custom
-linker pointing to your C cross-compiler. For example:
-
-```ini
-[binaries]
+should specify a <code>--target</code> (as installed by <code>rustup target</code>)  and a custom
+linker pointing to your C cross-compiler. For example:</p>
+<pre><code class="language-ini">[binaries]
 c = '/usr/bin/arm-linux-gnueabihf-gcc-7'
 rust = [
     'rustc',

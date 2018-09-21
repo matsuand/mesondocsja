@@ -80,9 +80,7 @@ $('body').removeClass('no-script');
 			<ul class="nav navbar-nav" id="menu">
 				
 <li class="dropdown">
-	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		モジュール <span class="caret"></span>
-	</a>
+	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> モジュール <span class="caret"></span> </a>
 	<ul class="dropdown-menu" id="modules-menu">
 					<li>
 				<a href="Gnome-module.html">GNOME</a>
@@ -92,6 +90,9 @@ $('body').removeClass('no-script');
 			</li>
 					<li>
 				<a href="Pkgconfig-module.html">Pkgconfig</a>
+			</li>
+					<li>
+				<a href="Python-module.html">Python</a>
 			</li>
 					<li>
 				<a href="Python-3-module.html">Python 3</a>
@@ -108,12 +109,13 @@ $('body').removeClass('no-script');
 					<li>
 				<a href="Windows-module.html">Windows</a>
 			</li>
+					<li>
+				<a href="Hotdoc-module.html">Hotdoc</a>
+			</li>
 			</ul>
 </li>
 <li class="dropdown">
-	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		クィックリファレンス <span class="caret"></span>
-	</a>
+	<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> クィックリファレンス <span class="caret"></span> </a>
 	<ul class="dropdown-menu" id="quick-refs-menu">
 					<li>
 				<a href="Reference-manual.html">関数</a>
@@ -156,92 +158,91 @@ $('body').removeClass('no-script');
 	<div id="main">
 				    <div id="page-description" data-hotdoc-source="Builtin-options.md" data-hotdoc-role="main">
         <h1 id="">ビルトインオプション</h1>
-<p>Meson provides two kinds of options: <a href="Build-options.html">build options provided by the build
-files</a> and built-in options that are either universal
-options, base options, compiler options.</p>
-<h2 id="universal-options">Universal options</h2>
+<p>Meson には大きく 2 種類のオプションがあります。ビルドファイルにおいて指定する <a href="Build-options.html">ビルドオプション</a>
+ともう一つ、ビルトインオプションです。後者はさらに共通 (universal) オプション、基本 (base)
+オプション、コンパイラーオプションに分かれます。</p>
+<h2 id="-universal-options">共通オプション (universal options)</h2>
 <p>A list of these options can be found by running <code>meson --help</code>. All these
 can be set by passing to <code>meson</code> (aka <code>meson setup</code>) in any of these ways:
 <code>--option=value</code>, <code>--option value</code>, <code>-Doption=value</code>.</p>
-<p>They can also be edited after setup using <code>meson configure</code>.</p>
-<p>Installation options are all relative to the prefix, except:</p>
+<p>セットアップを終えていても <code>meson configure</code> を実行すれば、その設定を修正することができます。</p>
+<p>インストールディレクトリに関するオプションは、プレフィックス (prefix) からの相対ディレクトリになりますが、以下のような例外もあります。</p>
 <ul>
-<li>When the prefix is <code>/usr</code>: <code>sysconfdir</code> defaults to <code>/etc</code>,
-<code>localstatedir</code> defaults to <code>/var</code>, and <code>sharedstatedir</code> defaults to
-<code>/var/lib</code>
+<li>プレフィックスが <code>/usr</code> のとき、各ディレクトリのデフォルトはそれぞれ以下のようになります。<code>sysconfdir</code> は
+<code>/etc</code>、<code>localstatdir</code> は <code>/var</code>、<code>sharedstatedir</code> は <code>/var/lib</code>
 </li>
-<li>When the prefix is <code>/usr/local</code>: <code>localstatedir</code> defaults to <code>/var/local</code>,
-and <code>sharedstatedir</code> defaults to <code>/var/local/lib</code>
+<li>プレフィックスが <code>/usr/local</code> のとき、各ディレクトリのデフォルトはそれぞれ以下のようになります。<code>localstatdir</code> は
+<code>/var/local</code>、<code>sharedstatedir</code> は <code>/var/local/lib</code>
 </li>
 </ul>
 <table>
 <thead>
 <tr>
-<th> Option</th>
-<th> Default value</th>
-<th> Description</th>
+<th> オプション</th>
+<th> デフォルト</th>
+<th> 内容</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td> prefix</td>
-<td> see below</td>
-<td> Installation prefix</td>
+<td> 後述参照</td>
+<td> インストールプレフィックス</td>
 </tr>
 <tr>
 <td> libdir</td>
-<td> see below</td>
-<td> Library directory</td>
+<td> 後述参照</td>
+<td> ライブラリディレクトリ</td>
 </tr>
 <tr>
 <td> libexecdir</td>
 <td> libexec</td>
-<td> Library executable directory</td>
+<td> ライブラリ実行ディレクトリ</td>
 </tr>
 <tr>
 <td> bindir</td>
 <td> bin</td>
-<td> Executable directory</td>
+<td> 実行ディレクトリ</td>
 </tr>
 <tr>
 <td> sbindir</td>
 <td> sbin</td>
-<td> System executable directory</td>
+<td> システム実行ディレクトリ</td>
 </tr>
 <tr>
 <td> includedir</td>
 <td> include</td>
-<td> Header file directory</td>
+<td> ヘッダーファイルディレクトリ</td>
 </tr>
 <tr>
 <td> datadir</td>
 <td> share</td>
-<td> Data file directory</td>
+<td> データファイルディレクトリ</td>
 </tr>
 <tr>
 <td> mandir</td>
 <td> share/man</td>
-<td> Manual page directory</td>
+<td> man ページディレクトリ</td>
 </tr>
 <tr>
 <td> infodir</td>
 <td> share/info</td>
-<td> Info page directory</td>
+<td> Info ページディレクトリ</td>
 </tr>
 <tr>
 <td> localedir</td>
 <td> share/locale</td>
-<td> Locale data directory</td>
+<td> ロケールデータディレクトリ</td>
 </tr>
 <tr>
 <td> sysconfdir</td>
 <td> etc</td>
-<td> Sysconf data directory</td>
+<td> Sysconf データディレクトリ</td>
 </tr>
 <tr>
 <td> localstatedir</td>
 <td> var</td>
-<td> Localstate data directory</td>
+<td> ロケールステートデータディレクトリ</td>
 </tr>
 <tr>
 <td> sharedstatedir</td>
@@ -251,7 +252,7 @@ and <code>sharedstatedir</code> defaults to <code>/var/local/lib</code>
 <tr>
 <td> werror</td>
 <td> false</td>
-<td> Treat warnings as erros</td>
+<td> Treat warnings as errors</td>
 </tr>
 <tr>
 <td> warnlevel {1, 2, 3}</td>
