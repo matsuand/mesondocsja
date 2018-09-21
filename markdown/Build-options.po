@@ -335,11 +335,8 @@ msgstr ""
 
 #. type: Plain text
 #: Build-options.md:157
-#, fuzzy
 msgid "```console $ meson configure -Dsubproject:option=newvalue ```"
-msgstr ""
-"```console\n"
-"$ meson configure -Doption=newvalue\n"
+msgstr "```console\n$ meson configure -Dsubproject:option=newvalue\n```"
 "```"
 
 #. type: Plain text
@@ -388,7 +385,6 @@ msgstr ""
 
 #. type: Plain text
 #: Build-options.md:182
-#, fuzzy
 msgid "## Built-in build options"
 msgstr "## ビルドオプションの利用"
 

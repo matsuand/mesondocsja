@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-09-04 11:55+0900\n"
+"POT-Creation-Date: 2018-09-18 21:16+0900\n"
 "PO-Revision-Date: 2018-09-04 11:55+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -53,8 +53,8 @@ msgid ""
 "This module provides support for finding and building extensions against "
 "python installations, be they python 2 or 3."
 msgstr ""
-"このモジュールは python に関するインストールを行うものに対して、検索やビル"
-"ドを行う拡張サポート機能を提供します。"
+"このモジュールは python に関するインストールを行うものに対して、検索やビルド"
+"を行う拡張サポート機能を提供します。"
 
 #. type: Plain text
 #: Python-module.md:16
@@ -75,7 +75,10 @@ msgstr ""
 #. type: Plain text
 #: Python-module.md:24
 msgid "``` meson pymod.find_installation(name_or_path, ...)  ```"
-msgstr "``` meson\npymod.find_installation(name_or_path, ...)\n```"
+msgstr ""
+"``` meson\n"
+"pymod.find_installation(name_or_path, ...)\n"
+"```"
 
 #. type: Plain text
 #: Python-module.md:26
@@ -121,45 +124,46 @@ msgid "Keyword arguments are the following:"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Python-module.md:49
+#: Python-module.md:51
 msgid ""
 "`required`: by default, `required` is set to `true` and Meson will abort if "
 "no python installation can be found. If `required` is set to `false`, Meson "
 "will continue even if no python installation was found. You can then use the "
 "`.found()` method on the returned object to check whether it was found or "
-"not."
+"not. Since *0.48.0* the value of a [`feature`](Build-options.md#features) "
+"option can also be passed to the `required` keyword argument."
 msgstr ""
 
 #. type: Plain text
-#: Python-module.md:51
+#: Python-module.md:53
 #, no-wrap
 msgid "**Returns**: a [python installation][`python_installation` object]\n"
 msgstr ""
 
 #. type: Plain text
-#: Python-module.md:53
+#: Python-module.md:55
 msgid "## `python_installation` object"
 msgstr ""
 
 #. type: Plain text
-#: Python-module.md:56
+#: Python-module.md:58
 msgid ""
 "The `python_installation` object is an [external program], with several "
 "added methods."
 msgstr ""
 
 #. type: Plain text
-#: Python-module.md:58
+#: Python-module.md:60
 msgid "### Methods"
 msgstr "### メソッド"
 
 #. type: Plain text
-#: Python-module.md:60
+#: Python-module.md:62
 msgid "#### `extension_module()`"
 msgstr ""
 
 #. type: Plain text
-#: Python-module.md:64
+#: Python-module.md:66
 msgid ""
 "``` meson shared_module py_installation.extension_module(module_name, "
 "list_of_sources, ...)  ```"
@@ -170,14 +174,14 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Python-module.md:67
+#: Python-module.md:69
 msgid ""
 "Create a `shared_module` target that is named according to the naming "
 "conventions of the target platform."
 msgstr ""
 
 #. type: Plain text
-#: Python-module.md:70
+#: Python-module.md:72
 msgid ""
 "All positional and keyword arguments are the same as for [shared_module], "
 "excluding `name_suffix` and `name_prefix`, and with the addition of the "
@@ -185,7 +189,7 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Python-module.md:76
+#: Python-module.md:78
 msgid ""
 "`subdir`: By default, meson will install the extension module in the "
 "relevant top-level location for the python installation, eg `/usr/lib/site-"
@@ -194,7 +198,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Python-module.md:79
+#: Python-module.md:81
 msgid ""
 "`extension_module` does not add any dependencies to the library so user may "
 "need to add `dependencies : py_installation.dependency()`, see []"
@@ -202,57 +206,57 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Python-module.md:81
+#: Python-module.md:83
 #, no-wrap
 msgid "**Returns**: a [buildtarget object]\n"
 msgstr ""
 
 #. type: Plain text
-#: Python-module.md:83
+#: Python-module.md:85
 msgid "#### `dependency()`"
 msgstr ""
 
 #. type: Plain text
-#: Python-module.md:87
+#: Python-module.md:89
 msgid "``` meson python_dependency py_installation.dependency(...)  ```"
 msgstr ""
 
 #. type: Plain text
-#: Python-module.md:89
+#: Python-module.md:91
 msgid ""
 "This method accepts the same arguments as the standard [dependency] function."
 msgstr ""
 
 #. type: Plain text
-#: Python-module.md:91
+#: Python-module.md:93
 #, no-wrap
 msgid "**Returns**: a [python dependency][`python_dependency` object]\n"
 msgstr ""
 
 #. type: Plain text
-#: Python-module.md:93
+#: Python-module.md:95
 msgid "#### `install_sources()`"
 msgstr ""
 
 #. type: Plain text
-#: Python-module.md:97
+#: Python-module.md:99
 msgid "``` meson void py_installation.install_sources(list_of_files, ...)  ```"
 msgstr ""
 
 #. type: Plain text
-#: Python-module.md:99
+#: Python-module.md:101
 msgid "Install actual python sources (`.py`)."
 msgstr ""
 
 #. type: Plain text
-#: Python-module.md:102
+#: Python-module.md:104
 msgid ""
 "All positional and keyword arguments are the same as for [install_data], "
 "with the addition of the following:"
 msgstr ""
 
 #. type: Bullet: '- '
-#: Python-module.md:108
+#: Python-module.md:110
 msgid ""
 "`pure`: On some platforms, architecture independent files are expected to be "
 "placed in a separate directory. However, if the python sources should be "
@@ -261,107 +265,107 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '- '
-#: Python-module.md:111
+#: Python-module.md:113
 msgid ""
 "`subdir`: See documentation for the argument of the same name to []"
 "[`extension_module()`]"
 msgstr ""
 
 #. type: Plain text
-#: Python-module.md:113
+#: Python-module.md:115
 msgid "#### `get_install_dir()`"
 msgstr ""
 
 #. type: Plain text
-#: Python-module.md:117
+#: Python-module.md:119
 msgid "``` meson string py_installation.get_install_dir(...)  ```"
 msgstr ""
 
 #. type: Plain text
-#: Python-module.md:119
+#: Python-module.md:121
 msgid "Retrieve the directory [][`install_sources()`] will install to."
 msgstr ""
 
 #. type: Plain text
-#: Python-module.md:122
+#: Python-module.md:124
 msgid ""
 "It can be useful in cases where `install_sources` cannot be used directly, "
 "for example when using [configure_file]."
 msgstr ""
 
 #. type: Plain text
-#: Python-module.md:125
+#: Python-module.md:127
 msgid ""
 "This function accepts no arguments, its keyword arguments are the same as []"
 "[`install_sources()`]."
 msgstr ""
 
 #. type: Plain text
-#: Python-module.md:127 Python-module.md:141 Python-module.md:164
-#: Python-module.md:196
+#: Python-module.md:129 Python-module.md:143 Python-module.md:166
+#: Python-module.md:198
 #, no-wrap
 msgid "**Returns**: A string\n"
 msgstr ""
 
 #. type: Plain text
-#: Python-module.md:129
+#: Python-module.md:131
 msgid "#### `language_version()`"
 msgstr ""
 
 #. type: Plain text
-#: Python-module.md:133
+#: Python-module.md:135
 msgid "``` meson string py_installation.language_version()  ```"
 msgstr ""
 
 #. type: Plain text
-#: Python-module.md:135
+#: Python-module.md:137
 msgid "Get the major.minor python version, eg `2.7`."
 msgstr ""
 
 #. type: Plain text
-#: Python-module.md:137
+#: Python-module.md:139
 msgid "The version is obtained through the `sysconfig` module."
 msgstr ""
 
 #. type: Plain text
-#: Python-module.md:139
+#: Python-module.md:141
 msgid "This function expects no arguments or keyword arguments."
 msgstr ""
 
 #. type: Plain text
-#: Python-module.md:143
+#: Python-module.md:145
 msgid "#### `get_path()`"
 msgstr ""
 
 #. type: Plain text
-#: Python-module.md:147
+#: Python-module.md:149
 msgid "``` meson string py_installation.get_path(path_name, fallback)  ```"
 msgstr ""
 
 #. type: Plain text
-#: Python-module.md:149
+#: Python-module.md:151
 msgid "Get a path as defined by the `sysconfig` module."
 msgstr ""
 
 #. type: Plain text
-#: Python-module.md:151 Python-module.md:183
+#: Python-module.md:153 Python-module.md:185
 msgid "For example:"
 msgstr ""
 
 #. type: Plain text
-#: Python-module.md:155
+#: Python-module.md:157
 msgid "``` meson purelib = py_installation.get_path('purelib')  ```"
 msgstr ""
 
 #. type: Plain text
-#: Python-module.md:158
+#: Python-module.md:160
 msgid ""
 "This function requires at least one argument, `path_name`, which is expected "
 "to be a non-empty string."
 msgstr ""
 
 #. type: Plain text
-#: Python-module.md:162
+#: Python-module.md:164
 msgid ""
 "If `fallback` is specified, it will be returned if no path with the given "
 "name exists. Otherwise, attempting to read a non-existing path will cause a "
@@ -369,12 +373,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Python-module.md:166
+#: Python-module.md:168
 msgid "#### `has_path()`"
 msgstr ""
 
 #. type: Plain text
-#: Python-module.md:170
+#: Python-module.md:172
 #, no-wrap
 msgid ""
 "``` meson\n"
@@ -383,7 +387,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Python-module.md:173
+#: Python-module.md:175
 #, no-wrap
 msgid ""
 "**Returns**: true if a path named `path_name` can be retrieved with\n"
@@ -391,35 +395,35 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Python-module.md:175
+#: Python-module.md:177
 msgid "#### `get_variable()`"
 msgstr ""
 
 #. type: Plain text
-#: Python-module.md:179
+#: Python-module.md:181
 msgid ""
 "``` meson string py_installation.get_variable(variable_name, fallback)  ```"
 msgstr ""
 
 #. type: Plain text
-#: Python-module.md:181
+#: Python-module.md:183
 msgid "Get a variable as defined by the `sysconfig` module."
 msgstr ""
 
 #. type: Plain text
-#: Python-module.md:187
+#: Python-module.md:189
 msgid "``` meson py_bindir = py_installation.get_variable('BINDIR', '')  ```"
 msgstr ""
 
 #. type: Plain text
-#: Python-module.md:190
+#: Python-module.md:192
 msgid ""
 "This function requires at least one argument, `variable_name`, which is "
 "expected to be a non-empty string."
 msgstr ""
 
 #. type: Plain text
-#: Python-module.md:194
+#: Python-module.md:196
 msgid ""
 "If `fallback` is specified, it will be returned if no variable with the "
 "given name exists. Otherwise, attempting to read a non-existing variable "
@@ -427,12 +431,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Python-module.md:198
+#: Python-module.md:200
 msgid "#### `has_variable()`"
 msgstr ""
 
 #. type: Plain text
-#: Python-module.md:202
+#: Python-module.md:204
 #, no-wrap
 msgid ""
 "``` meson\n"
@@ -441,7 +445,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Python-module.md:205
+#: Python-module.md:207
 #, no-wrap
 msgid ""
 "**Returns**: true if a variable named `variable_name` can be retrieved with\n"
@@ -449,12 +453,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Python-module.md:207
+#: Python-module.md:209
 msgid "## `python_dependency` object"
 msgstr ""
 
 #. type: Plain text
-#: Python-module.md:211
+#: Python-module.md:213
 msgid ""
 "This [dependency object] subclass will try various methods to obtain the "
 "compiler and linker arguments, starting with pkg-config then potentially "
@@ -462,12 +466,12 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Python-module.md:213
+#: Python-module.md:215
 msgid "It exposes the same methods as its parent class."
 msgstr ""
 
 #. type: Plain text
-#: Python-module.md:221
+#: Python-module.md:223
 msgid ""
 "[find_program]: Reference-manual.md#find_program [shared_module]: Reference-"
 "manual.md#shared_module [external program]: Reference-manual.md#external-"

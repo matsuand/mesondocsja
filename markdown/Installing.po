@@ -238,7 +238,6 @@ msgstr ""
 
 #. type: Plain text
 #: Installing.md:103
-#, fuzzy
 msgid "## Custom install behaviour"
 msgstr "## インストール方法のカスタマイズ"
 

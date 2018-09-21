@@ -215,15 +215,12 @@ msgstr ""
 
 #. type: Plain text
 #: Dependencies.md:103
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "```meson\n"
 "    foo_dep = dependency('foo', fallback : ['foo', 'foo_dep'])\n"
 "```\n"
 msgstr ""
-"```meson\n"
-"wmf_dep = dependency('wmf', method : 'config-tool')\n"
-"```"
 
 #. type: Plain text
 #: Dependencies.md:112
@@ -240,9 +237,8 @@ msgstr ""
 
 #. type: Plain text
 #: Dependencies.md:114
-#, fuzzy
 msgid "# Dependency method"
-msgstr "# 依存関係"
+msgstr ""
 
 #. type: Plain text
 #: Dependencies.md:119
@@ -255,12 +251,8 @@ msgstr ""
 
 #. type: Plain text
 #: Dependencies.md:123
-#, fuzzy
 msgid "```meson cups_dep = dependency('cups', method : 'pkg-config')  ```"
-msgstr ""
-"```meson\n"
-"wmf_dep = dependency('wmf', method : 'config-tool')\n"
-"```"
+msgstr "```meson\ncups_dep = dependency('cups', method : 'pkg-config')\n```"
 
 #. type: Plain text
 #: Dependencies.md:125
@@ -324,14 +316,12 @@ msgstr ""
 
 #. type: Plain text
 #: Dependencies.md:164
-#, fuzzy
 msgid ""
 "```meson cups_dep = dependency('cups', method : 'pkg-config')  wmf_dep = "
 "dependency('libwmf', method : 'config-tool')  ```"
 msgstr ""
-"```meson\n"
-"wmf_dep = dependency('wmf', method : 'config-tool')\n"
-"```"
+"```meson\ncups_dep = dependency('cups', method : 'pkg-config')\nwmf_dep = "
+"dependency('libwmf', method : 'config-tool')\n```"
 
 #. type: Plain text
 #: Dependencies.md:166
@@ -373,13 +363,10 @@ msgstr ""
 
 #. type: Plain text
 #: Dependencies.md:186
-#, fuzzy
 msgid ""
 "```meson dep = dependency('appleframeworks', modules : 'foundation')  ```"
 msgstr ""
-"```meson\n"
-"wmf_dep = dependency('wmf', method : 'config-tool')\n"
-"```"
+"```meson\ndep = dependency('appleframeworks', modules : 'foundation')\n```"
 
 #. type: Plain text
 #: Dependencies.md:188
@@ -834,7 +821,7 @@ msgstr ""
 
 #. type: Plain text
 #: Dependencies.md:413
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "```meson\n"
 "wx_dep = dependency(\n"
@@ -842,9 +829,6 @@ msgid ""
 ")\n"
 "```\n"
 msgstr ""
-"```meson\n"
-"llvm_dep = dependency('llvm', version : '>= 4.0', modules : ['amdgpu'])\n"
-"```"
 
 #. type: Plain text
 #: Dependencies.md:417

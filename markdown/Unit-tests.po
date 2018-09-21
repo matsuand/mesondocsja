@@ -237,11 +237,8 @@ msgstr ""
 
 #. type: Plain text
 #: Unit-tests.md:79
-#, fuzzy
 msgid "```console $ meson test --suite (sub)project_name:suite ```"
-msgstr ""
-"```console\n"
-"$ meson test testname\n"
+msgstr "```console\n$ meson test --suite (sub)project_name:suite\n```"
 "```"
 
 #. type: Plain text
@@ -340,12 +337,8 @@ msgstr ""
 
 #. type: Plain text
 #: Unit-tests.md:119
-#, fuzzy
 msgid "```console $ meson test --print-errorlogs ```"
-msgstr ""
-"```console\n"
-"$ meson test testname\n"
-"```"
+msgstr "```console\n$ meson test --print-errorlogs\n```"
 
 #. type: Plain text
 #: Unit-tests.md:121

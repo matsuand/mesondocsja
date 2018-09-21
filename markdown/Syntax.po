@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-09-01 16:24+0900\n"
+"POT-Creation-Date: 2018-09-21 12:07+0900\n"
 "PO-Revision-Date: 2017-09-30 21:44+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -152,7 +152,10 @@ msgstr ""
 #. type: Plain text
 #: Syntax.md:66
 msgid "```meson int_255 = 0xFF ```"
-msgstr "```meson\nint_255 = 0xFF\n```"
+msgstr ""
+"```meson\n"
+"int_255 = 0xFF\n"
+"```"
 
 #. type: Plain text
 #: Syntax.md:68
@@ -162,7 +165,11 @@ msgstr ""
 #. type: Plain text
 #: Syntax.md:73
 msgid "```meson int_493 = 0o755 int_1365 = 0b10101010101 ```"
-msgstr "```meson\nint_493 = 0o755\nint_1365 = 0b10101010101\n```"
+msgstr ""
+"```meson\n"
+"int_493 = 0o755\n"
+"int_1365 = 0b10101010101\n"
+"```"
 
 #. type: Plain text
 #: Syntax.md:75
@@ -196,7 +203,10 @@ msgstr "論理値は `true` と `false` です。"
 #. type: Plain text
 #: Syntax.md:89
 msgid "```meson truth = true ```"
-msgstr "```meson\ntruth = true\n```"
+msgstr ""
+"```meson\n"
+"truth = true\n"
+"```"
 
 #. type: Plain text
 #: Syntax.md:91
@@ -709,7 +719,10 @@ msgstr ""
 #. type: Plain text
 #: Syntax.md:304
 msgid "```meson my_dict = {'foo': 42, 'bar': 'baz'} ```"
-msgstr "```meson\nmy_dict = {'foo': 42, 'bar': 'baz'}\n```"
+msgstr ""
+"```meson\n"
+"my_dict = {'foo': 42, 'bar': 'baz'}\n"
+"```"
 
 #. type: Plain text
 #: Syntax.md:306
@@ -719,7 +732,11 @@ msgstr ""
 #. type: Plain text
 #: Syntax.md:311
 msgid "```meson # This will fail my_dict = {'foo': 42, 'foo': 43} ```"
-msgstr "```meson\n# This will fail\nmy_dict = {'foo': 42, 'foo': 43}\n```"
+msgstr ""
+"```meson\n"
+"# This will fail\n"
+"my_dict = {'foo': 42, 'foo': 43}\n"
+"```"
 
 #. type: Plain text
 #: Syntax.md:313
@@ -825,7 +842,7 @@ msgstr ""
 #, no-wrap
 msgid ""
 "opt = get_option('someoption')\n"
-"if opt == 'foo'\n"
+"if opt != 'foo'\n"
 "  do_something()\n"
 "endif\n"
 "```\n"
@@ -833,105 +850,6 @@ msgstr ""
 
 #. type: Plain text
 #: Syntax.md:363
-msgid "## Foreach statements"
-msgstr "## foreach ステートメント"
-
-#. type: Plain text
-#: Syntax.md:366
-msgid ""
-"To do an operation on all elements of an iterable, use the `foreach` command."
-msgstr ""
-
-#. type: Plain text
-#: Syntax.md:370
-msgid ""
-"> Note that Meson variables are immutable. Trying to assign a new value > to "
-"the iterated object inside a foreach loop will not affect foreach's > "
-"control flow."
-msgstr ""
-
-#. type: Plain text
-#: Syntax.md:372
-#, fuzzy
-msgid "### Foreach with an array"
-msgstr "## foreach ステートメント"
-
-#. type: Plain text
-#: Syntax.md:375
-msgid ""
-"Here's an example of how you could define two executables with corresponding "
-"tests using arrays and foreach."
-msgstr ""
-
-#. type: Plain text
-#: Syntax.md:379
-#, no-wrap
-msgid ""
-"```meson\n"
-"progs = [['prog1', ['prog1.c', 'foo.c']],\n"
-"         ['prog2', ['prog2.c', 'bar.c']]]\n"
-msgstr ""
-
-#. type: Plain text
-#: Syntax.md:385
-#, no-wrap
-msgid ""
-"foreach p : progs\n"
-"  exe = executable(p[0], p[1])\n"
-"  test(p[0], exe)\n"
-"endforeach\n"
-"```\n"
-msgstr ""
-
-#. type: Plain text
-#: Syntax.md:387
-#, fuzzy
-msgid "### Foreach with a dictionary"
-msgstr "## foreach ステートメント"
-
-#. type: Plain text
-#: Syntax.md:391
-msgid ""
-"Here's an example of you could iterate a set of components that should be "
-"compiled in according to some configuration. This uses a [dictionary]"
-"[dictionaries], which is available since 0.47.0."
-msgstr ""
-
-#. type: Plain text
-#: Syntax.md:398
-#, no-wrap
-msgid ""
-"```meson\n"
-"components = {\n"
-"  'foo': ['foo.c'],\n"
-"  'bar': ['bar.c'],\n"
-"  'baz': ['baz.c'],\n"
-"}\n"
-msgstr ""
-
-#. type: Plain text
-#: Syntax.md:402
-msgid ""
-"# compute a configuration based on system dependencies, custom logic conf = "
-"configuration_data()  conf.set('USE_FOO', 1)"
-msgstr ""
-
-#. type: Plain text
-#: Syntax.md:411
-#, no-wrap
-msgid ""
-"# Determine the sources to compile\n"
-"sources_to_compile = []\n"
-"foreach name, sources : components\n"
-"  if conf.get('USE_@0@'.format(name.to_upper()), 0) == 1\n"
-"    sources_to_compile += sources\n"
-"  endif\n"
-"endforeach\n"
-"```\n"
-msgstr ""
-
-#. type: Plain text
-#: Syntax.md:413
 #, no-wrap
 msgid ""
 "Logical operations\n"
@@ -941,12 +859,14 @@ msgstr ""
 "--\n"
 
 #. type: Plain text
-#: Syntax.md:416
-msgid "Meson has the standard range of logical operations."
+#: Syntax.md:367
+msgid ""
+"Meson has the standard range of logical operations which can be used in `if` "
+"statements."
 msgstr ""
 
 #. type: Plain text
-#: Syntax.md:431
+#: Syntax.md:382
 #, no-wrap
 msgid ""
 "```meson\n"
@@ -966,12 +886,109 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Syntax.md:433
+#: Syntax.md:384
 msgid "Logical operations work only on boolean values."
 msgstr ""
 
 #. type: Plain text
-#: Syntax.md:435
+#: Syntax.md:386
+msgid "## Foreach statements"
+msgstr "## Foreach ステートメント"
+
+#. type: Plain text
+#: Syntax.md:389
+msgid ""
+"To do an operation on all elements of an iterable, use the `foreach` command."
+msgstr ""
+
+#. type: Plain text
+#: Syntax.md:393
+msgid ""
+"> Note that Meson variables are immutable. Trying to assign a new value > to "
+"the iterated object inside a foreach loop will not affect foreach's > "
+"control flow."
+msgstr ""
+
+#. type: Plain text
+#: Syntax.md:395
+msgid "### Foreach with an array"
+msgstr ""
+
+#. type: Plain text
+#: Syntax.md:398
+msgid ""
+"Here's an example of how you could define two executables with corresponding "
+"tests using arrays and foreach."
+msgstr ""
+
+#. type: Plain text
+#: Syntax.md:402
+#, no-wrap
+msgid ""
+"```meson\n"
+"progs = [['prog1', ['prog1.c', 'foo.c']],\n"
+"         ['prog2', ['prog2.c', 'bar.c']]]\n"
+msgstr ""
+
+#. type: Plain text
+#: Syntax.md:408
+#, no-wrap
+msgid ""
+"foreach p : progs\n"
+"  exe = executable(p[0], p[1])\n"
+"  test(p[0], exe)\n"
+"endforeach\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: Syntax.md:410
+msgid "### Foreach with a dictionary"
+msgstr ""
+
+#. type: Plain text
+#: Syntax.md:414
+msgid ""
+"Here's an example of you could iterate a set of components that should be "
+"compiled in according to some configuration. This uses a [dictionary]"
+"[dictionaries], which is available since 0.47.0."
+msgstr ""
+
+#. type: Plain text
+#: Syntax.md:421
+#, no-wrap
+msgid ""
+"```meson\n"
+"components = {\n"
+"  'foo': ['foo.c'],\n"
+"  'bar': ['bar.c'],\n"
+"  'baz': ['baz.c'],\n"
+"}\n"
+msgstr ""
+
+#. type: Plain text
+#: Syntax.md:425
+msgid ""
+"# compute a configuration based on system dependencies, custom logic conf = "
+"configuration_data()  conf.set('USE_FOO', 1)"
+msgstr ""
+
+#. type: Plain text
+#: Syntax.md:434
+#, no-wrap
+msgid ""
+"# Determine the sources to compile\n"
+"sources_to_compile = []\n"
+"foreach name, sources : components\n"
+"  if conf.get('USE_@0@'.format(name.to_upper()), 0) == 1\n"
+"    sources_to_compile += sources\n"
+"  endif\n"
+"endforeach\n"
+"```\n"
+msgstr ""
+
+#. type: Plain text
+#: Syntax.md:436
 #, no-wrap
 msgid ""
 "Comments\n"
@@ -981,14 +998,14 @@ msgstr ""
 "--\n"
 
 #. type: Plain text
-#: Syntax.md:438
+#: Syntax.md:439
 msgid ""
 "A comment starts with the `#` character and extends until the end of the "
 "line."
 msgstr ""
 
 #. type: Plain text
-#: Syntax.md:443
+#: Syntax.md:444
 msgid "```meson some_function() # This is a comment some_other_function()  ```"
 msgstr ""
 "```meson\n"
@@ -997,7 +1014,7 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Syntax.md:445
+#: Syntax.md:446
 #, no-wrap
 msgid ""
 "Ternary operator\n"
@@ -1007,12 +1024,12 @@ msgstr ""
 "--\n"
 
 #. type: Plain text
-#: Syntax.md:448
+#: Syntax.md:449
 msgid "The ternary operator works just like in other languages."
 msgstr "三項演算子は他の言語と同様に動作します。"
 
 #. type: Plain text
-#: Syntax.md:452
+#: Syntax.md:453
 msgid "```meson x = condition ? true_value : false_value ```"
 msgstr ""
 "```meson\n"
@@ -1020,7 +1037,7 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Syntax.md:456
+#: Syntax.md:457
 msgid ""
 "The only exception is that nested ternary operators are forbidden to improve "
 "legibility. If your branching needs are more complex than this you need to "
@@ -1028,7 +1045,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Syntax.md:458
+#: Syntax.md:459
 #, no-wrap
 msgid ""
 "Includes\n"
@@ -1036,7 +1053,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Syntax.md:467
+#: Syntax.md:468
 msgid ""
 "Most source trees have multiple subdirectories to process. These can be "
 "handled by Meson's `subdir` command. It changes to the given subdirectory "
@@ -1047,7 +1064,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Syntax.md:472
+#: Syntax.md:473
 msgid "```meson test_data_dir = 'data' subdir('tests')  ```"
 msgstr ""
 "```meson\n"
@@ -1056,7 +1073,7 @@ msgstr ""
 "```"
 
 #. type: Plain text
-#: Syntax.md:474
+#: Syntax.md:475
 #, no-wrap
 msgid ""
 "User-defined functions and methods\n"
@@ -1066,7 +1083,7 @@ msgstr ""
 "--\n"
 
 #. type: Plain text
-#: Syntax.md:484
+#: Syntax.md:485
 msgid ""
 "Meson does not currently support user-defined functions or methods. The "
 "addition of user-defined functions would make Meson Turing-complete which "

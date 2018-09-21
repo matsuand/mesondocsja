@@ -89,7 +89,6 @@ msgstr ""
 
 #. type: Plain text
 #: Quick-guide.md:28
-#, fuzzy
 msgid "```console $ sudo apt-get install python3 python3-pip ninja-build ```"
 msgstr "```console\n$ sudo apt-get install python3 python3-pip ninja-build\n```"
 

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-09-01 16:24+0900\n"
+"POT-Creation-Date: 2018-09-18 21:16+0900\n"
 "PO-Revision-Date: 2017-09-30 21:44+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -27,8 +27,8 @@ msgid ""
 "This module is a simple generator for [pkg-config](https://pkg-config."
 "freedesktop.org/) files."
 msgstr ""
-"このモジュールは単純に [pkg-config](https://pkg-config.freedesktop.org"
-"/) ファイルを生成するものです。"
+"このモジュールは単純に [pkg-config](https://pkg-config.freedesktop.org/) ファ"
+"イルを生成するものです。"
 
 #. type: Plain text
 #: Pkgconfig-module.md:7
@@ -43,8 +43,8 @@ msgid ""
 "replace the name `pkg` with anything else."
 msgstr ""
 "このモジュールを用いるには **`pkg = import('pkgconfig')`** を実行するだけで"
-"す。`pkg.generate()` を用いることで、以下に示すような機能を利用することがで"
-"きます。もちろん `pkg` という名前は別のものに変えてもかまいません。"
+"す。`pkg.generate()` を用いることで、以下に示すような機能を利用することができ"
+"ます。もちろん `pkg` という名前は別のものに変えてもかまいません。"
 
 #. type: Plain text
 #: Pkgconfig-module.md:13
@@ -57,8 +57,8 @@ msgid ""
 "The generated file's properties are specified with the following keyword "
 "arguments."
 msgstr ""
-"生成されたファイル内の各プロパティは、以下のキーワード引数により特定する"
-"ことができます。"
+"生成されたファイル内の各プロパティは、以下のキーワード引数により特定すること"
+"ができます。"
 
 #. type: Bullet: '- '
 #: Pkgconfig-module.md:54
@@ -75,7 +75,7 @@ msgstr ""
 #. type: Bullet: '- '
 #: Pkgconfig-module.md:54
 msgid ""
-"`filebase`, the base name to use for the pkg-config file, as an example the "
+"`filebase` the base name to use for the pkg-config file; as an example, the "
 "value of `libfoo` would produce a pkg-config file called `libfoo.pc`"
 msgstr ""
 
@@ -90,7 +90,7 @@ msgstr ""
 #: Pkgconfig-module.md:54
 msgid ""
 "`libraries` a list of built libraries (usually results of shared_library) "
-"that the user needs to link against. Arbitraty strings can also be provided "
+"that the user needs to link against. Arbitrary strings can also be provided "
 "and they will be added into the `Libs` field. Since 0.45.0 dependencies of "
 "built libraries will be automatically added to `Libs.private` field. If a "
 "dependency is provided by pkg-config then it will be added in `Requires."

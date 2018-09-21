@@ -76,7 +76,7 @@ msgstr ""
 
 #. type: Plain text
 #: Subprojects.md:34
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "```meson\n"
 "project('simple', 'c')\n"
@@ -86,11 +86,6 @@ msgid ""
 "  link_with : l)\n"
 "```\n"
 msgstr ""
-"```meson\n"
-"project('simple', 'c') \n"
-"i = include_directories('include') \n"
-"l = shared_library('simple', 'simple.c', include_directories : i, install : true) \n"
-"```"
 
 #. type: Plain text
 #: Subprojects.md:40
