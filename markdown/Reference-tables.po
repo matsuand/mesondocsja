@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-09-08 14:35+0900\n"
+"POT-Creation-Date: 2018-09-23 17:33+0900\n"
 "PO-Revision-Date: 2017-09-30 21:44+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -109,7 +109,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-tables.md:63
+#: Reference-tables.md:64
 #, no-wrap
 msgid ""
 "| Value               | Comment                         |\n"
@@ -118,6 +118,7 @@ msgid ""
 "| x86_64              | 64 bit x86 processor  |\n"
 "| ia64                | Itanium processor     |\n"
 "| arm                 | 32 bit ARM processor  |\n"
+"| arc                 | 32 bit ARC processor  |\n"
 "| aarch64             | 64 bit ARM processor  |\n"
 "| mips                | 32 bit MIPS processor |\n"
 "| mips64              | 64 bit MIPS processor |\n"
@@ -133,24 +134,24 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-tables.md:66
+#: Reference-tables.md:67
 msgid ""
 "Any cpu family not listed in the above list is not guaranteed to remain "
 "stable in future releases."
 msgstr ""
 
 #. type: Plain text
-#: Reference-tables.md:68
+#: Reference-tables.md:69
 msgid "## Operating system names"
 msgstr "## オペレーティングシステム名"
 
 #. type: Plain text
-#: Reference-tables.md:70
+#: Reference-tables.md:71
 msgid "These are provided by the `.system()` method call."
 msgstr "以下は `.system()` メソッドの呼び出しによって得られるものです。"
 
 #. type: Plain text
-#: Reference-tables.md:81
+#: Reference-tables.md:82
 #, no-wrap
 msgid ""
 "| Value               | Comment                         |\n"
@@ -176,26 +177,26 @@ msgstr ""
 "| netbsd              | |\n"
 
 #. type: Plain text
-#: Reference-tables.md:84
+#: Reference-tables.md:85
 msgid ""
 "Any string not listed above is not guaranteed to remain stable in future "
 "releases."
 msgstr ""
 
 #. type: Plain text
-#: Reference-tables.md:87
+#: Reference-tables.md:88
 msgid "## Language arguments parameter names"
 msgstr ""
 
 #. type: Plain text
-#: Reference-tables.md:89
+#: Reference-tables.md:90
 msgid ""
 "These are the parameter names for passing language specific arguments to "
 "your build target."
 msgstr ""
 
 #. type: Plain text
-#: Reference-tables.md:102
+#: Reference-tables.md:103
 #, no-wrap
 msgid ""
 "| Language      | Parameter name |\n"
@@ -213,31 +214,31 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-tables.md:105
+#: Reference-tables.md:106
 msgid "## Function Attributes"
 msgstr ""
 
 #. type: Plain text
-#: Reference-tables.md:109
+#: Reference-tables.md:110
 msgid ""
 "These are the parameters names that are supported using `compiler."
 "has_function_attribute()` or `compiler.get_supported_function_attributes()`"
 msgstr ""
 
 #. type: Plain text
-#: Reference-tables.md:111
+#: Reference-tables.md:112
 msgid "### GCC __attribute__"
 msgstr ""
 
 #. type: Plain text
-#: Reference-tables.md:114
+#: Reference-tables.md:115
 msgid ""
 "These values are supported using the GCC style `__attribute__` annotations, "
 "which are supported by GCC, Clang, and other compilers."
 msgstr ""
 
 #. type: Plain text
-#: Reference-tables.md:155
+#: Reference-tables.md:156
 #, no-wrap
 msgid ""
 "| Name                 |\n"
@@ -282,19 +283,19 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: Reference-tables.md:157
+#: Reference-tables.md:158
 msgid "### MSVC __declspec"
 msgstr ""
 
 #. type: Plain text
-#: Reference-tables.md:160
+#: Reference-tables.md:161
 msgid ""
 "These values are supported using the MSVC style `__declspec` annotation, "
 "which are supported by MSVC, GCC, Clang, and other compilers."
 msgstr ""
 
 #. type: Plain text
-#: Reference-tables.md:164
+#: Reference-tables.md:165
 #, no-wrap
 msgid ""
 "| Name                 |\n"

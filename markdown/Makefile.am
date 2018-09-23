@@ -78,6 +78,7 @@ basenames = \
 	Release-notes-for-0.46.0 \
 	Release-notes-for-0.47.0 \
 	Release-notes-for-0.48.0 \
+	Release-notes-for-0.49.0 \
 	Release-notes \
 	Release-procedure \
 	Reproducible-builds \
@@ -269,6 +270,8 @@ pot/Release-notes-for-0.46.0.pot: $(abs_mesondir)/Release-notes-for-0.46.0.md
 pot/Release-notes-for-0.47.0.pot: $(abs_mesondir)/Release-notes-for-0.47.0.md
 	$(call GETPOT, $^, $@,text)
 pot/Release-notes-for-0.48.0.pot: $(abs_mesondir)/Release-notes-for-0.48.0.md
+	$(call GETPOT, $^, $@,text)
+pot/Release-notes-for-0.49.0.pot: $(abs_mesondir)/Release-notes-for-0.49.0.md
 	$(call GETPOT, $^, $@,text)
 pot/Release-notes.pot: $(abs_mesondir)/Release-notes.md
 	$(call GETPOT, $^, $@,text)
@@ -483,6 +486,8 @@ $(srcdir)/Release-notes-for-0.47.0.po: pot/Release-notes-for-0.47.0.pot
 	$(call MSGPROC, $^, $@)
 $(srcdir)/Release-notes-for-0.48.0.po: pot/Release-notes-for-0.48.0.pot
 	$(call MSGPROC, $^, $@)
+$(srcdir)/Release-notes-for-0.49.0.po: pot/Release-notes-for-0.49.0.pot
+	$(call MSGPROC, $^, $@)
 $(srcdir)/Release-notes.po: pot/Release-notes.pot
 	$(call MSGPROC, $^, $@)
 $(srcdir)/Release-procedure.po: pot/Release-procedure.pot
@@ -696,6 +701,8 @@ Release-notes-for-0.47.0.md: $(abs_mesondir)/Release-notes-for-0.47.0.md $(srcdi
 	$(call PO4ATRANS, $(abs_mesondir)/Release-notes-for-0.47.0.md, $(srcdir)/Release-notes-for-0.47.0.po,,text)
 Release-notes-for-0.48.0.md: $(abs_mesondir)/Release-notes-for-0.48.0.md $(srcdir)/Release-notes-for-0.48.0.po
 	$(call PO4ATRANS, $(abs_mesondir)/Release-notes-for-0.48.0.md, $(srcdir)/Release-notes-for-0.48.0.po,,text)
+Release-notes-for-0.49.0.md: $(abs_mesondir)/Release-notes-for-0.49.0.md $(srcdir)/Release-notes-for-0.49.0.po
+	$(call PO4ATRANS, $(abs_mesondir)/Release-notes-for-0.49.0.md, $(srcdir)/Release-notes-for-0.49.0.po,,text)
 Release-notes.md: $(abs_mesondir)/Release-notes.md $(srcdir)/Release-notes.po
 	$(call PO4ATRANS, $(abs_mesondir)/Release-notes.md, $(srcdir)/Release-notes.po,,text)
 Release-procedure.md: $(abs_mesondir)/Release-procedure.md $(srcdir)/Release-procedure.po
