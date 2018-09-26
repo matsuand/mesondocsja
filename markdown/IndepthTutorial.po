@@ -137,7 +137,7 @@ msgstr ""
 #. type: Plain text
 #: IndepthTutorial.md:45
 msgid "```meson install_headers('foolib.h')  ```"
-msgstr ""
+msgstr "```meson\ninstall_headers('foolib.h')\n```"
 
 #. type: Plain text
 #: IndepthTutorial.md:47
@@ -247,7 +247,7 @@ msgstr ""
 #. type: Plain text
 #: IndepthTutorial.md:85
 msgid "```console $ meson builddir && cd builddir $ ninja $ ninja test ```"
-msgstr ""
+msgstr "```console\n$ meson builddir && cd builddir\n$ ninja\n$ ninja test\n```"
 
 #. type: Plain text
 #: IndepthTutorial.md:87
@@ -257,4 +257,4 @@ msgstr ""
 #. type: Plain text
 #: IndepthTutorial.md:90
 msgid "```console $ ninja install ```"
-msgstr ""
+msgstr "```console\n$ ninja install\n```"

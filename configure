@@ -2542,7 +2542,7 @@ $as_echo "specified: $withval" >&6; }
 
 
 
-ac_config_files="$ac_config_files Makefile hotdoc.json markdown/Makefile markdown/snippets/Makefile theme/Makefile theme/extra/Makefile theme/extra/templates/Makefile"
+ac_config_files="$ac_config_files Makefile meson.build markdown/Makefile markdown/snippets/Makefile theme/Makefile theme/extra/Makefile theme/extra/templates/Makefile"
 
 cat >confcache <<\_ACEOF
 # This file is a shell script that caches the results of configure
@@ -3262,7 +3262,7 @@ for ac_config_target in $ac_config_targets
 do
   case $ac_config_target in
     "Makefile") CONFIG_FILES="$CONFIG_FILES Makefile" ;;
-    "hotdoc.json") CONFIG_FILES="$CONFIG_FILES hotdoc.json" ;;
+    "meson.build") CONFIG_FILES="$CONFIG_FILES meson.build" ;;
     "markdown/Makefile") CONFIG_FILES="$CONFIG_FILES markdown/Makefile" ;;
     "markdown/snippets/Makefile") CONFIG_FILES="$CONFIG_FILES markdown/snippets/Makefile" ;;
     "theme/Makefile") CONFIG_FILES="$CONFIG_FILES theme/Makefile" ;;

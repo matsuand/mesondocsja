@@ -25,7 +25,7 @@ msgstr ""
 #. type: Plain text
 #: Design-rationale.md:4
 msgid "title: Design rationale ..."
-msgstr ""
+msgstr "title: Design rationale\n..."
 
 #. type: Plain text
 #: Design-rationale.md:6
@@ -361,6 +361,8 @@ msgid ""
 "```meson project('compile several', 'c')  sourcelist = ['main.c', 'file1.c', "
 "'file2.c', 'file3.c'] executable('program', sources : sourcelist)  ```"
 msgstr ""
+"```meson\nproject('compile several', 'c')\nsourcelist = ['main.c', 'file1.c', "
+"'file2.c', 'file3.c']\nexecutable('program', sources : sourcelist)\n```"
 
 #. type: Plain text
 #: Design-rationale.md:201
@@ -374,6 +376,9 @@ msgid ""
 "required : true)  sourcelist = ['main.c', 'file1.c', 'file2.c', 'file3.c'] "
 "executable('program', sources : sourcelist, dep : libdep)  ```"
 msgstr ""
+"```meson\nproject('external lib', 'c')\nlibdep = find_dep('extlibrary', "
+"required : true)\nsourcelist = ['main.c', 'file1.c', 'file2.c', 'file3.c']\n"
+"executable('program', sources : sourcelist, dep : libdep)\n```"
 
 #. type: Plain text
 #: Design-rationale.md:213
@@ -398,6 +403,9 @@ msgid ""
 "sources : 'foobar.c',\\ install : true)  exe = executable('testfoobar', "
 "'tester.c', link : foolib)  add_test('test library', exe)  ```"
 msgstr ""
+"```meson\nproject('build library', 'c')\nfoolib = shared_library('foobar', "
+"sources : 'foobar.c',\\ install : true)\nexe = executable('testfoobar', "
+"'tester.c', link : foolib)\nadd_test('test library', exe)\n```"
 
 #. type: Plain text
 #: Design-rationale.md:231
@@ -423,6 +431,8 @@ msgid ""
 "```meson project('pch demo', 'cxx')  executable('myapp', 'myapp.cpp', pch : "
 "'pch/myapp.hh')  ```"
 msgstr ""
+"```meson\nproject('pch demo', 'cxx')\nexecutable('myapp', 'myapp.cpp', pch : "
+"'pch/myapp.hh')\n```"
 
 #. type: Plain text
 #: Design-rationale.md:246

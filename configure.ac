@@ -24,7 +24,7 @@ AC_CHECK_MESON_DIR
 AC_CHECK_BUILD_DIR
 
 AC_CONFIG_FILES([Makefile
-                 hotdoc.json
+                 meson.build
                  markdown/Makefile
                  markdown/snippets/Makefile
                  theme/Makefile

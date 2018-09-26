@@ -1,0 +1,53 @@
+# Japanese translations for PACKAGE package
+# Copyright (C) 2018 Free Software Foundation, Inc.
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2018-09-23 18:02+0900\n"
+"PO-Revision-Date: 2018-09-23 18:02+0900\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: matsuand個人翻訳\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. type: Content of: outside any tag (error?)
+#: subpages.html:1
+msgid "@require(page, subpages)  @if not page.render_subpages:"
+msgstr "@require(page, subpages)\n@if not page.render_subpages:"
+
+#. type: Content of: outside any tag (error?)
+#: subpages.html:5 subpages.html:19 subpages.html:24
+msgid "@end"
+msgstr ""
+
+#. type: Content of: <div><div><p>
+#: subpages.html:8
+msgid "<b>Subpages:</b>"
+msgstr "<b>下位ページ:</b>"
+
+#. type: Content of: <div><div>
+#: subpages.html:9
+msgid "@for link, subpage in subpages.items():"
+msgstr ""
+
+#. type: Content of: <div><div><p>
+#: subpages.html:11
+msgid ""
+"<a href=\"@link\">@subpage.get_title()!e</a> – @if subpage."
+"short_description: @subpage.short_description @else: <i><em>No description "
+"available</em></i> @end"
+msgstr ""
+"<a href=\"@link\">@subpage.get_title()!e</a>\n–\n@if subpage."
+"short_description:\n@subpage.short_description\n@else:\n(説明はありません)"
+"\n@end"
+
+#. type: Content of: <div>
+#: subpages.html:22
+msgid "@if not page.render_subpages:"
+msgstr ""

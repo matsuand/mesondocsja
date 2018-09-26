@@ -295,7 +295,7 @@ msgstr ""
 #. type: Plain text
 #: Release-notes-for-0.42.0.md:141
 msgid "```meson pcap_dep = dependency('pcap', version : '>=1.0')  ```"
-msgstr ""
+msgstr "```meson\npcap_dep = dependency('pcap', version : '>=1.0')\n```"
 
 #. type: Plain text
 #: Release-notes-for-0.42.0.md:143

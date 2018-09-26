@@ -96,7 +96,7 @@ DIST_COMMON = $(srcdir)/Makefile.am $(top_srcdir)/configure \
 am__CONFIG_DISTCLEAN_FILES = config.status config.cache config.log \
  configure.lineno config.status.lineno
 mkinstalldirs = $(install_sh) -d
-CONFIG_CLEAN_FILES = hotdoc.json
+CONFIG_CLEAN_FILES = meson.build
 CONFIG_CLEAN_VPATH_FILES =
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
@@ -154,7 +154,7 @@ ETAGS = etags
 CTAGS = ctags
 CSCOPE = cscope
 DIST_SUBDIRS = $(SUBDIRS)
-am__DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/hotdoc.json.in \
+am__DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/meson.build.in \
 	AUTHORS COPYING ChangeLog INSTALL NEWS README install-sh \
 	missing
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -319,7 +319,7 @@ $(top_srcdir)/configure:  $(am__configure_deps)
 $(ACLOCAL_M4):  $(am__aclocal_m4_deps)
 	$(am__cd) $(srcdir) && $(ACLOCAL) $(ACLOCAL_AMFLAGS)
 $(am__aclocal_m4_deps):
-hotdoc.json: $(top_builddir)/config.status $(srcdir)/hotdoc.json.in
+meson.build: $(top_builddir)/config.status $(srcdir)/meson.build.in
 	cd $(top_builddir) && $(SHELL) ./config.status $@
 
 # This directory's subdirectories are mostly independent; you can cd
@@ -750,7 +750,12 @@ dirs:
 	  cp -pR $(MESONDIR)/images .; \
 	fi
 $(absbuilddir)/html/index.html: $(mdfiles)
-	hotdoc run
+	@if ! test -f "build/build.ninja"; then \
+	  meson build/; \
+	fi
+	ninja -C build
+
+#	hotdoc run
 
 .PHONY: install
 install: $(absbuilddir)/html/index.html

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-09-23 17:33+0900\n"
+"POT-Creation-Date: 2018-09-25 12:22+0900\n"
 "PO-Revision-Date: 2018-09-04 12:03+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -63,6 +63,9 @@ msgstr ""
 #: Release-notes-for-0.48.0.md:24
 msgid "``` meson configure -Doptimization=g ```"
 msgstr ""
+"``` meson\n"
+"configure -Doptimization=g\n"
+"```"
 
 #. type: Plain text
 #: Release-notes-for-0.48.0.md:29
@@ -75,7 +78,8 @@ msgstr ""
 
 #. type: Plain text
 #: Release-notes-for-0.48.0.md:31
-msgid "## Meson warns if two calls to configure_file() write to the same file"
+msgid ""
+"## Meson warns if two calls to `configure_file()` write to the same file"
 msgstr ""
 
 #. type: Plain text
@@ -85,6 +89,11 @@ msgid ""
 "write to the same file Meson will print a `WARNING:` message during "
 "configuration. For example: ```meson project('configure_file', 'cpp')"
 msgstr ""
+"If two calls to [`configure_file()`](#Reference-manual.md#configure_file)  "
+"write to the same file Meson will print a `WARNING:` message during "
+"configuration. For example:\n"
+"```meson\n"
+"project('configure_file', 'cpp')"
 
 #. type: Plain text
 #: Release-notes-for-0.48.0.md:48
@@ -105,7 +114,7 @@ msgstr ""
 #. type: Plain text
 #: Release-notes-for-0.48.0.md:50
 msgid "```"
-msgstr ""
+msgstr "```"
 
 #. type: Plain text
 #: Release-notes-for-0.48.0.md:52
@@ -123,6 +132,23 @@ msgid ""
 "8 Configuring out with command Build targets in project: 0 Found ninja-1.8.2 "
 "at /usr/bin/ninja ```"
 msgstr ""
+"```\n"
+"The Meson build system\n"
+"Version: 0.47.0.dev1\n"
+"Source dir: /path/to/srctree\n"
+"Build dir: /path/to/buildtree\n"
+"Build type: native build\n"
+"Project name: configure_file\n"
+"Project version: undefined\n"
+"Build machine cpu family: x86_64\n"
+"Build machine cpu: x86_64\n"
+"Configuring out with command\n"
+"WARNING: Output file out for configure_file overwritten. First time written "
+"in line 3 now in line 8\n"
+"Configuring out with command\n"
+"Build targets in project: 0\n"
+"Found ninja-1.8.2 at /usr/bin/ninja\n"
+"```"
 
 #. type: Plain text
 #: Release-notes-for-0.48.0.md:71
@@ -207,6 +233,7 @@ msgstr ""
 msgid ""
 "```meson pymod = import('python')  python = pymod.find_installation()  ```"
 msgstr ""
+"```meson\npymod = import('python')\npython = pymod.find_installation()\n```"
 
 #. type: Plain text
 #: Release-notes-for-0.48.0.md:118
@@ -223,7 +250,7 @@ msgstr ""
 #. type: Plain text
 #: Release-notes-for-0.48.0.md:127
 msgid "```meson d1 = {'a' : 'b'} d3 = d1 + {'a' : 'c'} d3 += {'d' : 'e'} ```"
-msgstr ""
+msgstr "```meson\nd1 = {'a' : 'b'}\nd3 = d1 + {'a' : 'c'}\nd3 += {'d' : 'e'}\n```"
 
 #. type: Plain text
 #: Release-notes-for-0.48.0.md:129
@@ -240,7 +267,7 @@ msgstr ""
 #. type: Plain text
 #: Release-notes-for-0.48.0.md:135
 msgid "```meson project('foo', 'c')"
-msgstr ""
+msgstr "```meson\nproject('foo', 'c')"
 
 #. type: Plain text
 #: Release-notes-for-0.48.0.md:137
@@ -250,7 +277,7 @@ msgstr ""
 #. type: Plain text
 #: Release-notes-for-0.48.0.md:140
 msgid "meson.add_dist_script('dist_cleanup.py')  ```"
-msgstr ""
+msgstr "meson.add_dist_script('dist_cleanup.py')\n```"
 
 #. type: Plain text
 #: Release-notes-for-0.48.0.md:142
@@ -269,7 +296,8 @@ msgstr ""
 #. type: Plain text
 #: Release-notes-for-0.48.0.md:149
 msgid ""
-"## Helper methods added for checking GNU style attributes: __attribute__(...)"
+"## Helper methods added for checking GNU style attributes: "
+"`__attribute__(...)`"
 msgstr ""
 
 #. type: Plain text
@@ -327,7 +355,7 @@ msgstr ""
 
 #. type: Plain text
 #: Release-notes-for-0.48.0.md:179
-msgid "## gnome.generate_gir() now optionally accepts multiple libraries"
+msgid "## `gnome.generate_gir()` now optionally accepts multiple libraries"
 msgstr ""
 
 #. type: Plain text
@@ -388,8 +416,8 @@ msgstr ""
 #. type: Plain text
 #: Release-notes-for-0.48.0.md:212
 msgid ""
-"## i18n.merge_file() now fully supports variable substitutions defined in "
-"custom_target()"
+"## `i18n.merge_file()` now fully supports variable substitutions defined in "
+"`custom_target()`"
 msgstr ""
 
 #. type: Plain text
@@ -418,7 +446,7 @@ msgstr ""
 #. type: Plain text
 #: Release-notes-for-0.48.0.md:226
 msgid "```meson add_project_arguments('-DFOO', language : 'c')  ```"
-msgstr ""
+msgstr "```meson\nadd_project_arguments('-DFOO', language : 'c')\n```"
 
 #. type: Plain text
 #: Release-notes-for-0.48.0.md:233

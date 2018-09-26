@@ -358,7 +358,7 @@ msgstr ""
 #. type: Plain text
 #: Release-notes-for-0.47.0.md:170
 msgid "```meson project('featurenew', meson_version: '>=0.43')"
-msgstr ""
+msgstr "```meson\nproject('featurenew', meson_version: '>=0.43')"
 
 #. type: Plain text
 #: Release-notes-for-0.47.0.md:175
@@ -366,6 +366,8 @@ msgid ""
 "cdata = configuration_data()  cdata.set('FOO', 'bar')  message(cdata."
 "get_unquoted('FOO'))  ```"
 msgstr ""
+"cdata = configuration_data()\ncdata.set('FOO', 'bar')\nmessage(cdata."
+"get_unquoted('FOO'))\n```"
 
 #. type: Plain text
 #: Release-notes-for-0.47.0.md:177
@@ -475,7 +477,7 @@ msgstr ""
 #. type: Plain text
 #: Release-notes-for-0.47.0.md:236
 msgid "```console $ meson install --only-changed ```"
-msgstr ""
+msgstr "```console\n$ meson install --only-changed\n```"
 
 #. type: Plain text
 #: Release-notes-for-0.47.0.md:238
@@ -518,7 +520,7 @@ msgstr ""
 #. type: Plain text
 #: Release-notes-for-0.47.0.md:257
 msgid "```console $ meson --install-umask=027 builddir/ ```"
-msgstr ""
+msgstr "```console\n$ meson --install-umask=027 builddir/\n```"
 
 #. type: Plain text
 #: Release-notes-for-0.47.0.md:259
@@ -556,7 +558,7 @@ msgstr ""
 #. type: Plain text
 #: Release-notes-for-0.47.0.md:276
 msgid "```meson int_493 = 0o755 int_1365 = 0b10101010101 ```"
-msgstr ""
+msgstr "```meson\nint_493 = 0o755\nint_1365 = 0b10101010101\n```"
 
 #. type: Plain text
 #: Release-notes-for-0.47.0.md:278

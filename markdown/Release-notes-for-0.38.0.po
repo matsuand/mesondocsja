@@ -81,7 +81,7 @@ msgstr ""
 #. type: Plain text
 #: Release-notes-for-0.38.0.md:25
 msgid "```console $ mesontest --setup=valgrind ```"
-msgstr ""
+msgstr "```console\n$ mesontest --setup=valgrind\n```"
 
 #. type: Plain text
 #: Release-notes-for-0.38.0.md:27
@@ -113,6 +113,9 @@ msgid ""
 "get('nokey', 'default') # returns 'default' cdata.get('nokey') # halts with "
 "an error ```"
 msgstr ""
+"```meson\ncdata.set('key', 'value')\ncdata.get('key') # returns 'value' cdata.\n"
+"get('nokey', 'default') # returns 'default'\ncdata.get('nokey') # halts with "
+"an error\n```"
 
 #. type: Plain text
 #: Release-notes-for-0.38.0.md:42
@@ -157,6 +160,9 @@ msgid ""
 "dependency('some-dep', fallback : ['some_subproject', 'some_dep'], "
 "default_options : ['optname=overridevalue'])  ```"
 msgstr ""
+"```meson\nsubproject('foo', default_options : ['optname=overridevalue'])\n"
+"dependency('some-dep', fallback : ['some_subproject', 'some_dep'], "
+"default_options : ['optname=overridevalue'])\n```"
 
 #. type: Plain text
 #: Release-notes-for-0.38.0.md:62

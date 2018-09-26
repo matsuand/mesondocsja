@@ -15,7 +15,13 @@ dirs:
 
 mdfiles = $(wildcard markdown/*.md markdown/snippets/*.md)
 $(absbuilddir)/html/index.html: $(mdfiles)
-	hotdoc run
+	@if ! test -f "build/build.ninja"; then \
+	  meson build/; \
+	fi
+	ninja -C build
+
+#	hotdoc run
+
 
 .PHONY: install
 install: $(absbuilddir)/html/index.html

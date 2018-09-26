@@ -276,6 +276,8 @@ msgid ""
 "```meson option('enable-dep11', type : 'boolean', value : true, "
 "description : 'enable DEP-11')  ```"
 msgstr ""
+"```meson\noption('enable-dep11', type : 'boolean', value : true, "
+"description : 'enable DEP-11')\n```"
 
 #. type: Plain text
 #: Porting-from-autotools.md:150
@@ -315,7 +317,7 @@ msgstr ""
 #. type: Plain text
 #: Porting-from-autotools.md:167
 msgid "```meson subdir('libappstream-glib')  ```"
-msgstr ""
+msgstr "```meson\nsubdir('libappstream-glib')\n```"
 
 #. type: Plain text
 #: Porting-from-autotools.md:169
@@ -668,6 +670,8 @@ msgid ""
 "libappstream_glib_la_SOURCES += as-tag-private.h BUILT_SOURCES += as-tag-"
 "private.h endif ```"
 msgstr ""
+"libappstream_glib_la_SOURCES += as-tag-private.h BUILT_SOURCES += as-tag-"
+"private.h endif\n```"
 
 #. type: Plain text
 #: Porting-from-autotools.md:438
@@ -708,6 +712,9 @@ msgid ""
 "add_global_arguments('-DAS_COMPILATION', language : 'c')  "
 "add_global_arguments('-DLOCALSTATEDIR=\"/var\"', language : 'c')  ```"
 msgstr ""
+"```meson\nadd_global_arguments('-DG_LOG_DOMAIN=\"As\"', language : 'c')\n"
+"add_global_arguments('-DAS_COMPILATION', language : 'c')\n"
+"add_global_arguments('-DLOCALSTATEDIR=\"/var\"', language : 'c')\n```"
 
 #. type: Plain text
 #: Porting-from-autotools.md:459
@@ -736,7 +743,7 @@ msgstr ""
 #. type: Plain text
 #: Porting-from-autotools.md:478
 msgid "TESTS = as-self-test ```"
-msgstr ""
+msgstr "TESTS = as-self-test\n```"
 
 #. type: Plain text
 #: Porting-from-autotools.md:490
@@ -828,7 +835,7 @@ msgstr ""
 #. type: Plain text
 #: Porting-from-autotools.md:548
 msgid "CLEANFILES += $(gir_DATA) $(typelib_DATA)  ```"
-msgstr ""
+msgstr "CLEANFILES += $(gir_DATA) $(typelib_DATA)\n```"
 
 #. type: Plain text
 #: Porting-from-autotools.md:583
@@ -893,7 +900,7 @@ msgstr ""
 #. type: Plain text
 #: Porting-from-autotools.md:602
 msgid "`configure.ac`: ```sh GLIB_GSETTINGS ```"
-msgstr ""
+msgstr "`configure.ac`:\n```sh\nGLIB_GSETTINGS\n```"
 
 #. type: Plain text
 #: Porting-from-autotools.md:608
@@ -901,6 +908,8 @@ msgid ""
 "`Makefile.am`: ```make gsettings_SCHEMAS = foo.gschema.xml @GSETTINGS_RULES@ "
 "```"
 msgstr ""
+"`Makefile.am`:\n```make\ngsettings_SCHEMAS = foo.gschema.xml @GSETTINGS_RULES@\n"
+"```"
 
 #. type: Plain text
 #: Porting-from-autotools.md:614
@@ -909,11 +918,14 @@ msgid ""
 "join_paths(get_option('datadir'), 'glib-2.0', 'schemas'))  meson."
 "add_install_script('meson_post_install.py')  ```"
 msgstr ""
+"`meson.build`:\n```meson\ninstall_data('foo.gschema.xml', install_dir: "
+"join_paths(get_option('datadir'), 'glib-2.0', 'schemas'))\nmeson."
+"add_install_script('meson_post_install.py')\n```"
 
 #. type: Plain text
 #: Porting-from-autotools.md:618
 msgid "`meson_post_install.py`: ```python #!/usr/bin/env python3"
-msgstr ""
+msgstr "`meson_post_install.py`:\n```python\n#!/usr/bin/env python3"
 
 #. type: Plain text
 #: Porting-from-autotools.md:621
@@ -953,6 +965,8 @@ msgid ""
 "`configure.ac`: ```m4 AM_GNU_GETTEXT([external])  "
 "AM_GNU_GETTEXT_VERSION([0.19.7])"
 msgstr ""
+"`configure.ac`:\n```m4\nAM_GNU_GETTEXT([external])  "
+"AM_GNU_GETTEXT_VERSION([0.19.7])"
 
 #. type: Plain text
 #: Porting-from-autotools.md:642
@@ -961,6 +975,9 @@ msgid ""
 "AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, \"$GETTEXT_PACKAGE\", [The prefix for "
 "our gettext translation domains.])  ```"
 msgstr ""
+"GETTEXT_PACKAGE=foo AC_SUBST(GETTEXT_PACKAGE)\n"
+"AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, \"$GETTEXT_PACKAGE\", [The prefix for "
+"our gettext translation domains.])\n```"
 
 #. type: Plain text
 #: Porting-from-autotools.md:647
@@ -969,6 +986,9 @@ msgid ""
 "keyword=N_ --keyword=C_:1c,2 --keyword=NC_:1c,2 --keyword=g_dngettext:2,3 --"
 "add-comments ```"
 msgstr ""
+"`po/Makevars`:\n```make\nXGETTEXT_OPTIONS = --from-code=UTF-8 --keyword=_ --"
+"keyword=N_ --keyword=C_:1c,2 --keyword=NC_:1c,2 --keyword=g_dngettext:2,3 --"
+"add-comments\n```"
 
 #. type: Plain text
 #: Porting-from-autotools.md:652
@@ -992,7 +1012,7 @@ msgstr ""
 #. type: Plain text
 #: Porting-from-autotools.md:660
 msgid "`meson.build`: ```meson i18n = import('i18n')"
-msgstr ""
+msgstr "`meson.build`:\n```meson\ni18n = import('i18n')"
 
 #. type: Plain text
 #: Porting-from-autotools.md:664
@@ -1000,6 +1020,8 @@ msgid ""
 "gettext_package = 'foo' add_project_arguments('-DGETTEXT_PACKAGE=' + "
 "gettext_package, language: 'c')  subdir('po')"
 msgstr ""
+"gettext_package = 'foo'\nadd_project_arguments('-DGETTEXT_PACKAGE=' + "
+"gettext_package, language: 'c')\nsubdir('po')"
 
 #. type: Plain text
 #: Porting-from-autotools.md:673
@@ -1034,3 +1056,4 @@ msgstr ""
 msgid ""
 "`po/meson.build`: ```meson i18n.gettext(gettext_package, preset: 'glib')  ```"
 msgstr ""
+"`po/meson.build`:\n```meson\ni18n.gettext(gettext_package, preset: 'glib')\n```"
