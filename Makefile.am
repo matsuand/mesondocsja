@@ -5,22 +5,21 @@ absdocsdir = @absdocsdir@
 absbuilddir = @abs_builddocdir@
 MESONDIR = @abs_mesondir@/docs
 
-all: dirs $(absbuilddir)/html/index.html
+all: images $(absbuilddir)/html/index.html
 
-.PHONY: dirs
-dirs:
-	@if ! test -d "images"; then \
-	  cp -pR $(MESONDIR)/images .; \
+.PHONY: images
+images:
+	@if ! test -d "./build/html/images"; then \
+	  $(MKDIR_P) build/html/images; \
+	  cp -pR $(MESONDIR)/markdown/images/* build/html/images; \
 	fi
 
 mdfiles = $(wildcard markdown/*.md markdown/snippets/*.md)
-$(absbuilddir)/html/index.html: $(mdfiles)
+$(absbuilddir)/html/index.html: $(mdfiles) images
 	@if ! test -f "build/build.ninja"; then \
 	  meson build/; \
 	fi
 	ninja -C build
-
-#	hotdoc run
 
 
 .PHONY: install

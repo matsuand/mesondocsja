@@ -338,7 +338,7 @@ pot/howtox.pot: $(abs_mesondir)/howtox.md
 pot/i18n-module.pot: $(abs_mesondir)/i18n-module.md
 	$(call GETPOT, $^, $@,text)
 pot/index.pot: $(abs_mesondir)/index.md
-	$(call GETPOT, $^, $@, )
+	$(call GETPOT, $^, $@,text)
 pot/legal.pot: $(abs_mesondir)/legal.md
 	$(call GETPOT, $^, $@,text)
 

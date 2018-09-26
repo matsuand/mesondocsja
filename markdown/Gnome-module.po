@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-09-18 21:16+0900\n"
+"POT-Creation-Date: 2018-09-26 15:41+0900\n"
 "PO-Revision-Date: 2017-09-30 21:43+0900\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: matsuand個人翻訳\n"
@@ -815,101 +815,113 @@ msgid ""
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:339
+#: Gnome-module.md:341
 msgid "`content_files`: a list of content files"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:339
+#: Gnome-module.md:341
 msgid "`dependencies`: a list of dependencies"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:339
+#: Gnome-module.md:341
 msgid "`fixxref_args`: a list of arguments to pass to `gtkdoc-fixxref`"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:339
+#: Gnome-module.md:341
 msgid "`gobject_typesfile`: a list of type files"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:339
+#: Gnome-module.md:341
+msgid "`include_directories`: extra include paths to pass to `gtkdoc-scangobj`"
+msgstr ""
+
+#. type: Bullet: '* '
+#: Gnome-module.md:341
 msgid "`ignore_headers`: a list of header files to ignore"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:339
+#: Gnome-module.md:341
 msgid "`html_assets`: a list of assets for the HTML pages"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:339
+#: Gnome-module.md:341
 msgid "`html_args` a list of arguments to pass to `gtkdoc-mkhtml`"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:339
+#: Gnome-module.md:341
 msgid "`install`: if true, installs the generated docs"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:339
+#: Gnome-module.md:341
 msgid ""
 "`install_dir`: the directory to install the generated docs relative to the "
 "gtk-doc html dir or an absolute path (default: module name)"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:339
+#: Gnome-module.md:341
 msgid "`main_xml`: specifies the main XML file"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:339
+#: Gnome-module.md:341
 msgid "`main_sgml`: equal to `main_xml`"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:339
+#: Gnome-module.md:341
 msgid "`mkdb_args`: a list of arguments to pass to `gtkdoc-mkdb`"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:339
+#: Gnome-module.md:341
+msgid ""
+"`module_version`: the version of the module, affects the installed location "
+"and the devhelp2 file location"
+msgstr ""
+
+#. type: Bullet: '* '
+#: Gnome-module.md:341
 msgid "`scan_args`: a list of arguments to pass to `gtkdoc-scan`"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:339
+#: Gnome-module.md:341
 msgid "`scanobjs_args`: a list of arguments to pass to `gtkdoc-scangobj`"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:339
+#: Gnome-module.md:341
 msgid "`c_args`: (*Added 0.48.0*) additional compile arguments to pass"
 msgstr ""
 
 #. type: Bullet: '* '
-#: Gnome-module.md:339
+#: Gnome-module.md:341
 msgid "`src_dir`: include_directories to include"
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:342
+#: Gnome-module.md:344
 msgid ""
 "This creates a `$module-doc` target that can be ran to build docs and "
 "normally these are only built on install."
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:344
+#: Gnome-module.md:346
 msgid "### gnome.gtkdoc_html_dir()"
 msgstr ""
 
 #. type: Plain text
-#: Gnome-module.md:348
+#: Gnome-module.md:350
 msgid ""
 "Takes as argument a module name and returns the path where that module's "
 "HTML files will be installed. Usually used with `install_data` to install "

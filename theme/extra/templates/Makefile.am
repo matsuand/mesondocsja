@@ -34,13 +34,13 @@ gettext: potdir $(potfiles) $(pofiles) $(htmlfiles) $(potfiles2) $(pofiles2) $(h
 potdir:
 	$(MKDIR_P) pot
 pot/license.pot: $(MESONDIR)/license.html
-	$(call GETPOT, $^, $@,html)
+	$(call GETPOT, $^, $@,xhtml)
 pot/navbar_center.pot: $(MESONDIR)/navbar_center.html
-	$(call GETPOT, $^, $@,html)
+	$(call GETPOT, $^, $@,xhtml)
 pot/navbar_links.pot: $(MESONDIR)/navbar_links.html
-	$(call GETPOT, $^, $@,html)
+	$(call GETPOT, $^, $@,xhtml)
 pot/subpages.pot: $(MESONDIR2)/subpages.html
-	$(call GETPOT, $^, $@,html)
+	$(call GETPOT, $^, $@,xhtml)
 $(srcdir)/license.po: pot/license.pot
 	$(call MSGPROC, $^, $@)
 $(srcdir)/navbar_center.po: pot/navbar_center.pot
@@ -50,13 +50,13 @@ $(srcdir)/navbar_links.po: pot/navbar_links.pot
 $(srcdir)/subpages.po: pot/subpages.pot
 	$(call MSGPROC, $^, $@)
 license.html: $(MESONDIR)/license.html $(srcdir)/license.po
-	$(call PO4ATRANS, $(MESONDIR)/license.html, $(srcdir)/license.po,,html)
+	$(call PO4ATRANS, $(MESONDIR)/license.html, $(srcdir)/license.po,,xhtml)
 navbar_center.html: $(MESONDIR)/navbar_center.html $(srcdir)/navbar_center.po
-	$(call PO4ATRANS, $(MESONDIR)/navbar_center.html, $(srcdir)/navbar_center.po,,html)
+	$(call PO4ATRANS, $(MESONDIR)/navbar_center.html, $(srcdir)/navbar_center.po,,xhtml)
 navbar_links.html: $(MESONDIR)/navbar_links.html $(srcdir)/navbar_links.po
-	$(call PO4ATRANS, $(MESONDIR)/navbar_links.html, $(srcdir)/navbar_links.po,,html)
+	$(call PO4ATRANS, $(MESONDIR)/navbar_links.html, $(srcdir)/navbar_links.po,,xhtml)
 subpages.html: $(MESONDIR2)/subpages.html $(srcdir)/subpages.po
-	$(call PO4ATRANS, $(MESONDIR2)/subpages.html, $(srcdir)/subpages.po,,html)
+	$(call PO4ATRANS, $(MESONDIR2)/subpages.html, $(srcdir)/subpages.po,,xhtml)
 
 html_copying = \
 	brand-logo.html  \
